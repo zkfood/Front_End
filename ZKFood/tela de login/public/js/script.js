@@ -26,6 +26,8 @@ async function login() {
                 const respostaJson = JSON.parse(respostaTexto);
                 console.log('JSON: ', respostaJson);
                 showPopup('LOGIN FEITO COM SUCESSO!', 'Que tal uma feijoada?!', 'success');
+
+                window.location.href = "/html/crud_produtos.html"
             } else {
                 console.log('Resposta não contém corpo.');
             }
