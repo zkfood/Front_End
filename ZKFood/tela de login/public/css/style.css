@@ -13,83 +13,65 @@ body {
 .header {
     position: fixed;
     z-index: 9999;
-    margin-top: 20px;
-    height: 83px;
-    width: 100%;
+    width: 100vw;
+    height: 15vh;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
+
 .container-header {
     width: 90%;
-    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.container-header img {
-    width: 180px;
-    height: 83px;
+#imagem {
+    height: 10vh;
+    margin-right: 5%;
+    margin-bottom: 0.5%;
 }
 
 .org-nav-bar {
-    width: 100%;
-    height: auto;
     display: flex;
-    justify-content: space-between;
+    width: 100%;
 }
 
 .navbar {
     display: flex;
-    height: auto;
+    width: 60%;
     align-items: center;
     list-style: none;
     color: #393D46;
-    justify-content: space-evenly;
-}
-
-.navbar li {
-    margin-left: 50px;
+    justify-content: space-between;
 }
 
 .navbar li a {
-    width: auto;
-    height: 100px;
     text-decoration: none;
     color: #000000;
-    margin-right: 20px;
-    font-size: 20px;
+    font-size: 18px;
     font-family: "Roboto", sans-serif;
 }
 
 .botoes-header {
     display: flex;
-}
-
-.botao-sublinhado {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    width: 30%;
+    justify-content: space-between;
 }
 
 .botao-entrar {
     background: none;
     border: none;
-    height: 20px;
-    width: 111px;
-    font-size: 20px;
+    font-size: 18px;
     font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-style: normal;
 }
 
-.sublinhado-linha {
-    background-color: #FFB400;
-    height: 6px;
-    width: 77px;
-    border-radius: 10px;
+.paginas-agora {
+    border-bottom: 5px solid #FFB400;
 }
 
 .botao-cadastre {
@@ -102,4 +84,12 @@ body {
     font-size: 24px;
     font-family: "Bebas Neue", sans-serif;
     box-shadow: 2px 2px 7px 4px rgba(0, 0, 0, 0.2);
+}
+
+.paginas:hover {
+    cursor: pointer;
+}
+
+.header button:hover {
+    cursor: pointer;
 }
