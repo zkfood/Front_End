@@ -11,7 +11,7 @@ body {
 
 /* Alinhamento */
 .full{
-    width: 100vw;
+    width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -81,6 +81,7 @@ body {
     border: none;
     font-size: 18px;
     font-family: "Roboto", sans-serif;
+    cursor: pointer;
 }
 
 .paginas-agora {
@@ -98,19 +99,16 @@ body {
     font-size: 24px;
     font-family: "Bebas Neue", sans-serif;
     box-shadow: 2px 2px 7px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 .paginas:hover {
     cursor: pointer;
 }
 
-.header button:hover {
-    cursor: pointer;
-}
-
 /* Banner elipse */
 .elipse {
-    width: 100%;
+    width: 50%;
     display: flex;
     justify-content: end;
     position: absolute; 
@@ -128,7 +126,7 @@ body {
     width: 100%;
     height: 80vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -176,4 +174,50 @@ p{
     font-size: 24px;
     font-family: "Bebas Neue", sans-serif;
     box-shadow: 2px 2px 7px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
+
+/* Cards de serviços */
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 95vh;
+}
+
+.card {
+    background: linear-gradient(to bottom, #FFD87A 0%, #FBCD5E 50%, #FFB400 100%);
+    border-radius: 15px;
+    padding: 20px;
+    width: 16vw;
+    height: 32vh;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    position: relative; /* Necessário para posicionamento absoluto da imagem */
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-bottom: 3%;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.image-container {
+    position: absolute;
+    top: -100px; /* Ajustar para posicionar metade fora da div */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.card h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 80px
+}
+
+/* Saiba mais - VIDEO */
