@@ -7,8 +7,11 @@ body {
 }
 
 header {
-    background-color: #FFA500;
     padding: 10px 20px;
+}
+.div_incial{
+    background: linear-gradient(0deg, rgba(255, 215, 121, 1) 0%, rgba(247, 194, 66, 1) 0%);
+   
 }
 
 .header-content {
@@ -59,9 +62,7 @@ header {
     font-weight: bold;
 }
 
-nav {
-    background-color: #FFA500;
-    padding: 10px 20px;
+nav { padding: 10px 20px;
     display: flex;
     justify-content: center;
 }
