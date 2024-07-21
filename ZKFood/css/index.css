@@ -100,6 +100,11 @@ body {
     font-family: "Bebas Neue", sans-serif;
     box-shadow: 2px 2px 7px 4px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao-cadastre:hover {
+    background-color: #002865;
 }
 
 .paginas:hover {
@@ -175,6 +180,11 @@ p {
     font-family: "Bebas Neue", sans-serif;
     box-shadow: 2px 2px 7px 4px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao-azul:hover {
+    background-color: #002865;
 }
 
 /* Cards de serviços */
@@ -404,7 +414,7 @@ footer {
     justify-content: space-between;
 }
 
-.bloco-footer a{
+.bloco-footer a {
     text-decoration: none;
     color: #000000;
     font-size: 18px;
@@ -432,16 +442,15 @@ footer {
     align-items: center;
 }
 
-.informacoes{
+.informacoes {
     display: flex;
     width: 80%;
     justify-content: space-between;
     align-items: end;
 }
 
-.informacoes a, p{
+.informacoes p {
     text-decoration: none;
     font-size: 15px;
     color: #4B4B4B;
 }
-
