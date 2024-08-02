@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    margin-top: 20px;
+}
+
+header {
+    padding: 10px 20px;
+    background-color: white;
+}
+
+.div_inicial {
+    background: linear-gradient(0deg, rgba(255, 215, 121, 1) 0%, rgba(247, 194, 66, 1) 0%);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 20px;
+}
+
+.arrow-back img {
+    height: 25px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+.date-time {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.orders {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.orders-section {
+    flex: 1;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    text-align: center; /* Centraliza o texto */
+}
+
+.balc {
+    color: #0DB300;
+}
+
+.mes {
+    color: #FFB400;
+}
+
+.enty {
+    color: #FF9400;
+}
+
+.entrega {
+    border-top: 10px;
+}
+
+.mesa {
+    border-top: 10px;
+}
+
+.balcao {
+    border-top: 10px;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center; /* Alinha os cartões no centro */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid black; /* Borda preta */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    width: 250px; /* Largura fixa */
+    height: 200px; /* Altura fixa */
+    box-sizing: border-box;
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.entrega .card h2 {
+    color: #FF9400;
+}
+
+.mesa .card h2 {
+    color: #FFB400;
+}
+
+.balcao .card h2 {
+    color: #0DB300;
+}
+
+.card-icon img {
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.card-title h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: black;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+p {
+    margin: 10px 0 0 0;
+    font-size: 1rem;
+    text-align: center; /* Centralizar texto das observações */
+}
