@@ -1,0 +1,456 @@
+/* Tudo na página */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Alinhamento */
+.full {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    height: auto;
+}
+
+/* Navbar superior */
+.header {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+}
+
+.container-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#imagem {
+    height: 10vh;
+    margin-right: 5%;
+    margin-bottom: 0.5%;
+}
+
+.org-nav-bar {
+    display: flex;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    width: 60%;
+    align-items: center;
+    list-style: none;
+    color: #393D46;
+    justify-content: space-between;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+}
+
+.botoes-header {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    justify-content: space-between;
+}
+
+.botao-entrar {
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
+}
+
+.paginas-agora {
+    border-bottom: 5px solid #FFB400;
+    font-weight: 700;
+}
+
+.botao-cadastre {
+    background-color: #68A5FF;
+    border: none;
+    border-radius: 10px;
+    height: 52px;
+    width: 180px;
+    color: #ffffff;
+    font-size: 24px;
+    font-family: "Bebas Neue", sans-serif;
+    box-shadow: 2px 2px 7px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao-cadastre:hover {
+    background-color: #002865;
+}
+
+.paginas:hover {
+    cursor: pointer;
+}
+
+/* Banner elipse */
+.elipse {
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.elipse img {
+    max-width: 100%;
+}
+
+/* Imagem sobre a elipse */
+.banner-inicial {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.componentes-banner-inicial {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 55vh;
+    justify-content: space-between;
+}
+
+.banner-inicial h1 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 80px;
+    line-height: 80px
+}
+
+.letra-amarela {
+    color: #FFB400;
+}
+
+p {
+    font-family: "Roboto", sans-serif;
+    color: #4B4B4B;
+    line-height: 30px;
+    font-size: 18px;
+
+}
+
+.banner-inicial img {
+    margin-right: 5%;
+    max-width: 60%;
+    height: auto;
+    z-index: 2;
+}
+
+.botao-azul {
+    background-color: #68A5FF;
+    border: none;
+    border-radius: 10px;
+    height: 52px;
+    width: 15vw;
+    color: #ffffff;
+    font-size: 24px;
+    font-family: "Bebas Neue", sans-serif;
+    box-shadow: 2px 2px 7px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao-azul:hover {
+    background-color: #002865;
+}
+
+/* Cards de serviços */
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 95vh;
+}
+
+.card {
+    background: linear-gradient(to bottom, #FFD87A 0%, #FBCD5E 50%, #FFB400 100%);
+    border-radius: 15px;
+    padding: 20px;
+    width: 16vw;
+    height: 32vh;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    position: relative;
+    /* Necessário para posicionamento absoluto da imagem */
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-bottom: 3%;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.image-container {
+    position: absolute;
+    top: -100px;
+    /* Ajustar para posicionar metade fora da div */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.card h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 80px
+}
+
+/* Saiba mais - VIDEO */
+
+.container-sobre {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo-bebas {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 70px;
+    width: 80%;
+}
+
+.container-sobre img {
+    cursor: pointer;
+}
+
+/* Avaliações */
+
+.avaliacoes {
+    width: 100%;
+    height: 100vh;
+    background-image: url(../assets/banner-amarelo.png);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-avaliacoes {
+    display: flex;
+    width: 90%;
+    height: 30vh;
+    align-items: end;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.container-cards {
+    display: flex;
+    width: 90%;
+    height: 80vh;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-avaliacao {
+    width: 20vw;
+    height: 23vh;
+    background-color: #ffffff;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.foto-avaliacao img {
+    width: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.card-avaliacao h5 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #393D46;
+}
+
+.card-avaliacao h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #393D46;
+}
+
+.card-avaliacao span {
+    font-size: 22px;
+}
+
+.card-avaliacao p {
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* Contato */
+
+.contato {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-contato {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* Faz com que a info-contato ocupe o espaço disponível */
+    justify-content: center;
+}
+
+.contato-linha {
+    display: flex;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.contato-linha img {
+    width: 80px;
+}
+
+.contato-linha p {
+    font-size: 25px;
+    color: #4B4B4B;
+}
+
+/* MAPA do contato */
+.mapa {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+
+footer {
+    width: 100%;
+}
+
+.footer-top img {
+    width: 100%;
+}
+
+.footer-top {
+    margin: 0%;
+    height: 8vh;
+}
+
+.footer {
+    width: 100%;
+    height: 80vh;
+    background: linear-gradient(to bottom, #FFD87A 0%, #FBCD5E 50%, #FFB400 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer-paginas {
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bloco-footer {
+    width: 15vw;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bloco-footer a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+}
+
+.logo-footer {
+    width: 20%;
+}
+
+.logo-footer img {
+    width: 50%;
+}
+
+.linha {
+    background-color: #000000;
+    width: 80%;
+    height: 1px;
+}
+
+.redes-sociais {
+    display: flex;
+    width: 20%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.informacoes {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.informacoes p {
+    text-decoration: none;
+    font-size: 15px;
+    color: #4B4B4B;
+}
