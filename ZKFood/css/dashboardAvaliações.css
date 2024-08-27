@@ -1,0 +1,128 @@
+/* Importações de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* Reset de margem */
+* {
+    margin: 0;
+    scrollbar-width: none;
+}
+
+
+.container_all {
+    display: flex;
+    flex-direction: row;
+}
+
+.container_sep_info_dash {
+    width: 20%;
+    height: 100vh;
+    display: flex;
+}
+
+.container_graphics {
+    border: 10px black;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container_word_cloud {
+    /* background-color: blueviolet; */
+    height: 50%;
+    width: 100%;
+    
+    
+}
+
+.container_avaliacao_estrela {
+    /* background-color: rgb(43, 208, 226); */
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_top {
+    /* background-color: rgb(171, 22, 84); */
+    height: 100%;
+    width: 25%;
+    margin-left: 40px;
+}
+
+.container_baixo {
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+    width: 100%;
+    border: 5px black;
+}
+
+.chart-container {
+    width: 80%;
+    height: 80%;
+}
+
+.table {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table h3 {
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #333333;
+    text-align: center;
+}
+
+.table ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.table ul li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 16px;
+    color: #666666;
+}
+
+.table ul li span {
+    font-weight: bold;
+    color: #333333;
+}   
+.container_titulo_wc {
+    font-family: 'Bebas Neue', sans-serif;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.container_titulo_wc h2 {
+    font-family: 'Bebas Neue', sans-serif;
+
+}
+
+.container_graphic_word_cloud {
+    width: 80%;
+    height: 80%;
+   
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-bottom: 30px;
+    margin-top: 15px;
+}
+
+#myChart {
+    height: 234px;
+    width: 348px;
+}
