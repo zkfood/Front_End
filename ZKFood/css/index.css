@@ -454,3 +454,98 @@ footer {
     font-size: 15px;
     color: #4B4B4B;
 }
+
+.avaliacoes {
+    width: 100%;
+    height: 100vh;
+    background-image: url(../assets/banner-amarelo.png);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container-avaliacoes {
+    display: flex;
+    width: 90%;
+    height: 30vh;
+    align-items: end;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.container-cards {
+    display: flex;
+    width: 90%;
+    height: 60vh;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.card-avaliacao {
+    width: 20vw;
+    height: 23vh;
+    background-color: #ffffff;
+    padding: 2%;
+    display: none;
+    justify-content: space-between;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-avaliacao.active {
+    display: flex;
+}
+
+.foto-avaliacao img {
+    width: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.card-avaliacao h5 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #393D46;
+}
+
+.card-avaliacao h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #393D46;
+}
+
+.card-avaliacao span {
+    font-size: 22px;
+}
+
+.card-avaliacao p {
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.carousel-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffffff;
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
