@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/dashboardAvaliações.css">
+
+    <!-- <script src="../js/dashboard.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-wordcloud"></script>
+
+    <title>Dashboard - Gráfico de Produtos</title>
+</head>
+
+<body>
+    <div class="container_all">
+        <div class="container_sep_info_dash">
+            <div class="container_info">
+                <div class="container_logo">
+                    <img src="../../assets/logo-icon.png" alt="zkFood_logo">
+                </div>
+                <div class="container_texto_Bem_vindo">
+                    Bem Vindo, <br>
+                    <h2>Zeca Silva</h2>
+                </div>
+                <div class="container_txt_dashboard">
+                    Dashboards
+                </div>
+                <div class="container_opcoes_dash">
+                    <ul>
+                        <li><img src="../../assets/jantar 1.png" alt=""><a href="../dashboard.html">Produtos</a></li>
+                        <div class="container_sub_opcoes_dash">
+                            <ul>
+                                <li> > <span id="sub_opcao_selecionada"> <a href="dashboard.html"> Dashboard </a></span>
+                                </li>
+                                <li> > <a href="crud_produtos.html"> Análise de Produtos </a> </li>
+                                <li> > <a href="cadastro_produtos.html"> Cadastrar Produtos </a></li>
+                            </ul>
+                        </div>
+                        <li> > <img src="../../assets/silhueta-de-multiplos-usuarios 1.png" alt=""> Clientes</li>
+                        <li> > <img src="../../assets/cracha 1.png" alt=""> Funcionários</li>
+                        <li id="opcao_selecionada"> > <img src="../../assets/avaliacoes 1.png" alt=""> Avaliações</li>
+                        <div class="container_sub_opcoes_dash">
+                            <ul>
+                                <li> > <span id="sub_opcao_selecionada"> <a href="dashboard.html"> Dashboard </a></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <li> > <img src="../../assets/money-bag 1.png" alt=""> Financeiro</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="container_graphics">
+            <div class="container_word_cloud">
+                <div class="container_titulo_wc">
+                    <h2>Palavras mais Usadas nas avaliações</h2>
+                </div>
+                <canvas id="myChart" class="container_graphic_word_cloud"></canvas>
+            </div>
+            <div class="container_baixo">
+                <div class="container_avaliacao_estrela">
+                    <div class="chart-container">
+                        <canvas id="ratingsChart"></canvas>
+                    </div>
+                </div>
+                <div class="container_top">
+                    <div class="table">
+                        <h3>Top Pratos com 4 ou 5 estrelas</h3>
+                        <ul>
+                            <li>Feijoada <span>283</span></li>
+                            <li>Contra Filé <span>198</span></li>
+                            <li>Lasanha <span>142</span></li>
+                            <li>Frango Assado <span>108</span></li>
+                            <li>Macarronada <span>85</span></li>
+                            <li>Parmegiana <span>42</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container_top">
+                    <div class="table">
+                        <h3>Top Pratos com 2 ou 1 estrela</h3>
+                        <ul>
+                            <li>Sarapatel <span>8</span></li>
+                            <li>Salada <span>5</span></li>
+                            <li>Nhoque <span>1</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    const ctx1 = document.getElementById('myChart').getContext('2d');
+
+    const words = ['restaurant', 'food', 'table', 'dinner', 'meal', 'kitchen', 'interior', 'dining', 'lunch', 'glass', 'plate', 'wine', 'chef', 'service', 'dish', 'menu'];
+    const wordFrequencies = [100, 80, 70, 60, 50, 40, 30, 20, 15, 10, 5, 35, 25, 55, 45, 65];
+    const colors = ['#A52A2A', '#8B0000', '#FF4500', '#DAA520', '#FFD700', '#FF6347', '#FF8C00', '#CD5C5C', '#DC143C', '#B22222', '#8B4513', '#808000', '#556B2F', '#8B4513', '#C71585', '#FF69B4'];
+
+    new Chart(ctx1, {
+        type: 'wordCloud',
+        data: {
+            labels: words,
+            datasets: [{
+                label: 'Palavras mais usadas',
+                data: wordFrequencies,
+                color: colors,
+            }]
+        },
+        options: {
+            layout: {
+                padding: {
+                    top: 0,
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    enabled: true
+                }
+            },
+            elements: {
+                wordCloud: {
+                    color: function (context) {
+                        return context.dataset.color[context.dataIndex];
+                    },
+                    font: {
+                        size: function (context) {
+                            const value = context.raw;
+                            return Math.log(value) * 20; // Ajuste fino no tamanho das palavras
+                        },
+                        family: 'Arial',
+                        style: 'normal',
+                        weight: 'bold',
+                    },
+                    rotation: {
+                        min: 0,
+                        max: 0
+                    },
+                    padding: 2,
+                    minFontSize: 10,
+                    maxFontSize: 60, // Tamanho máximo maior para centralizar as palavras grandes
+                    center: {
+                        x: 0.5,
+                        y: 0.5
+                    },
+                    fit: true
+                }
+            }
+        }
+    });
+
+    const ctx2 = document.getElementById('ratingsChart').getContext('2d');
+const ratingsChart = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        labels: ['1', '2', '3', '4', '5'],
+        datasets: [{
+            label: 'Avaliações por estrelas',
+            data: [1, 1, 2, 3, 20],
+            backgroundColor: [
+                'rgba(155, 89, 182, 0.2)',
+                'rgba(230, 126, 34, 0.2)',
+                'rgba(52, 152, 219, 0.2)',
+                'rgba(46, 204, 113, 0.2)',
+                'rgba(241, 196, 15, 0.2)'
+            ],
+            borderColor: [
+                'rgba(155, 89, 182, 1)',
+                'rgba(230, 126, 34, 1)',
+                'rgba(52, 152, 219, 1)',
+                'rgba(46, 204, 113, 1)',
+                'rgba(241, 196, 15, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+<!-- 
+<script>
+    async function buscarDadosEAtualizar() {
+        try {
+            const resposta = await fetch("http://localhost:8080/crm/kpis-produtos");
+            const respostaDados = await resposta.json();
+
+            console.log("Resposta: ", respostaDados);
+
+            // Extrair os produtos mais vendidos e menos vendidos
+            const top3Melhores = respostaDados.top3Melhores;
+            const top3Piores = respostaDados.top3Piores;
+
+            // Atualizar os dados nos elementos HTML para os produtos mais vendidos
+            const produtoMaisVendidoElement = document.getElementById('produto_mais_vendido');
+            const quantidadeProdutoMaisVendidoElement = document.getElementById('quantidade_produto_mais_vendido');
+            produtoMaisVendidoElement.textContent = top3Melhores[0][0];
+            quantidadeProdutoMaisVendidoElement.textContent = top3Melhores[0][1];
+
+            const produtoSegundoMaisVendidoElement = document.getElementById('produto_segundo_mais_vendido');
+            const quantidadeProdutoSegundoMaisVendidoElement = document.getElementById('quantidade_produto_segundo_mais_vendido');
+            produtoSegundoMaisVendidoElement.textContent = top3Melhores[1][0];
+            quantidadeProdutoSegundoMaisVendidoElement.textContent = top3Melhores[1][1];
+
+            // Atualizar os dados nos elementos HTML para os produtos menos vendidos
+            const produtoMenosVendidoElement = document.getElementById('produto_menos_vendido');
+            const quantidadeProdutoMenosVendidoElement = document.getElementById('quantidade_produto_menos_vendido');
+            produtoMenosVendidoElement.textContent = top3Piores[0][0];
+            quantidadeProdutoMenosVendidoElement.textContent = top3Piores[0][1];
+
+            const produtoSegundoMenosVendidoElement = document.getElementById('produto_segundo_menos_vendido');
+            const quantidadeProdutoSegundoMenosVendidoElement = document.getElementById('quantidade_produto_segundo_menos_vendido');
+            produtoSegundoMenosVendidoElement.textContent = top3Piores[1][0];
+            quantidadeProdutoSegundoMenosVendidoElement.textContent = top3Piores[1][1];
+
+            // Criar o gráfico com os dados dos produtos mais vendidos e menos vendidos
+            const ctx = document.getElementById('myChart').getContext('2d');
+
+            const nomesProdutos = [
+                top3Melhores[0][0],
+                top3Melhores[1][0],
+                top3Piores[0][0],
+                top3Piores[1][0]
+            ];
+
+            const quantidades = [
+                top3Melhores[0][1],
+                top3Melhores[1][1],
+                top3Piores[0][1],
+                top3Piores[1][1]
+            ];
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: nomesProdutos,
+                    datasets: [{
+                        label: 'Quantidade Vendida',
+                        data: quantidades,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 205, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 205, 86, 1)',
+                            'rgba(75, 192, 192, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+        } catch (error) {
+            console.error("Erro ao buscar os dados e atualizar:", error);
+        }
+    }
+
+    window.onload = buscarDadosEAtualizar;
+
+
+
+</script> -->
