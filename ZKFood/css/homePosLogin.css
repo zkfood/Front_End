@@ -232,6 +232,7 @@
 /* Acesse nosso cardápio */
 .container-cardapio{
     width: 100%;
+    height: 120vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -257,8 +258,8 @@
     font-style: normal;
 }
 
-.span_cardapio{
-    margin-left: 7px;
+.span-amarelo{
+    margin-left: 10px;
     color: #F7C242;
 }
 
@@ -352,7 +353,205 @@
     background-color: #68A5FF;
 }
 
-.container_div_imagem_animada{
+/* Ver pedidos */
+
+.container-pedidos{
     width: 100%;
-    height: 90vh;
+    height: 110vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.salada-pedidos{
+    width: 50%;
+}
+
+.salada-pedidos img{
+    height: 110vh;
+    width: 70%;
+}
+
+.conteudo-pedidos{
+    width: 50%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.conteudo-pedidos h1{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 120px;
+    line-height: 100px;
+}
+
+p {
+    font-family: "Roboto", sans-serif;
+    color: #4B4B4B;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.botao-acessar {
+    width: 30%;
+    height: 50px;
+    padding: 10px;
+    background-color: #68A5FF;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 24px;
+}
+
+/* Cadastro de endereço */
+
+.container-endereco{
+    width: 100%;
+    height: 110vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.conteudo-endereco{
+    width: 40%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: end;
+    text-align: end;
+    margin-right: 10%;
+}
+
+.conteudo-endereco h1{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 120px;
+    line-height: 100px;
+}
+
+.container-mapa{
+    width: 50%;
+    height: 70vh;
+}
+
+.mapa-cadastro-endereco {
+    width: 90%;
+    height: 90%;
+}
+
+.mapBox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.mapBox iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    box-shadow: 2px 2px 7px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+
+footer {
+    width: 100%;
+}
+
+.footer-top img {
+    width: 100%;
+}
+
+.footer-top {
+    margin: 0%;
+    height: 8vh;
+}
+
+.footer {
+    width: 100%;
+    height: 80vh;
+    background: linear-gradient(to bottom, #FFD87A 0%, #FBCD5E 50%, #FFB400 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.footer-paginas {
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bloco-footer {
+    width: 15vw;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bloco-footer a {
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    font-size: 20px;
+    color: #4B4B4B;
+    font-weight: 600;
+}
+
+.bloco-footer a:hover {
+    color: #000000;
+}
+
+.informacoes a {
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    font-size: 15px;
+    color: #4B4B4B;
+}
+
+.logo-footer {
+    width: 20%;
+}
+
+.logo-footer img {
+    width: 50%;
+}
+
+.linha {
+    background-color: #000000;
+    width: 80%;
+    height: 1px;
+}
+
+.redes-sociais {
+    display: flex;
+    width: 20%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.informacoes {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.informacoes p {
+    text-decoration: none;
+    font-size: 15px;
+    color: #4B4B4B;
 }
