@@ -11,7 +11,6 @@
 .container_div_esquerda_cadastro_endereco {
     width: 50%;
     height: 100%;
-    /* background-color:blue; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,7 +18,6 @@
 }
 
 .texto_cadastro_endereco {
-    /* background-color: white; */
     width: 80%;
     margin-left: 5%;
     height: 15vh;
@@ -39,22 +37,20 @@
 .mapa_cadastro_endereco {
     width: 80%;
     height: 90%;
-    background: #262626;
 }
-
 
 .mapBox {
     position: relative;
     width: 100%;
     height: 100%;
     background-color: white;
-    border-radius: 10px;
 }
 
 .mapBox iframe {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 7px 4px rgba(0, 0, 0, 0.2);
 }
 
 .container_div_direita_cadastro_endereco {
@@ -68,9 +64,33 @@
 .formulario_endereco {
     width: 80%;
     height: 90%;
-    background-color: blue;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+}
+
+.formulario_endereco input{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid #818181;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.botao-cadastrar {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    background-color: #68A5FF;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 24px;
 }
 
 .div_numero_cep{
@@ -80,13 +100,11 @@
 }
 
 .div_numero{
-    width: 20%;
-}
-
-.div_numero input{
-    width: 100%;
+    width: 49%;
 }
 
 .div_cep{
-    width: 70%;
+    width: 49%;
 }
+
+
