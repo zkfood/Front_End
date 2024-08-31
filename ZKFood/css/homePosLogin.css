@@ -88,7 +88,7 @@
 
 .search-container button {
     border: none;
-    background-color: darkgray;
+    background-color: #68A5FF;
     color: #fff;
     padding: 10px 20px;
     font-size: 16px;
@@ -96,9 +96,8 @@
 }
 
 .search-container button:hover {
-    background-color: #68A5FF;
+    background-color: #4B4B4B;
 }
-
 
 .container_favoritos_carrinho {
     width: 10%;
@@ -161,6 +160,8 @@
     align-items: center;
     background-color: darkgray;
     border-radius: 50%;
+    background-image: url(../assets/user.png);
+    background-size: cover;
 
 }
 
@@ -187,18 +188,11 @@
 
 .menu a {
     display: block;
-    padding: 15px 20px;
     color: black;
     text-decoration: none;
     font-size: 18px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    transition: font-size 2s ease;
-}
-
-/* REVISAR DELAY AQUI ------------------------------------------------------------------------------------------------------- */
-.menu li:hover {
-    font-weight: 600;
 }
 
 .tela_atual p{
@@ -387,7 +381,7 @@
     line-height: 100px;
 }
 
-p {
+.conteudo-pedidos p {
     font-family: "Roboto", sans-serif;
     color: #4B4B4B;
     line-height: 30px;
