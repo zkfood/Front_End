@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste</title>
+    <script src="/ZKFood/js/fetch.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        #cat-fact {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Fatos sobre Gatos</h1>
+    <button id="catFactButton">Mostrar Fato sobre Gatos</button>
+    <div id="cat-fact"></div>
+
+    <script>
+
+document.getElementById('catFactButton').addEventListener('click', async function() {
+    const fetchBuilder = new FetchBuilder();
+    const request = new Request({
+        method: 'GET'
+    });
+
+    try {
+        const result = await fetchBuilder.request('https://catfact.ninja/fact', request);
+        document.getElementById('cat-fact').innerText = result.fact;
+    } catch (error) {
+        document.getElementById('cat-fact').innerText = 'Erro ao buscar fato sobre gatos.';
+    }
+});
+    </script>
+</body>
+</html>
