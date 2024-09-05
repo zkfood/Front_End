@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Endereço</title>
 
-    <link rel="stylesheet" href="../../css/home_pos_login.css">
-    <link rel="stylesheet" href="../../css/cadastrar_endereco.css">
+    <link rel="stylesheet" href="/ZKFood/css/homePosLogin.css">
+    <link rel="stylesheet" href="/ZKFood/css/cadastrar_endereco.css">
+    <script src="/ZKFood/js/fetch.js"></script>
+    <script src="/ZKFood/js/viacep.js" defer></script>
+    <script src="/ZKFood/js/endereco.js" defer></script>
 
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
@@ -70,26 +73,26 @@
             <div class="formulario_endereco">
 
                 <label>Bairro</label>
-                <input type="text" placeholder="Digite seu bairro:">
+                <input type="text" id="bairro" placeholder="Digite seu bairro">
 
                 <label>Rua, Logradouro ou Avenida</label>
-                <input type="text" placeholder="Digite sua rua, logradouro ou avenida:">
+                <input type="text" id="logradouro" placeholder="Digite sua rua, logradouro ou avenida">
                 
                 <div class="div_numero_cep">
                     <div class="div_numero">
 
                         <label>Número</label>
-                        <input type="number" placeholder="0000">
+                        <input type="text" id="numero" placeholder="Número">
                     </div>
 
                     <div class="div_cep">
                         <label>CEP</label>
-                        <input type="text" placeholder="00000-000">
+                        <input type="text" id="cep" placeholder="08490490" onblur="buscarCEP()">
                     </div>
                 </div>
                 <label>Complemento</label>
                 <input type="text">
-                <button class="botao-cadastrar">Cadastrar Endereço</button>
+                <button class="botao-cadastrar" onclick="cadastrarEndereco()">Cadastrar Endereço</button>
             </div>
         </div>
     </div>
