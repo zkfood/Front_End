@@ -27,10 +27,11 @@
                     <img id="imagem" src="../../assets/logo-ZKFOOD.png" alt="Logo da empresa ZKfood">
                     <div class="org-nav-bar">
                         <ul class="navbar">
-                            <li class="paginas-agora"><a href="">Página Inicial</a></li>
-                            <li class="paginas"><a href="">Menu</a></li>
-                            <li class="paginas"><a href="">Sobre</a></li>
-                            <li class="paginas"><a href="">Contato</a></li>
+                            <li class="paginas-agora"><a href="index.html">Página Inicial</a></li>
+                            <li class="paginas"><a href="../../tela de login/public/html/login.html">Menu</a></li>
+                            <li class="paginas"><a href="index.html#sobre">Sobre</a></li>
+                            <li class="paginas"><a href="index.html#avaliacoes">Avaliações</a></li>
+                            <li class="paginas"><a href="index.html#contato">Contato</a></li>
                         </ul>
                     </div>
                     <div class="botoes-header">
@@ -43,7 +44,7 @@
 
             <!-- Banner Elipse -->
             <div class="elipse">
-                <img src="../../assets/Ellipse.png" alt="">
+                <img src="../../assets/Ellipse.png" alt="Circulo amarelo">
             </div>
 
             <!-- Imagem sobre a elipse -->
@@ -59,7 +60,7 @@
             </div>
 
             <!-- Saiba mais - VIDEO -->
-            <div class="container-sobre">
+            <div class="container-sobre" id="sobre">
                 <h1 class="titulo-bebas"><span class="letra-amarela">Clique</span> no vídeo e saiba <br> mais sobre o
                     <span class="letra-amarela">ZKFOOD</span>.
                 </h1>
@@ -68,12 +69,12 @@
         </div>
 
         <!-- Avaliações com Carrossel -->
-        <div class="avaliacoes">
+        <div class="avaliacoes" id="avaliacoes">
             <div class="container-avaliacoes">
                 <h1 class="titulo-bebas">Nossas Avaliações</h1>
             </div>
 
-            <button class="carousel-btn prev-btn">❮</button>
+            <button class="carousel-btn prev-btn" style="margin: 20px;">❮</button>
 
             <div class="container-cards">
                 <div class="card-avaliacao active">
@@ -92,7 +93,7 @@
                     <div class="texto-avaliacao">
                         <h5>Avaliação</h5>
                         <h2>Alexandre</h2>
-                        <p>Perfeito</p>
+                        <p>Perfeito. Ótimo atendimento!</p>
                         <span>⭐⭐⭐⭐⭐</span>
                     </div>
                     <div class="foto-avaliacao">
@@ -104,7 +105,7 @@
                     <div class="texto-avaliacao">
                         <h5>Avaliação</h5>
                         <h2>Simone</h2>
-                        <p>Amei</p>
+                        <p>Amei, comida muito saborosa.</p>
                         <span>⭐⭐⭐⭐⭐</span>
                     </div>
                     <div class="foto-avaliacao">
@@ -116,7 +117,7 @@
                     <div class="texto-avaliacao">
                         <h5>Avaliação</h5>
                         <h2>Maria</h2>
-                        <p>Muito bom</p>
+                        <p>Muito bom, recomendo!</p>
                         <span>⭐⭐⭐⭐⭐</span>
                     </div>
                     <div class="foto-avaliacao">
@@ -128,7 +129,7 @@
                     <div class="texto-avaliacao">
                         <h5>Avaliação</h5>
                         <h2>Tom</h2>
-                        <p>Gostei</p>
+                        <p>Gostei bastante, lugar muito agradável.</p>
                         <span>⭐⭐⭐⭐</span>
                     </div>
                     <div class="foto-avaliacao">
@@ -140,7 +141,7 @@
                     <div class="texto-avaliacao">
                         <h5>Avaliação</h5>
                         <h2>Kaick</h2>
-                        <p>Legal</p>
+                        <p>O melhor restaurante da região!</p>
                         <span>⭐⭐⭐⭐⭐</span>
                     </div>
                     <div class="foto-avaliacao">
@@ -149,11 +150,11 @@
                 </div>
             </div>
 
-            <button class="carousel-btn next-btn">❯</button>
+            <button class="carousel-btn next-btn" style="margin: 20px;">❯</button>
         </div>
 
         <div class="container">
-            <div class="contato">
+            <div class="contato" id="contato">
                 <div class="info-contato">
                     <h2 class="titulo-bebas">Entre em <span class="letra-amarela">Contato</span></h2>
 
@@ -176,7 +177,11 @@
                 </div>
 
                 <div class="mapa">
-                    <div id="map"></div>
+                    <div class="mapBox">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d836.1047227613403!2d-46.41255771203918!3d-23.5744040849304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1spt-BR!2sbr!4v1724299459487!5m2!1spt-BR!2sbr"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
@@ -228,10 +233,6 @@
                 </div>
             </div>
         </footer>
-
-        <!-- Leaflet JS -->
-        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-        <script src="/ZKFood/js/index.js"></script>
     </div>
 </body>
 

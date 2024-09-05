@@ -1,0 +1,271 @@
+body {
+    background-color: #ffffff;
+}
+
+.banner-cardapio {
+    width: 100%;
+    height: 60vh;
+    background-image: url(../assets/banner-cardapio.png);
+    background-size: cover;
+}
+
+/* MENU DO CARDAPIO  */
+.container-menu {
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-cardapio {
+    width: 90%;
+    height: 25vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3%;
+}
+
+
+.card-menu {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative;
+}
+
+.card-menu img {
+    width: 55px;
+    margin-bottom: 10px;
+}
+
+.item-cardapio {
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s ease, color 0.0s ease;
+}
+
+.linha-cardapio {
+    width: 100%;
+    height: 1vh;
+}
+
+.linha1 {
+    background-color: #F7C242;
+    color: white;
+}
+
+.linha2 {
+    background-color: #FF7A00;
+}
+
+.linha3 {
+    background-color: #FF0000;
+}
+
+.linha4 {
+    background-color: #840000;
+}
+
+.linha5 {
+    background-color: #68A5FF;
+}
+
+/* Estilos para o item ativo */
+.active .item1,
+.active .linha1 {
+    background-color: #F7C242;
+    color: white;
+}
+
+.active .item2,
+.active .linha2 {
+    background-color: #FF7A00;
+    color: white;
+}
+
+.active .item3,
+.active .linha3 {
+    background-color: #FF0000;
+    color: white;
+}
+
+.active .item4,
+.active .linha4 {
+    background-color: #840000;
+    color: white;
+}
+
+.active .item5,
+.active .linha5 {
+    background-color: #68A5FF;
+    color: white;
+}
+
+/* itens do cardápio */
+
+.container-cardapio{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.itens-cardapio{
+    width: 90%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Card de alimentos */
+
+.card-cardapio{
+    width: 40%;
+    height: 35vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.card-cardapio:hover {
+    transform: scale(1.02);
+    box-shadow: 2px 2px 7px 6px rgba(0, 0, 0, 0.2);
+}
+
+.conteudo-cardapio{
+    width: 45%;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.conteudo-cardapio h2 {
+    width: 90%;
+    font-family: "Bebas Neue", sans-serif;
+    color: #000000;
+    line-height: 24px;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.conteudo-cardapio p {
+    width: 90%;
+    font-family: "Roboto", sans-serif;
+    color: #4B4B4B;
+    line-height: 24px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.servir{
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+}
+
+.servir h5{
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    color: #727272;
+    display: flex;
+    justify-content: baseline;
+}
+
+.servir img{
+    width: 15px;
+    margin-right: 5px;
+}
+
+.conteudo-cardapio h1{
+    font-family: "Bebas Neue", sans-serif;
+    color: #FFB90A;
+    font-weight: 500;
+    font-size: 45px;
+}
+
+.conteudo-cardapio span{
+    font-family: "Bebas Neue", sans-serif;
+    color: #FFB90A;
+    font-weight: 500;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.imagem-cardapio{
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.imagem-cardapio img{
+    width: 100%;
+    height: 170px;
+    border-radius: 10px;
+}
+
+.menu-card{
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.botao-acessar{ /*aqui estou reutilizando um botão e apenas alterando conforme necessidade*/
+    height: 5vh; 
+    font-size: 18px;
+    padding: 0;
+}
+
+.botao-favoritos {
+    height: 5vh;
+    width: 5vh; 
+    background-color: #818181; 
+    border: none; 
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0; 
+    margin-left: 5%;
+}
+
+.botao-favoritos img {
+    height: 2.5vh; 
+    width: 2.5vh; 
+    object-fit: contain; /* Garante que a imagem se encaixe corretamente dentro do botão */
+}
+
+.botao-favoritos {
+    transition: transform 0.5s ease;
+}
+
+.botao-favoritos:hover {
+    transform: rotate(360deg);
+}
