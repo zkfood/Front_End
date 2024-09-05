@@ -41,8 +41,8 @@
 }
 
 .container_logo img {
-    width: 65%;
-    height: 53%;
+    width: 85px;
+    height: 85px;
 }
 
 /* Texto de boas-vindas */
@@ -54,7 +54,7 @@
 }
 
 .container_texto_Bem_vindo h2 {
-    font-size: 40px;
+    font-size: 30px;
     display: flex;
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 400;

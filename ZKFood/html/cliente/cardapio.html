@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio ZKFOOD</title>
+
+    <link rel="stylesheet" href="../../css/homePosLogin.css">
+    <link rel="stylesheet" href="../../css/cardapio.css">
+
+    <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container_navbar">
+        <div class="parte_superior_navbar">
+            <div class="img_voltar"> <a href="home_pos_login.html"><img src="../../assets/de-volta.png"
+                        alt="Seta para voltar a página"></a></div>
+            <div class="img_logo"><img src="../../assets/logo.png" alt="Logo do ZKfood"></div>
+            <div class="container_pesquisa">
+                <div class="search-container">
+                    <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon">
+                    <input type="text" placeholder="Pesquise o que seu apetite deseja...">
+                    <button type="submit">Buscar</button>
+                </div>
+            </div>
+            <div class="container_favoritos_carrinho">
+                <div class="container_favoritos">
+                    <a href="favoritos.html"> <img src="../../assets/coracao.png"
+                            alt="Icone de coração para sinalizar favoritos"></a>
+                </div>
+                <div class="container_carrinho">
+                    <a href="carrinho.html"> <img src="../../assets/carrinho-carrinho.png"
+                            alt="Icone de carrinho de mercado para sinalizar itens na lista de compras"> </a>
+                </div>
+            </div>
+
+            <div class="profile_home">
+                <a href="perfil.html"></a>
+            </div>
+        </div>
+        <div class="parte_inferior_navbar">
+            <ul class="menu">
+                <li><a href="home_pos_login.html">
+                        <p>Página Inicial</p>
+                    </a></li>
+                <li><a href="cardapio.html" class="tela_atual">
+                        <p>Cardápio</p>
+                    </a></li>
+                <li><a href="pedidos.html">Seus Pedidos</a></li>
+                <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Banner inicial do cadapio -->
+    <div class="banner-cardapio"></div>
+
+
+    <!-- Menu do cardápio -->
+    <div class="container-menu">
+        <div class="menu-cardapio">
+            <div class="card-menu card1 active">
+                <img src="../../assets/icon-todos-pratos.png"
+                    alt="icone de copo e garfo, representando todos os itens do restaurante." style="width: 50px;">
+                <div class="item-cardapio item1">TODOS</div>
+                <div class="linha-cardapio linha1"></div>
+            </div>
+
+            <div class="card-menu card2">
+                <img src="../../assets/icon-prato-dia.png"
+                    alt="icone de tigela de sopa, representando os pratos do dia.">
+                <div class="item-cardapio item2">PRATO DO DIA</div>
+                <div class="linha-cardapio linha2"></div>
+            </div>
+
+            <div class="card-menu card3">
+                <img src="../../assets/icon-prato.png" alt="icone de prato de comida, representando os pratos vendidos."
+                    style="width: 45px;">
+                <div class="item-cardapio item3">PRATOS</div>
+                <div class="linha-cardapio linha3"></div>
+            </div>
+
+            <div class="card-menu card4">
+                <img src="../../assets/icon-porcoes.png"
+                    alt="icone de dois espetos, representando as porções do restaurante." style="margin: 5px;">
+                <div class="item-cardapio item4">PORÇÕES</div>
+                <div class="linha-cardapio linha4"></div>
+            </div>
+
+            <div class="card-menu card5">
+                <img src="../../assets/icon-bebidas.png" alt="icon de garrafa de vidro, representando as bebidas."
+                    style="margin:5px">
+                <div class="item-cardapio item5">BEBIDAS</div>
+                <div class="linha-cardapio linha5"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Itens do cardapio -->
+
+    <div class="container-cardapio">
+        <div class="itens-cardapio">
+
+            <!-- Aqui está o molde para o back utilizar -->
+            <div class="card-cardapio">
+                <div class="conteudo-cardapio">
+                    <h2>Nome do Prato</h2>
+                    <p>Descrição, descrição, descrição, descrição, descrição, descrição</p>
+                    <div class="servir">
+                        <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
+                        <h5>Serve 2 pessoas</h5>
+                    </div>
+                    <h1><span>R$</span>27,00</h1>
+                </div>
+
+                <div class="imagem-cardapio">
+                    <img src="../../assets/prato-feijoada-Zeca.png" alt="Foto do prato">
+                    <div class="menu-card">
+                        <button class="botao-acessar">Ver mais</button>
+                        <button class="botao-favoritos"><img src="../../assets/icon-coração-branco.png" alt=""></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+<script>
+    const menuItems = document.querySelectorAll('.card-menu');
+
+    menuItems.forEach(item => {
+        item.addEventListener('click', function () {
+            // Remove a classe 'active' de todos os itens
+            menuItems.forEach(i => i.classList.remove('active'));
+
+            // Adiciona a classe 'active' ao item clicado
+            this.classList.add('active');
+        });
+    });
+
+</script>

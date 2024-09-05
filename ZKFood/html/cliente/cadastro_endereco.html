@@ -5,26 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Endereço</title>
+    <link rel="stylesheet" href="css/home_pos_login.css">
     <link rel="stylesheet" href="css/cadastrar_endereco.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <script src="/ZKFood/js/fetch.js"></script>
-    <script src="/ZKFood/js/viacep.js" defer></script>
-    <script src="/ZKFood/js/endereco.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap"
+        rel="stylesheet">
 </head>
-
-<!-- TODO: MUDAR A UX DESSA PAGINA ANTES DE PROSSEGUIR -->
 
 <body>
     <div class="container_navbar">
         <div class="parte_superior_navbar">
-            <div class="img_voltar">
-                <a href="home_pos_login.html"><img src="assets/de-volta.png" alt=""></a>
-            </div>
-            <div class="img_logo">
-                <img src="assets/imagem_2024-02-29_210941642-removebg-preview 5 (1).png" alt="">
-            </div>
+            <div class="img_voltar"> <a href="home_pos_login.html"><img src="assets/de-volta.png" alt=""></a></div>
+            <div class="img_logo"><img src="assets/imagem_2024-02-29_210941642-removebg-preview 5 (1).png" alt=""></div>
             <div class="container_pesquisa">
                 <div class="search-container">
                     <img src="assets/lupa.png" alt="Ícone de Busca" class="search-icon">
@@ -34,12 +27,13 @@
             </div>
             <div class="container_favoritos_carrinho">
                 <div class="container_favoritos">
-                    <a href="home_pos_login.html"><img src="assets/coracao.png" alt=""></a>
+                    <a href="home_pos_login.html"> <img src="assets/coracao.png" alt=""></a>
                 </div>
                 <div class="container_carrinho">
-                    <a href="home_pos_login.html"><img src="assets/carrinho-carrinho.png" alt=""></a>
+                    <a href="home_pos_login.html"> <img src="assets/carrinho-carrinho.png" alt=""> </a>
                 </div>
             </div>
+
             <div class="profile_home">
                 <a href="home_pos_login.html">MK</a>
             </div>
@@ -64,33 +58,28 @@
         <div class="container_div_esquerda_cadastro_endereco">
             <div class="mapa_cadastro_endereco">
                 <div class="mapBox">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d836.1047227613403!2d-46.41255771203918!3d-23.5744040849304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1spt-BR!2sbr!4v1724299459487!5m2!1spt-BR!2sbr"
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d836.1047227613403!2d-46.41255771203918!3d-23.5744040849304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1spt-BR!2sbr!4v1724299459487!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
         <div class="container_div_direita_cadastro_endereco">
             <div class="formulario_endereco">
-                <label for="bairro">Bairro:</label>
-                <input type="text" id="bairro" placeholder="Digite seu bairro">
-                
-                <label for="logradouro">Rua, Logradouro ou Avenida:</label>
-                <input type="text" id="logradouro" placeholder="Digite sua rua, logradouro ou avenida">
-                
+                Bairro: <br>
+                <input type="text" placeholder="Digite seu bairro:">
+                Rua, Logradouro ou Avenida <br> 
+                <input type="text" placeholder="Digite sua rua, logradouro ou avenida:">
                 <div class="div_numero_cep">
                     <div class="div_numero">
-                        <label for="numero">Número:</label>
-                        <input type="text" id="numero" placeholder="Número">
+                        Número: <br>
+                        <input type="text">
                     </div>
                     <div class="div_cep">
-                        <label for="cep">CEP:</label>
-                        <input type="text" id="cep" placeholder="08490490" onblur="buscarCEP()">
+                        CEP: <br>
+                        <input type="text" placeholder="08490490">
                     </div>
                 </div>
-                
-                <label for="complemento">Complemento:</label>
-                <input type="text" id="complemento" placeholder="Complemento">
-                
+                Complemento: <br>
+                <input type="text">
                 <button>Cadastrar Endereço</button>
             </div>
         </div>
