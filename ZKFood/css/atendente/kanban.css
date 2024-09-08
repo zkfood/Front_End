@@ -1,0 +1,171 @@
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 50px;
+  font-weight: 400;
+  font-family: "Bebas Neue", sans-serif;
+  margin-bottom: 40px;
+}
+
+.highlight {
+  color: #FFA500;
+}
+
+.status-overview {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+.status-card {
+  text-align: center;
+  border-radius: 10px;
+  padding: 20px;
+  width: 150px;
+}
+
+.status-card img {
+  width: 74px;
+  margin-bottom: 10px;
+}
+
+.status-card p {
+  font-size: 16px;
+  margin: 10px 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.counter {
+  font-size: 56px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  font-family: "Roboto", sans-serif;
+}
+
+.orange-bg {
+  background-color: #FFA500;
+  color: white;
+}
+
+.yellow-bg {
+  background-color: #FDD835;
+  color: white;
+}
+
+.green-bg {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.orders-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-category {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-category h2 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.orange {
+  color: #FFA500;
+}
+
+.yellow {
+  color: #FDD835;
+}
+
+.green {
+  color: #4CAF50;
+}
+
+.order-card {
+  border: solid 1px black;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.orange-border {
+  border: 2px solid #FFA500;
+}
+
+.yellow-border {
+  border: 2px solid #FDD835;
+}
+
+.green-border {
+  border: 2px solid #4CAF50;
+}
+
+.order-id {
+  font-size: 40px;
+  color: inherit;
+  font-weight: 400;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.order-card p {
+  margin: 5px 0;
+  
+}
+
+input[type="number"] {
+  width: 50px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+button {
+  padding: 10px 15px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.cancel {
+  background-color: #000;
+  color: #fff;
+}
+
+button.accept {
+  background-color: #FFA500;
+  color: #fff;
+}
+
+button.done {
+  background-color: #FDD835;
+  color: #fff;
+}
+
+button.deliver {
+  background-color: #4CAF50;
+  color: #fff;
+}
