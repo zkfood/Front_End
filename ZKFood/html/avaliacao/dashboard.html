@@ -4,11 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="../../css/dashboard.css">
     <link rel="stylesheet" href="../../css/dashboardAvaliações.css">
+
+    <!-- <script src="../js/dashboard.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-wordcloud"></script>
-    <title>Dashboard - Avaliações</title>
+
+    <title>Dashboard - Gráfico de Produtos</title>
 </head>
 
 <body>
@@ -27,43 +33,29 @@
                 </div>
                 <div class="container_opcoes_dash">
                     <ul>
-                        <li>
-                            <img src="../../assets/jantar 1.png" alt="">
-                            <a href="../dashboard.html">Produtos</a>
-                            <div class="container_sub_opcoes_dash">
-                                <ul>
-                                    <li> > <span id="sub_opcao_selecionada"> <a href="dashboard.html"> Dashboard
-                                            </a></span></li>
-                                    <li> > <a href="crud_produtos.html"> Análise de Produtos </a> </li>
-                                    <li> > <a href="cadastro_produtos.html"> Cadastrar Produtos </a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="../../assets/silhueta-de-multiplos-usuarios 1.png" alt="">
-                            <a href="#">Clientes</a>
-                        </li>
-                        <li>
-                            <img src="../../assets/cracha 1.png" alt="">
-                            <a href="#">Funcionários</a>
-                        </li>
-                        <li id="opcao_selecionada">
-                            <img src="../../assets/avaliacoes 1.png" alt="">
-                            <a href="dashboard.html">Avaliações</a>
-                            <div class="container_sub_opcoes_dash">
-                                <ul>
-                                    <li> > <span id="sub_opcao_selecionada"> <a href="dashboard.html"> Dashboard
-                                            </a></span></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="../../assets/money-bag 1.png" alt="">
-                            <a href="#">Financeiro</a>
-                        </li>
+                        <li><img src="../../assets/jantar 1.png" alt=""><a href="../dashboard.html">Produtos</a></li>
+                        <div class="container_sub_opcoes_dash">
+                            <ul>
+                                <li> > <span id="sub_opcao_selecionada"> <a href="dashboard.html"> Dashboard </a></span>
+                                </li>
+                                <li> > <a href="crud_produtos.html"> Análise de Produtos </a> </li>
+                                <li> > <a href="cadastro_produtos.html"> Cadastrar Produtos </a></li>
+                            </ul>
+                        </div>
+                        <li> > <img src="../../assets/silhueta-de-multiplos-usuarios 1.png" alt=""> Clientes</li>
+                        <li> > <img src="../../assets/cracha 1.png" alt=""> Funcionários</li>
+                        <li id="opcao_selecionada"> > <img src="../../assets/avaliacoes 1.png" alt=""> Avaliações</li>
+                        <div class="container_sub_opcoes_dash">
+                            <ul>
+                                <li> > <span id="sub_opcao_selecionada"> <a href="dashboard.html"> Dashboard </a></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <li> > <img src="../../assets/money-bag 1.png" alt=""> Financeiro</li>
                     </ul>
                 </div>
             </div>
+
         </div>
 
         <div class="container_graphics">
