@@ -48,6 +48,7 @@ body {
 
 .titulo{
     width: 100%;
+    background-color: #818181;
 }
 
 /* cards */
@@ -80,7 +81,7 @@ body {
     font-family: "Bebas Neue", sans-serif;
     color: #000000;
     line-height: 24px;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 400;
 }
 
@@ -102,7 +103,7 @@ body {
     font-family: "Bebas Neue", sans-serif;
     color: #FFB90A;
     font-weight: 500;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .card-menu span {
