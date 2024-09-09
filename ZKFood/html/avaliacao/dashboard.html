@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-wordcloud"></script>
     <title>Dashboard - Avaliações</title>
 </head>
+
 <body>
     <div class="container_all">
         <div class="container_sep_info_dash">
@@ -30,7 +32,8 @@
                             <a href="../dashboard.html">Produtos</a>
                             <div class="container_sub_opcoes_dash">
                                 <ul>
-                                    <li> > <span id="sub_opcao_selecionada"> <a href="dashboard.html"> Dashboard </a></span></li>
+                                    <li> > <span id="sub_opcao_selecionada"> <a href="dashboard.html"> Dashboard
+                                            </a></span></li>
                                     <li> > <a href="crud_produtos.html"> Análise de Produtos </a> </li>
                                     <li> > <a href="cadastro_produtos.html"> Cadastrar Produtos </a></li>
                                 </ul>
@@ -49,7 +52,8 @@
                             <a href="dashboard.html">Avaliações</a>
                             <div class="container_sub_opcoes_dash">
                                 <ul>
-                                    <li> > <span id="sub_opcao_selecionada"> <a href="dashboard.html"> Dashboard </a></span></li>
+                                    <li> > <span id="sub_opcao_selecionada"> <a href="dashboard.html"> Dashboard
+                                            </a></span></li>
                                 </ul>
                             </div>
                         </li>
@@ -91,42 +95,48 @@
         </div>
     </div>
 
-    <script src="/ZKFood/js/fetch.js"></script>
+    <script src="../../js/fetch.js"></script>
     <script>
         const fetchBuilder = new FetchBuilder();
-        const ambiente = { local: "http://localhost:8080/" };
 
         async function carregarDashboardAvaliacoes() {
             try {
-                const nuvemPalavras = await fetchBuilder.request(`${ambiente.local}avaliacoes/nuvem-palavras`);
+                const [
+                    nuvemPalavras,
+                    avaliacoesEstrelas,
+                    topPratos
+                ] = await Promise.all([
+                    fetchBuilder.request(`${ambiente.local}relatorios/avaliacoes/nuvem-de-palavras`),
+                    fetchBuilder.request(`${ambiente.local}relatorios/avaliacoes/avaliacoes-por-estrela`),
+                    fetchBuilder.request(`${ambiente.local}relatorios/avaliacoes/top-pratos`)
+                ])
+
                 gerarWordCloud(nuvemPalavras);
 
-                const avaliacoesEstrelas = await fetchBuilder.request(`${ambiente.local}avaliacoes/quantidade-por-estrelas`);
                 gerarGraficoAvaliacoesEstrelas(avaliacoesEstrelas);
 
-                const topPratos4ou5 = await fetchBuilder.request(`${ambiente.local}avaliacoes/top-pratos-com-4-ou-5-estrelas`);
-                atualizarTopPratos(topPratos4ou5, "topProdutosCom4ou5");
-
-                const topPratos1ou2 = await fetchBuilder.request(`${ambiente.local}avaliacoes/top-pratos-com-1-ou-2-estrelas`);
-                atualizarTopPratos(topPratos1ou2, "topProdutosCom1ou2");
-
+                atualizarTopPratos(topPratos.top4ou5, "topProdutosCom4ou5");
+                atualizarTopPratos(topPratos.top1ou2, "topProdutosCom1ou2");
             } catch (error) {
                 console.error("Erro ao carregar dashboard de avaliações:", error);
             }
         }
 
-        function gerarWordCloud(palavras) {
+        function gerarWordCloud(wordCloud) {
             const ctx1 = document.getElementById('wordCloudChart').getContext('2d');
+
+            const solucaoProvisoriaQuantidade = wordCloud.quantidades.map(item => item * 30)
+
             new Chart(ctx1, {
                 type: 'wordCloud',
                 data: {
-                    labels: palavras,
+                    labels: wordCloud.palavras,
                     datasets: [{
                         label: 'Palavras mais usadas',
-                        data: palavras.map(() => Math.random() * 100), //AI
+                        data: solucaoProvisoriaQuantidade,
                         color: ['#A52A2A', '#8B0000', '#FF4500', '#DAA520', '#FFD700', '#FF6347', '#FF8C00']
                     }]
-                }
+                },
             });
         }
 
@@ -135,10 +145,10 @@
             new Chart(ctx2, {
                 type: 'bar',
                 data: {
-                    labels: dados.map(d => d.estrela),
+                    labels: [1, 2, 3, 4, 5],
                     datasets: [{
                         label: 'Avaliações por Estrelas',
-                        data: dados.map(d => d.quantidade),
+                        data: dados,
                         backgroundColor: ['rgba(155, 89, 182, 0.2)', 'rgba(230, 126, 34, 0.2)', 'rgba(52, 152, 219, 0.2)', 'rgba(46, 204, 113, 0.2)', 'rgba(241, 196, 15, 0.2)'],
                         borderColor: ['rgba(155, 89, 182, 1)', 'rgba(230, 126, 34, 1)', 'rgba(52, 152, 219, 1)', 'rgba(46, 204, 113, 1)', 'rgba(241, 196, 15, 1)'],
                         borderWidth: 1
@@ -162,4 +172,5 @@
         window.onload = carregarDashboardAvaliacoes;
     </script>
 </body>
+
 </html>
