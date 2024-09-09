@@ -125,7 +125,8 @@
         function gerarWordCloud(wordCloud) {
             const ctx1 = document.getElementById('wordCloudChart').getContext('2d');
 
-            const solucaoProvisoriaQuantidade = wordCloud.quantidades.map(item => item * 30)
+            // TODO: Retirar depois o multiplicador
+            const resultadosMultiplicadosParaMelhorVisualizacaoDasPalavrasRetirarDepois = wordCloud.quantidades.map(item => item * 5)
 
             new Chart(ctx1, {
                 type: 'wordCloud',
@@ -133,7 +134,7 @@
                     labels: wordCloud.palavras,
                     datasets: [{
                         label: 'Palavras mais usadas',
-                        data: solucaoProvisoriaQuantidade,
+                        data: resultadosMultiplicadosParaMelhorVisualizacaoDasPalavrasRetirarDepois,
                         color: ['#A52A2A', '#8B0000', '#FF4500', '#DAA520', '#FFD700', '#FF6347', '#FF8C00']
                     }]
                 },
