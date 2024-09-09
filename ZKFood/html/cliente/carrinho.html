@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favoritos!</title>
+    <title>Carrinho!</title>
 
     <link rel="stylesheet" href="../../css/homePosLogin.css">
     <link rel="stylesheet" href="../../css/favoritos.css">
@@ -52,7 +52,7 @@
                         <p>Página Inicial</p>
                     </a></li>
                 <li><a href="cardapio.html">Cardápio</a></li>
-                <li><a href="pedidos.html">Seus Pedidos</a></li>
+                <li><a href="statusPedidos.html">Seus Pedidos</a></li>
                 <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
             </ul>
         </div>
@@ -61,7 +61,7 @@
     <div class="container-favoritos">
 
         <div class="container-titulo">
-            <h1>Meus <span>Carrinho</span></h1>
+            <h1>Meu <span>Carrinho</span></h1>
             <h3>Itens (01)</h3>
             <div class="linha titulo"></div>
         </div>
@@ -79,6 +79,36 @@
                         <div class="servir">
                             <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
                             <h5>Serve 2 pessoas</h5>
+                        </div>
+                        <h1><span>R$</span>27,00</h1>
+                    </div>
+
+                    <div class="imagem-cardapio">
+                        <img src="../../assets/prato-feijoada-Zeca.png" alt="Foto do prato">
+                        <div class="menu-card">
+                            <!-- Seletor de quantidade -->
+                            <div class="seletor-quantidade">
+                                <button class="diminuir">-</button>
+                                <input value="1" min="1" max="99" readonly>
+                                <button class="aumentar">+</button>
+                            </div>
+                            <button class="botao-lixo">
+                                <img src="../../assets/Trash.png" alt="icone de lixo">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Aqui os alimentos do carrinho devem ser listados -->
+                <div class="card-cardapio">
+                    <div class="conteudo-cardapio">
+                        <h2>Nome do Prato 2</h2>
+                        <p>Descrição, descrição, descrição, descrição, descrição, descrição</p>
+                        <div class="servir">
+                            <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
+                            <h5>Serve 1 pessoa</h5>
                         </div>
                         <h1><span>R$</span>27,00</h1>
                     </div>
@@ -121,6 +151,15 @@
                 
             <div class="card-pagamento">
                 <h2>Revisão do <span>pagamento</span></h2>
+                <div class="lista-pedidos">
+                    <div class="item"><p>1x Feijoada</p> <p>R$ 27,00</p></div>
+                    <div class="item"><p>1x Contra Filé</p> <p>R$ 25,00</p></div>
+                    <div class="total">
+                        <p><b>Valor total</b></p>
+                        <h2>R$52,00</h2>
+                    </div>
+                    <button class="botao-azul">Continuar</button>
+                </div>
             </div>
             </div>
         </div>
