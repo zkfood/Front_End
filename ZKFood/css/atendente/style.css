@@ -1,0 +1,205 @@
+/* Tudo na página */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+/* Navbar superior */
+
+.header {
+    height: 180px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to left, #F7C242 0%, #FFB400 50%);
+}
+
+.container-header {
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imagens-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem-logo {
+    width: 104px;
+    height: 89px;
+}
+
+.imagem-seta {
+    height: 31px;
+    width: 45px;
+    position: relative;
+    right: 40px;
+}
+
+.org-nav-bar {
+    height: 178px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    width: 615px;
+    height: auto;
+    align-items: center;
+    list-style: none;
+    color: #393D46;
+    justify-content: space-evenly;
+}
+
+.navbar li a {
+    width: auto;
+    height: 100px;
+    color: #000000;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+}
+
+.sem-linha {
+    text-decoration: none;
+}
+
+.pagina-atual {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.perfil-teste {
+    height: 48px;
+    width: 48px;
+    background-color: #625d5d;
+    border-radius: 100%;
+}
+
+.form-inline img {
+    padding: 10px;
+    height: 30px;
+}
+
+.pesquisa-teste nav {
+    height: 100%;
+    width: 694px;
+    border-radius: 4px;
+    border: none;
+}
+
+.pesquisa-teste nav form {
+    height: 100%;
+    width: 694px;
+    border-radius: 4px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.pesquisa-teste nav form input {
+    height: 100%;
+    width: 694px;
+    border-radius: 4px; 
+    border: none;  
+    font-size: 16px;
+    flex: 1;
+    outline: none;
+}
+
+.pesquisa-teste nav form input:focus {
+    border: none;
+    box-shadow: none;
+}
+
+.pesquisa-teste {
+    height: 48px;
+    width: 694px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    border: none;
+    display: flex;
+}
+
+/* Cards */
+.banner-card {
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-card {
+    height: 90%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.titulo-cards {
+    width: 81%;
+    height: 45px;
+    font-size: 35px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+}
+
+.titulo-cards span {
+    color: #FFB90A;
+}
+
+.container-card a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.cards-funcionais {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.cards {
+    background-color: #ffffff;
+    height: 269px;
+    width: 288px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px #625d5d;
+    transition: 0.3s all;
+    transform: scale(1);
+}
+
+.cards:hover {
+    transition: 0.3s all;
+    transform: scale(1.05);
+}
+
+.cards img {
+    height: 100px;
+    width: 100px;
+}
+
+.texto-card {
+    font-size: 35px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+}
