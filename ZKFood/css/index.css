@@ -197,7 +197,7 @@ p {
 }
 
 .card {
-    background: linear-gradient(to bottom, #FFD87A 0%, #FBCD5E 50%, #FFB400 100%);
+    background: linear-gradient(to bottom, #FFB400 0%, #FBCD5E 50%, #FFD87A 100%);
     border-radius: 15px;
     padding: 20px;
     width: 16vw;
