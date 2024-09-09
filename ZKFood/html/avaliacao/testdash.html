@@ -20,48 +20,15 @@
                     Bem Vindo, <br>
                     <h2>Zeca Silva</h2>
                 </div>
-                <div class="container_txt_dashboard">
-                    Dashboards
-                </div>
+                <div class="container_txt_dashboard">Dashboards</div>
                 <div class="container_opcoes_dash">
                     <ul>
-                        <li>
-                            <img src="../../assets/jantar 1.png" alt="">
-                            <a href="../dashboard.html">Produtos</a>
-                            <div class="container_sub_opcoes_dash">
-                                <ul>
-                                    <li> > <span id="sub_opcao_selecionada"> <a href="dashboard.html"> Dashboard </a></span></li>
-                                    <li> > <a href="crud_produtos.html"> Análise de Produtos </a> </li>
-                                    <li> > <a href="cadastro_produtos.html"> Cadastrar Produtos </a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="../../assets/silhueta-de-multiplos-usuarios 1.png" alt="">
-                            <a href="#">Clientes</a>
-                        </li>
-                        <li>
-                            <img src="../../assets/cracha 1.png" alt="">
-                            <a href="#">Funcionários</a>
-                        </li>
-                        <li id="opcao_selecionada">
-                            <img src="../../assets/avaliacoes 1.png" alt="">
-                            <a href="dashboard.html">Avaliações</a>
-                            <div class="container_sub_opcoes_dash">
-                                <ul>
-                                    <li> > <span id="sub_opcao_selecionada"> <a href="dashboard.html"> Dashboard </a></span></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="../../assets/money-bag 1.png" alt="">
-                            <a href="#">Financeiro</a>
-                        </li>
+                        <li><img src="../../assets/jantar 1.png" alt=""><a href="../dashboard.html">Produtos</a></li>
+                        <li id="opcao_selecionada"> > <img src="../../assets/avaliacoes 1.png" alt=""> Avaliações</li>
                     </ul>
                 </div>
             </div>
         </div>
-
         <div class="container_graphics">
             <div class="container_word_cloud">
                 <div class="container_titulo_wc">
@@ -93,21 +60,44 @@
 
     <script src="/ZKFood/js/fetch.js"></script>
     <script>
-        const fetchBuilder = new FetchBuilder();
-        const ambiente = { local: "http://localhost:8080/" };
+        // json fake
+        async function fetchFakeData(endpoint) {
+            const mockData = {
+                "nuvem-palavras": [
+                    "delicioso", "ótimo", "bom", "excelente", "perfeito", "ruim", "horrível", "melhor", "pior", "fantástico"
+                ],
+                "quantidade-estrelas": [
+                    { "estrela": 1, "quantidade": 5 },
+                    { "estrela": 2, "quantidade": 3 },
+                    { "estrela": 3, "quantidade": 7 },
+                    { "estrela": 4, "quantidade": 12 },
+                    { "estrela": 5, "quantidade": 20 }
+                ],
+                "top4ou5estrelas": [
+                    { "prato": "Feijoada", "quantidade": 283 },
+                    { "prato": "Contra Filé", "quantidade": 198 },
+                    { "prato": "Lasanha", "quantidade": 142 },
+                    { "prato": "Frango Assado", "quantidade": 108 },
+                    { "prato": "Macarronada", "quantidade": 85 }
+                ],
+                "top1ou2estrelas": [
+                    { "prato": "Sarapatel", "quantidade": 8 },
+                    { "prato": "Salada", "quantidade": 5 },
+                    { "prato": "Nhoque", "quantidade": 1 }
+                ]
+            };
+            return mockData[endpoint];
+        }
 
         async function carregarDashboardAvaliacoes() {
             try {
-                const nuvemPalavras = await fetchBuilder.request(`${ambiente.local}avaliacoes/nuvem-palavras`);
+                const nuvemPalavras = await fetchFakeData('nuvem-palavras');
                 gerarWordCloud(nuvemPalavras);
-
-                const avaliacoesEstrelas = await fetchBuilder.request(`${ambiente.local}avaliacoes/quantidade-por-estrelas`);
+                const avaliacoesEstrelas = await fetchFakeData('quantidade-estrelas');
                 gerarGraficoAvaliacoesEstrelas(avaliacoesEstrelas);
-
-                const topPratos4ou5 = await fetchBuilder.request(`${ambiente.local}avaliacoes/top-pratos-com-4-ou-5-estrelas`);
+                const topPratos4ou5 = await fetchFakeData('top4ou5estrelas');
                 atualizarTopPratos(topPratos4ou5, "topProdutosCom4ou5");
-
-                const topPratos1ou2 = await fetchBuilder.request(`${ambiente.local}avaliacoes/top-pratos-com-1-ou-2-estrelas`);
+                const topPratos1ou2 = await fetchFakeData('top1ou2estrelas');
                 atualizarTopPratos(topPratos1ou2, "topProdutosCom1ou2");
 
             } catch (error) {
@@ -130,6 +120,7 @@
             });
         }
 
+        
         function gerarGraficoAvaliacoesEstrelas(dados) {
             const ctx2 = document.getElementById('ratingsChart').getContext('2d');
             new Chart(ctx2, {
@@ -147,9 +138,10 @@
             });
         }
 
+        // att
         function atualizarTopPratos(pratos, idTabela) {
             const tabela = document.getElementById(idTabela).querySelector('ul');
-            tabela.innerHTML = ""; // zera
+            tabela.innerHTML = ""; // esvazia
 
             pratos.forEach(prato => {
                 const li = document.createElement('li');
