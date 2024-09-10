@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-Vindo!</title>
+
+    <link rel="stylesheet" href="../../css/statusPedido.css">
+
+    <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar Superior -->
+    <div class="container_navbar">
+        <div class="parte_superior_navbar">
+            <div class="img_voltar"> <a href="home_pos_login.html"><img src="../../assets/de-volta.png"
+                        alt="Seta para voltar a página"></a></div>
+            <div class="img_logo"><img src="../../assets/logo.png" alt="Logo do ZKfood"></div>
+            <div class="container_pesquisa">
+                <div class="search-container">
+                    <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon">
+                    <input type="text" placeholder="Pesquise o que seu apetite deseja...">
+                    <button type="submit">Buscar</button>
+                </div>
+            </div>
+            <div class="container_favoritos_carrinho">
+                <div class="container_favoritos">
+                    <a href="favoritos.html"> <img src="../../assets/coracao.png"
+                            alt="Icone de coração para sinalizar favoritos"></a>
+                </div>
+                <div class="container_carrinho">
+                    <a href="carrinho.html"> <img src="../../assets/carrinho-carrinho.png"
+                            alt="Icone de carrinho de mercado para sinalizar itens na lista de compras"> </a>
+                </div>
+            </div>
+
+            <div class="profile_home">
+                <a href="perfil.html"></a>
+            </div>
+        </div>
+        <div class="parte_inferior_navbar">
+            <ul class="menu">
+                <li><a href="home_pos_login.html">Página Inicial</a></li>
+                <li><a href="cardapio.html">Cardápio</a></li>
+                <li><a href="statusPedido.html" class="tela_atual">
+                        <p>Seus Pedidos</p>
+                    </a></li>
+                <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Status do Pedido -->
+
+    <div class="banner-status">
+        <span class="titulo-status">STATUS DO <span>SEU PEDIDO</span></span>
+        <div class="container-status">
+            <div class="status-overview">
+                <div class="status-card">
+                    <img src="/ZKFood/assets/Check Mark.png" alt="Pedidos Solicitados">
+                    <img src="/ZKFood/assets/pedido-confirmado 1.png" alt="">
+                    <p>Pedido aceito</p>
+                </div>
+                <div class="status-card">
+                    <img src="/ZKFood/assets/2 Circled.png" alt="Pedidos Solicitados">
+                    <img src="/ZKFood/assets/saco-de-papel 1.png" alt="">
+                    <p>Pedido em preparo</p>
+                </div>
+                <div class="status-card">
+                    <img src="/ZKFood/assets/Circled 3.png" alt="Pedidos em Preparo">
+                    <img src="/ZKFood/assets/bicicleta-de-entrega 1.png" alt="">
+                    <p>Pedido a caminho</p>
+                </div>
+                <div class="status-card">
+                    <img src="/ZKFood/assets/Circled 4.png" alt="Pedidos em Entrega">
+                    <img src="/ZKFood/assets/Home.png" alt="">
+                    <p>Pedido entregue</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-cards">
+            <div class="card-endereco">
+                <div class="container-endereco">
+                    <div class="titulo-pai">
+                        <img src="/ZKFood/assets/Address.png" alt="">
+                        <span class="titulo-endereco">ENDEREÇO PARA <span>ENTREGA</span></span>
+                    </div>
+    
+                    <div class="conteudo-pai">
+                        <div class="endereco-conteudo">
+                            <div class="informacao-endereco">
+                                <span class="info-nome">Maria Paula Barbosa Da Silva</span>
+                                <span class="info-numero">1197112771</span>
+                                <span class="info-rua">Rua Ludovico Liparini 190</span>
+                                <span class="info-cep">Jardim Dona Sinhá São paulo São Paulo Brazil 03923-220 Endereço
+                                    Padrão</span>
+                            </div>
+                            <div class="botoes-endereco">
+                                <button class="botao-excluir">EXCLUIR ENDEREÇO</button>
+                                <button class="botao-editar">EDITAR ENDEREÇO</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-divisao">
+                <div class="card-divisaoFilho">
+                    <div class="card-item">
+                        <div class="card-cardapio">
+                            <div class="conteudo-cardapio">
+                                <h2>Nome do Prato</h2>
+                                <p>Descrição, descrição, descrição, descrição, descrição, descrição</p>
+                                <div class="servir">
+                                    <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
+                                    <h5>Serve 2 pessoas</h5>
+                                </div>
+                                <h1><span>R$</span>27,00</h1>
+                            </div>
+
+                            <div class="imagem-cardapio">
+                                <img src="../../assets/prato-feijoada-Zeca.png" alt="Foto do prato">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-item">
+                        <div class="card-cardapio">
+                            <div class="conteudo-cardapio">
+                                <h2>Nome do Prato</h2>
+                                <p>Descrição, descrição, descrição, descrição, descrição, descrição</p>
+                                <div class="servir">
+                                    <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
+                                    <h5>Serve 2 pessoas</h5>
+                                </div>
+                                <h1><span>R$</span>27,00</h1>
+                            </div>
+
+                            <div class="imagem-cardapio">
+                                <img src="../../assets/prato-feijoada-Zeca.png" alt="Foto do prato">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-valor">
+                    <div class="container-valor">
+                        <span class="valor-titulo">VALOR TOTAL</span>
+                        <div class="itens-lista">
+                            <div class="item-pedido">
+                                <span>Feijoada média</span> <span>R$ 27,00</span>
+                            </div>
+                            <div class="item-pedido">
+                                <span>Feijoada média</span> <span>R$ 27,00</span>
+                            </div>
+                            <div class="item-pedido">
+                                <span>Coca-Cola lata</span> <span>R$ 6,00</span>
+                            </div>
+                            <div class="item-pedido">
+                                <span>Taxa de entrega</span> <span>R$ 8,00</span>
+                            </div>
+                        </div>
+                        <div class="total-pai">
+                            <span><b>Total</b></span>
+                            <span class="valor-amarelo">R$ 68,00</span>
+                        </div>
+                        <div class="botao-valor">
+                            <button class="cancelar-pedido">CANCELAR PEDIDO</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <img src="../../assets/Vector-ondas-footer.png" alt="">
+        </div>
+        <div class="footer">
+            <div class="footer-paginas">
+                <div class="logo-footer">
+                    <img src="../../assets/logo-icon.png" alt="logo da empresa ZKfood">
+                </div>
+
+                <div class="bloco-footer">
+                    <a href="">Menu</a>
+                    <a href="">Contato</a>
+                </div>
+
+                <div class="bloco-footer">
+                    <a href="">Sobre</a>
+                    <a href="">Avaliações</a>
+                </div>
+
+                <div class="bloco-footer">
+                    <a href="">Cadastro</a>
+                    <a href="">Pratos</a>
+                </div>
+            </div>
+
+            <div class="linha"></div>
+
+            <div class="redes-sociais">
+                <a href=""><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
+                <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="Icone WhatsApp"></a>
+                <a href=""><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
+            </div>
+
+            <div class="informacoes">
+                <p><a href="">Termos e Condições</a></p>
+                <p> | </p>
+                <p><a href="">Política de Privacidade</a></p>
+                <p> | </p>
+                <p><a href="">Acessibilidade</a></p>
+                <p> | </p>
+                <p><a href="">Suporte</a></p>
+                <p> | </p>
+                <p>Developed by © VisionarySolutions, 2024. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
