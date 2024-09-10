@@ -1,0 +1,101 @@
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.banner-formulario {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.titulo-formulario {
+    height: 45px;
+    font-size: 50px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+}
+
+.titulo-formulario span {
+    color: #FFB90A;
+}
+
+.container-formulario {
+    display: flex;
+    justify-content: space-evenly;
+    height: 70vh;
+    width: 60%;
+}
+
+.botao-pedido {
+    height: 45px;
+    width: 501px;
+    font-size: 24px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    background-color: #68A5FF;
+    color: white; 
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px #625d5d;
+    transition: 0.3s all;
+    transform: scale(1);
+}
+
+.botao-pedido:hover {
+    transition: 0.3s all;
+    transform: scale(1.05);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 45%;
+}
+
+.form-group label {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group input:focus, .form-group select:focus {
+    border-color: #68A5FF;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(104, 165, 255, 0.5);
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+#formPedido {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+input#mesa {
+    width: 45%;
+}
+
+input[type="number"] {
+    width: 20%;
+}
+
+input#observacao {
+    width: 60%;
+}
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos - ZKFood</title>
+    <link rel="stylesheet" href="/ZKFood/css/atendente/style.css">
+    <link rel="stylesheet" href="/ZKFood/css/atendente/kanban.css">
+
+    <!-- Links Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar superior -->
+    <div class="header" id="header">
+        <div class="container-header">
+            <div class="imagens-header">
+                <a href="/ZKFood/html/atendente/pedidos.html">
+                    <img class="imagem-seta" src="/ZKFood/assets/atendente/Left.png" alt="Descrição da Imagem">
+                </a>
+                <img id="imagem" class="imagem-logo" src="/ZKFood/assets/atendente/imagem_2024-02-29_210941642-removebg-preview 5.png">
+            </div>
+            <div class="org-nav-bar">
+                <div class="pesquisa-teste">
+                    <nav class="navbar navbar-light bg-light">
+                        <form class="form-inline">
+                            <img src="/ZKFood/assets/atendente/Leading Icon.png">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Pesquise o que deseja..."
+                                aria-label="Pesquise o que deseja...">
+                        </form>
+                    </nav>
+                </div>
+                <ul class="navbar">
+                    <li class="paginas"><a href="/ZKFood/html/atendente/index.html" class="sem-linha">Página Inicial</a></li>
+                    <li class="paginas"><a href="/ZKFood/html/atendente/clientes.html" class="sem-linha">Clientes</a></li>
+                    <li class="paginas"><a href="/ZKFood/html/atendente/pedidos.html" class="pagina-atual">Pedidos</a></li>
+                </ul>
+            </div>
+            <div class="perfil-teste"></div>
+        </div>
+    </div>
+
+    <!-- Kanban -->
+    <div class="banner-kanban">
+        <div class="container">
+            <h1 class="title">GERENCIAR <span class="highlight">PEDIDOS</span></h1>
+
+            <div class="status-overview">
+                <div class="status-card">
+                    <img src="/ZKFood/assets/atendente/simbolo-de-interface-de-circulo-de-talheres-de-garfo-e-faca-para-restaurante.png"
+                        alt="Pedidos Solicitados">
+                    <p>Pedidos Solicitados</p>
+                    <div class="counter">2</div>
+                </div>
+                <div class="status-card">
+                    <img src="/ZKFood/assets/atendente/simbolo-de-interface-de-circulo-de-talheres-de-garfo-e-faca-para-restaurante (3).png"
+                        alt="Pedidos em Preparo">
+                    <p>Pedidos em Preparo</p>
+                    <div class="counter">1</div>
+                </div>
+                <div class="status-card">
+                    <img src="/ZKFood/assets/atendente/simbolo-de-interface-de-circulo-de-talheres-de-garfo-e-faca-para-restaurante (4).png"
+                        alt="Pedidos em Entrega">
+                    <p>Pedidos em Entrega</p>
+                    <div class="counter">2</div>
+                </div>
+            </div>
+
+            <div class="orders-section">
+                <div class="order-category">
+                    <h2>PEDIDOS <span class="orange">SOLICITADOS</span></h2>
+                    <div class="order-card">
+                        <p class="order-id">657</p>
+                        <span>
+                            <p>1x Feijoada Média</p>
+                            <p>1x Coca-Cola Lata 350ml</p>
+                            <p><strong>OBS:</strong> Sem gelo e com limão</p>
+                            <p><strong>Nº da Mesa:</strong> <input type="number" value="2"></p>
+                        </span>
+                        
+                        <span>
+                            <button class="cancel">Cancelar</button>
+                            <button class="accept">Aceitar</button>
+                        </span>
+                        
+                    </div>
+                </div>
+                <div class="order-category">
+                    <h2>PEDIDOS <span class="yellow">EM PREPARO</span></h2>
+                    <div class="order-card">
+                        <p class="order-id">656</p>
+                        <span>
+                            <p>1x Feijoada Média</p>
+                            <p><strong>OBS:</strong> Sem gelo e com limão</p>
+                            <p><strong>Nº da Mesa:</strong> <input type="number" value="2"></p>
+                        </span>
+                        
+                        <span>
+                            <button class="cancel">Cancelar</button>
+                            <button class="done">Feito</button>
+                        </span>
+
+                    </div>
+                </div>
+                <div class="order-category">
+                    <h2>PEDIDOS <span class="green">EM ENTREGA</span></h2>
+                    <div class="order-card">
+                        <p class="order-id">655</p>
+                        <span>
+                            <p>1x Feijoada Média</p>
+                            <p>1x Coca-Cola Lata 350ml</p>
+                            <p><strong>OBS:</strong> Sem gelo e com limão</p>
+                            <p><strong>Nº da Mesa:</strong> <input type="number" value="2"></p>
+                        </span>
+                        
+                        <span>
+                            <button class="cancel">Cancelar</button>
+                            <button class="deliver">Entregue</button>
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
