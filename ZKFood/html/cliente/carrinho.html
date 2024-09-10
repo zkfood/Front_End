@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho!</title>
+
+    <link rel="stylesheet" href="../../css/homePosLogin.css">
+    <link rel="stylesheet" href="../../css/favoritos.css">
+    <link rel="stylesheet" href="../../css/carrinho.css">
+
+    <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container_navbar">
+        <div class="parte_superior_navbar">
+            <div class="img_voltar"> <a href="home_pos_login.html"><img src="../../assets/de-volta.png"
+                        alt="Seta para voltar a página"></a></div>
+            <div class="img_logo"><img src="../../assets/logo.png" alt="Logo do ZKfood"></div>
+            <div class="container_pesquisa">
+                <div class="search-container">
+                    <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon">
+                    <input type="text" placeholder="Pesquise o que seu apetite deseja...">
+                    <button type="submit">Buscar</button>
+                </div>
+            </div>
+            <div class="container_favoritos_carrinho">
+                <div class="container_favoritos">
+                    <a href="favoritos.html"> <img src="../../assets/coracao.png"
+                            alt="Icone de coração para sinalizar favoritos"></a>
+                </div>
+                <div class="container_carrinho">
+                    <a href="carrinho.html"> <img src="../../assets/carrinho-carrinho-branco.png"
+                            alt="Icone de carrinho de mercado para sinalizar itens na lista de compras"> </a>
+                </div>
+            </div>
+
+            <div class="profile_home">
+                <a href="perfil.html"></a>
+            </div>
+        </div>
+        <div class="parte_inferior_navbar">
+            <ul class="menu">
+                <li><a href="home_pos_login.html">
+                        <p>Página Inicial</p>
+                    </a></li>
+                <li><a href="cardapio.html">Cardápio</a></li>
+                <li><a href="statusPedidos.html">Seus Pedidos</a></li>
+                <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container-favoritos">
+
+        <div class="container-titulo">
+            <h1>Meu <span>Carrinho</span></h1>
+            <h3>Itens (01)</h3>
+            <div class="linha titulo"></div>
+        </div>
+
+        <!-- iniciando cards carrinho -->
+
+        <div class="container">
+
+            <div class="lista">
+                <!-- Aqui os alimentos do carrinho devem ser listados -->
+                <div class="card-cardapio">
+                    <div class="conteudo-cardapio">
+                        <h2>Nome do Prato</h2>
+                        <p>Descrição, descrição, descrição, descrição, descrição, descrição</p>
+                        <div class="servir">
+                            <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
+                            <h5>Serve 2 pessoas</h5>
+                        </div>
+                        <h1><span>R$</span>27,00</h1>
+                    </div>
+
+                    <div class="imagem-cardapio">
+                        <img src="../../assets/prato-feijoada-Zeca.png" alt="Foto do prato">
+                        <div class="menu-card">
+                            <!-- Seletor de quantidade -->
+                            <div class="seletor-quantidade">
+                                <button class="diminuir">-</button>
+                                <input value="1" min="1" max="99" readonly>
+                                <button class="aumentar">+</button>
+                            </div>
+                            <button class="botao-lixo">
+                                <img src="../../assets/Trash.png" alt="icone de lixo">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Aqui os alimentos do carrinho devem ser listados -->
+                <div class="card-cardapio">
+                    <div class="conteudo-cardapio">
+                        <h2>Nome do Prato 2</h2>
+                        <p>Descrição, descrição, descrição, descrição, descrição, descrição</p>
+                        <div class="servir">
+                            <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
+                            <h5>Serve 1 pessoa</h5>
+                        </div>
+                        <h1><span>R$</span>27,00</h1>
+                    </div>
+
+                    <div class="imagem-cardapio">
+                        <img src="../../assets/prato-feijoada-Zeca.png" alt="Foto do prato">
+                        <div class="menu-card">
+                            <!-- Seletor de quantidade -->
+                            <div class="seletor-quantidade">
+                                <button class="diminuir">-</button>
+                                <input value="1" min="1" max="99" readonly>
+                                <button class="aumentar">+</button>
+                            </div>
+                            <button class="botao-lixo">
+                                <img src="../../assets/Trash.png" alt="icone de lixo">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="lista">
+                <div class="container-entrega">
+                    <h2>Forma de <span>Entrega</span></h2>
+                    <div class="card-entrega">
+                        <label class="custom-radio">
+                            <input type="radio" value="delivery" name="entrega">
+                            <span class="radio-mark"></span>
+                            Quero receber em casa
+                        </label>
+                        <label class="custom-radio">
+                            <input type="radio" value="retirar" name="entrega">
+                            <span class="radio-mark"></span>
+                            Quero retirar no local
+                        </label>
+                    </div>
+                </div>
+
+                
+            <div class="card-pagamento">
+                <h2>Revisão do <span>pagamento</span></h2>
+                <div class="lista-pedidos">
+                    <div class="item"><p>1x Feijoada</p> <p>R$ 27,00</p></div>
+                    <div class="item"><p>1x Contra Filé</p> <p>R$ 25,00</p></div>
+                    <div class="total">
+                        <p><b>Valor total</b></p>
+                        <h2>R$52,00</h2>
+                    </div>
+                    <button class="botao-azul">Continuar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+
+    <footer>
+        <div class="footer-top">
+            <img src="../../assets/Vector-ondas-footer.png" alt="">
+        </div>
+        <div class="footer">
+            <div class="footer-paginas">
+                <div class="logo-footer">
+                    <img src="../../assets/logo-icon.png" alt="logo da empresa ZKfood">
+                </div>
+
+                <div class="bloco-footer">
+                    <a href="">Menu</a>
+                    <a href="">Contato</a>
+                </div>
+
+                <div class="bloco-footer">
+                    <a href="">Sobre</a>
+                    <a href="">Avaliações</a>
+                </div>
+
+                <div class="bloco-footer">
+                    <a href="">Cadastro</a>
+                    <a href="">Pratos</a>
+                </div>
+            </div>
+
+            <div class="linha"></div>
+
+            <div class="redes-sociais">
+                <a href=""><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
+                <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="Icone WhatsApp"></a>
+                <a href=""><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
+            </div>
+
+            <div class="informacoes">
+                <p><a href="">Termos e Condições</a></p>
+                <p> | </p>
+                <p><a href="">Política de Privacidade</a></p>
+                <p> | </p>
+                <p><a href="">Acessibilidade</a></p>
+                <p> | </p>
+                <p><a href="">Suporte</a></p>
+                <p> | </p>
+                <p>Developed by © VisionarySolutions, 2024. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+<script>
+    document.querySelectorAll('.seletor-quantidade').forEach(seletor => {
+        const diminuir = seletor.querySelector('.diminuir');
+        const aumentar = seletor.querySelector('.aumentar');
+        const input = seletor.querySelector('input');
+
+        diminuir.addEventListener('click', () => {
+            let valorAtual = parseInt(input.value);
+            if (valorAtual > 1) {
+                input.value = valorAtual - 1;
+            }
+        });
+
+        aumentar.addEventListener('click', () => {
+            let valorAtual = parseInt(input.value);
+            if (valorAtual < 99) { // Definindo o máximo como 99
+                input.value = valorAtual + 1;
+            }
+        });
+    });
+
+</script>
