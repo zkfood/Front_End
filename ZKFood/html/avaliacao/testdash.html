@@ -1,22 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="../../css/dashboard.css">
     <link rel="stylesheet" href="../../css/dashboardAvaliações.css">
-
-    <!-- <script src="../js/dashboard.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-wordcloud"></script>
-
-    <title>Dashboard - Gráfico de Produtos</title>
+    <title>Dashboard - Avaliações</title>
 </head>
-
 <body>
     <div class="container_all">
         <div class="container_sep_info_dash">
@@ -28,36 +20,15 @@
                     Bem Vindo, <br>
                     <h2>Zeca Silva</h2>
                 </div>
-                <div class="container_txt_dashboard">
-                    Dashboards
-                </div>
+                <div class="container_txt_dashboard">Dashboards</div>
                 <div class="container_opcoes_dash">
                     <ul>
                         <li><img src="../../assets/jantar 1.png" alt=""><a href="../dashboard.html">Produtos</a></li>
-                        <div class="container_sub_opcoes_dash">
-                            <ul>
-                                <li> > <span id="sub_opcao_selecionada"> <a href="dashboard.html"> Dashboard </a></span>
-                                </li>
-                                <li> > <a href="crud_produtos.html"> Análise de Produtos </a> </li>
-                                <li> > <a href="cadastro_produtos.html"> Cadastrar Produtos </a></li>
-                            </ul>
-                        </div>
-                        <li> > <img src="../../assets/silhueta-de-multiplos-usuarios 1.png" alt=""> Clientes</li>
-                        <li> > <img src="../../assets/cracha 1.png" alt=""> Funcionários</li>
                         <li id="opcao_selecionada"> > <img src="../../assets/avaliacoes 1.png" alt=""> Avaliações</li>
-                        <div class="container_sub_opcoes_dash">
-                            <ul>
-                                <li> > <span id="sub_opcao_selecionada"> <a href="dashboard.html"> Dashboard </a></span>
-                                </li>
-                            </ul>
-                        </div>
-                        <li> > <img src="../../assets/money-bag 1.png" alt=""> Financeiro</li>
                     </ul>
                 </div>
             </div>
-
         </div>
-
         <div class="container_graphics">
             <div class="container_word_cloud">
                 <div class="container_titulo_wc">
@@ -87,61 +58,78 @@
         </div>
     </div>
 
-    <script src="../../js/fetch.js"></script>
+    <script src="/ZKFood/js/fetch.js"></script>
     <script>
-        const fetchBuilder = new FetchBuilder();
+        // json fake
+        async function fetchFakeData(endpoint) {
+            const mockData = {
+                "nuvem-palavras": [
+                    "delicioso", "ótimo", "bom", "excelente", "perfeito", "ruim", "horrível", "melhor", "pior", "fantástico"
+                ],
+                "quantidade-estrelas": [
+                    { "estrela": 1, "quantidade": 5 },
+                    { "estrela": 2, "quantidade": 3 },
+                    { "estrela": 3, "quantidade": 7 },
+                    { "estrela": 4, "quantidade": 12 },
+                    { "estrela": 5, "quantidade": 20 }
+                ],
+                "top4ou5estrelas": [
+                    { "prato": "Feijoada", "quantidade": 283 },
+                    { "prato": "Contra Filé", "quantidade": 198 },
+                    { "prato": "Lasanha", "quantidade": 142 },
+                    { "prato": "Frango Assado", "quantidade": 108 },
+                    { "prato": "Macarronada", "quantidade": 85 }
+                ],
+                "top1ou2estrelas": [
+                    { "prato": "Sarapatel", "quantidade": 8 },
+                    { "prato": "Salada", "quantidade": 5 },
+                    { "prato": "Nhoque", "quantidade": 1 }
+                ]
+            };
+            return mockData[endpoint];
+        }
 
         async function carregarDashboardAvaliacoes() {
             try {
-                const [
-                    nuvemPalavras,
-                    avaliacoesEstrelas,
-                    topPratos
-                ] = await Promise.all([
-                    fetchBuilder.request(`${ambiente.local}relatorios/avaliacoes/nuvem-de-palavras`),
-                    fetchBuilder.request(`${ambiente.local}relatorios/avaliacoes/avaliacoes-por-estrela`),
-                    fetchBuilder.request(`${ambiente.local}relatorios/avaliacoes/top-pratos`)
-                ])
-
+                const nuvemPalavras = await fetchFakeData('nuvem-palavras');
                 gerarWordCloud(nuvemPalavras);
-
+                const avaliacoesEstrelas = await fetchFakeData('quantidade-estrelas');
                 gerarGraficoAvaliacoesEstrelas(avaliacoesEstrelas);
+                const topPratos4ou5 = await fetchFakeData('top4ou5estrelas');
+                atualizarTopPratos(topPratos4ou5, "topProdutosCom4ou5");
+                const topPratos1ou2 = await fetchFakeData('top1ou2estrelas');
+                atualizarTopPratos(topPratos1ou2, "topProdutosCom1ou2");
 
-                atualizarTopPratos(topPratos.top4ou5, "topProdutosCom4ou5");
-                atualizarTopPratos(topPratos.top1ou2, "topProdutosCom1ou2");
             } catch (error) {
                 console.error("Erro ao carregar dashboard de avaliações:", error);
             }
         }
 
-        function gerarWordCloud(wordCloud) {
+        function gerarWordCloud(palavras) {
             const ctx1 = document.getElementById('wordCloudChart').getContext('2d');
-
-            // TODO: Retirar depois o multiplicador
-            const resultadosMultiplicadosParaMelhorVisualizacaoDasPalavrasRetirarDepois = wordCloud.quantidades.map(item => item * 5)
-
             new Chart(ctx1, {
                 type: 'wordCloud',
                 data: {
-                    labels: wordCloud.palavras,
+                    labels: palavras,
                     datasets: [{
                         label: 'Palavras mais usadas',
-                        data: resultadosMultiplicadosParaMelhorVisualizacaoDasPalavrasRetirarDepois,
+                        data: palavras.map(() => Math.random() * 100), //AI
                         color: ['#A52A2A', '#8B0000', '#FF4500', '#DAA520', '#FFD700', '#FF6347', '#FF8C00']
                     }]
-                },
+                }
             });
         }
 
+        
         function gerarGraficoAvaliacoesEstrelas(dados) {
             const ctx2 = document.getElementById('ratingsChart').getContext('2d');
             new Chart(ctx2, {
                 type: 'bar',
                 data: {
-                    labels: [1, 2, 3, 4, 5],
+                    labels: dados.map(d => d.estrela),
                     datasets: [{
                         label: 'Avaliações por Estrelas',
-                        data: dados,
+                        data: dados.map(d => d.quantidade),
                         backgroundColor: ['rgba(155, 89, 182, 0.2)', 'rgba(230, 126, 34, 0.2)', 'rgba(52, 152, 219, 0.2)', 'rgba(46, 204, 113, 0.2)', 'rgba(241, 196, 15, 0.2)'],
                         borderColor: ['rgba(155, 89, 182, 1)', 'rgba(230, 126, 34, 1)', 'rgba(52, 152, 219, 1)', 'rgba(46, 204, 113, 1)', 'rgba(241, 196, 15, 1)'],
                         borderWidth: 1
@@ -150,9 +138,10 @@
             });
         }
 
+        // att
         function atualizarTopPratos(pratos, idTabela) {
             const tabela = document.getElementById(idTabela).querySelector('ul');
-            tabela.innerHTML = ""; // zera
+            tabela.innerHTML = ""; // esvazia
 
             pratos.forEach(prato => {
                 const li = document.createElement('li');
@@ -165,5 +154,4 @@
         window.onload = carregarDashboardAvaliacoes;
     </script>
 </body>
-
 </html>
