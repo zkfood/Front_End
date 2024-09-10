@@ -19,8 +19,7 @@
 <body>
     <div class="container_navbar">
         <div class="parte_superior_navbar">
-            <div class="img_voltar"> <a href="home_pos_login.html"><img src="../../assets/de-volta.png"
-                        alt="Seta para voltar a página"></a></div>
+            <div class="img_voltar"> <a href="javascript:history.back()"><img src="../../assets/de-volta.png" alt="Seta para voltar a página"></a></div>
             <div class="img_logo"><img src="../../assets/logo.png" alt="Logo do ZKfood"></div>
             <div class="container_pesquisa">
                 <div class="search-container">
@@ -50,7 +49,7 @@
                         <p>Página Inicial</p>
                     </a></li>
                 <li><a href="cardapio.html">Cardápio</a></li>
-                <li><a href="pedidos.html">Seus Pedidos</a></li>
+                <li><a href="seusPedidos.html">Seus Pedidos</a></li>
                 <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
             </ul>
         </div>
@@ -86,7 +85,7 @@
         </div>
         <div class="container-botao-saiba-mais">
             <div class="botao-saiba-mais">
-                <button> + SAIBA MAIS</button>
+                <a href="./cardapio.html" style="width: 12%; height: 70%;"><button> + SAIBA MAIS</button></a>
             </div>
         </div>
 
@@ -101,7 +100,7 @@
         <div class="conteudo-pedidos">
             <h1>Deseja ver <br> seus<span class="span-amarelo">pedidos?</span></h1>
             <p>Acesse seu carrinho virtual, faça o pedido e visualize <br> o processo de preparo aqui. Bom apetite!</p>
-            <button class="botao-acessar">Acessar</button>
+            <a href="./seusPedidos.html"><button class="botao-acessar">Acessar</button></a>
         </div>
     </div>
 
@@ -110,7 +109,7 @@
         <div class="conteudo-endereco">
             <h1>Cadastre seu<br><span class="span-amarelo">endereço</span></h1>
             <p>Cadastre seu endereço, faça um pedido e desfrute <br> seu prato preferido sem sair de casa!</p>
-            <button class="botao-acessar">Cadastrar</button>
+            <a href="./cadastro_endereco.html"><button class="botao-cad">Cadastrar</button></a>
         </div>
         <div class="container-mapa">
             <div class="mapa-cadastro-endereco">
