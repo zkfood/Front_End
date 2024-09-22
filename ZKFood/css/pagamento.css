@@ -1,0 +1,86 @@
+.container-titulo {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-pagamento {
+    width: 80%;
+    height: 60vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-texto,
+.card-qrCode {
+    width: 45%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.card-texto h1, .card-erro h1{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    color: #000000;
+}
+
+.card-texto span{
+    margin-left: 2%;
+}
+
+.card-texto p{
+    width: 85%;
+}
+
+.botao-azul{
+    width: 30%;
+    margin-top: 2%;
+}
+
+.card-qrCode{
+    align-items: center;
+    border: 1px solid #818181;
+    border-radius: 20px;
+}
+
+/* Tela de erro no js */
+
+.container-erro {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+}
+
+.card-erro{
+    width: 80%;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.card-erro span{
+    margin-left: 1%;
+    color: red;
+}
+
+.card-erro p{
+    width: 85%;
+}

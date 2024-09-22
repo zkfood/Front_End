@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem-Vindo!</title>
+    <title>Carrinho!</title>
 
     <link rel="stylesheet" href="../../css/homePosLogin.css">
+    <link rel="stylesheet" href="../../css/carrinho.css">
+    <link rel="stylesheet" href="../../css/pagamento.css">
+
 
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
@@ -19,7 +22,8 @@
 <body>
     <div class="container_navbar">
         <div class="parte_superior_navbar">
-            <div class="img_voltar"> <a href="javascript:history.back()"><img src="../../assets/de-volta.png" alt="Seta para voltar a página"></a></div>
+            <div class="img_voltar"> <a href="javascript:history.back()"><img src="../../assets/de-volta.png"
+                        alt="Seta para voltar a página"></a></div>
             <div class="img_logo"><img src="../../assets/logo.png" alt="Logo do ZKfood"></div>
             <div class="container_pesquisa">
                 <div class="search-container">
@@ -34,7 +38,7 @@
                             alt="Icone de coração para sinalizar favoritos"></a>
                 </div>
                 <div class="container_carrinho">
-                    <a href="carrinho.html"> <img src="../../assets/carrinho-carrinho.png"
+                    <a href="carrinho.html"> <img src="../../assets/carrinho-carrinho-branco.png"
                             alt="Icone de carrinho de mercado para sinalizar itens na lista de compras"> </a>
                 </div>
             </div>
@@ -45,7 +49,7 @@
         </div>
         <div class="parte_inferior_navbar">
             <ul class="menu">
-                <li><a href="home_pos_login.html" class="tela_atual">
+                <li><a href="home_pos_login.html">
                         <p>Página Inicial</p>
                     </a></li>
                 <li><a href="cardapio.html">Cardápio</a></li>
@@ -55,67 +59,28 @@
         </div>
     </div>
 
-    <!-- Carrossel com banner de comida -->
-    <div class="container_carrossel">
-        <div class="carrossel">
-            <img src="../../assets/v2 1.png" alt="Banner com prato de comida, valor e dados do restaurante.">
+    <div class="container-titulo">
+        <div class="caminho">
+            <p>Carrinho >
+                <b>Pagamento ></b>
+                Status do Pedido
+            </p>
         </div>
     </div>
-
-    <!-- Iniciando cardapio -->
-
-    <div class="container-cardapio">
-        <div class="sessao-cardapio">
-            <div class="frase-cardapio">
-                ACESSE NOSSO <span class="span-amarelo">CARDÁPIO</span>
-            </div>
-        
-        <div class="container-imagens">
-            <div class="imagem-esquerda">
-                <img src="../../assets/prato-feijoada-Zeca.png" alt="Prato de feijoada e acompanhamentos no Bar e Restaurante do Zeca">
-            </div>
-            <div class="imagens-direita">
-                <div class="imagem-direita-cima">
-                    <img src="../../assets/prato-cardapio2.png" alt="Prato demonstrativo">
-                </div>
-                <div class="imagem-direita-baixo">
-                    <img src="../../assets/prato-cardapio.png" alt="Prato demonstrativo">
-                </div>
-            </div>
-        </div>
-        <div class="container-botao-saiba-mais">
-            <div class="botao-saiba-mais">
-                <a href="./cardapio.html" style="width: 12%; height: 70%;"><button> + SAIBA MAIS</button></a>
-            </div>
-        </div>
-
-        </div>
-    </div>
+    <div class="container">
+        <div class="container-pagamento">
     
-    <!-- Ver pedidos -->
-    <div class="container-pedidos">
-        <div class="salada-pedidos">
-            <img src="../../assets/salada-voando.png" alt="bacia de salada com saladas voando">
-        </div>
-        <div class="conteudo-pedidos">
-            <h1>Deseja ver <br> seus<span class="span-amarelo">pedidos?</span></h1>
-            <p>Acesse seu carrinho virtual, faça o pedido e visualize <br> o processo de preparo aqui. Bom apetite!</p>
-            <a href="./statusPedido.html"><button class="botao-acessar">Acessar</button></a>
-        </div>
-    </div>
-
-    <!-- Cadastrar endereço -->
-    <div class="container-endereco">
-        <div class="conteudo-endereco">
-            <h1>Cadastre seu<br><span class="span-amarelo">endereço</span></h1>
-            <p>Cadastre seu endereço, faça um pedido e desfrute <br> seu prato preferido sem sair de casa!</p>
-            <a href="./cadastro_endereco.html"><button class="botao-cad">Cadastrar</button></a>
-        </div>
-        <div class="container-mapa">
-            <div class="mapa-cadastro-endereco">
-                <div class="mapBox">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d836.1047227613403!2d-46.41255771203918!3d-23.5744040849304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1spt-BR!2sbr!4v1724299459487!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+            <div class="card-texto">
+                <h1>Falta só mais <span> um pouco</span></h1>
+                <p>Você tem 15 minutos para realizar sua compra.</p>
+                <p>Escaneie o QRCODE na tela ou copie o código para fazer o pagamento de <b>PIX</b> no valor de <b>R$57,00</b> </p>
+                <a class="botao-azul" href="./statusPedido.html">Já paguei</a>
+            </div>
+    
+            <div class="card-qrCode">
+                <!-- Inserir aqui a foto do qrcode -->
+                <img src="" alt="foto do qrcode"> 
+                <a href="statusPedido.html" onclick="copiarCodigoPix()" id="codigoPix">Clique aqui para copiar a chave PIX</a>
             </div>
         </div>
     </div>
@@ -170,5 +135,38 @@
         </div>
     </footer>
 </body>
-
 </html>
+    
+
+    <script>
+
+        function copiarCodigoPix() {
+            // Inserir aqui o código PIX
+            var codigoPix = "100000ZKFOOD";
+    
+            // Cria um campo de input temporário para copiar o texto
+            var inputTemporario = document.createElement("input");
+            inputTemporario.value = codigoPix;
+            document.body.appendChild(inputTemporario);
+
+            inputTemporario.select();
+            document.execCommand("copy");
+    
+
+            // Alerta que o código foi copiado
+            alert("Código Pix copiado para a área de transferência!");
+        }
+    </script>
+    
+
+    <!-- Código para quando ocorrer erro na tela -->
+    <!-- <div class="container-erro">
+        <div class="container-pagamento">
+            <div class="card-erro">
+                <h1>Seu pagamento <span> não foi processado</span></h1>
+                <p>Oops, tivemos um problema com o seu pagamento. Tente novamente.</p>
+                <a class="botao-azul" href="./statusPedido.html">Gerar QRCODE</a>
+            </div>
+
+        </div>
+    </div> -->
