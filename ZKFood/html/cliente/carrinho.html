@@ -60,6 +60,14 @@
 
     <div class="container-favoritos">
 
+        <div class="caminho">
+            <p><b>Carrinho ></b>
+            Continuar Compra >
+            Pagar >
+            Pedido Completo
+            </p>
+        </div>
+        
         <div class="container-titulo">
             <h1>Meu <span>Carrinho</span></h1>
             <h3>Itens (01)</h3>
@@ -148,17 +156,34 @@
                     </div>
                 </div>
 
+                    <div class="container-entrega">
+                        <h2>Forma de <span>Pagamento</span></h2>
+                        <div class="card-entrega">
+                            <label class="custom-radio">
+                                <input type="radio" value="delivery" name="pagamento">
+                                <span class="radio-mark"></span>
+                                Pagar ao receber
+                            </label>
+                            <label class="custom-radio">
+                                <input type="radio" value="retirar" name="pagamento">
+                                <span class="radio-mark"></span>
+                                Pagar agora com PIX
+                            </label>
+                        </div>
+                    </div>
+
                 
             <div class="card-pagamento">
                 <h2>Revisão do <span>pagamento</span></h2>
                 <div class="lista-pedidos">
                     <div class="item"><p>1x Feijoada</p> <p>R$ 27,00</p></div>
                     <div class="item"><p>1x Contra Filé</p> <p>R$ 25,00</p></div>
+                    <div class="item"><p>Taxa de entrega</p> <p>R$ 5,00</p></div>
                     <div class="total">
                         <p><b>Valor total</b></p>
-                        <h2>R$52,00</h2>
+                        <h2>R$57,00</h2>
                     </div>
-                    <button class="botao-azul">Continuar</button>
+                    <a class="botao-azul" href="./confirmarPagamento.html">Continuar</a>
                 </div>
             </div>
             </div>

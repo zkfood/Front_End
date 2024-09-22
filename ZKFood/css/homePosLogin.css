@@ -583,3 +583,26 @@ footer {
     font-size: 15px;
     color: #4B4B4B;
 }
+
+/* Caminho no processo de pagamento */
+.caminho{
+    width: 50%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    text-align: center; 
+}
+
+.caminho p{
+    width: 100%;
+    color: #a3a3a3;
+    font-size: 18px;
+    font-weight: 200;
+    width: 100%; 
+    margin: 0;
+}
+
+.caminho b{
+    color: #181818;
+}

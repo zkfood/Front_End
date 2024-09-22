@@ -270,4 +270,9 @@ span{
     font-family: "Bebas Neue", sans-serif;
     cursor: pointer;
     margin-top: 5%;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
