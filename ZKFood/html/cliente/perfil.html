@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho!</title>
+
+    <link rel="stylesheet" href="../../css/homePosLogin.css">
+    <link rel="stylesheet" href="../../css/perfil.css">
+
+    <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container_navbar">
+        <div class="parte_superior_navbar">
+            <div class="img_voltar"> <a href="javascript:history.back()"><img src="../../assets/de-volta.png"
+                        alt="Seta para voltar a página"></a></div>
+            <div class="img_logo"><img src="../../assets/logo.png" alt="Logo do ZKfood"></div>
+            <div class="container_pesquisa">
+                <div class="search-container">
+                    <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon">
+                    <input type="text" placeholder="Pesquise o que seu apetite deseja...">
+                    <button type="submit">Buscar</button>
+                </div>
+            </div>
+            <div class="container_favoritos_carrinho">
+                <div class="container_favoritos">
+                    <a href="favoritos.html"> <img src="../../assets/coracao.png"
+                            alt="Icone de coração para sinalizar favoritos"></a>
+                </div>
+                <div class="container_carrinho">
+                    <a href="carrinho.html"> <img src="../../assets/carrinho-carrinho.png"
+                            alt="Icone de carrinho de mercado para sinalizar itens na lista de compras"> </a>
+                </div>
+            </div>
+
+            <div class="profile_home">
+                <a href="perfil.html"></a>
+            </div>
+        </div>
+        <div class="parte_inferior_navbar">
+            <ul class="menu">
+                <li><a href="home_pos_login.html">
+                        <p>Página Inicial</p>
+                    </a></li>
+                <li><a href="cardapio.html">Cardápio</a></li>
+                <li><a href="statusPedido.html">Seus Pedidos</a></li>
+                <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="listra-amarela"></div>
+
+        <div class="card-perfil">
+            <img src="../../assets/user.png" alt="">
+            <h1>Maria Karolyna</h1>
+
+            <div class="container-usuario">
+                <div class="info-usuario">
+                    <p id="nome">Nome:</p>
+                    <p>Maria Karolyna</p>
+                    <br>
+                    <p id="telefone">Telefone:</p>
+                    <p>(11) 99999-9999</p>
+                </div>
+
+                <div class="info-usuario">
+                    <p id="cpf">CPF:</p>
+                    <p>08400000</p>
+                    <br>
+                    <p id="senha">Senha:</p>
+                    <p>*********</p>
+                </div>
+
+                <div class="info-usuario">
+                    <p id="email">Email:</p>
+                    <p>maria@email.com</p>
+                </div>
+            </div>
+            <button class="botao-azul" onclick="editarInformacoes()">Editar</button>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+
+    <footer>
+        <div class="footer-top">
+            <img src="../../assets/Vector-ondas-footer.png" alt="">
+        </div>
+        <div class="footer">
+            <div class="footer-paginas">
+                <div class="logo-footer">
+                    <img src="../../assets/logo-icon.png" alt="logo da empresa ZKfood">
+                </div>
+
+                <div class="bloco-footer">
+                    <a href="">Menu</a>
+                    <a href="">Contato</a>
+                </div>
+
+                <div class="bloco-footer">
+                    <a href="">Sobre</a>
+                    <a href="">Avaliações</a>
+                </div>
+
+                <div class="bloco-footer">
+                    <a href="">Cadastro</a>
+                    <a href="">Pratos</a>
+                </div>
+            </div>
+
+            <div class="linha"></div>
+
+            <div class="redes-sociais">
+                <a href=""><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
+                <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="Icone WhatsApp"></a>
+                <a href=""><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
+            </div>
+
+            <div class="informacoes">
+                <p><a href="">Termos e Condições</a></p>
+                <p> | </p>
+                <p><a href="">Política de Privacidade</a></p>
+                <p> | </p>
+                <p><a href="">Acessibilidade</a></p>
+                <p> | </p>
+                <p><a href="">Suporte</a></p>
+                <p> | </p>
+                <p>Developed by © VisionarySolutions, 2024. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+<script>
+let editando = false;
+
+function editarInformacoes() {
+    const usuario = document.querySelector('.container-usuario');
+
+    if (!editando) {
+        // Captura os valores atuais
+        const nome = document.getElementById('nome').nextElementSibling.innerText;
+        const telefone = document.getElementById('telefone').nextElementSibling.innerText;
+        const cpf = document.getElementById('cpf').nextElementSibling.innerText;
+        const senha = document.getElementById('senha').nextElementSibling.innerText;
+        const email = document.getElementById('email').nextElementSibling.innerText;
+
+        // Atualiza o HTML com os inputs
+        usuario.innerHTML = `
+            <div class="info-usuario">
+                <p id="nome">Nome:</p>
+                <input type="text" id="inputNome" value="${nome}">
+                <br>
+                <p id="telefone">Telefone:</p>
+                <input type="tel" id="inputTelefone" value="${telefone}">
+            </div>
+            <div class="info-usuario">
+                <p id="cpf">CPF:</p>
+                <input type="text" id="inputCpf" value="${cpf}">
+                <br>
+                <p id="senha">Senha:</p>
+                <input type="password" id="inputSenha" value="${senha}">
+            </div>
+            <div class="info-usuario">
+                <p id="email">Email:</p>
+                <input type="email" id="inputEmail" value="${email}">
+            </div>
+        `;
+        document.querySelector('.botao-azul').innerText = 'Salvar';
+        editando = true;
+    } else {
+        // Captura os novos valores dos inputs
+        const nome = document.getElementById('inputNome').value;
+        const telefone = document.getElementById('inputTelefone').value;
+        const cpf = document.getElementById('inputCpf').value;
+        const senha = document.getElementById('inputSenha').value;
+        const email = document.getElementById('inputEmail').value;
+
+        // Atualiza o HTML de volta com os textos
+        usuario.innerHTML = `
+            <div class="info-usuario">
+                <p id="nome">Nome:</p>
+                <p>${nome}</p>
+                <br>
+                <p id="telefone">Telefone:</p>
+                <p>${telefone}</p>
+            </div>
+            <div class="info-usuario">
+                <p id="cpf">CPF:</p>
+                <p>${cpf}</p>
+                <br>
+                <p id="senha">Senha:</p>
+                <p>${senha}</p>
+            </div>
+            <div class="info-usuario">
+                <p id="email">Email:</p>
+                <p>${email}</p>
+            </div>
+        `;
+        document.querySelector('.botao-azul').innerText = 'Editar';
+        editando = false;
+    }
+}
+
+</script>
