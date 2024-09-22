@@ -116,6 +116,10 @@
     object-fit: contain; /* Garante que a imagem se encaixe corretamente dentro do botão */
 }
 
+.botao-lixo:hover {
+    background-color: red;
+}
+
 .seletor-quantidade {
     display: flex;
     align-items: center;
@@ -270,4 +274,13 @@ span{
     font-family: "Bebas Neue", sans-serif;
     cursor: pointer;
     margin-top: 5%;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-azul:hover{
+    background-color: #002865;
 }

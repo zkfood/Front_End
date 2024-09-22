@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favoritos!</title>
+    <title>Carrinho!</title>
 
     <link rel="stylesheet" href="../../css/homePosLogin.css">
-    <link rel="stylesheet" href="../../css/favoritos.css">
+    <link rel="stylesheet" href="../../css/carrinho.css">
+    <link rel="stylesheet" href="../../css/pagamento.css">
+
 
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
@@ -32,11 +34,11 @@
             </div>
             <div class="container_favoritos_carrinho">
                 <div class="container_favoritos">
-                    <a href="favoritos.html"> <img src="../../assets/coracao-branco.png"
+                    <a href="favoritos.html"> <img src="../../assets/coracao.png"
                             alt="Icone de coração para sinalizar favoritos"></a>
                 </div>
                 <div class="container_carrinho">
-                    <a href="carrinho.html"> <img src="../../assets/carrinho-carrinho.png"
+                    <a href="carrinho.html"> <img src="../../assets/carrinho-carrinho-branco.png"
                             alt="Icone de carrinho de mercado para sinalizar itens na lista de compras"> </a>
                 </div>
             </div>
@@ -57,42 +59,35 @@
         </div>
     </div>
 
-    <div class="container-favoritos">
-
-        <div class="container-titulo">
-            <h1>Meus <span>Favoritos</span></h1>
-            <h3>Itens (01)</h3>
-            <div class="linha titulo"></div>
+    <div class="container-titulo">
+        <div class="caminho">
+            <p>Carrinho >
+                <b>Pagamento ></b>
+                Status do Pedido
+            </p>
         </div>
-
-        <div class="container-cards">
-
-
-
-            <!-- Cards que o back deve alterar -->
-
-            <div class="card">
-                <img class="img-prato" src="../../assets/prato-feijoada-Zeca.png" alt="foto do prato.">
-                <h1>Nome do Prato</h1>
-                <p>descrição, descrição, descrição, descrição, descrição, descrição, descrição</p>
-                <div class="card-menu">
-                    <h2><span>R$</span> 27,00</h2>
-                    <div class="card-botoes">
-                        <button class="botao-carrinho"><img src="../../assets/carrinho-carrinho-branco.png" style="margin-right: 3px;"
-                                alt="icone de carrinho de compras"></button>
-                        <button class="botao-lixo"><img src="../../assets/Trash.png" alt="icone de lixo"></button>
-                    </div>
-                </div>
+    </div>
+    <div class="container">
+        <div class="container-pagamento">
+    
+            <div class="card-texto">
+                <h1>Falta só mais <span> um pouco</span></h1>
+                <p>Você tem 15 minutos para realizar sua compra.</p>
+                <p>Escaneie o QRCODE na tela ou copie o código para fazer o pagamento de <b>PIX</b> no valor de <b>R$57,00</b> </p>
+                <a class="botao-azul" href="./statusPedido.html">Já paguei</a>
             </div>
-
-
-
+    
+            <div class="card-qrCode">
+                <!-- Inserir aqui a foto do qrcode -->
+                <img src="" alt="foto do qrcode"> 
+                <a href="statusPedido.html" onclick="copiarCodigoPix()" id="codigoPix">Clique aqui para copiar a chave PIX</a>
+            </div>
         </div>
     </div>
 
-     <!-- Footer -->
+    <!-- Footer -->
 
-     <footer>
+    <footer>
         <div class="footer-top">
             <img src="../../assets/Vector-ondas-footer.png" alt="">
         </div>
@@ -140,5 +135,38 @@
         </div>
     </footer>
 </body>
-
 </html>
+    
+
+    <script>
+
+        function copiarCodigoPix() {
+            // Inserir aqui o código PIX
+            var codigoPix = "100000ZKFOOD";
+    
+            // Cria um campo de input temporário para copiar o texto
+            var inputTemporario = document.createElement("input");
+            inputTemporario.value = codigoPix;
+            document.body.appendChild(inputTemporario);
+
+            inputTemporario.select();
+            document.execCommand("copy");
+    
+
+            // Alerta que o código foi copiado
+            alert("Código Pix copiado para a área de transferência!");
+        }
+    </script>
+    
+
+    <!-- Código para quando ocorrer erro na tela -->
+    <!-- <div class="container-erro">
+        <div class="container-pagamento">
+            <div class="card-erro">
+                <h1>Seu pagamento <span> não foi processado</span></h1>
+                <p>Oops, tivemos um problema com o seu pagamento. Tente novamente.</p>
+                <a class="botao-azul" href="./statusPedido.html">Gerar QRCODE</a>
+            </div>
+
+        </div>
+    </div> -->

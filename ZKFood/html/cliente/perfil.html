@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favoritos!</title>
+    <title>Carrinho!</title>
 
     <link rel="stylesheet" href="../../css/homePosLogin.css">
-    <link rel="stylesheet" href="../../css/favoritos.css">
+    <link rel="stylesheet" href="../../css/perfil.css">
 
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
@@ -32,7 +32,7 @@
             </div>
             <div class="container_favoritos_carrinho">
                 <div class="container_favoritos">
-                    <a href="favoritos.html"> <img src="../../assets/coracao-branco.png"
+                    <a href="favoritos.html"> <img src="../../assets/coracao.png"
                             alt="Icone de coração para sinalizar favoritos"></a>
                 </div>
                 <div class="container_carrinho">
@@ -57,42 +57,43 @@
         </div>
     </div>
 
-    <div class="container-favoritos">
+    <div class="container">
+        <div class="listra-amarela"></div>
 
-        <div class="container-titulo">
-            <h1>Meus <span>Favoritos</span></h1>
-            <h3>Itens (01)</h3>
-            <div class="linha titulo"></div>
-        </div>
+        <div class="card-perfil">
+            <img src="../../assets/user.png" alt="">
+            <h1>Maria Karolyna</h1>
 
-        <div class="container-cards">
+            <div class="container-usuario">
+                <div class="info-usuario">
+                    <p id="nome">Nome:</p>
+                    <p>Maria Karolyna</p>
+                    <br>
+                    <p id="telefone">Telefone:</p>
+                    <p>(11) 99999-9999</p>
+                </div>
 
+                <div class="info-usuario">
+                    <p id="cpf">CPF:</p>
+                    <p>08400000</p>
+                    <br>
+                    <p id="senha">Senha:</p>
+                    <p>*********</p>
+                </div>
 
-
-            <!-- Cards que o back deve alterar -->
-
-            <div class="card">
-                <img class="img-prato" src="../../assets/prato-feijoada-Zeca.png" alt="foto do prato.">
-                <h1>Nome do Prato</h1>
-                <p>descrição, descrição, descrição, descrição, descrição, descrição, descrição</p>
-                <div class="card-menu">
-                    <h2><span>R$</span> 27,00</h2>
-                    <div class="card-botoes">
-                        <button class="botao-carrinho"><img src="../../assets/carrinho-carrinho-branco.png" style="margin-right: 3px;"
-                                alt="icone de carrinho de compras"></button>
-                        <button class="botao-lixo"><img src="../../assets/Trash.png" alt="icone de lixo"></button>
-                    </div>
+                <div class="info-usuario">
+                    <p id="email">Email:</p>
+                    <p>maria@email.com</p>
                 </div>
             </div>
-
-
-
+            <button class="botao-azul" onclick="editarInformacoes()">Editar</button>
         </div>
+
     </div>
 
-     <!-- Footer -->
+    <!-- Footer -->
 
-     <footer>
+    <footer>
         <div class="footer-top">
             <img src="../../assets/Vector-ondas-footer.png" alt="">
         </div>
@@ -142,3 +143,76 @@
 </body>
 
 </html>
+
+<script>
+let editando = false;
+
+function editarInformacoes() {
+    const usuario = document.querySelector('.container-usuario');
+
+    if (!editando) {
+        // Captura os valores atuais
+        const nome = document.getElementById('nome').nextElementSibling.innerText;
+        const telefone = document.getElementById('telefone').nextElementSibling.innerText;
+        const cpf = document.getElementById('cpf').nextElementSibling.innerText;
+        const senha = document.getElementById('senha').nextElementSibling.innerText;
+        const email = document.getElementById('email').nextElementSibling.innerText;
+
+        // Atualiza o HTML com os inputs
+        usuario.innerHTML = `
+            <div class="info-usuario">
+                <p id="nome">Nome:</p>
+                <input type="text" id="inputNome" value="${nome}">
+                <br>
+                <p id="telefone">Telefone:</p>
+                <input type="tel" id="inputTelefone" value="${telefone}">
+            </div>
+            <div class="info-usuario">
+                <p id="cpf">CPF:</p>
+                <input type="text" id="inputCpf" value="${cpf}">
+                <br>
+                <p id="senha">Senha:</p>
+                <input type="password" id="inputSenha" value="${senha}">
+            </div>
+            <div class="info-usuario">
+                <p id="email">Email:</p>
+                <input type="email" id="inputEmail" value="${email}">
+            </div>
+        `;
+        document.querySelector('.botao-azul').innerText = 'Salvar';
+        editando = true;
+    } else {
+        // Captura os novos valores dos inputs
+        const nome = document.getElementById('inputNome').value;
+        const telefone = document.getElementById('inputTelefone').value;
+        const cpf = document.getElementById('inputCpf').value;
+        const senha = document.getElementById('inputSenha').value;
+        const email = document.getElementById('inputEmail').value;
+
+        // Atualiza o HTML de volta com os textos
+        usuario.innerHTML = `
+            <div class="info-usuario">
+                <p id="nome">Nome:</p>
+                <p>${nome}</p>
+                <br>
+                <p id="telefone">Telefone:</p>
+                <p>${telefone}</p>
+            </div>
+            <div class="info-usuario">
+                <p id="cpf">CPF:</p>
+                <p>${cpf}</p>
+                <br>
+                <p id="senha">Senha:</p>
+                <p>${senha}</p>
+            </div>
+            <div class="info-usuario">
+                <p id="email">Email:</p>
+                <p>${email}</p>
+            </div>
+        `;
+        document.querySelector('.botao-azul').innerText = 'Editar';
+        editando = false;
+    }
+}
+
+</script>

@@ -21,7 +21,7 @@
 <body>
     <div class="container_navbar">
         <div class="parte_superior_navbar">
-            <div class="img_voltar"> <a href="home_pos_login.html"><img src="../../assets/de-volta.png"
+            <div class="img_voltar"> <a href="javascript:history.back()"><img src="../../assets/de-volta.png"
                         alt="Seta para voltar a página"></a></div>
             <div class="img_logo"><img src="../../assets/logo.png" alt="Logo do ZKfood"></div>
             <div class="container_pesquisa">
@@ -52,7 +52,7 @@
                         <p>Página Inicial</p>
                     </a></li>
                 <li><a href="cardapio.html">Cardápio</a></li>
-                <li><a href="statusPedidos.html">Seus Pedidos</a></li>
+                <li><a href="statusPedido.html">Seus Pedidos</a></li>
                 <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
             </ul>
         </div>
@@ -60,6 +60,13 @@
 
     <div class="container-favoritos">
 
+        <div class="caminho">
+            <p><b>Carrinho ></b>
+            Pagamento >
+            Status do Pedido
+            </p>
+        </div>
+        
         <div class="container-titulo">
             <h1>Meu <span>Carrinho</span></h1>
             <h3>Itens (01)</h3>
@@ -148,17 +155,34 @@
                     </div>
                 </div>
 
+                    <div class="container-entrega">
+                        <h2>Forma de <span>Pagamento</span></h2>
+                        <div class="card-entrega">
+                            <label class="custom-radio">
+                                <input type="radio" value="delivery" name="pagamento">
+                                <span class="radio-mark"></span>
+                                Pagar ao receber
+                            </label>
+                            <label class="custom-radio">
+                                <input type="radio" value="retirar" name="pagamento">
+                                <span class="radio-mark"></span>
+                                Pagar agora com PIX
+                            </label>
+                        </div>
+                    </div>
+
                 
             <div class="card-pagamento">
                 <h2>Revisão do <span>pagamento</span></h2>
                 <div class="lista-pedidos">
                     <div class="item"><p>1x Feijoada</p> <p>R$ 27,00</p></div>
                     <div class="item"><p>1x Contra Filé</p> <p>R$ 25,00</p></div>
+                    <div class="item"><p>Taxa de entrega</p> <p>R$ 5,00</p></div>
                     <div class="total">
                         <p><b>Valor total</b></p>
-                        <h2>R$52,00</h2>
+                        <h2>R$57,00</h2>
                     </div>
-                    <button class="botao-azul">Continuar</button>
+                    <a class="botao-azul" href="./pagamento.html">Continuar</a>
                 </div>
             </div>
             </div>
