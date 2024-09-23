@@ -746,3 +746,83 @@ footer {
     font-size: 15px;
     color: #4B4B4B;
 }
+
+/* CSS para card de ERRO ou pedido cancelado */
+
+.container-notificacao{
+    width: 100%;
+    height: 50vh;
+    /* ative o card aqui */
+    display: none; 
+    justify-content: center;
+    align-items: center;
+}
+
+.card-notificacao {
+    width: 60%;
+    height: auto;
+    padding: 15px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-width: 15px; 
+    border-style: solid; 
+    border-image: linear-gradient( #FFB90A, #FFD779) 1;
+    border-radius: 20px;
+}
+
+.card-notificacao img{
+    width: 60px;
+    margin-right: 3%;
+}
+
+/* CSS para card sem pedidos */
+.container-semPedido {
+    width: 100%;
+    height: 50vh;
+    /* ative a div aqui */
+    display: none;
+    justify-content: center;
+    padding-top: 3%;
+}
+
+.card-semPedido{
+    width: 80%;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.card-semPedido span{
+    margin-left: 1%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card-semPedido h1{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    color: #000000;
+}
+
+.botao-azul {
+    background-color: #68A5FF;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    width: 20%;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Bebas Neue", sans-serif;
+    cursor: pointer;
+    margin-top: 20px;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
