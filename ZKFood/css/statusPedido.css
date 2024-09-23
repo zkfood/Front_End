@@ -8,201 +8,6 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-/* Navbar */
-
-.container_navbar {
-    width: 100%;
-    height: 24vh;
-    background: rgb(255, 180, 0);
-    background: linear-gradient(0deg, rgba(247, 194, 66, 1) 0%, rgba(255, 180, 0, 1) 50%);
-    display: flex;
-    flex-direction: column;
-}
-
-.parte_superior_navbar {
-    width: 100%;
-    height: 60%;
-    display: flex;
-}
-
-.img_voltar {
-    width: 15%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.img_voltar a {
-    height: 50%;
-    align-items: center;
-    display: flex;
-    transition: height 2s ease;
-}
-
-.img_voltar img {
-    height: 50%;
-}
-
-.img_logo {
-    height: 100%;
-    width: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.img_logo img {
-    height: 80%
-}
-
-.container_pesquisa {
-    width: 50%;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-}
-
-.search-container {
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    border-radius: 5px;
-    overflow: hidden;
-    height: 35%;
-    width: 80%;
-    justify-content: center;
-}
-
-.search-container input {
-    border: none;
-    padding: 10px;
-    font-size: 16px;
-    flex: 1;
-    outline: none;
-}
-
-.search-container img {
-    height: 80%;
-    margin-right: 2%;
-    margin-left: 2%;
-}
-
-.search-container button {
-    border: none;
-    background-color: #68A5FF;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.search-container button:hover {
-    background-color: #4B4B4B;
-}
-
-.container_favoritos_carrinho {
-    width: 10%;
-    height: 100%;
-    display: flex;
-}
-
-.container_favoritos {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.container_favoritos img {
-    height: 30%;
-}
-
-.container_carrinho {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.container_carrinho img {
-    height: 30%;
-}
-
-.container_favoritos a {
-    height: 100%;
-    align-items: center;
-    display: flex;
-}
-
-.container_carrinho a {
-    height: 100%;
-    align-items: center;
-    display: flex;
-}
-
-.profile_home {
-    width: 15%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile_home a {
-    text-decoration: none;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    width: 25%;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: darkgray;
-    border-radius: 50%;
-    background-image: url(../assets/user.png);
-    background-size: cover;
-
-}
-
-.parte_inferior_navbar {
-    width: 100%;
-    height: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.menu {
-    width: 80%;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-}
-
-.menu li {
-    margin: 0;
-}
-
-.menu a {
-    display: block;
-    color: black;
-    text-decoration: none;
-    font-size: 18px;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-}
-
-.tela_atual p {
-    font-weight: bold;
-    border-bottom: 5px solid white;
-    border-radius: 5px;
-}
-
 /* Status Pedido */
 .banner-status {
     height: 275vh;
@@ -745,4 +550,84 @@ footer {
     text-decoration: none;
     font-size: 15px;
     color: #4B4B4B;
+}
+
+/* CSS para card de ERRO ou pedido cancelado */
+
+.container-notificacao{
+    width: 100%;
+    height: 50vh;
+    /* ative o card aqui */
+    display: none; 
+    justify-content: center;
+    align-items: center;
+}
+
+.card-notificacao {
+    width: 60%;
+    height: auto;
+    padding: 15px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-width: 15px; 
+    border-style: solid; 
+    border-image: linear-gradient( #FFB90A, #FFD779) 1;
+    border-radius: 20px;
+}
+
+.card-notificacao img{
+    width: 60px;
+    margin-right: 3%;
+}
+
+/* CSS para card sem pedidos */
+.container-semPedido {
+    width: 100%;
+    height: 50vh;
+    /* ative a div aqui */
+    display: none;
+    justify-content: center;
+    padding-top: 3%;
+}
+
+.card-semPedido{
+    width: 80%;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.card-semPedido span{
+    margin-left: 1%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card-semPedido h1{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    color: #000000;
+}
+
+.botao-azul {
+    background-color: #68A5FF;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    width: 20%;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Bebas Neue", sans-serif;
+    cursor: pointer;
+    margin-top: 20px;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
