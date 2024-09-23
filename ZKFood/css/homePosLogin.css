@@ -50,6 +50,10 @@
 }
 
 .img_logo img {
+    height: 100%
+}
+
+.img_logo a {
     height: 80%
 }
 
@@ -142,7 +146,7 @@
 }
 
 .profile_home {
-    width: 15%;
+    width: 10%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -150,19 +154,10 @@
 }
 
 .profile_home a {
-    text-decoration: none;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    width: 25%;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: darkgray;
-    border-radius: 50%;
+    width: 35px;
+    height: 30px;
     background-image: url(../assets/user.png);
-    background-size: cover;
-
+    background-size:cover;
 }
 
 .parte_inferior_navbar {
