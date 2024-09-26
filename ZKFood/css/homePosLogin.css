@@ -149,14 +149,21 @@
     width: 10%;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
-.profile_home a {
+.perfil {
     width: 35px;
     height: 30px;
     background-image: url(../assets/user.png);
+    background-size:cover;
+}
+
+.logoff {
+    width: 30px;
+    height: 30px;
+    background-image: url(../assets/sign-out.png);
     background-size:cover;
 }
 
