@@ -15,6 +15,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap"
         rel="stylesheet">
+    <script src="../../js/fetch.js"></script>
+    <script src="../../js/cardapio.js"></script>
 </head>
 
 <body>
@@ -107,30 +109,7 @@
     <!-- Itens do cardapio -->
 
     <div class="container-cardapio">
-        <div class="itens-cardapio">
-
-            <!-- Aqui está o molde para o back utilizar -->
-            <div class="card-cardapio">
-                <div class="conteudo-cardapio">
-                    <h2>Nome do Prato</h2>
-                    <p>Descrição, descrição, descrição, descrição, descrição, descrição</p>
-                    <div class="servir">
-                        <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
-                        <h5>Serve 2 pessoas</h5>
-                    </div>
-                    <h1><span>R$</span>27,00</h1>
-                </div>
-
-                <div class="imagem-cardapio">
-                    <img src="../../assets/prato-feijoada-Zeca.png" alt="Foto do prato">
-                    <div class="menu-card">
-                        <button class="botao-acessar">Ver mais</button>
-                        <button class="botao-favoritos"><img src="../../assets/icon-coração-branco.png" alt=""></button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        <div id="itensCardapio" class="itens-cardapio"></div>
     </div>
 </body>
 
@@ -147,7 +126,31 @@
 
             // Adiciona a classe 'active' ao item clicado
             this.classList.add('active');
+            const tipoProduto = this.classList[1]
+
+            switch (tipoProduto) {
+                case 'card1': {
+                    receberPratos();
+                    break;
+                }
+                case 'card2': {
+                    receberPratos('Prato do dia');
+                    break;
+                }
+                case 'card3': {
+                    receberPratos('Pratos');
+                    break;
+                }
+                case 'card4': {
+                    receberPratos('Porções');
+                    break;
+                }
+                case 'card5': {
+                    receberPratos('Bebidas');
+                    break;
+                }
+            }
         });
     });
-
+    receberPratos();
 </script>
