@@ -16,6 +16,7 @@ body {
     display: flex;
     justify-content: center;
     background: linear-gradient(to left, #F7C242 0%, #FFB400 50%);
+    margin-bottom: 50px;
 }
 
 .container-header {

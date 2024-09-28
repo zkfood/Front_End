@@ -26,7 +26,7 @@
                         alt="seta para retornar a página anterior">
                 </a>
                 <a href="./pedidos.html"><img id="imagem" class="imagem-logo"
-                        src="/ZKFood/assets/atendente/imagem_2024-02-29_210941642-removebg-preview 5.png"></a>
+                        src="/ZKFood/assets/atendente/imagem_2024-02-29_210941642-removebg-preview 5.png" alt="Logo do ZKFOOD"></a>
             </div>
             <div class="org-nav-bar">
                 <ul class="navbar">
@@ -48,16 +48,29 @@
                     <!-- Primeira linha de pedido -->
                     <label for="pedido">Pedido</label>
                     <div class="form-group pedido-item">
+
+                        <!-- Lista de categorias -->
                         <select id="pedido" name="pedido">
                             <option value="Prato">Prato</option>
+                            <option value="PratoDia">Prato do dia</option>
+                            <option value="Porcoes">Porções</option>
+                            <option value="Bebida">Bebida</option>
                         </select>
+
+                        <!-- Lista de itens disponiveis da categoria selecionada -->
+                        <select id="pedido" name="pedido">
+                            <option value="Prato">Feijoada</option>
+                            <option value="Prato">Suco de laranja</option>
+    
+                        </select>
+
                         <input type="number" id="quantidade" name="quantidade" min="1" placeholder="Qtd">
                         <input type="text" id="observacao" name="observacao" placeholder="Observação">
                     </div>
 
                 </div>
 
-                <button type="button" onclick="adicionarPedido()">+</button>
+                <button class="adicionar" type="button" onclick="adicionarPedido()">+</button>
 
                 <div class="form-group">
                     <label for="tipoEntrega">Tipo de entrega</label>
