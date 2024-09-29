@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela Inicial Cozinha</title>
+    <title>Central da Cozinha</title>
     <link rel="stylesheet" href="/ZKFood/css/telainicialcozinha.css">
+
+    <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
+
+    <!-- Links Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="div_incial">
-    <header>
-        <div class="header-content">
-            <div class="arrow-back">
-                <img src="/ZKFood/assets/seta.png" alt="Voltar">
+    <!-- Navbar superior -->
+    <div class="header" id="header">
+        <div class="container-header">
+            <div class="imagens-header">
+                <a href="./telainicialcozinha.html"><img id="imagem" class="imagem-logo" src="/ZKFood/assets/atendente/imagem_2024-02-29_210941642-removebg-preview 5.png" alt="logo do ZKFOOD"></a>
             </div>
-            <div class="logo">
-                <img src="/ZKFood/assets/logo.png" alt="Logo">
-            </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Pesquise o que deseja...">
-            </div>
-            <div class="user-profile">
-                <div class="user-initials">MK</div>
+            <div class="org-nav-bar">
+                <ul class="navbar">
+                    <li class="paginas"><a href="./cozinha.html" class="sem-linha">Gerenciar Cozinha</a></li>
+                </ul>
             </div>
         </div>
-    </header>
-    <nav>
-        <ul class="nav-center">
-            <li><a href="telainicialcozinha.html">Página Inicial</a></li>
-            <li><a href="#">Gerenciamento Cozinha</a></li>
-        </ul>
-    </nav>
+    </div>
 </div>
     <main>
-        <div class="card">
-            <div class="card-icon">
-                <img src="/ZKFood/assets/pedidos.png" alt="Pedidos">
-            </div>
-            <div class="card-title">
-                <h2>PEDIDOS</h2>
+            <!-- Cards -->
+    <div class="banner-card">
+        <div class="container-card">
+            <span class="titulo-cards">Acesso da <span>cozinha</span></span>
+            <div class="cards-funcionais">
+
+                <a href="./cozinha.html">
+                    <div class="cards">
+                        <img src="/ZKFood/assets/atendente/Restaurant Menu.png" alt="icone para representar a cozinha">
+                        <span class="texto-card">Gerenciar Cozinha</span>
+                    </div>
+                </a>
             </div>
         </div>
+    </div>
     </main>
 </body>
 </html>

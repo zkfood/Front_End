@@ -17,10 +17,24 @@
 </head>
 
 <body>
+    <!-- API de acessibilidade VLIBRAS -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
     <div class="container_navbar">
         <div class="parte_superior_navbar">
-            <div class="img_voltar"> <a href="javascript:history.back()"><img src="../../assets/de-volta.png" alt="Seta para voltar a página"></a></div>
-            <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png" alt="Logo do ZKfood"></a></div>
+            <div class="img_voltar"> <a href="javascript:history.back()"><img src="../../assets/de-volta.png"
+                        alt="Seta para voltar a página"></a></div>
+            <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png"
+                        alt="Logo do ZKfood"></a></div>
             <div class="container_pesquisa">
                 <div class="search-container">
                     <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon">
@@ -44,7 +58,7 @@
                 <a class="logoff" href="#"></a>
             </div>
 
-            
+
         </div>
         <div class="parte_inferior_navbar">
             <ul class="menu">
@@ -72,29 +86,30 @@
             <div class="frase-cardapio">
                 ACESSE NOSSO <span class="span-amarelo">CARDÁPIO</span>
             </div>
-        
-        <div class="container-imagens">
-            <div class="imagem-esquerda">
-                <img src="../../assets/prato-feijoada-Zeca.png" alt="Prato de feijoada e acompanhamentos no Bar e Restaurante do Zeca">
-            </div>
-            <div class="imagens-direita">
-                <div class="imagem-direita-cima">
-                    <img src="../../assets/prato-cardapio2.png" alt="Prato demonstrativo">
+
+            <div class="container-imagens">
+                <div class="imagem-esquerda">
+                    <img src="../../assets/prato-feijoada-Zeca.png"
+                        alt="Prato de feijoada e acompanhamentos no Bar e Restaurante do Zeca">
                 </div>
-                <div class="imagem-direita-baixo">
-                    <img src="../../assets/prato-cardapio.png" alt="Prato demonstrativo">
+                <div class="imagens-direita">
+                    <div class="imagem-direita-cima">
+                        <img src="../../assets/prato-cardapio2.png" alt="Prato demonstrativo">
+                    </div>
+                    <div class="imagem-direita-baixo">
+                        <img src="../../assets/prato-cardapio.png" alt="Prato demonstrativo">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container-botao-saiba-mais">
-            <div class="botao-saiba-mais">
-                <a href="./cardapio.html" style="width: 12%; height: 70%;"><button> + SAIBA MAIS</button></a>
+            <div class="container-botao-saiba-mais">
+                <div class="botao-saiba-mais">
+                    <a href="./cardapio.html" style="width: 12%; height: 70%;"><button> + SAIBA MAIS</button></a>
+                </div>
             </div>
-        </div>
 
         </div>
     </div>
-    
+
     <!-- Ver pedidos -->
     <div class="container-pedidos">
         <div class="salada-pedidos">
@@ -117,7 +132,9 @@
         <div class="container-mapa">
             <div class="mapa-cadastro-endereco">
                 <div class="mapBox">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d836.1047227613403!2d-46.41255771203918!3d-23.5744040849304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1spt-BR!2sbr!4v1724299459487!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d836.1047227613403!2d-46.41255771203918!3d-23.5744040849304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1spt-BR!2sbr!4v1724299459487!5m2!1spt-BR!2sbr"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
