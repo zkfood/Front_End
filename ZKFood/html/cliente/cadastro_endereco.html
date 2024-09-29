@@ -21,10 +21,25 @@
 </head>
 
 <body>
+
+    <!-- API de acessibilidade VLIBRAS -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
     <div class="container_navbar">
         <div class="parte_superior_navbar">
-            <div class="img_voltar"> <a href="javascript:history.back()"><img src="../../assets/de-volta.png" alt="Seta de retorno"></a></div>
-            <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png" alt="Logo do ZKfood"></a></div>
+            <div class="img_voltar"> <a href="javascript:history.back()"><img src="../../assets/de-volta.png"
+                        alt="Seta de retorno"></a></div>
+            <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png"
+                        alt="Logo do ZKfood"></a></div>
             <div class="container_pesquisa">
                 <div class="search-container">
                     <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon">
@@ -34,19 +49,21 @@
             </div>
             <div class="container_favoritos_carrinho">
                 <div class="container_favoritos">
-                    <a href="favoritos.html"> <img src="../../assets/coracao.png" alt="Icone de coração para sinalizar itens favoritos no menu."></a>
+                    <a href="favoritos.html"> <img src="../../assets/coracao.png"
+                            alt="Icone de coração para sinalizar itens favoritos no menu."></a>
                 </div>
                 <div class="container_carrinho">
-                    <a href="carrinho.html"> <img src="../../assets/carrinho-carrinho.png" alt="Icone de carrinho de supermercado para sinalizar itens de compra."> </a>
+                    <a href="carrinho.html"> <img src="../../assets/carrinho-carrinho.png"
+                            alt="Icone de carrinho de supermercado para sinalizar itens de compra."> </a>
                 </div>
             </div>
 
-            
+
             <div class="profile_home">
                 <a class="perfil" href="perfil.html"></a>
                 <a class="logoff" href="#"></a>
             </div>
-            
+
         </div>
         <div class="parte_inferior_navbar">
             <ul class="menu">
@@ -68,7 +85,9 @@
         <div class="container_div_esquerda_cadastro_endereco">
             <div class="mapa_cadastro_endereco">
                 <div class="mapBox">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d836.1047227613403!2d-46.41255771203918!3d-23.5744040849304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1spt-BR!2sbr!4v1724299459487!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d836.1047227613403!2d-46.41255771203918!3d-23.5744040849304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1spt-BR!2sbr!4v1724299459487!5m2!1spt-BR!2sbr"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -80,7 +99,7 @@
 
                 <label>Rua, Logradouro ou Avenida</label>
                 <input type="text" id="logradouro" placeholder="Digite sua rua, logradouro ou avenida">
-                
+
                 <div class="div_numero_cep">
                     <div class="div_numero">
 

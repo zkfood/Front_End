@@ -18,11 +18,24 @@
 </head>
 
 <body>
+    <!-- API de acessibilidade VLIBRAS -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
     <div class="container_navbar">
         <div class="parte_superior_navbar">
             <div class="img_voltar"> <a href="javascript:history.back()"><img src="../../assets/de-volta.png"
                         alt="Seta para voltar a página"></a></div>
-                        <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png" alt="Logo do ZKfood"></a></div>
+            <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png"
+                        alt="Logo do ZKfood"></a></div>
             <div class="container_pesquisa">
                 <div class="search-container">
                     <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon">
@@ -63,7 +76,8 @@
             <h1>Oops! Ocorreu um <span>erro</span></h1>
             <p>Fique tranquilo, estamos trabalhando para corrigir o problema.</p>
         </div>
-        <img src="../../assets/img-erro-request.png" alt="Imagem de usuário com uma lupa observando uma pasta corrompida para retratar tela com erro.">
+        <img src="../../assets/img-erro-request.png"
+            alt="Imagem de usuário com uma lupa observando uma pasta corrompida para retratar tela com erro.">
 
     </div>
 

@@ -18,13 +18,25 @@
 </head>
 
 <body>
+    <!-- API de acessibilidade VLIBRAS -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 
     <!-- Navbar Superior -->
     <div class="container_navbar">
         <div class="parte_superior_navbar">
             <div class="img_voltar"> <a href="home_pos_login.html"><img src="../../assets/de-volta.png"
                         alt="Seta para voltar a página"></a></div>
-            <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png" alt="Logo do ZKfood"></a></div>
+            <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png"
+                        alt="Logo do ZKfood"></a></div>
             <div class="container_pesquisa">
                 <div class="search-container">
                     <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon">
@@ -182,12 +194,12 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Formulario de avaliações -->
-         <div class="total-pai">
+        <div class="total-pai">
             <div class="container-avaliacoes">
                 <div class="avaliacao-container">
-                    <h1> <span>AVALIE </span>  SEU PEDIDO</h1>
+                    <h1> <span>AVALIE </span> SEU PEDIDO</h1>
                     <p>Quantas estrelas você acha que seu pedido merece?</p>
                     <div class="estrelas">
                         <span class="estrela" data-avaliacao="1">&#9733;</span>
@@ -204,14 +216,14 @@
                     </form>
                 </div>
             </div>
-         </div>
+        </div>
     </div>
 
     <!-- Histórico de pedidos -->
-     <!-- Puxar somente uma quantidade limitada, tipo os últimos 5 pedidos -->
+    <!-- Puxar somente uma quantidade limitada, tipo os últimos 5 pedidos -->
     <div class="historico-pedidos">
         <h2><span>Histórico</span> de Pedidos</h2>
-    
+
         <div class="data-pedido">10 de Outubro de 2024</div> <!-- Data do pedido -->
         <div class="pedido-card">
             <div class="pedido-info">
@@ -239,8 +251,8 @@
             <button class="comprar-novamente">Comprar Novamente</button>
         </div>
     </div>
-    
-    
+
+
 
     <!-- Footer -->
     <footer>
@@ -325,31 +337,31 @@
 
 <script>
     const estrelas = document.querySelectorAll('.estrela');
-let avaliacao = 0;
+    let avaliacao = 0;
 
-estrelas.forEach(estrela => {
-    estrela.addEventListener('click', () => {
-        avaliacao = estrela.getAttribute('data-avaliacao');
-        atualizarEstrelas(avaliacao);
-    });
-
-    estrela.addEventListener('mouseover', () => {
-        atualizarEstrelas(estrela.getAttribute('data-avaliacao'));
-    });
-
-    estrela.addEventListener('mouseout', () => {
-        atualizarEstrelas(avaliacao);
-    });
-});
-
-function atualizarEstrelas(valor) {
     estrelas.forEach(estrela => {
-        if (estrela.getAttribute('data-avaliacao') <= valor) {
-            estrela.classList.add('ativa');
-        } else {
-            estrela.classList.remove('ativa');
-        }
+        estrela.addEventListener('click', () => {
+            avaliacao = estrela.getAttribute('data-avaliacao');
+            atualizarEstrelas(avaliacao);
+        });
+
+        estrela.addEventListener('mouseover', () => {
+            atualizarEstrelas(estrela.getAttribute('data-avaliacao'));
+        });
+
+        estrela.addEventListener('mouseout', () => {
+            atualizarEstrelas(avaliacao);
+        });
     });
-}
+
+    function atualizarEstrelas(valor) {
+        estrelas.forEach(estrela => {
+            if (estrela.getAttribute('data-avaliacao') <= valor) {
+                estrela.classList.add('ativa');
+            } else {
+                estrela.classList.remove('ativa');
+            }
+        });
+    }
 
 </script>

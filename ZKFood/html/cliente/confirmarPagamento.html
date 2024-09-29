@@ -19,6 +19,19 @@
 </head>
 
 <body>
+    
+    <!-- API de acessibilidade VLIBRAS -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
     <div class="container_navbar">
         <div class="parte_superior_navbar">
             <div class="img_voltar"> <a href="javascript:history.back()"><img src="../../assets/de-volta.png"
@@ -63,39 +76,40 @@
 
         <div class="caminho">
             <p>Carrinho >
-            <b>Continuar Compra ></b>
-            Pagar >
-            Pedido Completo
+                <b>Continuar Compra ></b>
+                Pagar >
+                Pedido Completo
             </p>
         </div>
 
         <div class="container-cards>
-            <div class="card-endereco">
-                <div class="container-endereco">
-                    <div class="titulo-pai">
-                        <img src="/ZKFood/assets/Address.png" alt="">
-                        <span class="titulo-endereco">ENDEREÇO PARA <span>ENTREGA</span></span>
-                    </div>
-    
-                    <div class="conteudo-pai">
-                        <div class="endereco-conteudo">
-                            <div class="informacao-endereco">
-                                <span class="info-nome">Maria Paula Barbosa Da Silva</span>
-                                <span class="info-numero">1197112771</span>
-                                <span class="info-rua">Rua Ludovico Liparini 190</span>
-                                <span class="info-cep">Jardim Dona Sinhá São paulo São Paulo Brazil 03923-220 Endereço
-                                    Padrão</span>
-                            </div>
-                            <div class="botoes-endereco">
-                                <button class="botao-excluir">EXCLUIR ENDEREÇO</button>
-                                <button class="botao-editar">EDITAR ENDEREÇO</button>
-                            </div>
+            <div class=" card-endereco">
+            <div class="container-endereco">
+                <div class="titulo-pai">
+                    <img src="/ZKFood/assets/Address.png" alt="">
+                    <span class="titulo-endereco">ENDEREÇO PARA <span>ENTREGA</span></span>
+                </div>
+
+                <div class="conteudo-pai">
+                    <div class="endereco-conteudo">
+                        <div class="informacao-endereco">
+                            <span class="info-nome">Maria Paula Barbosa Da Silva</span>
+                            <span class="info-numero">1197112771</span>
+                            <span class="info-rua">Rua Ludovico Liparini 190</span>
+                            <span class="info-cep">Jardim Dona Sinhá São paulo São Paulo Brazil 03923-220 Endereço
+                                Padrão</span>
+                        </div>
+                        <div class="botoes-endereco">
+                            <button class="botao-excluir">EXCLUIR ENDEREÇO</button>
+                            <button class="botao-editar">EDITAR ENDEREÇO</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
     </div>
 </body>
+
 </html>
