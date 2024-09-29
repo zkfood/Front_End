@@ -464,7 +464,6 @@ p {
     border: none;
     font-size: 2rem;
     cursor: pointer;
-    position: absolute;
     top: 50%;
     transform: translateY(-50%);
     color: #ffffff;
