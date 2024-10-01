@@ -81,13 +81,9 @@
                             <input type="number" id="preco_input" placeholder="R$00.00">
                         </div>
                         <div class="container_input_adicionais">
-                            <span class="titulo_cadastro_dados">Preço do Prato:</span>
+                            <span class="titulo_cadastro_dados">Tipo do Prato:</span>
                             <select name="tipos_produto" id="select_tipo">
-                                <option value="0">Selecione:</option>
-                                <option value="1">Comida</option>
-                                <option value="2">Bebida</option>
-                                <option value="3">Porção</option>
-                                <option value="4">Descartável</option>
+                                
                             </select>
                         </div>
                     </div>
@@ -113,6 +109,19 @@
 
 </html>
 <script>
+    listarTipos();
+    async function listarTipos() {
+    try {
+        const resposta = await fetch("http://localhost:8080/tipo-produtos");
+        const tipos = await resposta.json();
+        
+        const listaTipos = document.getElementById('select_tipo');
+        listaTipos.innerHTML = tipos.map(tipo => `<option value="${tipo.id}">${tipo.nome}</option>`).join("");
+    } catch (error) {
+        console.error("Erro ao listar tipos de produtos:", error);
+    }
+}
+
     async function cadastrar() {
         const url = 'http://localhost:8080/produtos';
 
