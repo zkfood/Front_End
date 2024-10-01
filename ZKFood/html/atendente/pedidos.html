@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedidos - ZKFood</title>
+    <title>Central do Atendente</title>
     <link rel="stylesheet" href="/ZKFood/css/atendente/style.css">
+
+    <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
     <!-- Links Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,20 +20,17 @@
     <div class="header" id="header">
         <div class="container-header">
             <div class="imagens-header">
-                <img id="imagem" class="imagem-logo" src="/ZKFood/assets/atendente/imagem_2024-02-29_210941642-removebg-preview 5.png">
+                <a href="./pedidos.html">
+                    <img class="imagem-seta" src="/ZKFood/assets/atendente/Left.png" alt="seta para retornar a página anterior">
+                </a>
+                <a href="./pedidos.html"><img id="imagem" class="imagem-logo" src="/ZKFood/assets/atendente/imagem_2024-02-29_210941642-removebg-preview 5.png" alt="logo do ZKFOOD"></a>
             </div>
             <div class="org-nav-bar">
-                <div class="pesquisa-teste">
-                    <nav class="navbar navbar-light bg-light">
-                        <form class="form-inline">
-                            <img src="/ZKFood/assets/atendente/Leading Icon.png">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Pesquise o que deseja..."
-                                aria-label="Pesquise o que deseja...">
-                        </form>
-                    </nav>
-                </div>
+                <ul class="navbar">
+                    <li class="paginas"><a href="./gerenciarPedidos.html" class="sem-linha">Gerenciar Pedidos</a></li>
+                    <li class="paginas"><a href="./cadastrarPedido.html" class="sem-linha">Cadastrar Pedidos</a></li>
+                </ul>
             </div>
-            <div class="perfil-teste"></div>
         </div>
     </div>
 
@@ -42,8 +41,15 @@
             <div class="cards-funcionais">
                 <a href="/ZKFood/html/atendente/gerenciarPedidos.html">
                     <div class="cards">
-                        <img src="/ZKFood/assets/atendente/pedido 1.png">
+                        <img src="/ZKFood/assets/atendente/pedido 1.png" alt="icone para representar o gerenciamento de pedidos">
                         <span class="texto-card">GERENCIAR PEDIDOS</span>
+                    </div>
+                </a>
+
+                <a href="../atendente/cadastrarPedido.html">
+                    <div class="cards">
+                        <img src="/ZKFood/assets/atendente/Restaurant Menu.png" alt="icone para representar o cadastro de novos pedidos">
+                        <span class="texto-card">CADASTRAR PEDIDOS</span>
                     </div>
                 </a>
             </div>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Pedidos </title>
+    <link rel="stylesheet" href="/ZKFood/css/atendente/style.css">
+    <link rel="stylesheet" href="/ZKFood/css/atendente/formularioPedido.css">
+
+    <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
+
+    <!-- Links Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar superior -->
+    <div class="header" id="header">
+        <div class="container-header">
+            <div class="imagens-header">
+                <a href="./pedidos.html">
+                    <img class="imagem-seta" src="/ZKFood/assets/atendente/Left.png"
+                        alt="seta para retornar a página anterior">
+                </a>
+                <a href="./pedidos.html"><img id="imagem" class="imagem-logo"
+                        src="/ZKFood/assets/atendente/imagem_2024-02-29_210941642-removebg-preview 5.png" alt="Logo do ZKFOOD"></a>
+            </div>
+            <div class="org-nav-bar">
+                <ul class="navbar">
+                    <li class="paginas"><a href="./gerenciarPedidos.html" class="sem-linha">Gerenciar Pedidos</a></li>
+                    <li class="paginas"><a href="./cadastrarPedido.html" class="pagina-atual">Cadastrar Pedidos</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Formulário Cadastro -->
+    <div class="banner-formulario">
+        <span class="titulo-formulario">CADASTRAR <span>PEDIDO</span></span>
+        <div class="container-formulario">
+            <form id="formPedido">
+
+                <div id="pedidoContainer">
+
+                    <!-- Primeira linha de pedido -->
+                    <label for="pedido">Pedido</label>
+                    <div class="form-group pedido-item">
+
+                        <!-- Lista de categorias -->
+                        <select id="pedido" name="pedido">
+                            <option value="Prato">Prato</option>
+                            <option value="PratoDia">Prato do dia</option>
+                            <option value="Porcoes">Porções</option>
+                            <option value="Bebida">Bebida</option>
+                        </select>
+
+                        <!-- Lista de itens disponiveis da categoria selecionada -->
+                        <select id="pedido" name="pedido">
+                            <option value="Prato">Feijoada</option>
+                            <option value="Prato">Suco de laranja</option>
+    
+                        </select>
+
+                        <input type="number" id="quantidade" name="quantidade" min="1" placeholder="Qtd">
+                        <input type="text" id="observacao" name="observacao" placeholder="Observação">
+                    </div>
+
+                </div>
+
+                <button class="adicionar" type="button" onclick="adicionarPedido()">+</button>
+
+                <div class="form-group">
+                    <label for="tipoEntrega">Tipo de entrega</label>
+                    <select id="tipoEntrega" name="tipoEntrega">
+                        <option value="Presencial">Presencial</option>
+                        <option value="Delivery">Delivery</option>
+                        <option value="Balcao">Retirada no balcão</option>
+                    </select>
+                    <label for="numMesa">Número da mesa</label>
+                    <input type="number" id="mesa" name="mesa" placeholder="Número da mesa">
+                </div>
+
+            </form>
+        </div>
+        <button onclick="cadastrarPedido()" class="botao-pedido">CADASTRAR NOVO PEDIDO</button>
+    </div>
+
+    <script>
+        function adicionarPedido() {
+            // Clona o bloco de campos
+            const pedidoContainer = document.getElementById('pedidoContainer');
+            const novoPedido = document.querySelector('.pedido-item').cloneNode(true);
+
+            // Limpa os campos do novo bloco clonado
+            novoPedido.querySelector('select[name="pedido"]').value = '';
+            novoPedido.querySelector('input[name="quantidade"]').value = '';
+            novoPedido.querySelector('input[name="observacao"]').value = '';
+
+            // Adiciona o novo bloco ao container
+            pedidoContainer.appendChild(novoPedido);
+        }
+    </script>
+</body>
+
+</html>

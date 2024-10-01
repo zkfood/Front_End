@@ -20,11 +20,24 @@
 </head>
 
 <body>
+    <!-- API de acessibilidade VLIBRAS -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
     <div class="container_navbar">
         <div class="parte_superior_navbar">
             <div class="img_voltar"> <a href="javascript:history.back()"><img src="../../assets/de-volta.png"
                         alt="Seta para voltar a página"></a></div>
-            <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png" alt="Logo do ZKfood"></a></div>
+            <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png"
+                        alt="Logo do ZKfood"></a></div>
             <div class="container_pesquisa">
                 <div class="search-container">
                     <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon">
@@ -44,7 +57,8 @@
             </div>
 
             <div class="profile_home">
-                <a href="perfil.html"></a>
+                <a class="perfil" href="perfil.html"></a>
+                <a class="logoff" href="#"></a>
             </div>
         </div>
         <div class="parte_inferior_navbar">
@@ -69,18 +83,20 @@
     </div>
     <div class="container">
         <div class="container-pagamento">
-    
+
             <div class="card-texto">
                 <h1>Falta só mais <span> um pouco</span></h1>
                 <p>Você tem 15 minutos para realizar sua compra.</p>
-                <p>Escaneie o QRCODE na tela ou copie o código para fazer o pagamento de <b>PIX</b> no valor de <b>R$57,00</b> </p>
+                <p>Escaneie o QRCODE na tela ou copie o código para fazer o pagamento de <b>PIX</b> no valor de
+                    <b>R$57,00</b> </p>
                 <a class="botao-azul" href="./statusPedido.html">Já paguei</a>
             </div>
-    
+
             <div class="card-qrCode">
                 <!-- Inserir aqui a foto do qrcode -->
-                <img src="" alt="foto do qrcode"> 
-                <a href="statusPedido.html" onclick="copiarCodigoPix()" id="codigoPix">Clique aqui para copiar a chave PIX</a>
+                <img src="" alt="foto do qrcode">
+                <a href="statusPedido.html" onclick="copiarCodigoPix()" id="codigoPix">Clique aqui para copiar a chave
+                    PIX</a>
             </div>
         </div>
     </div>
@@ -135,32 +151,33 @@
         </div>
     </footer>
 </body>
+
 </html>
-    
 
-    <script>
 
-        function copiarCodigoPix() {
-            // Inserir aqui o código PIX
-            var codigoPix = "100000ZKFOOD";
-    
-            // Cria um campo de input temporário para copiar o texto
-            var inputTemporario = document.createElement("input");
-            inputTemporario.value = codigoPix;
-            document.body.appendChild(inputTemporario);
+<script>
 
-            inputTemporario.select();
-            document.execCommand("copy");
-    
+    function copiarCodigoPix() {
+        // Inserir aqui o código PIX
+        var codigoPix = "100000ZKFOOD";
 
-            // Alerta que o código foi copiado
-            alert("Código Pix copiado para a área de transferência!");
-        }
-    </script>
-    
+        // Cria um campo de input temporário para copiar o texto
+        var inputTemporario = document.createElement("input");
+        inputTemporario.value = codigoPix;
+        document.body.appendChild(inputTemporario);
 
-    <!-- Código para quando ocorrer erro na tela -->
-    <!-- <div class="container-erro">
+        inputTemporario.select();
+        document.execCommand("copy");
+
+
+        // Alerta que o código foi copiado
+        alert("Código Pix copiado para a área de transferência!");
+    }
+</script>
+
+
+<!-- Código para quando ocorrer erro na tela -->
+<!-- <div class="container-erro">
         <div class="container-pagamento">
             <div class="card-erro">
                 <h1>Seu pagamento <span> não foi processado</span></h1>

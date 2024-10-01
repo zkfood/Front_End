@@ -25,7 +25,9 @@ class FetchBuilder {
             ...newHeaders
         })
         // define como json
-        headers.append('Content-Type', 'application/json');
+        if (newHeaders.contentType !== undefined) {
+            headers.append('Content-Type', 'application/json');
+        }
 
 
         //faz a query
