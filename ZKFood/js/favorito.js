@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                 nome: favorito.produto.nome,
                 descricao: favorito.descricao || 'Sem descrição',
                 preco: favorito.produto.preco,
-                imagem: `../../assets/${favorito.produto.nome.toLowerCase()}.png`,
+                imagem: `${ambiente.local+prefix.produtos}/imagem/${favorito.produto.id}`,
                 favorito: favorito.favorito
             };
             adicionarCard(prato, containerCards);
