@@ -181,6 +181,7 @@ p {
     box-shadow: 2px 2px 7px 4px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: background-color 0.3s ease;
+    
 }
 
 .botao-azul:hover {
@@ -463,7 +464,6 @@ p {
     border: none;
     font-size: 2rem;
     cursor: pointer;
-    position: absolute;
     top: 50%;
     transform: translateY(-50%);
     color: #ffffff;

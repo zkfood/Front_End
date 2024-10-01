@@ -15,14 +15,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap"
         rel="stylesheet">
+    <script src="../../js/fetch.js"></script>
+    <script src="../../js/cardapio.js"></script>
 </head>
 
 <body>
+
+    <!-- API de acessibilidade VLIBRAS -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+
     <div class="container_navbar">
         <div class="parte_superior_navbar">
-            <div class="img_voltar"> <a href="home_pos_login.html"><img src="../../assets/de-volta.png"
+            <div class="img_voltar"> <a href="javascript:history.back()"><img src="../../assets/de-volta.png"
                         alt="Seta para voltar a página"></a></div>
-            <div class="img_logo"><img src="../../assets/logo.png" alt="Logo do ZKfood"></div>
+            <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png"
+                        alt="Logo do ZKfood"></a></div>
             <div class="container_pesquisa">
                 <div class="search-container">
                     <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon">
@@ -42,7 +59,8 @@
             </div>
 
             <div class="profile_home">
-                <a href="perfil.html"></a>
+                <a class="perfil" href="perfil.html"></a>
+                <a class="logoff" href="#"></a>
             </div>
         </div>
         <div class="parte_inferior_navbar">
@@ -53,7 +71,7 @@
                 <li><a href="cardapio.html" class="tela_atual">
                         <p>Cardápio</p>
                     </a></li>
-                <li><a href="pedidos.html">Seus Pedidos</a></li>
+                <li><a href="statusPedido.html">Seus Pedidos</a></li>
                 <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
             </ul>
         </div>
@@ -106,30 +124,7 @@
     <!-- Itens do cardapio -->
 
     <div class="container-cardapio">
-        <div class="itens-cardapio">
-
-            <!-- Aqui está o molde para o back utilizar -->
-            <div class="card-cardapio">
-                <div class="conteudo-cardapio">
-                    <h2>Nome do Prato</h2>
-                    <p>Descrição, descrição, descrição, descrição, descrição, descrição</p>
-                    <div class="servir">
-                        <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
-                        <h5>Serve 2 pessoas</h5>
-                    </div>
-                    <h1><span>R$</span>27,00</h1>
-                </div>
-
-                <div class="imagem-cardapio">
-                    <img src="../../assets/prato-feijoada-Zeca.png" alt="Foto do prato">
-                    <div class="menu-card">
-                        <button class="botao-acessar">Ver mais</button>
-                        <button class="botao-favoritos"><img src="../../assets/icon-coração-branco.png" alt=""></button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        <div id="itensCardapio" class="itens-cardapio"></div>
     </div>
 </body>
 
@@ -146,7 +141,31 @@
 
             // Adiciona a classe 'active' ao item clicado
             this.classList.add('active');
+            const tipoProduto = this.classList[1]
+
+            switch (tipoProduto) {
+                case 'card1': {
+                    receberPratos();
+                    break;
+                }
+                case 'card2': {
+                    receberPratos('Prato do dia');
+                    break;
+                }
+                case 'card3': {
+                    receberPratos('Pratos');
+                    break;
+                }
+                case 'card4': {
+                    receberPratos('Porções');
+                    break;
+                }
+                case 'card5': {
+                    receberPratos('Bebidas');
+                    break;
+                }
+            }
         });
     });
-
+    receberPratos();
 </script>

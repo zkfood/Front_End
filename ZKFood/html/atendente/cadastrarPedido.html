@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedidos - ZKFood</title>
+    <title>Cadastrar Pedidos </title>
     <link rel="stylesheet" href="/ZKFood/css/atendente/style.css">
     <link rel="stylesheet" href="/ZKFood/css/atendente/formularioPedido.css">
+
+    <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
     <!-- Links Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,28 +23,19 @@
     <div class="header" id="header">
         <div class="container-header">
             <div class="imagens-header">
-                <a href="/ZKFood/html/atendente/pedidos.html">
-                    <img class="imagem-seta" src="/ZKFood/assets/atendente/Left.png" alt="Descrição da Imagem">
+                <a href="./pedidos.html">
+                    <img class="imagem-seta" src="/ZKFood/assets/atendente/Left.png"
+                        alt="seta para retornar a página anterior">
                 </a>
-                <img id="imagem" class="imagem-logo" src="/ZKFood/assets/atendente/imagem_2024-02-29_210941642-removebg-preview 5.png">
+                <a href="./pedidos.html"><img id="imagem" class="imagem-logo"
+                        src="/ZKFood/assets/atendente/imagem_2024-02-29_210941642-removebg-preview 5.png" alt="Logo do ZKFOOD"></a>
             </div>
             <div class="org-nav-bar">
-                <div class="pesquisa-teste">
-                    <nav class="navbar navbar-light bg-light">
-                        <form class="form-inline">
-                            <img src="/ZKFood/assets/atendente/Leading Icon.png">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Pesquise o que deseja..."
-                                aria-label="Pesquise o que deseja...">
-                        </form>
-                    </nav>
-                </div>
                 <ul class="navbar">
-                    <li class="paginas"><a href="/ZKFood/html/atendente/index.html" class="sem-linha">Página Inicial</a></li>
-                    <li class="paginas"><a href="/ZKFood/html/atendente/clientes.html" class="sem-linha">Clientes</a></li>
-                    <li class="paginas"><a href="/ZKFood/html/atendente/pedidos.html" class="pagina-atual">Pedidos</a></li>
+                    <li class="paginas"><a href="./gerenciarPedidos.html" class="sem-linha">Gerenciar Pedidos</a></li>
+                    <li class="paginas"><a href="./cadastrarPedido.html" class="pagina-atual">Cadastrar Pedidos</a></li>
                 </ul>
             </div>
-            <div class="perfil-teste"></div>
         </div>
     </div>
 
@@ -76,28 +69,62 @@
         
                 <div class="form-group">
                     <label for="pedido">Pedido</label>
-                    <select id="pedido" name="pedido">
-                        <option value="Prato">Prato</option>
-                        <option value="Bebida">Bebida</option>
-                        <option value="Sobremesa">Sobremesa</option>
-                    </select>
-                    <input type="number" id="quantidade" name="quantidade" min="1" placeholder="Qtd">
-                    <input type="text" id="observacao" name="observacao" placeholder="Observação">
+                    <div class="form-group pedido-item">
+
+                        <!-- Lista de categorias -->
+                        <select id="pedido" name="pedido">
+                            <option value="Prato">Prato</option>
+                            <option value="PratoDia">Prato do dia</option>
+                            <option value="Porcoes">Porções</option>
+                            <option value="Bebida">Bebida</option>
+                        </select>
+
+                        <!-- Lista de itens disponiveis da categoria selecionada -->
+                        <select id="pedido" name="pedido">
+                            <option value="Prato">Feijoada</option>
+                            <option value="Prato">Suco de laranja</option>
+    
+                        </select>
+
+                        <input type="number" id="quantidade" name="quantidade" min="1" placeholder="Qtd">
+                        <input type="text" id="observacao" name="observacao" placeholder="Observação">
+                    </div>
+
                 </div>
-        
+
+                <button class="adicionar" type="button" onclick="adicionarPedido()">+</button>
+
                 <div class="form-group">
                     <label for="tipoEntrega">Tipo de entrega</label>
                     <select id="tipoEntrega" name="tipoEntrega">
-                        <option value="Delivery">Delivery</option>
                         <option value="Presencial">Presencial</option>
+                        <option value="Delivery">Delivery</option>
+                        <option value="Balcao">Retirada no balcão</option>
                     </select>
+                    <label for="numMesa">Número da mesa</label>
                     <input type="number" id="mesa" name="mesa" placeholder="Número da mesa">
                 </div>
+
             </form>
         </div>
-        
         <button onclick="cadastrarPedido()" class="botao-pedido">CADASTRAR NOVO PEDIDO</button>
     </div>
+
+    <script>
+        function adicionarPedido() {
+            // Clona o bloco de campos
+            const pedidoContainer = document.getElementById('pedidoContainer');
+            const novoPedido = document.querySelector('.pedido-item').cloneNode(true);
+
+            // Limpa os campos do novo bloco clonado
+            novoPedido.querySelector('select[name="pedido"]').value = '';
+            novoPedido.querySelector('input[name="quantidade"]').value = '';
+            novoPedido.querySelector('input[name="observacao"]').value = '';
+
+            // Adiciona o novo bloco ao container
+            pedidoContainer.appendChild(novoPedido);
+        }
+    </script>
 </body>
 
 </html>

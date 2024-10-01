@@ -14,10 +14,23 @@
 
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-
+    <script src="../../js/index.js"></script>
 </head>
 
 <body>
+    <!-- API de acessibilidade VLIBRAS -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+          <div class="vw-plugin-top-wrapper"></div>
+        </div>
+      </div>
+      <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+      <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+      </script>
+
+
     <!-- Navbar superior -->
     <div class="full">
         <div class="container">
@@ -28,15 +41,14 @@
                     <div class="org-nav-bar">
                         <ul class="navbar">
                             <li class="paginas-agora"><a href="index.html">Página Inicial</a></li>
-                            <li class="paginas"><a href="../../tela de login/public/html/login.html">Menu</a></li>
+                            <li class="paginas"><a href="./login.html">Cardápio</a></li>
                             <li class="paginas"><a href="index.html#sobre">Sobre</a></li>
                             <li class="paginas"><a href="index.html#avaliacoes">Avaliações</a></li>
                             <li class="paginas"><a href="index.html#contato">Contato</a></li>
                         </ul>
                     </div>
                     <div class="botoes-header">
-                        <a href="../../tela de login/public/html/login.html"><button
-                                class="botao-entrar">Entrar</button></a>
+                        <a href="./login.html"><button class="botao-entrar">Entrar</button></a>
                         <a href="./cadastro.html"><button class="botao-cadastre">CADASTRE-SE</button></a>
                     </div>
                 </div>
@@ -53,13 +65,13 @@
                     <h1>A <span class="letra-amarela">melhor</span> comida <br> do seu bairro!</h1>
                     <p>Bem-vindo ao nosso Bar & Restaurante! Explore uma variedade deliciosa em nosso cardápio, desde
                         pratos sofisticados até opções casuais.</p>
-                    <a href=""><button class="botao-azul">Pedir agora!</button></a>
+                    <a href="./login.html"><button class="botao-azul">Pedir agora!</button></a>
                 </div>
 
                 <img src="../../assets/banner-prato.png" alt="Circulo da cor amarela pela metade">
             </div>
 
-            <!-- Cards de erviços -->
+            <!-- Cards de Serviços -->
             <div class="card-container">
 
                 <div class="card">
@@ -112,9 +124,9 @@
                 <h1 class="titulo-bebas">Nossas Avaliações</h1>
             </div>
 
-            <button class="carousel-btn prev-btn" style="margin: 20px;">❮</button>
 
             <div class="container-cards">
+                <button class="carousel-btn prev-btn" style="margin: 20px;">❮</button>
                 <div class="card-avaliacao active">
                     <div class="texto-avaliacao">
                         <h5>Avaliação</h5>
@@ -186,9 +198,8 @@
                         <img src="../../assets/logo-icon.png" alt="Foto da pessoa que fez a avaliação">
                     </div>
                 </div>
+                <button class="carousel-btn next-btn" style="margin: 20px;">❯</button>
             </div>
-
-            <button class="carousel-btn next-btn" style="margin: 20px;">❯</button>
         </div>
 
         <div class="container">
@@ -235,18 +246,18 @@
                     </div>
 
                     <div class="bloco-footer">
-                        <a href="">Menu</a>
-                        <a href="">Contato</a>
+                        <a href="./login.html">Menu</a>
+                        <a href="./index.html#contato">Contato</a>
                     </div>
 
                     <div class="bloco-footer">
-                        <a href="">Sobre</a>
-                        <a href="">Avaliações</a>
+                        <a href="./index.html#sobre">Sobre</a>
+                        <a href="./index.html#avaliacoes">Avaliações</a>
                     </div>
 
                     <div class="bloco-footer">
-                        <a href="">Cadastro</a>
-                        <a href="">Pratos</a>
+                        <a href="./cadastro.html">Cadastro</a>
+                        <a href="./login.html">Pratos</a>
                     </div>
                 </div>
 

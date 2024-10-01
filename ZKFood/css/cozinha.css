@@ -89,7 +89,7 @@ header {
 .cards-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
     justify-content: center; /* Alinha os cartões no centro */
 }
 
@@ -98,13 +98,13 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid black; /* Borda preta */
+    border: 1px solid rgb(143, 143, 143); /* Borda preta */
     border-radius: 10px; /* Bordas arredondadas */
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: white;
     width: 250px; /* Largura fixa */
-    height: 200px; /* Altura fixa */
+    height: auto; /* Altura fixa */
     box-sizing: border-box;
 }
 

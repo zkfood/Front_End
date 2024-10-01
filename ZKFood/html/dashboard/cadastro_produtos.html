@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../css/dashboard.css">
+
+    <link rel="icon" href="/ZKFood/assets/logo-icon.png" type="image/png">
+
+    <script src="../../js/dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Análise de Produtos</title>
+</head>
+
+<body>
+    <div class="container_sep_info_dash">
+        <div class="container_info">
+            <div class="container_logo">
+                <img src="../../assets/zkFood_logo-removebg-preview.png" alt="zkFood_logo">
+            </div>
+            <div class="container_texto_Bem_vindo">
+                Bem Vindo, <br>
+                <h2>Zeca Silva</h2>
+            </div>
+            <div class="container_txt_dashboard">
+                Dashboards
+            </div>
+            <div class="container_opcoes_dash">
+                <ul>
+                    <li id="opcao_selecionada">
+                        <img src="../../assets/jantar 1.png" alt=""> Produtos
+                    </li>
+                    <div class="container_sub_opcoes_dash">
+                        <ul>
+                            <li> > <a href="dashboard.html"> Dashboard </a></li>
+                            <li> > <a href="crud_produtos.html"> Análise de Produtos
+                                </a> </li>
+                            <li> > <span id="sub_opcao_selecionada"> <a href="cadastro_produtos.html"> Cadastrar
+                                        Produtos </a> </span></li>
+                        </ul>
+                    </div>
+                    <li> > <img src="../../assets/silhueta-de-multiplos-usuarios 1.png" alt=""> Clientes</li>
+                    <li> > <img src="../../assets/cracha 1.png" alt=""> Funcionários</li>
+                    <li> > <img src="../../assets/avaliacoes 1.png" alt=""> Avaliações</li>
+                    <li> > <img src="../../assets/money-bag 1.png" alt=""> Financeiro</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container_cadastro_produtos">
+            <div class="titulo_cadastro">
+                <span class="cadastro_titulo">CADASTRO</span> DE PRODUTO
+            </div>
+            <div class="container_card_cadastro">
+                <div class="card_cadastro">
+                    <div class="container_dados_principais">
+                        <div class="container_imagem_cadastro">
+                            <span class="titulo_cadastro_imagem"> Clique e insira uma imagem </span>
+                            <!-- Botão personalizado para upload -->
+                            <div class="imagem_upload">
+                                <label class="custom-file-upload">
+                                    <input type="file" id="fileInput" accept="image/*">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="container_cadastro_principais">
+                            <span class="titulo_cadastro_dados"> Nome:</span>
+                            <input type="text" id="nome_produto_input" placeholder="Nome do Produto:">
+                            <span class="titulo_cadastro_dados"> Descricao:</span>
+                            <input type="text" id="descricao_produto_input"
+                                placeholder="Descricao Detalhada do Produto:">
+                        </div>
+                    </div>
+                    <div class="container_dados_adicionais">
+                        <div class="container_input_adicionais">
+                            <span class="titulo_cadastro_dados">Serve quantas pessoas?</span>
+                            <input type="text" id="qtdPessoas_input" placeholder="Digite a quantidade:">
+                        </div>
+                        <div class="container_input_adicionais">
+                            <span class="titulo_cadastro_dados">Preço do Prato:</span>
+                            <input type="number" id="preco_input" placeholder="R$00.00">
+                        </div>
+                        <div class="container_input_adicionais">
+                            <span class="titulo_cadastro_dados">Tipo do Prato:</span>
+                            <select name="tipos_produto" id="select_tipo">
+                                
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container_button_cadastrar">
+                        <button onclick="cadastrar()">CADASTRAR PRODUTO!</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Popup de Sucesso/Erro -->
+            <div id="popup" class="popup">
+                <div class="popup-background">
+                    <div class="popup-content">
+                        <span class="close" onclick="closePopup()">&times;</span>
+                        <img id="popup-icon" src="" alt="Icon">
+                        <h2 id="popup-title" class="popup-title"></h2>
+                        <p id="popup-message" class="popup-message"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    listarTipos();
+    async function listarTipos() {
+    try {
+        const resposta = await fetch("http://localhost:8080/tipo-produtos");
+        const tipos = await resposta.json();
+        
+        const listaTipos = document.getElementById('select_tipo');
+        listaTipos.innerHTML = tipos.map(tipo => `<option value="${tipo.id}">${tipo.nome}</option>`).join("");
+    } catch (error) {
+        console.error("Erro ao listar tipos de produtos:", error);
+    }
+}
+
+    async function cadastrar() {
+        const url = 'http://localhost:8080/produtos';
+
+        try {
+            let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            headers.append('Accept', '*/*');
+
+            const nome = document.getElementById("nome_produto_input").value;
+            const descricao = document.getElementById("descricao_produto_input").value;
+            const qtdPessoas = document.getElementById("qtdPessoas_input").value;
+            const preco = Number(document.getElementById("preco_input").value);
+            const disponibilidade = true;
+            const tipoProduto = Number(document.getElementById("select_tipo").value);
+
+            const resposta = await fetch(url, {
+                method: "POST",
+                headers: headers,
+                body: JSON.stringify({
+                    nome: nome,
+                    descricao: descricao,
+                    valor: preco,
+                    qtdPessoas: qtdPessoas,
+                    tipoProduto: tipoProduto,
+                    disponibilidade: disponibilidade
+                })
+            });
+
+            if (resposta.ok) {
+                const respostaJson = await resposta.json();
+                console.log('Produto cadastrado: ', respostaJson);
+
+                const fileInput = document.getElementById('fileInput');
+                if (fileInput.files.length > 0) {
+                    await uploadImagem(respostaJson.id, fileInput.files[0]);
+                }
+
+                showPopup('CADASTRADO COM SUCESSO!', 'Produto cadastrado com sucesso!', 'success');
+            } else if (resposta.status === 400) {
+                showPopup('ERRO NO CADASTRO!', '(Há campos vazios!)', 'error_bad_request');
+            } else if (resposta.status === 409) {
+                showPopup('ERRO NO CADASTRO!', '(Conflito de dados!)', 'error_conflito');
+            }
+        } catch (erro) {
+            console.log("Erro: ", erro);
+        }
+    }
+
+    async function uploadImagem(idProduto, imagem) {
+        const url = `http://localhost:8080/produtos/imagem/${idProduto}`;
+
+        try {
+            const arrayBuffer = await imagem.arrayBuffer();
+            const bytes = new Uint8Array(arrayBuffer);
+
+            const resposta = await fetch(url, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': imagem.type,
+                },
+                body: bytes
+            });
+
+            if (!resposta.ok) {
+                throw new Error('Erro ao fazer upload da imagem');
+            }
+
+            console.log('Imagem enviada com sucesso!');
+        } catch (erro) {
+            console.error('Erro: ', erro);
+            throw erro;
+        }
+    }
+
+    function showPopup(title, message, type) {
+        const popup = document.getElementById('popup');
+        const popupTitle = document.getElementById('popup-title');
+        const popupMessage = document.getElementById('popup-message');
+        const popupIcon = document.getElementById('popup-icon');
+
+        popupTitle.textContent = title;
+        popupMessage.textContent = message;
+
+        if (type === 'success') {
+            popupTitle.style.color = '#33D700';
+            popupIcon.src = '../assets/sucesso.png';
+        } else if (type === 'error_conflito' || type === 'error_bad_request') {
+            popupTitle.style.color = '#EB3223';
+            popupIcon.src = '../assets/erro.png';
+        }
+
+        popup.style.display = 'flex';
+    }
+
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
+</script>
