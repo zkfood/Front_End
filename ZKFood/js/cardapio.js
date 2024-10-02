@@ -1,73 +1,48 @@
-document.addEventListener("DOMContentLoaded", async function() {
-    const containerCards = document.querySelector('.container-cards');
-    const userId = 1; //chumbado 
-    
-    async function buscarFavoritos() {
-        const url = `${ambiente.local + prefix.avaliacoes}`;
-        const request = new Request({
-            newQueryStringParams: { usuario: userId, favorito: true }
-        });
+async function receberPratos(tipo) {
+    const divItensCardapio = document.getElementById('itensCardapio')
+    divItensCardapio.innerHTML = ''
 
-        try {
-            const fetch = await new FetchBuilder().request(url, request);
-            renderizarFavoritos(fetch);
-        } catch (error) {
-            console.error("Erro ao buscar favoritos:", error);
+    const url = `${ambiente.local+prefix.produtos}`
+
+    const chamada = tipo ? new Request({
+        newQueryStringParams: {
+            tipo: tipo,
         }
-    }
-    function renderizarFavoritos(favoritos) {
-        containerCards.innerHTML = "";
+    }) : undefined
 
-        favoritos.forEach(favorito => {
-            const prato = {
-                id: favorito.id.produto,
-                nome: favorito.produto.nome,
-                descricao: favorito.descricao || 'Sem descrição',
-                preco: favorito.produto.preco,
-                imagem: `../../assets/${favorito.produto.nome.toLowerCase()}.png`,
-                favorito: favorito.favorito
-            };
-            adicionarCard(prato, containerCards);
-        });
-    }
+    const fetch = await new FetchBuilder().request(url, chamada);
 
-    function adicionarCard(favorito, container) {
-        const card = document.createElement('div');
-        card.classList.add('card');
+    var linhaItemCardapio = document.createElement('div');
+    linhaItemCardapio.className = 'linha-item-cardapio';
+    divItensCardapio.appendChild(linhaItemCardapio);
 
-        card.innerHTML = `
-            <img class="img-prato" src="${favorito.imagem}" alt="foto do prato">
-            <h1>${favorito.nome}</h1>
-            <p>${favorito.descricao}</p>
-            <div class="card-menu">
-                <h2><span>R$</span> ${favorito.preco.toFixed(2)}</h2>
-                <div class="card-botoes">
-                    <button class="botao-carrinho"><img src="../../assets/carrinho-carrinho-branco.png" alt="Ícone carrinho"></button>
-                    <button class="botao-lixo"><img src="../../assets/Trash.png" alt="Ícone de lixo"></button>
+    var contador = 0
+    fetch.map(produto => {
+        if (contador % 2 === 0 && contador !== 0) {
+            linhaItemCardapio = document.createElement('div');
+            linhaItemCardapio.className = 'linha-item-cardapio';
+            divItensCardapio.appendChild(linhaItemCardapio);
+        }
+            linhaItemCardapio.innerHTML += `
+            <div class="card-cardapio">
+                <div class="conteudo-cardapio">
+                    <h2>${produto.nome}</h2>
+                    <p>${produto.descricao}</p>
+                    <div class="servir">
+                        <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
+                        <h5>Serve ${produto.qtdPessoas} pessoas</h5>
+                    </div>
+                    <h1><span>R$</span>${produto.valor}</h1>
+                </div>
+                <div class="imagem-cardapio">
+                    <img id="imagem-${produto.descricao}" src="${ambiente.local+prefix.produtos}/imagem/${produto.id}" alt="Foto do prato">
+                    <div class="menu-card">
+                        <button class="botao-acessar">Ver mais</button>
+                        <button class="botao-favoritos"><img src="../../assets/icon-coração-branco.png" alt=""></button>
+                    </div>
                 </div>
             </div>
         `;
-
-        const botaoLixo = card.querySelector('.botao-lixo');
-        botaoLixo.addEventListener('click', () => removerFavorito(favorito));
-
-        container.appendChild(card);
-    }
-
-    async function removerFavorito(favorito) {
-        const url = `${ambiente.local + prefix.avaliacoes}`;
-        const request = new Request({
-            method: 'DELETE',
-            newQueryStringParams: { usuario: userId, produto: favorito.id }
-        });
-
-        try {
-            await new FetchBuilder().request(url, request);
-            buscarFavoritos(); 
-        } catch (error) {
-            console.error("Erro ao remover favorito:", error);
-        }
-    }
-
-    await buscarFavoritos();
-});
+        contador++
+    })
+}
