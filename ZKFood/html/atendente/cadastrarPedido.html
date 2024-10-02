@@ -14,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <script src="/ZKFood/js/atendente/cadastrar.js"></script>
 </head>
 
 <body>
@@ -46,6 +48,26 @@
                 <div id="pedidoContainer">
 
                     <!-- Primeira linha de pedido -->
+                    <label for="pedido">Pedido</label>
+                    <div class="form-group pedido-item">
+
+                        <!-- Lista de categorias -->
+                        <select id="categoria_lista" name="pedido">
+                            <option value="">Selecione o tipo</option>
+                        </select>
+
+                        <!-- Lista de itens disponiveis da categoria selecionada -->
+                        <select id="produto_lista" name="pedido">
+                            <option value="">Selecione o produto</option>
+                        </select>
+
+                        <input type="number" id="quantidade" name="quantidade" min="1" placeholder="Qtd">
+                        <input type="text" id="observacao" name="observacao" placeholder="Observação">
+                    </div>
+
+                </div>
+        
+                <div class="form-group">
                     <label for="pedido">Pedido</label>
                     <div class="form-group pedido-item">
 
