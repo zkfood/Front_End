@@ -149,74 +149,82 @@
 </html>
 
 <script>
-let editando = false;
-
-function editarInformacoes() {
-    const usuario = document.querySelector('.container-usuario');
-
-    if (!editando) {
-        // Captura os valores atuais
-        const nome = document.getElementById('nome').nextElementSibling.innerText;
-        const telefone = document.getElementById('telefone').nextElementSibling.innerText;
-        const cpf = document.getElementById('cpf').nextElementSibling.innerText;
-        const senha = document.getElementById('senha').nextElementSibling.innerText;
-        const email = document.getElementById('email').nextElementSibling.innerText;
-
-        // Atualiza o HTML com os inputs
-        usuario.innerHTML = `
-            <div class="info-usuario">
-                <p id="nome">Nome:</p>
-                <input type="text" id="inputNome" value="${nome}">
-                <br>
-                <p id="telefone">Telefone:</p>
-                <input type="tel" id="inputTelefone" value="${telefone}">
-            </div>
-            <div class="info-usuario">
-                <p id="cpf">CPF:</p>
-                <input type="text" id="inputCpf" value="${cpf}">
-                <br>
-                <p id="senha">Senha:</p>
-                <input type="password" id="inputSenha" value="${senha}">
-            </div>
-            <div class="info-usuario">
-                <p id="email">Email:</p>
-                <input type="email" id="inputEmail" value="${email}">
-            </div>
-        `;
-        document.querySelector('.botao-azul').innerText = 'Salvar';
-        editando = true;
-    } else {
-        // Captura os novos valores dos inputs
-        const nome = document.getElementById('inputNome').value;
-        const telefone = document.getElementById('inputTelefone').value;
-        const cpf = document.getElementById('inputCpf').value;
-        const senha = document.getElementById('inputSenha').value;
-        const email = document.getElementById('inputEmail').value;
-
-        // Atualiza o HTML de volta com os textos
-        usuario.innerHTML = `
-            <div class="info-usuario">
-                <p id="nome">Nome:</p>
-                <p>${nome}</p>
-                <br>
-                <p id="telefone">Telefone:</p>
-                <p>${telefone}</p>
-            </div>
-            <div class="info-usuario">
-                <p id="cpf">CPF:</p>
-                <p>${cpf}</p>
-                <br>
-                <p id="senha">Senha:</p>
-                <p>${senha}</p>
-            </div>
-            <div class="info-usuario">
-                <p id="email">Email:</p>
-                <p>${email}</p>
-            </div>
-        `;
-        document.querySelector('.botao-azul').innerText = 'Editar';
-        editando = false;
+    let editando = false;
+    
+    function editarInformacoes() {
+        const usuario = document.querySelector('.container-usuario');
+    
+        if (!editando) {
+            // Captura os valores atuais
+            const nome = document.getElementById('nome').nextElementSibling.innerText;
+            const telefone = document.getElementById('telefone').nextElementSibling.innerText;
+            const cpf = document.getElementById('cpf').nextElementSibling.innerText;
+            const telefone2 = document.getElementById('telefone2').nextElementSibling.innerText;
+            const email = document.getElementById('email').nextElementSibling.innerText;
+            const senha = document.getElementById('senha').nextElementSibling.innerText;
+    
+            // Atualiza o HTML com os inputs para edição
+            usuario.innerHTML = `
+                <div class="info-usuario">
+                    <p id="nome">Nome:</p>
+                    <input type="text" id="inputNome" value="${nome}">
+                    <br>
+                    <p id="telefone">Telefone:</p>
+                    <input type="tel" id="inputTelefone" value="${telefone}">
+                </div>
+                <div class="info-usuario">
+                    <p id="cpf">CPF:</p>
+                    <input type="text" id="inputCpf" value="${cpf}">
+                    <br>
+                    <p id="telefone2">Telefone 2:</p>
+                    <input type="tel" id="inputTelefone2" value="${telefone2}">
+                </div>
+                <div class="info-usuario">
+                    <p id="email">Email:</p>
+                    <input type="email" id="inputEmail" value="${email}">
+                    <br>
+                    <p id="senha">Senha:</p>
+                    <input type="password" id="inputSenha" value="${senha}">
+                </div>
+            `;
+            document.querySelector('.botao-azul').innerText = 'Salvar';
+            editando = true;
+        } else {
+            // Captura os novos valores dos inputs
+            const nome = document.getElementById('inputNome').value;
+            const telefone = document.getElementById('inputTelefone').value;
+            const cpf = document.getElementById('inputCpf').value;
+            const telefone2 = document.getElementById('inputTelefone2').value;
+            const email = document.getElementById('inputEmail').value;
+            const senha = document.getElementById('inputSenha').value;
+    
+            // Atualiza o HTML de volta com os textos
+            usuario.innerHTML = `
+                <div class="info-usuario">
+                    <p id="nome">Nome:</p>
+                    <p>${nome}</p>
+                    <br>
+                    <p id="telefone">Telefone:</p>
+                    <p>${telefone}</p>
+                </div>
+                <div class="info-usuario">
+                    <p id="cpf">CPF:</p>
+                    <p>${cpf}</p>
+                    <br>
+                    <p id="telefone2">Telefone 2:</p>
+                    <p>${telefone2}</p>
+                </div>
+                <div class="info-usuario">
+                    <p id="email">Email:</p>
+                    <p>${email}</p>
+                    <br>
+                    <p id="senha">Senha:</p>
+                    <p>${senha}</p>
+                </div>
+            `;
+            document.querySelector('.botao-azul').innerText = 'Editar';
+            editando = false;
+        }
     }
-}
-
-</script>
+    </script>
+    
