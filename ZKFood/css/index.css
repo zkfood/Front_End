@@ -253,6 +253,9 @@ p {
 
 .container-sobre img {
     cursor: pointer;
+    width: 55%;
+    height: 55vh;
+    border-radius: 10px;
 }
 
 /* Avaliações */
