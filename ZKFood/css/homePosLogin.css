@@ -199,8 +199,7 @@
 
 .tela_atual p{
     font-weight: bold;
-    border-bottom: 5px solid white;
-    border-radius: 5px;
+    border-bottom: 4px solid white;
 }
 
 /* BANNER CARROSSEL */
@@ -371,6 +370,7 @@
 
 .salada-pedidos{
     width: 50%;
+    background-attachment: fixed;
 }
 
 .salada-pedidos img{
@@ -389,7 +389,7 @@
 .conteudo-pedidos h1{
     font-family: "Bebas Neue", sans-serif;
     font-weight: 500;
-    font-size: 120px;
+    font-size: 100px;
     line-height: 100px;
 }
 
@@ -401,22 +401,7 @@
 }
 
 .botao-acessar {
-    width: 30%;
-    height: 50px;
-    padding: 10px;
-    background-color: #68A5FF;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 24px;
-}
-
-
-.botao-cad{
-    width: 100%;
+    width: 200px;
     height: 50px;
     padding: 10px;
     background-color: #68A5FF;
@@ -462,7 +447,7 @@
 .conteudo-endereco h1{
     font-family: "Bebas Neue", sans-serif;
     font-weight: 500;
-    font-size: 120px;
+    font-size: 100px;
     line-height: 100px;
 }
 

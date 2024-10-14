@@ -93,3 +93,40 @@
     background-color: #68A5FF;
 }
 
+/* Menu dentro do card */
+
+.sub-navbar {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 18px;
+    margin: 0 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.active {
+    font-weight: bold;
+    color: #1E1E1E; 
+}
+
+/* Card de endereço */
+
+.card-perfil {
+    transition: transform 0.5s; /* Suaviza a rotação */
+}
+
+.rotated {
+    transform: rotateY(180deg); /* Rotação em Y */
+}
+
+.endereco-info {
+    margin-top: 20px;
+    text-align: center;
+}
