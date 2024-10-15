@@ -27,7 +27,8 @@ async function login() {
                 console.log('JSON: ', respostaJson);
                 showPopup('LOGIN FEITO COM SUCESSO!', 'Que tal uma feijoada?!', 'success');
 
-                window.location.href = "../../../html/cliente/home_pos_login.html"
+
+                window.location.href = "../.."
             } else {
                 console.log('Resposta não contém corpo.');
             }
