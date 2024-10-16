@@ -4,14 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Meu Perfil</title>
+
     <link rel="stylesheet" href="../../css/homePosLogin.css">
     <link rel="stylesheet" href="../../css/perfil.css">
 
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
     <script src="../../js/perfil.js"></script>
-
+  
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap"
@@ -23,7 +25,8 @@
         <div class="parte_superior_navbar">
             <div class="img_voltar"> <a href="javascript:history.back()"><img src="../../assets/de-volta.png"
                         alt="Seta para voltar a página"></a></div>
-                        <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png" alt="Logo do ZKfood"></a></div>
+            <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png"
+                        alt="Logo do ZKfood"></a></div>
             <div class="container_pesquisa">
                 <div class="search-container">
                     <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon">
@@ -41,10 +44,9 @@
                             alt="Icone de carrinho de mercado para sinalizar itens na lista de compras"> </a>
                 </div>
             </div>
-
-
             <div class="profile_home">
-                <a class="perfil" href="perfil.html" style="background-image: url(../../assets/icon-user-branco.png);"></a>
+                <a class="perfil" href="perfil.html"
+                    style="background-image: url(../../assets/icon-user-branco.png);"></a>
                 <a class="logoff" href="#"></a>
             </div>
         </div>
@@ -61,12 +63,14 @@
     </div>
 
     <div class="container">
+        <div class="sub-navbar">
+            <button id="btnPerfil" class="nav-button active">Meu Perfil</button>
+            <button id="btnEnderecos" class="nav-button">Meus Endereços</button>
+        </div>
         <div class="listra-amarela"></div>
-
-        <div class="card-perfil">
+        <div class="card-perfil" id="cardPerfil">
             <img src="../../assets/user.png" alt="">
             <h1>Maria Karolyna</h1>
-
             <div class="container-usuario">
                 <div class="info-usuario">
                     <p id="nome">Nome:</p>
@@ -75,7 +79,6 @@
                     <p id="telefone">Telefone:</p>
                     <p>(11) 99999-9999</p>
                 </div>
-
                 <div class="info-usuario">
                     <p id="cpf">CPF:</p>
                     <p>08400000</p>
@@ -83,7 +86,6 @@
                     <p id="telefone2">Telefone 2:</p>
                     <p>Não cadastrado.</p>
                 </div>
-
                 <div class="info-usuario">
                     <p id="email">Email:</p>
                     <p>maria@email.com</p>
@@ -95,10 +97,55 @@
             <button class="botao-azul" onclick="editarInformacoes()">Editar</button>
         </div>
 
+        <div class="container-listar-enderecos" id="cardEndereco" style="display: none;">
+
+            <!-- card de endereço -->
+            <div class="card-endereco">
+                <div class="container-endereco">
+                    <div class="titulo-pai">
+                        <img src="/ZKFood/assets/Address.png" alt="Icone Endereço">
+                        <span class="titulo-endereco">ENDEREÇO PARA <span>ENTREGA</span></span>
+                    </div>
+                    <div class="conteudo-pai">
+                        <div class="endereco-conteudo">
+                            <div class="informacao-endereco">
+                                <span class="info-bairro">Cidade Tiradentes</span>
+                                <span class="info-rua">Rua Ludovico Liparini <span class="info-numero">190</span></span>
+                                <span class="info-cep">Jardim Dona Sinhá - São paulo, Brazil 03923-220 </span>
+                            </div>
+                        </div>
+                        <button class="botao-excluir">Excluir</button>
+                        <button class="botao-editar" onclick="editarEndereco()">Editar</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- card de endereço -->
+            <div class="card-endereco">
+                <div class="container-endereco">
+                    <div class="titulo-pai">
+                        <img src="/ZKFood/assets/Address.png" alt="Icone Endereço">
+                        <span class="titulo-endereco">ENDEREÇO PARA <span>ENTREGA</span></span>
+                    </div>
+                    <div class="conteudo-pai">
+                        <div class="endereco-conteudo">
+                            <div class="informacao-endereco">
+                                <span class="info-bairro">Cidade Tiradentes</span>
+                                <span class="info-rua">Rua Ludovico Liparini <span class="info-numero">190</span></span>
+                                <span class="info-cep">Jardim Dona Sinhá - São paulo, Brazil 03923-220 </span>
+                            </div>
+                        </div>
+                        <button class="botao-excluir">Excluir</button>
+                        <button class="botao-editar" onclick="editarEndereco()">Editar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <!-- Footer -->
-
     <footer>
         <div class="footer-top">
             <img src="../../assets/Vector-ondas-footer.png" alt="">
@@ -108,31 +155,25 @@
                 <div class="logo-footer">
                     <img src="../../assets/logo-icon.png" alt="logo da empresa ZKfood">
                 </div>
-
                 <div class="bloco-footer">
                     <a href="">Menu</a>
                     <a href="">Contato</a>
                 </div>
-
                 <div class="bloco-footer">
                     <a href="">Sobre</a>
                     <a href="">Avaliações</a>
                 </div>
-
                 <div class="bloco-footer">
                     <a href="">Cadastro</a>
                     <a href="">Pratos</a>
                 </div>
             </div>
-
             <div class="linha"></div>
-
             <div class="redes-sociais">
                 <a href=""><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
                 <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="Icone WhatsApp"></a>
                 <a href=""><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
             </div>
-
             <div class="informacoes">
                 <p><a href="">Termos e Condições</a></p>
                 <p> | </p>
@@ -149,23 +190,52 @@
 </body>
 
 </html>
-
 <script>
     let editando = false;
-    
+    let editandoEndereco = false;
+
+    // Alterna entre o card de perfil e o de endereço
+    document.getElementById('btnPerfil').addEventListener('click', function () {
+        document.getElementById('cardPerfil').style.display = 'flex';
+        document.getElementById('cardEndereco').style.display = 'none';
+    });
+    document.getElementById('btnEnderecos').addEventListener('click', function () {
+        document.getElementById('cardPerfil').style.display = 'none';
+        document.getElementById('cardEndereco').style.display = 'flex';
+    });
+
+    // Alterando o botão do menu que estara ativo
+    const navButtons = document.querySelectorAll('.nav-button');
+    navButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            // Remove a classe 'active' de todos os botões
+            navButtons.forEach(btn => btn.classList.remove('active'));
+            // Adiciona a classe 'active' ao botão clicado
+            this.classList.add('active');
+            // Alterna entre as seções
+            if (this.id === 'btnPerfil') {
+                document.getElementById('cardPerfil').style.display = 'flex';
+                document.getElementById('cardEndereco').style.display = 'none';
+            } else if (this.id === 'btnEnderecos') {
+                document.getElementById('cardPerfil').style.display = 'none';
+                document.getElementById('cardEndereco').style.display = 'flex';
+            }
+        });
+    });
+
+
+    // Editar dados do perfil
     function editarInformacoes() {
         const usuario = document.querySelector('.container-usuario');
-    
+
         if (!editando) {
-            // Captura os valores atuais
             const nome = document.getElementById('nome').nextElementSibling.innerText;
             const telefone = document.getElementById('telefone').nextElementSibling.innerText;
             const cpf = document.getElementById('cpf').nextElementSibling.innerText;
             const telefone2 = document.getElementById('telefone2').nextElementSibling.innerText;
             const email = document.getElementById('email').nextElementSibling.innerText;
             const senha = document.getElementById('senha').nextElementSibling.innerText;
-    
-            // Atualiza o HTML com os inputs para edição
+
             usuario.innerHTML = `
                 <div class="info-usuario">
                     <p id="nome">Nome:</p>
@@ -192,15 +262,13 @@
             document.querySelector('.botao-azul').innerText = 'Salvar';
             editando = true;
         } else {
-            // Captura os novos valores dos inputs
             const nome = document.getElementById('inputNome').value;
             const telefone = document.getElementById('inputTelefone').value;
             const cpf = document.getElementById('inputCpf').value;
             const telefone2 = document.getElementById('inputTelefone2').value;
             const email = document.getElementById('inputEmail').value;
             const senha = document.getElementById('inputSenha').value;
-    
-            // Atualiza o HTML de volta com os textos
+
             usuario.innerHTML = `
                 <div class="info-usuario">
                     <p id="nome">Nome:</p>
@@ -228,5 +296,45 @@
             editando = false;
         }
     }
-    </script>
-    
+
+    // Função para editar o endereço
+    function editarEndereco() {
+        const enderecoContainer = document.querySelector('.endereco-conteudo');
+
+        if (!editandoEndereco) {
+            const bairro = document.querySelector('.info-bairro').innerText;
+            const rua = document.querySelector('.info-rua').innerText;
+            const cep = document.querySelector('.info-cep').innerText;
+            const numero = document.querySelector('.info-numero').innerText;
+
+            enderecoContainer.innerHTML = `
+            <div class="informacao-endereco">
+                <label>Bairro: <input type="text" id="inputBairro" value="${bairro}"></label>
+                <label>Rua/Logradouro/Avenida: <input type="text" id="inputRua" value="${rua}"> Número:<input type="text" id="inputNumero" value="${numero}"></label>
+                <label>CEP: <input type="text" id="inputCep" value="${cep}"></label>
+                <label>Complemento: <input type="text" id="inputComplemento" placeholder="Complemento"></label>
+            </div>
+        `;
+            document.querySelector('.botao-editar').innerText = 'Salvar';
+            editandoEndereco = true;
+        } else {
+            const bairro = document.getElementById('inputBairro').value;
+            const rua = document.getElementById('inputRua').value;
+            const numero = document.getElementById('inputNumero').value;
+            const cep = document.getElementById('inputCep').value;
+            const complemento = document.getElementById('inputComplemento').value;
+
+            enderecoContainer.innerHTML = `
+            <div class="informacao-endereco">
+                <span class="info-bairro">${bairro}</span>
+                <span class="info-rua">${rua} <span class="info-numero">${numero}</span></span>
+                <span class="info-cep">${cep}</span>
+                ${complemento ? `<span class="info-complemento">Complemento: ${complemento}</span>` : ''}
+            </div>
+        `;
+            document.querySelector('.botao-editar').innerText = 'Editar';
+            editandoEndereco = false;
+        }
+    }
+
+</script>

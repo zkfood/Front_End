@@ -1,9 +1,9 @@
 .container {
     width: 100%;
-    height: 100vh;
+    height: 110vh;
     position: relative;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -14,6 +14,7 @@
     background-color: #FFD700;
     /* Amarelo */
     z-index: 1;
+    margin-top: 20% ;
 }
 
 .card-perfil {
@@ -28,6 +29,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-bottom: 10%;
 }
 
 .card-perfil img {
@@ -93,3 +95,208 @@
     background-color: #68A5FF;
 }
 
+/* Menu dentro do card */
+
+.sub-navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 15vh;
+}
+
+.nav-button {
+    padding: 10px;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.active {
+    font-weight: bold;
+    color: #1E1E1E; 
+    border: 1px solid #1E1E1E;
+    border-radius: 10px;
+}
+
+/* Card de endereço */
+
+.endereco-info {
+    width: 60vw;
+    height: 70vh;
+    box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+
+/* Card de endereço */
+.container-listar-enderecos{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card-endereco {
+    width: 60%;
+    height: auto;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 2%;
+    box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.titulo-pai {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.card-endereco img {
+    height: 40px;
+}
+
+.container-endereco {
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.titulo-endereco {
+    height: 40px;
+    font-size: 32px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+}
+
+.titulo-endereco span {
+    color: #FFB90A;
+}
+
+.conteudo-pai {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.informacao-endereco {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.informacao-endereco span {
+    font-size: 24px;
+}
+
+
+.endereco-conteudo {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    flex-wrap: wrap;
+    margin-right: 10%;
+}
+
+.botoes-endereco {
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    justify-content: space-between;
+}
+
+/* Botões */
+
+.botao-excluir,
+.botao-editar {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+.botao-excluir {
+    background-color: #fff;
+    color: #000;
+    border: #000 solid 1px;
+}
+
+.botao-excluir:hover{
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+}
+
+.botao-editar {
+    background-color: #68A5FF;
+    color: #fff;
+    border: none;
+}
+
+.botao-azul {
+    background-color: #68A5FF;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    width: 50%; /* Ajuste a largura se necessário */
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Bebas Neue", sans-serif;
+    cursor: pointer;
+    margin-top: 2%;
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Adiciona a transição suave */
+    display: flex; /* Usado para centralizar */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: center; /* Garante que o texto dentro seja centralizado */
+    line-height: 40px; /* Ajusta a altura da linha para centralizar verticalmente */
+}
+
+
+.informacao-endereco input {
+    font-size: 1rem;
+    color: #333;
+}
+
+.informacao-endereco input {
+    width: 100%;
+    height: 25px;
+    border: 1px solid #818181;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+#inputRua, #inputNumero{
+    width: 26.5%;
+}
