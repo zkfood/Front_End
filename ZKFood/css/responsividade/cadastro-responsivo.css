@@ -63,7 +63,7 @@
     }
 
     .formulario-cadastro {
-        height: 80vh;
+        height: 85vh;
         width: 70%;
         background-color: white;
         box-shadow: 2px 2px 7px 4px rgba(0, 0, 0, 0.2);
@@ -73,6 +73,16 @@
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
+    }
+
+    .titulo-bebas-responsivo {
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 500;
+        font-size: 40px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
     }
 
     .divisao-cadastro {

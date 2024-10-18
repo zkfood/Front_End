@@ -37,6 +37,10 @@ body {
     align-items: center;
 }
 
+.titulo-bebas-responsivo{
+    font-size: 0px;
+}
+
 .texto-comecar {
     margin-left: 15px;
 }

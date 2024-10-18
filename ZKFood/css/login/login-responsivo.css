@@ -42,12 +42,22 @@
 
     .container-login {
         position: unset;
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 
     .formulario-login {
-        height: 45vh;
+        height: 50vh;
         width: 70vw;
+    }
+
+    .titulo-bebas-responsivo {
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 500;
+        font-size: 40px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
     }
 
     .texto-comecar {
@@ -93,7 +103,8 @@
         margin-bottom: 5%;
     }
 
-    .checkbox-container label, .div-lembrar a u{
+    .checkbox-container label,
+    .div-lembrar a u {
         font-size: 18px;
     }
 
