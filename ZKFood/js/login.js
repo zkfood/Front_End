@@ -28,7 +28,7 @@ async function login() {
                 showPopup('LOGIN FEITO COM SUCESSO!', 'Que tal uma feijoada?!', 'success');
 
 
-                window.location.href = "../.."
+                window.location.href = "../../html/cliente/home_pos_login.html"
             } else {
                 console.log('Resposta não contém corpo.');
             }
