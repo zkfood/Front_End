@@ -1,0 +1,286 @@
+@media screen and (max-width: 440px) {
+  
+  /* Navbar superior */
+  .header {
+    height: 10vh;
+  }
+
+  #imagem {
+    height: 7vh;
+  }
+
+  .org-nav-bar {
+    display: none;
+  }
+
+  .botoes-header {
+    width: 45%;
+  }
+
+  .botao-entrar {
+    font-size: 15px;
+  }
+
+  .botao-cadastre {
+    height: 35px;
+    width: 100px;
+    font-size: 18px;
+  }
+
+  /* Banner elipse */
+  .elipse {
+    width: 250px;
+  }
+
+  /* Imagem sobre a elipse */
+  .banner-inicial {
+    height: 90vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+  }
+
+  .componentes-banner-inicial {
+    width: 90%;
+    height: 35vh;
+  }
+
+  .componentes-banner-inicial .letra-amarela {
+    color: #000000;
+  }
+
+  .banner-inicial h1 {
+    font-size: 50px;
+    line-height: 40px;
+    z-index: 2;
+    margin-top: 15%;
+  }
+
+
+  p {
+    line-height: 18px;
+    font-size: 15px;
+    z-index: 2;
+  }
+
+  .banner-inicial img {
+    max-width: 90vw;
+    height: auto;
+    align-self: center;
+  }
+
+  .botao-azul {
+    height: 42px;
+    width: 30vw;
+    font-size: 18px;
+  }
+
+  /* Cards de serviços */
+  .card-container {
+    flex-direction: column;
+    height: 160vh;
+    margin-top: 50%;
+    margin-bottom: 50%;
+  }
+
+  .card {
+    padding: 10px;
+    width: 80%;
+    height: 20vh;
+    padding-bottom: 10%;
+  }
+
+  .image-container {
+    width: 300px;
+    top: -90px;
+  }
+
+  #prato-almoco {
+    width: 60vw;
+  }
+
+  #prato-bebidas {
+    width: 30vw;
+
+  }
+
+  #prato-porcoes {
+    width: 58vw;
+  }
+
+  #prato-feijoada {
+    width: 65vw;
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+
+  .card h2 {
+    margin-top: 20%;
+  }
+
+  /* Saiba mais - VIDEO */
+
+  .container-sobre {
+    height: 85vh;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  .titulo-bebas {
+    font-size: 50px;
+    line-height: 60px;
+    width: 100%;
+    margin-bottom: 20%;
+    margin-top: 20%;
+  }
+
+  .container-sobre img {
+    width: 100%;
+    height: 25vh;
+  }
+
+  /* Avaliações */
+
+  .avaliacoes {
+    height: 95vh;
+  }
+
+  .container-avaliacoes {
+    height: 20vh;
+    align-items: center;
+  }
+
+  .titulo-bebas {
+    margin-bottom: 0px;
+  }
+
+  .container-cards {
+    overflow-x: auto;
+    width: 100vw;
+    max-width: 100%;
+    height: 60vh;
+  }
+
+  .card-avaliacao {
+    min-width: 300px;
+    max-width: 90%;
+    height: 22vh;
+    padding: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .foto-avaliacao img {
+    width: 85px;
+  }
+
+  .card-avaliacao h5 {
+    font-size: 22px;
+  }
+
+  .card-avaliacao h2 {
+    font-size: 30px;
+  }
+
+  .card-avaliacao span {
+    font-size: 30px;
+  }
+
+  .card-avaliacao p {
+    font-size: 20px;
+  }
+
+  .prev-btn {
+    left: 0;
+    display: none;
+  }
+
+  .next-btn {
+    right: 0;
+    display: none;
+  }
+
+  /* Contato */
+
+  .contato {
+    height: 110vh;
+    flex-direction: column;
+  }
+
+  .letra-amarela {
+    color: #FFB400;
+  }
+
+  .contato-linha p {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  /* MAPA do contato */
+
+  .info-contato .titulo-bebas{
+    margin-bottom: 10%;
+  }
+
+  .mapa {
+    margin-bottom: 30%;
+  }
+
+  .mapBox {
+    height: 350px;
+  }
+
+  /* Footer */
+
+  .footer-top {
+    height: 1vh;
+  }
+
+  .footer {
+    height: 120vh;
+  }
+
+  .footer-paginas {
+    height: 60vh;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .bloco-footer {
+    height: 9vh;
+    align-items: center;
+  }
+
+  .logo-footer {
+    width: 20%;
+  }
+
+  .logo-footer img {
+    width: 100px;
+    color: #000000;
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+
+  .linha {
+    background-color: #000000;
+    width: 80%;
+    height: 0.5px;
+  }
+
+  .redes-sociais {
+    width: 65%;
+  }
+
+  .informacoes {
+    display: block;
+    align-items: flex-end;
+    width: 100%;
+    text-align: center;
+  }
+
+  .informacoes p {
+    font-size: 0px;
+    padding: 0 10px;
+  }
+}
