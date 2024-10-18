@@ -42,6 +42,7 @@
 
     .container-login {
         position: unset;
+        flex-direction: column-reverse;
     }
 
     .formulario-login {
@@ -52,6 +53,18 @@
     .texto-comecar {
         display: none;
     }
+
+    /* .texto-comecar span {
+        display: flex;
+        height: 15vh;
+        align-items: center;
+        text-align: center;
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 50px;
+        color: #000000;
+    } */
 
     /* Estilos do formulário */
     .formulario-login label {
