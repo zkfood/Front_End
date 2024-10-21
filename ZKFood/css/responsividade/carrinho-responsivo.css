@@ -2,295 +2,81 @@
 
     .container{
         width: 90%;
-        height: auto;
-        display: flex;
         flex-direction: column;
-        margin-top: 2%;
         justify-content: center;
         align-items: center;
     }
     
     .lista{
         width: 95%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 10%;
     }
     
     .card-cardapio{
-        width: 90%;
         height: 25vh;
-        background-color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
-        border-radius: 20px;
-        padding: 25px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
         margin-top: 8%;
     }
     
     .conteudo-cardapio{
-        width: 45%;
         height: 25vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
     }
     
     .conteudo-cardapio h2 {
         width: 95%;
-        font-family: "Bebas Neue", sans-serif;
-        color: #000000;
-        line-height: 24px;
         font-size: 25px;
-        font-weight: 400;
     }
     
     .conteudo-cardapio p {
-        width: 90%;
-        font-family: "Roboto", sans-serif;
-        color: #4B4B4B;
         line-height: 18px;
         font-size: 14px;
-        font-weight: 400;
-    }
-    
-    .servir{
-        display: flex;
-        justify-content: baseline;
-        align-items: center;
-    }
-    
-    .servir h5{
-        font-weight: 300;
-        font-family: "Roboto", sans-serif;
-        color: #727272;
-        display: flex;
-        justify-content: baseline;
-    }
-    
-    .servir img{
-        width: 15px;
-        margin-right: 5px;
     }
     
     .conteudo-cardapio h1{
-        font-family: "Bebas Neue", sans-serif;
-        color: #FFB90A;
-        font-weight: 500;
         font-size: 40px;
-    }
-    
-    .conteudo-cardapio span{
-        font-family: "Bebas Neue", sans-serif;
-        color: #FFB90A;
-        font-weight: 500;
-        font-size: 20px;
-        margin-right: 5px;
-    }
-    
-    .imagem-cardapio{
-        width: 55%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: end;
     }
     
     .imagem-cardapio img{
         width: 100%;    
         height: 15vh;
-        border-radius: 10px;
-    }
-    
-    .menu-card{
-        width: 100%;
-        height: 8vh;
-        display: flex;
-        justify-content: space-between;
-        align-items: end;
     }
     
     .botao-lixo img {
         height: 2vh; 
         width: 2vh; 
-        object-fit: contain; /* Garante que a imagem se encaixe corretamente dentro do botão */
-    }
-    
-    .botao-lixo:hover {
-        background-color: red;
-    }
-    
-    .seletor-quantidade {
-        display: flex;
-        align-items: center;
-        background-color: #f0f0f0;
-        border-radius: 15px;
     }
     
     .seletor-quantidade button {
-        border-radius: 50%;
         width: 5vw;
-        height: 30px;
-        font-size: 20px;
-        border: none;
-        cursor: pointer;
-    }
-    
-    .seletor-quantidade input {
-        width: 40px;
-        text-align: center;
-        border: none;
-        background-color: #f0f0f0;
     }
     
     /* Card de entrega */
     .container-entrega{
         width: 90%;
         height: 30vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
-        border-radius: 20px;
-        padding: 25px;
-        text-align: center;
-        margin-top: 5%;
     }
     
     h2{
-        width: 90%;
-        font-family: "Bebas Neue", sans-serif;
-        color: #000000;
-        line-height: 24px;
         font-size: 40px;
-        font-weight: 400;
-    }
-    
-    span{
-        color: #FFB90A;
-    }
-    
-    .card-entrega{
-        width: 70%;
-        height: 20vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
     }
     
     /* Estilo base do radio */
     .custom-radio {
-        display: flex;
-        align-items: center;
-        position: relative;
         padding-left: 8vw; /* Espaçamento ao lado do círculo */
         margin-bottom: 0vh; /* Espaçamento entre os itens */
-        cursor: pointer;
-        color: #333;
         font-size: 18px;
     }
     
-    .custom-radio input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-    }
-    
     .custom-radio input ~ span {
-        position: absolute;
-        top: 50%;
-        left: 0;
         height: 5vw; 
         width: 5vw; 
-        border-radius: 50%;
-        border: 0.2vw solid #ccc; 
-        transition: background-color 0.3s ease, border-color 0.3s ease;
-        transform: translateY(-50%); 
     }
-    
-    /* Adiciona o efeito ao passar o mouse */
-    .custom-radio:hover input ~ span {
-        background-color: #ddd;
-    }
-    
-    /* Quando o radio button está selecionado */
-    .custom-radio input:checked ~ span {
-        background-color: #FFB90A;
-        border-color: #FFB90A;
-    }
-    
+
     .card-pagamento{
         width: 90%;
         height: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
-        border-radius: 20px;
-        padding: 25px;
-        text-align: center;
-        margin-top: 5%;
     }
 
-    .card-pagamento h2{
-        margin-bottom: 10%;
-        margin-top: 10%;
-    }
-    
-    .lista-pedidos{
-        width: 90%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .item{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 2%;
-    }
-    
-    .total{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 8%;
-    }
-    
-    .total h2{
-        width: 25%;
-        color: #FFB90A;
-    }
-    
     .botao-azul {
-        background-color: #68A5FF;
-        border: none;
-        border-radius: 10px;
-        height: 40px;
-        width: 100%;
-        color: #ffffff;
         font-size: 25px;
-        font-family: "Bebas Neue", sans-serif;
-        cursor: pointer;
-        margin-top: 5%;
-        text-decoration: none;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background-color 0.3s ease; /* Adiciona a transição suave */
     }
     
     .botao-azul:hover{
@@ -299,31 +85,8 @@
     
     /* Carrossel de favoritos */
     .container-carrossel{
-        width: 90%;
         height: 90vh;
-        display: flex;
-        flex-direction: column;
         margin-top: 10%;
-    }
-    
-    .container-cards{
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .titulo-carrossel{
-        font-family: "Bebas Neue", sans-serif;
-        color: #000000;
-        font-weight: 500;
-        font-size: 45px;
-    }
-    
-    .container-carrossel span{
-        color: #FFB90A;
-    
     }
 
 }
