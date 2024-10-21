@@ -112,7 +112,8 @@
     }
 
     .bottom-nav a span {
-        font-size: 12px;
+        font-size: 15px;
+        color: #000000;
     }
 
 
@@ -193,20 +194,21 @@
     /* Ver pedidos */
 
     .container-pedidos {
-        height: 50vh;
+        height: 40vh;
     }
 
     .salada-pedidos {
-        width: 40%;
+        width: 45%;
+        height: 35vh
     }
 
     .salada-pedidos img {
-        height: 32vh;
+        height: 35vh;
         width: 100%;
     }
 
     .conteudo-pedidos {
-        height: 30vh;
+        height: 35vh;
     }
 
     .conteudo-pedidos h1 {
@@ -221,7 +223,7 @@
     }
 
     .botao-acessar {
-        width: 100px;
+        width: 120px;
         height: 40px;
         font-size: 18px;
     }
@@ -277,6 +279,7 @@
 
     .footer {
         height: 100vh;
+        margin-bottom: 20%;
     }
 
     .footer-paginas {
@@ -325,7 +328,7 @@
 
     /* Caminho no processo de pagamento */
     .caminho {
-        width: 50%;
+        width: 90%;
         height: 10vh;
         display: flex;
         justify-content: center;
@@ -336,7 +339,7 @@
     .caminho p {
         width: 100%;
         color: #a3a3a3;
-        font-size: 18px;
+        font-size: 15px;
         font-weight: 200;
         width: 100%;
         margin: 0;
