@@ -45,6 +45,14 @@
     margin-bottom: 5%;
 }
 
+.card-perfil h1 {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.card-perfil p {
+    font-family: "Roboto", sans-serif;
+}
+
 .container-usuario {
     display: flex;
     width: 70%;
