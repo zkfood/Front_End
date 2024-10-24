@@ -25,10 +25,20 @@ async function login() {
             if (respostaTexto) {
                 const respostaJson = JSON.parse(respostaTexto);
                 console.log('JSON: ', respostaJson);
+
+                const userId = respostaJson.id;
+                const userName = respostaJson.nome;
+                const userEmail = respostaJson.email;
+
+                // Armazenando o id e o nome no sessionStorage
+                sessionStorage.setItem('IdUsuario', userId);
+                sessionStorage.setItem('NomeUsuario', userName);
+                sessionStorage.setItem('EmailUsuario', userEmail);
+
+
                 showPopup('LOGIN FEITO COM SUCESSO!', 'Que tal uma feijoada?!', 'success');
 
-
-                window.location.href = "../../html/cliente/home_pos_login.html"
+                window.location.href = "../../html/cliente/home_pos_login.html";
             } else {
                 console.log('Resposta não contém corpo.');
             }
