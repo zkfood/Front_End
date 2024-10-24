@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seus Pedidos</title>
+
+    <link rel="stylesheet" href="../../css/statusPedido.css">
+    <link rel="stylesheet" href="../../css/homePosLogin.css">
+    <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <script src="../../js/fetch.js"></script>
+    <script src="../../js/statusPedido.js"></script>
+</head>
+
+<body>
+    <!-- API de acessibilidade VLIBRAS -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <!-- Navbar Superior -->
+    <div class="container_navbar">
+        <div class="parte_superior_navbar">
+            <div class="img_voltar">
+                <a href="home_pos_login.html"><img src="../../assets/de-volta.png" alt="Seta para voltar a página"></a>
+            </div>
+            <div class="img_logo">
+                <a href="./home_pos_login.html"><img src="../../assets/logo.png" alt="Logo do ZKfood"></a>
+            </div>
+            <div class="container_pesquisa">
+                <div class="search-container">
+                    <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon">
+                    <input type="text" placeholder="Pesquise o que seu apetite deseja...">
+                    <button type="submit">Buscar</button>
+                </div>
+            </div>
+            <div class="container_favoritos_carrinho">
+                <div class="container_favoritos">
+                    <a href="favoritos.html"><img src="../../assets/coracao.png" alt="Icone de coração para sinalizar favoritos"></a>
+                </div>
+                <div class="container_carrinho">
+                    <a href="carrinho.html"><img src="../../assets/carrinho-carrinho.png" alt="Icone de carrinho de mercado para sinalizar itens na lista de compras"></a>
+                </div>
+            </div>
+
+            <div class="profile_home">
+                <a class="perfil" href="perfil.html"></a>
+                <a class="logoff" href="#"></a>
+            </div>
+        </div>
+        <div class="parte_inferior_navbar">
+            <ul class="menu">
+                <li><a href="home_pos_login.html">Página Inicial</a></li>
+                <li><a href="cardapio.html">Cardápio</a></li>
+                <li><a href="statusPedido.html" class="tela_atual">
+                        <p>Seus Pedidos</p>
+                    </a></li>
+                <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Status do Pedido -->
+    <div class="banner-status">
+        <div class="caminho">
+            <p>Carrinho > Endereço > Pagamento > <b>Status do Pedido</b></p>
+        </div>
+        <span class="titulo-status">STATUS DO <span>SEU PEDIDO</span></span>
+        <div class="container-status">
+            <div class="status-overview" id="statusOverview">
+                <!-- Status do pedido será carregado via JS -->
+            </div>
+        </div>
+
+        <div class="container-cards" id="pedidoDetalhes">
+            <!-- Detalhes dos pedidos serão carregados via JS -->
+        </div>
+
+        <div class="container-semPedido" id="semPedidos" style="display:none;">
+            <div class="card-semPedido">
+                <h1>Você não tem pedidos <span> </span></h1>
+                <p>Oops, parece que você ainda não fez nenhum pedido.</p>
+                <br>
+                <p>Não perca tempo e faça seu pedido agora!</p>
+                <a class="botao-azul" href="./cardapio.html">Acessar cardápio</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <img src="../../assets/Vector-ondas-footer.png" alt="">
+        </div>
+        <div class="footer">
+            <div class="footer-paginas">
+                <div class="logo-footer">
+                    <img src="../../assets/logo-icon.png" alt="logo da empresa ZKfood">
+                </div>
+                <div class="bloco-footer">
+                    <a href="">Menu</a>
+                    <a href="">Contato</a>
+                </div>
+                <div class="bloco-footer">
+                    <a href="">Sobre</a>
+                    <a href="">Avaliações</a>
+                </div>
+                <div class="bloco-footer">
+                    <a href="">Cadastro</a>
+                    <a href="">Pratos</a>
+                </div>
+            </div>
+
+            <div class="linha"></div>
+
+            <div class="redes-sociais">
+                <a href=""><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
+                <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="Icone WhatsApp"></a>
+                <a href=""><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
+            </div>
+
+            <div class="informacoes">
+                <p><a href="">Termos e Condições</a></p>
+                <p> | </p>
+                <p><a href="">Política de Privacidade</a></p>
+                <p> | </p>
+                <p><a href="">Acessibilidade</a></p>
+                <p> | </p>
+                <p><a href="">Suporte</a></p>
+                <p> | </p>
+                <p>Developed by © VisionarySolutions, 2024. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="container-notificacao" id="erroNotificacao" style="display:none;">
+        <div class="card-notificacao">
+            <img src="../../assets/check erro.png" alt="X">
+            <div class="conteudo-notificacao">
+                <h2>Oops! Tivemos um problema com o seu pedido.</h2>
+                <p>Descrição do problema. Entre em contato pelo WhatsApp <a href="https://wa.me/5511986744335">(11)98674-4335</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
