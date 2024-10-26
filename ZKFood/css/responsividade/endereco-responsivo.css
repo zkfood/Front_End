@@ -1,0 +1,231 @@
+@media screen and (max-width: 440px) {
+
+.container-titulo {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 90%;
+    height: auto;
+    padding: 5%;
+    padding-top: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-endereco-titulo {
+    width: 90%;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+}
+
+.container-endereco-titulo h1 {
+    font-family: "Bebas Neue", sans-serif;
+    color: #000000;
+    line-height: 24px;
+    font-size: 35px;
+    font-weight: 400;
+}
+
+.container-endereco-titulo span {
+    color: #FFB90A;
+}
+
+/* Card de endereço */
+
+.card-endereco {
+    width: 95%;
+    height: auto;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    padding: 2%;
+    box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 40px;
+}
+
+.card-endereco:hover {
+    box-shadow: 1px 1px 10px 5px #ffd364;
+}
+
+.card-endereco.clicado {
+    box-shadow: 1px 1px 15px rgba(255, 178, 10, 0.8);
+    /* Sombra amarela quando selecionado */
+}
+
+.titulo-pai {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.card-endereco img {
+    height: 30px;
+    margin-bottom: -5px;
+}
+
+.container-endereco {
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.titulo-endereco {
+    width: 100%;
+    height: 40px;
+    font-size: 25px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+}
+
+.titulo-endereco span {
+    color: #FFB90A;
+}
+
+.conteudo-pai {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: 15px;
+}
+
+.informacao-endereco {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.informacao-endereco span {
+    font-size: 15px;
+}
+
+.endereco-conteudo {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    flex-wrap: wrap;
+}
+
+.botoes-endereco {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    justify-content: space-between;
+}
+
+/* Botões */
+
+.botao-excluir,
+.botao-editar {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    height: 30px;
+    width: 80px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.botao-excluir {
+    background-color: #fff;
+    color: #000;
+    border: #000 solid 1px;
+}
+
+.botao-editar {
+    background-color: #68A5FF;
+    color: #fff;
+    border: none;
+}
+
+/* Alterando checkbox */
+.checkbox-endereco {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #424242;
+    border-radius: 180px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    margin-right: 10px;
+}
+
+.checkbox-endereco:hover {
+    background-color: #ffeab3;
+}
+
+.checkbox-endereco:checked {
+    background-color: #FFB90A;
+    border: 2px solid #FFB90A;
+}
+
+/* CSS para card sem endereço */
+.container-sem-endereco {
+    width: 100%;
+    height: 50vh;
+    /* ative a div aqui */
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+}
+
+.card-sem-endereco{
+    width: 80%;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.card-sem-endereco span{
+    margin-left: 1%;
+    margin-bottom: 1%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card-sem-endereco h1{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    color: #000000;
+}
+
+.botao-azul {
+    background-color: #68A5FF;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    width: 90%;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Bebas Neue", sans-serif;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* Adiciona a transição suave */
+}
+}

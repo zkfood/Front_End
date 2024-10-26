@@ -1,0 +1,631 @@
+@media screen and (max-width: 440px) {
+
+/* Tudo na página */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+/* Status Pedido */
+.banner-status {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.titulo-status {
+    height: 45px;
+    font-size: 40px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    margin: 5%;
+}
+
+.titulo-status span {
+    color: #FFB90A;
+}
+
+.container-status {
+    display: flex;
+    justify-content: space-evenly;
+    height: 50vh;
+    width: 90%;
+    margin-bottom: 5%;
+}
+
+.status-overview {
+    display: flex;
+    justify-content: space-around;
+}
+
+.status-card {
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    width: 175px;
+}
+
+.status-card img {
+    height: 120px;
+}
+
+
+.status-card p {
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Cards */
+.container-cards {
+    width: 80%;
+}
+
+.card-endereco {
+    width: 96%;
+    height: 260px;
+    border: #000000 solid 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 2%;
+    box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.titulo-pai {
+    width: 100%;
+}
+
+.card-endereco:hover {
+    transform: scale(1.02);
+    box-shadow: 2px 2px 7px 6px rgba(0, 0, 0, 0.2);
+}
+
+.card-endereco img {
+    height: 40px;
+}
+
+.container-endereco {
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.titulo-endereco {
+    height: 40px;
+    font-size: 32px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+}
+
+.titulo-endereco span {
+    color: #FFB90A;
+}
+
+.conteudo-pai {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.informacao-endereco {
+    display: flex;
+    flex-direction: column;
+}
+
+.informacao-endereco span {
+    font-size: 24px;
+}
+
+.endereco-conteudo {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.botoes-endereco {
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    justify-content: space-between;
+}
+
+.botao-excluir {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    height: 50px;
+    width: 239px;
+    background-color: #fff;
+    color: #000000;
+    border-radius: 10px;
+    border: #000000 solid 1px;
+    box-shadow: 0px 0px 5px #625d5d;
+}
+
+.botao-editar {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    height: 50px;
+    width: 239px;
+    background-color: #68A5FF;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 5px #625d5d;
+}
+
+/* Cards */
+
+.card-divisao {
+    display: flex;
+    width: 100%;
+    height: 110vh;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.card-divisaoFilho {
+    height: 595px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-item {
+    width: 100%;
+    height: 275px;
+}
+
+.card-cardapio {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.card-cardapio:hover {
+    transform: scale(1.02);
+    box-shadow: 2px 2px 7px 6px rgba(0, 0, 0, 0.2);
+}
+
+.conteudo-cardapio {
+    width: 45%;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.conteudo-cardapio h2 {
+    width: 90%;
+    font-family: "Bebas Neue", sans-serif;
+    color: #000000;
+    line-height: 24px;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.conteudo-cardapio p {
+    width: 90%;
+    font-family: "Roboto", sans-serif;
+    color: #4B4B4B;
+    line-height: 24px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.servir {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+}
+
+.servir h5 {
+    font-weight: 300;
+    font-family: "Roboto", sans-serif;
+    color: #727272;
+    display: flex;
+    justify-content: baseline;
+}
+
+.servir img {
+    width: 15px;
+    margin-right: 5px;
+}
+
+.conteudo-cardapio h1 {
+    font-family: "Bebas Neue", sans-serif;
+    color: #FFB90A;
+    font-weight: 500;
+    font-size: 45px;
+}
+
+.conteudo-cardapio span {
+    font-family: "Bebas Neue", sans-serif;
+    color: #FFB90A;
+    font-weight: 500;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.imagem-cardapio {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.imagem-cardapio img {
+    width: 100%;
+    height: 213px;
+    border-radius: 10px;
+}
+
+.card-valor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 595px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-valor:hover {
+    transform: scale(1.02);
+    box-shadow: 2px 2px 7px 6px rgba(0, 0, 0, 0.2);
+}
+
+.container-valor {
+    width: 80%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.valor-titulo {
+    width: 100%;
+    font-size: 32px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+}
+
+.itens-lista {
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.item-pedido {
+    font-size: 22px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.botao-valor {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.cancelar-pedido {
+    height: 49px;
+    width: 159px;
+    border: #000000 solid 1px;
+    font-size: 20px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    background-color: #fff;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cancelar-pedido:hover {
+    transform: scale(1.02);
+    box-shadow: 2px 2px 7px 6px rgba(0, 0, 0, 0.2);
+}
+
+.valor-amarelo {
+    color: #FFB90A;
+    font-size: 45px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+}
+
+/* Iniciando o avaliações */
+.total-pai {
+    width: 100%;
+    height: 110vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.total-pai span b {
+    font-size: 25px;
+}
+
+.container-avaliacoes {
+    height: 100vh;
+    width: 85%;
+    background: url(/ZKFood/assets/Sacolas-ZKfood.png);
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+/* Estilizando o card */
+.avaliacao-container {
+    border-radius: 10px;
+    width: 50%;
+    margin-bottom: 8%;
+}
+
+.avaliacao-container h1 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.avaliacao-container h1 span {
+    color: #FFB90A;
+}
+
+.avaliacao-container p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.estrelas {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.estrela {
+    font-size: 40px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.estrela.ativa {
+    color: #FFB90A;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group textarea {
+    width: 100%;
+    height: 20vh;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.botao-enviar {
+    background-color: #68A5FF;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    width: 100%;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Bebas Neue", sans-serif;
+    cursor: pointer;
+    margin-top: 5%;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* Adiciona a transição suave */
+}
+
+.botao-enviar:hover {
+    background-color: #002865;
+}
+
+/* Histórico de pedidos */
+.historico-pedidos {
+    width: 70%;
+    margin: 0 auto;
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 10%;
+}
+
+.historico-pedidos h2 {
+    color: #FFB90A;
+    margin-bottom: 5%;
+    font-family: "Bebas Neue", sans-serif;
+    color: #000000;
+    line-height: 24px;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.historico-pedidos span {
+    color: #FFB90A;
+}
+
+.data-pedido {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    font-weight: 500;
+}
+
+.pedido-card {
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.pedido-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.status-pedido {
+    font-size: 18px;
+    font-weight: bold;
+    color: #68A5FF;
+}
+
+.status-pedido.concluido {
+    color: #4CAF50;
+}
+
+.item-pedido {
+    font-size: 16px;
+    color: #666;
+}
+
+.valor-pedido {
+    font-size: 18px;
+    color: #000;
+}
+
+.avaliacao-pedido span {
+    font-size: 18px;
+    color: #FFD700;
+}
+
+.comprar-novamente {
+    background-color: #68A5FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comprar-novamente:hover {
+    background-color: #002865;
+}
+
+
+/* CSS para card de ERRO ou pedido cancelado */
+
+.container-notificacao{
+    width: 100%;
+    height: 50vh;
+    /* ative o card aqui */
+    display: none; 
+    justify-content: center;
+    align-items: center;
+}
+
+.card-notificacao {
+    width: 60%;
+    height: auto;
+    padding: 15px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-width: 15px; 
+    border-style: solid; 
+    border-image: linear-gradient( #FFB90A, #FFD779) 1;
+    border-radius: 20px;
+}
+
+.card-notificacao img{
+    width: 60px;
+    margin-right: 3%;
+}
+
+/* CSS para card sem pedidos */
+.container-semPedido {
+    width: 100%;
+    height: 50vh;
+    /* ative a div aqui */
+    display: none;
+    justify-content: center;
+    padding-top: 3%;
+}
+
+.card-semPedido{
+    width: 80%;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.card-semPedido span{
+    margin-left: 1%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card-semPedido h1{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    color: #000000;
+}
+
+.botao-azul {
+    background-color: #68A5FF;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    width: 20%;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Bebas Neue", sans-serif;
+    cursor: pointer;
+    margin-top: 20px;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* Adiciona a transição suave */
+}
+}
