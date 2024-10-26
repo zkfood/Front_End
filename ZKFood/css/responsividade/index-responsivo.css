@@ -160,16 +160,21 @@
     width: 100vw;
     max-width: 100%;
     height: 60vh;
-  }
+    scroll-snap-type: x mandatory; /* Ativa o scroll-snap para o eixo horizontal */
+    display: flex;
+    align-items: center;
+}
 
-  .card-avaliacao {
+.card-avaliacao {
     min-width: 300px;
     max-width: 90%;
     height: 22vh;
     padding: 5%;
     margin-left: 5%;
     margin-right: 5%;
-  }
+    scroll-snap-align: center; /* Alinha o card no centro ao final da rolagem */
+}
+
 
   .foto-avaliacao img {
     width: 85px;
