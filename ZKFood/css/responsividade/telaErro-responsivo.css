@@ -1,0 +1,34 @@
+@media screen and (max-width: 440px) {
+
+    .container-erro {
+        width: 100%;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .conteudo-erro{
+        width: 90%;
+    }
+
+    .conteudo-erro h1 {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        font-size: 30px;
+        color: #000000;
+    }
+
+    .conteudo-erro span {
+        color: #FFB90A;
+        margin-left: 7px;
+    }
+
+    .container-erro img {
+        width: 80vw;
+    }
+}
