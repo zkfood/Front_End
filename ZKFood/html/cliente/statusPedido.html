@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="../../css/statusPedido.css">
     <link rel="stylesheet" href="../../css/homePosLogin.css">
 
+    <link rel="stylesheet" href="../../css/responsividade/homePosLogin-responsivo.css">
+    <link rel="stylesheet" href="../../css/responsividade/statusPedido-responsivo.css">
+
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +36,7 @@
     <!-- Navbar Superior -->
     <div class="container_navbar">
         <div class="parte_superior_navbar">
-            <div class="img_voltar"> <a href="home_pos_login.html"><img src="../../assets/de-volta.png"
+            <div class="img_voltar"> <a href="javascript:history.back()"><img src="../../assets/de-volta.png"
                         alt="Seta para voltar a página"></a></div>
             <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png"
                         alt="Logo do ZKfood"></a></div>
@@ -71,6 +74,31 @@
             </ul>
         </div>
     </div>
+
+        <!-- Navbar Inferior na RESPONSIVIDADE -->
+        <div class="bottom-nav">
+            <a href="./home_pos_login.html">
+                <img src="../../assets/icons-responsivo/icon-casa.png" alt="Icone de casa retratando tela inicial no menu">
+                <span>Inicio</span>
+            </a>
+            <a href="./cardapio.html">
+                <img src="../../assets/icons-responsivo/icon-garfo.png" alt="Icone de garfo retratando tela de cardápio no menu">
+                <span>Cardápio</span>
+            </a>
+            <a href="./carrinho.html">
+                <img src="../../assets/icons-responsivo/icon-carrinho.png" alt="Icone de carrinho retratando tela de carrinho no menu">
+                <span>Carrinho</span>
+            </a>
+            <a href="./statusPedido.html" class="active">
+                <img src="../../assets/icons-responsivo/icon-documento-active.png" alt="Icone de documento retratando tela de status do pedido no menu">
+                <span>Pedidos</span>
+            </a>
+            <a href="./cadastro_endereco.html">
+                <img src="../../assets/icons-responsivo/icon-endereco.png" alt="Icone de endereço retratando tela de cadastro de endereço no menu">
+                <span>Endereço</span>
+            </a>
+    
+        </div>
 
     <!-- Status do Pedido -->
 
@@ -198,7 +226,7 @@
         </div>
 
         <!-- Formulario de avaliações -->
-        <div class="total-pai">
+        <div class="total-pai-avaliacao">
             <div class="container-avaliacoes">
                 <div class="avaliacao-container">
                     <h1> <span>AVALIE </span> SEU PEDIDO</h1>
