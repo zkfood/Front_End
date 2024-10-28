@@ -1,0 +1,49 @@
+@media screen and (max-width: 440px) {
+
+.container {
+    height: 75vh;
+    flex-direction: column;
+}
+
+.container-pagamento {
+    width: 90%;
+    height: 70vh;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-texto,
+.card-qrCode {
+    width: 90%;
+    height: 30vh;
+    margin-bottom: 15%;
+}
+
+.card-texto h1, .card-erro h1{
+    font-size: 35px;
+}
+
+/* Tela de erro no js */
+
+.card-erro{
+    height: 30vh;
+}
+
+.card-erro h1{
+    width: 100%;
+    font-size: 22px;
+}
+
+.card-erro span{
+    margin-left: 2%;
+}
+
+.card-erro p{
+    width: 100%;
+    font-size: 18px;
+}
+
+.botao-azul{
+    width: 50%;
+}
+}
