@@ -109,71 +109,9 @@
         </div>
     </div>
     <div class="container">
-        <div class="container-endereco-titulo">
-            <h1>Escolha um <span>endereço</span></h1>
+        <div id="retorno_de_dados">
         </div>
-
-        <!-- Card de endereço -->
-        <div class="card-endereco" onclick="selecionarCard(this)">
-            <div class="container-endereco">
-                <div class="titulo-pai">
-                    <input type="checkbox" class="checkbox-endereco">
-                    <img src="/ZKFood/assets/Address.png" alt="Icone Endereço">
-                    <span class="titulo-endereco">ENDEREÇO PARA <span>ENTREGA</span></span>
-                </div>
-
-                <div class="conteudo-pai">
-                    <div class="endereco-conteudo">
-                        <div class="informacao-endereco">
-                            <span class="info-rua">Rua Ludovico Liparini 190</span>
-                            <span class="info-cep">Jardim Dona Sinhá São paulo São Paulo Brazil 03923-220 Endereço
-                                Padrão</span>
-                        </div>
-                    </div>
-                    <button class="botao-excluir">Excluir</button>
-                    <button class="botao-editar">Editar</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Outro card de endereço -->
-        <div class="card-endereco" onclick="selecionarCard(this)">
-            <div class="container-endereco">
-                <div class="titulo-pai">
-                    <input type="checkbox" class="checkbox-endereco">
-                    <img src="/ZKFood/assets/Address.png" alt="Icone Endereço">
-                    <span class="titulo-endereco">ENDEREÇO PARA <span>ENTREGA</span></span>
-                </div>
-
-                <div class="conteudo-pai">
-                    <div class="endereco-conteudo">
-                        <div class="informacao-endereco">
-                            <span class="info-rua">Av dos Metalúrgicos 1431</span>
-                            <span class="info-cep">Cidade Tiradentes, São Paulo São Paulo Brazil 03923-220 Endereço
-                                Padrão</span>
-                        </div>
-                    </div>
-                    <button class="botao-excluir">Excluir</button>
-                    <button class="botao-editar">Editar</button>
-                </div>
-            </div>
-        </div>
-
-        <a class="botao-azul" id="botaoContinuar" href="./pagamento.html" style="display: none;">Continuar</a>
     </div>
-
-
-    <!-- Card caso a pessoa ainda não tenha nenhum endereço cadastrado -->
-    <!-- <div class="container-sem-endereco">
-        <div class="container-sem-endereco">
-            <div class="card-sem-endereco">
-                <h1>Nenhum endereço cadastrado <span>:( </span></h1>
-                <p>Oops, parece que você ainda não cadastrou nenhum endereço para nossa equipe entregar o seu pedido.</p>
-                <a class="botao-azul" href="./cadastro_endereco.html">Cadastrar Endereço</a>
-            </div>
-
-        </div>
-    </div> -->
 
 
     <!-- Footer -->
@@ -231,6 +169,78 @@
 
 <script>
 
+    let idEnderecoParaDeletar = null;
+
+    let idUsuario = sessionStorage.getItem('IdUsuario');
+
+    async function buscar() {
+        if (idUsuario) {
+            const url = `http://localhost:8080/usuarios/${idUsuario}/enderecos`;
+            const resposta = await fetch(url);
+
+            if (resposta.ok) {
+                const dados = await resposta.json();
+                console.log(dados);
+                const div_resposta = document.getElementById("retorno_de_dados");
+
+                if (dados.length <= 0) {
+                    div_resposta.innerHTML = `
+                        <!-- Card caso a pessoa ainda não tenha nenhum endereço cadastrado -->
+                        <div class="container-sem-endereco">
+                            <div class="container-sem-endereco">
+                                <div class="card-sem-endereco">
+                                    <h1>Nenhum endereço cadastrado <span>:( </span></h1>
+                                    <p>Oops, parece que você ainda não cadastrou nenhum endereço para nossa equipe entregar o seu pedido.
+                                    </p>
+                                    <a class="botao-azul" href="./cadastro_endereco.html">Cadastrar Endereço</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    div_resposta.innerHTML = `
+                        <div class="container-endereco-titulo">
+                            <h1>Escolha um <span>endereço</span></h1>
+                        </div>
+                        <div id="container_lista_enderecos"></div>`;
+
+                    const enderecos = document.getElementById("container_lista_enderecos");
+
+                    enderecos.innerHTML = dados.map((endereco, index) => {
+                        return `
+                        <!-- Card de endereço -->
+                        <div id="card-endereco-${index}" class="card-endereco" onclick="selecionarCard(this)">
+                            <div class="container-endereco">
+                                <div class="titulo-pai">
+                                    <input type="checkbox" class="checkbox-endereco" data-id="${index}" onclick="marcarCheckbox(${index})">
+                                    <img src="/ZKFood/assets/Address.png" alt="Icone Endereço">
+                                    <span class="titulo-endereco">ENDEREÇO PARA <span>ENTREGA</span></span>
+                                </div>
+
+                                <div class="conteudo-pai">
+                                    <div class="endereco-conteudo">
+                                        <div class="informacao-endereco">
+                                            <span class="info-rua">${endereco.rua}, ${endereco.numero} - ${endereco.complemento}</span>
+                                            <span class="info-cep">${endereco.bairro}, São Paulo, SP - ${endereco.cep}</span>
+                                        </div>
+                                    </div>
+                                    <button class="botao-excluir">Excluir</button>
+                                    <button class="botao-editar">Editar</button>
+                                </div>
+                            </div>
+                        </div>`;
+                    }).join('');
+
+                    enderecos.innerHTML += `<a class="botao-azul" id="botaoContinuar" href="./pagamento.html" style="display: none;">Continuar</a>`;
+                }
+            } else {
+                console.log('Erro ao buscar os dados');
+            }
+        } else {
+            console.log('ID do usuário não encontrado no sessionStorage.');
+        }
+    }
+
     function selecionarCard(card) {
         // Remove a classe 'clicado' de todos os cards
         const cards = document.querySelectorAll('.card-endereco');
@@ -241,12 +251,39 @@
 
         // Adiciona a classe 'clicado' ao card selecionado
         card.classList.add('clicado');
-        card.querySelector('.checkbox-endereco').checked = true; // Marcar o checkbox
+        const checkbox = card.querySelector('.checkbox-endereco');
+        checkbox.checked = true; // Marcar o checkbox
+
+        // Armazenar o ID do endereço no sessionStorage
+        const idEndereco = Number(checkbox.dataset.id) + 1; // Supondo que o ID está no atributo data-id
+        sessionStorage.setItem('IdEnderecoEscolhido', idEndereco);
 
         // Mostrar o link 'Continuar' se um card estiver selecionado
         const botaoContinuar = document.getElementById('botaoContinuar');
         botaoContinuar.style.display = 'block';
     }
+
+
+
+    function marcarCheckbox(idSelecionado) {
+        // Seleciona todas as checkboxes
+        const checkboxes = document.querySelectorAll('.checkbox-endereco');
+
+        // Itera sobre as checkboxes e desmarca as que não são a selecionada
+        checkboxes.forEach((checkbox) => {
+            if (parseInt(checkbox.dataset.id) !== idSelecionado) {
+                checkbox.checked = false;
+            }
+        });
+
+        // Exibe o botão "Continuar" apenas se alguma checkbox estiver marcada
+        const botaoContinuar = document.getElementById("botaoContinuar");
+        const algumaMarcada = Array.from(checkboxes).some(checkbox => checkbox.checked);
+        botaoContinuar.style.display = algumaMarcada ? 'block' : 'none';
+    }
+
+
+    window.onload = buscar;
 
 
 </script>

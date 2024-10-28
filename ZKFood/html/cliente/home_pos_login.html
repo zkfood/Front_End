@@ -220,5 +220,50 @@
         </div>
     </footer>
 </body>
-
 </html>
+
+<script>
+
+// Função para realizar as requisições e armazenar os resultados
+async function buscarDadosUsuarioEArmazenar() {
+    // Pegando o ID do usuário armazenado no sessionStorage
+    const idUsuario = sessionStorage.getItem('IdUsuario');
+
+    // Verificando se o ID do usuário está disponível
+    if (!idUsuario) {
+        console.error('ID do usuário não encontrado no sessionStorage.');
+        return;
+    }
+
+    try {
+        // Requisição 1: Telefones do usuário
+        const respostaTelefones = await fetch(`http://localhost:8080/usuarios/${idUsuario}/telefones`);
+        if (respostaTelefones.ok) {
+            const dadosTelefones = await respostaTelefones.json();
+            // Armazenando no sessionStorage
+            sessionStorage.setItem('telefones', JSON.stringify(dadosTelefones));
+            console.log('Telefones do usuário armazenados no sessionStorage');
+        } else {
+            console.error('Erro na requisição de telefones:', respostaTelefones.status);
+        }
+
+        // Requisição 2: Dados do usuário
+        const respostaUsuario = await fetch(`http://localhost:8080/usuarios/${idUsuario}`);
+        if (respostaUsuario.ok) {
+            const dadosUsuario = await respostaUsuario.json();
+            // Armazenando no sessionStorage
+            sessionStorage.setItem('usuario', JSON.stringify(dadosUsuario));
+            console.log('Dados do usuário armazenados no sessionStorage');
+        } else {
+            console.error('Erro na requisição de dados do usuário:', respostaUsuario.status);
+        }
+
+    } catch (erro) {
+        console.error('Erro ao buscar dados:', erro);
+    }
+}
+
+// Corrigindo a chamada do onload
+window.onload = buscarDadosUsuarioEArmazenar;
+
+</script>

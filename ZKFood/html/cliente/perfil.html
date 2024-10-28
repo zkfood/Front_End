@@ -16,7 +16,7 @@
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
     <script src="../../js/perfil.js"></script>
-  
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap"
@@ -103,25 +103,25 @@
         <div class="listra-amarela"></div>
         <div class="card-perfil" id="cardPerfil">
             <img src="../../assets/user.png" alt="">
-            <h1>Maria Karolyna</h1>
+            <h1 id="nome_titulo">Usuario</h1>
             <div class="container-usuario">
                 <div class="info-usuario">
                     <p id="nome">Nome:</p>
-                    <p>Maria Karolyna</p>
+                    <p></p> <!-- Campo onde o nome será exibido -->
                     <br>
                     <p id="telefone">Telefone:</p>
-                    <p>(11) 99999-9999</p>
+                    <p></p> <!-- Campo onde o primeiro telefone será exibido -->
                 </div>
                 <div class="info-usuario">
                     <p id="cpf">CPF:</p>
-                    <p>08400000</p>
+                    <p></p> <!-- Campo onde o CPF será exibido -->
                     <br>
                     <p id="telefone2">Telefone 2:</p>
-                    <p>Não cadastrado.</p>
+                    <p></p> <!-- Campo onde o segundo telefone será exibido -->
                 </div>
                 <div class="info-usuario">
                     <p id="email">Email:</p>
-                    <p>maria@email.com</p>
+                    <p></p> <!-- Campo onde o email será exibido -->
                     <br>
                     <p id="senha">Senha:</p>
                     <p>*********</p>
@@ -224,42 +224,44 @@
 
 </html>
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const usuario = JSON.parse(sessionStorage.getItem('usuario'));
+        const telefones = JSON.parse(sessionStorage.getItem('telefones'));
+
+        if (usuario) {
+            nome_titulo.innerHTML = usuario.nome;
+            document.getElementById('nome').nextElementSibling.innerText = usuario.nome || 'Não encontrado';
+            document.getElementById('cpf').nextElementSibling.innerText = usuario.cpf || 'Não encontrado';
+            document.getElementById('email').nextElementSibling.innerText = usuario.email || 'Não encontrado';
+        } else {
+            document.getElementById('nome').nextElementSibling.innerText = 'Não encontrado';
+            document.getElementById('cpf').nextElementSibling.innerText = 'Não encontrado';
+            document.getElementById('email').nextElementSibling.innerText = 'Não encontrado';
+        }
+
+        if (telefones && telefones.length > 0) {
+            document.getElementById('telefone').nextElementSibling.innerText = telefones[0].numero || 'Não encontrado';
+            document.getElementById('telefone2').nextElementSibling.innerText = telefones.length > 1 ? telefones[1].numero : 'Não encontrado';
+        } else {
+            document.getElementById('telefone').nextElementSibling.innerText = 'Não encontrado';
+            document.getElementById('telefone2').nextElementSibling.innerText = 'Não encontrado';
+        }
+
+        console.log(usuario);
+        console.log(telefones);
+    });
+
     let editando = false;
-    let editandoEndereco = false;
 
-    // Alterna entre o card de perfil e o de endereço
-    document.getElementById('btnPerfil').addEventListener('click', function () {
-        document.getElementById('cardPerfil').style.display = 'flex';
-        document.getElementById('cardEndereco').style.display = 'none';
-    });
-    document.getElementById('btnEnderecos').addEventListener('click', function () {
-        document.getElementById('cardPerfil').style.display = 'none';
-        document.getElementById('cardEndereco').style.display = 'flex';
-    });
-
-    // Alterando o botão do menu que estara ativo
-    const navButtons = document.querySelectorAll('.nav-button');
-    navButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            // Remove a classe 'active' de todos os botões
-            navButtons.forEach(btn => btn.classList.remove('active'));
-            // Adiciona a classe 'active' ao botão clicado
-            this.classList.add('active');
-            // Alterna entre as seções
-            if (this.id === 'btnPerfil') {
-                document.getElementById('cardPerfil').style.display = 'flex';
-                document.getElementById('cardEndereco').style.display = 'none';
-            } else if (this.id === 'btnEnderecos') {
-                document.getElementById('cardPerfil').style.display = 'none';
-                document.getElementById('cardEndereco').style.display = 'flex';
-            }
-        });
-    });
-
+    // Função para limpar valores undefined
+    function limparUndefined(dado) {
+        return dado === undefined || dado === "" ? null : dado;
+    }
 
     // Editar dados do perfil
     function editarInformacoes() {
-        const usuario = document.querySelector('.container-usuario');
+        const usuarioSession = JSON.parse(sessionStorage.getItem('usuario'));
+        const usuarioContainer = document.querySelector('.container-usuario');
 
         if (!editando) {
             const nome = document.getElementById('nome').nextElementSibling.innerText;
@@ -269,105 +271,124 @@
             const email = document.getElementById('email').nextElementSibling.innerText;
             const senha = document.getElementById('senha').nextElementSibling.innerText;
 
-            usuario.innerHTML = `
-                <div class="info-usuario">
-                    <p id="nome">Nome:</p>
-                    <input type="text" id="inputNome" value="${nome}">
-                    <br>
-                    <p id="telefone">Telefone:</p>
-                    <input type="tel" id="inputTelefone" value="${telefone}">
-                </div>
-                <div class="info-usuario">
-                    <p id="cpf">CPF:</p>
-                    <input type="text" id="inputCpf" value="${cpf}">
-                    <br>
-                    <p id="telefone2">Telefone 2:</p>
-                    <input type="tel" id="inputTelefone2" value="${telefone2}">
-                </div>
-                <div class="info-usuario">
-                    <p id="email">Email:</p>
-                    <input type="email" id="inputEmail" value="${email}">
-                    <br>
-                    <p id="senha">Senha:</p>
-                    <input type="password" id="inputSenha" value="${senha}">
-                </div>
-            `;
+            usuarioContainer.innerHTML = `
+            <div class="info-usuario">
+                <p id="nome">Nome:</p>
+                <input type="text" id="inputNome" value="${nome}">
+                <br>
+                <p id="telefone">Telefone:</p>
+                <input type="tel" id="inputTelefone" value="${telefone}">
+            </div>
+            <div class="info-usuario">
+                <p id="cpf">CPF:</p>
+                <input type="text" id="inputCpf" value="${cpf}">
+                <br>
+                <p id="telefone2">Telefone 2:</p>
+                <input type="tel" id="inputTelefone2" value="${telefone2}">
+            </div>
+            <div class="info-usuario">
+                <p id="email">Email:</p>
+                <input type="email" id="inputEmail" value="${email}">
+                <br>
+                <p id="senha">Senha:</p>
+                <input type="password" id="inputSenha" value="${senha}">
+            </div>
+        `;
             document.querySelector('.botao-azul').innerText = 'Salvar';
             editando = true;
         } else {
-            const nome = document.getElementById('inputNome').value;
-            const telefone = document.getElementById('inputTelefone').value;
-            const cpf = document.getElementById('inputCpf').value;
-            const telefone2 = document.getElementById('inputTelefone2').value;
-            const email = document.getElementById('inputEmail').value;
-            const senha = document.getElementById('inputSenha').value;
+            const nome = limparUndefined(document.getElementById('inputNome').value);
+            const telefone = limparUndefined(document.getElementById('inputTelefone').value);
+            const cpf = limparUndefined(document.getElementById('inputCpf').value);
+            const telefone2 = limparUndefined(document.getElementById('inputTelefone2').value);
+            const email = limparUndefined(document.getElementById('inputEmail').value);
+            const senha = limparUndefined(document.getElementById('inputSenha').value);
 
-            usuario.innerHTML = `
-                <div class="info-usuario">
-                    <p id="nome">Nome:</p>
-                    <p>${nome}</p>
-                    <br>
-                    <p id="telefone">Telefone:</p>
-                    <p>${telefone}</p>
-                </div>
-                <div class="info-usuario">
-                    <p id="cpf">CPF:</p>
-                    <p>${cpf}</p>
-                    <br>
-                    <p id="telefone2">Telefone 2:</p>
-                    <p>${telefone2}</p>
-                </div>
-                <div class="info-usuario">
-                    <p id="email">Email:</p>
-                    <p>${email}</p>
-                    <br>
-                    <p id="senha">Senha:</p>
-                    <p>${senha}</p>
-                </div>
-            `;
+            // Atualizando sessionStorage
+            const novosDadosUsuario = {
+                id: usuarioSession.id, // Utilizando o ID do sessionStorage
+                nome: nome,
+                cpf: cpf,
+                email: email
+            };
+            sessionStorage.setItem('usuario', JSON.stringify(novosDadosUsuario));
+
+            const telefones = [
+                { id: 1, numero: telefone },
+                { id: 2, numero: telefone2 }
+            ];
+            sessionStorage.setItem('telefones', JSON.stringify(telefones));
+
+            // Requisição PATCH para atualizar o usuário
+            fetch(`http://localhost:8080/usuarios/${usuarioSession.id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(novosDadosUsuario)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro na atualização do usuário');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Usuário atualizado:', data);
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+
+            // Atualização dos telefones
+            telefones.forEach(telefone => {
+                fetch(`http://localhost:8080/usuarios/${usuarioSession.id}/telefones/${telefone.id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ numero: telefone.numero })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Erro na atualização do telefone com ID ${telefone.id}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(`Telefone ${telefone.id} atualizado:`, data);
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                });
+            });
+
+            // Atualizar a visualização com os novos dados
+            usuarioContainer.innerHTML = `
+            <div class="info-usuario">
+                <p id="nome">Nome:</p>
+                <p>${nome}</p>
+                <br>
+                <p id="telefone">Telefone:</p>
+                <p>${telefone}</p>
+            </div>
+            <div class="info-usuario">
+                <p id="cpf">CPF:</p>
+                <p>${cpf}</p>
+                <br>
+                <p id="telefone2">Telefone 2:</p>
+                <p>${telefone2}</p>
+            </div>
+            <div class="info-usuario">
+                <p id="email">Email:</p>
+                <p>${email}</p>
+                <br>
+                <p id="senha">Senha:</p>
+                <p>${senha}</p>
+            </div>
+        `;
             document.querySelector('.botao-azul').innerText = 'Editar';
             editando = false;
         }
     }
-
-    // Função para editar o endereço
-    function editarEndereco() {
-        const enderecoContainer = document.querySelector('.endereco-conteudo');
-
-        if (!editandoEndereco) {
-            const bairro = document.querySelector('.info-bairro').innerText;
-            const rua = document.querySelector('.info-rua').innerText;
-            const cep = document.querySelector('.info-cep').innerText;
-            const numero = document.querySelector('.info-numero').innerText;
-
-            enderecoContainer.innerHTML = `
-            <div class="informacao-endereco">
-                <label>Bairro: <input type="text" id="inputBairro" value="${bairro}"></label>
-                <label>Rua/Logradouro/Avenida: <input type="text" id="inputRua" value="${rua}"> Número:<input type="text" id="inputNumero" value="${numero}"></label>
-                <label>CEP: <input type="text" id="inputCep" value="${cep}"></label>
-                <label>Complemento: <input type="text" id="inputComplemento" placeholder="Complemento"></label>
-            </div>
-        `;
-            document.querySelector('.botao-editar').innerText = 'Salvar';
-            editandoEndereco = true;
-        } else {
-            const bairro = document.getElementById('inputBairro').value;
-            const rua = document.getElementById('inputRua').value;
-            const numero = document.getElementById('inputNumero').value;
-            const cep = document.getElementById('inputCep').value;
-            const complemento = document.getElementById('inputComplemento').value;
-
-            enderecoContainer.innerHTML = `
-            <div class="informacao-endereco">
-                <span class="info-bairro">${bairro}</span>
-                <span class="info-rua">${rua} <span class="info-numero">${numero}</span></span>
-                <span class="info-cep">${cep}</span>
-                ${complemento ? `<span class="info-complemento">Complemento: ${complemento}</span>` : ''}
-            </div>
-        `;
-            document.querySelector('.botao-editar').innerText = 'Editar';
-            editandoEndereco = false;
-        }
-    }
-
 </script>
