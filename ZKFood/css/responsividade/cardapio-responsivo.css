@@ -1,0 +1,95 @@
+@media screen and (max-width: 440px) {
+
+.banner-cardapio {
+    height: 20vh;
+}
+
+/* MENU DO CARDAPIO  */
+.container-menu {
+    height: 20vh;
+}
+
+.menu-cardapio {
+    width: 95%;
+    height: 12vh;
+}
+
+.card-menu img {
+    width: 35px;
+}
+
+#img-todos{
+    width: 30px;
+}
+
+#img-prato{
+    width: 35px;
+}
+
+#img-porcoes{
+    margin-bottom: 5px;
+}
+
+#img-bebidas{
+    margin:5px
+}
+
+.item-cardapio {
+    margin-top: 0%;
+    height: 5vh;
+    font-size: 15px;
+}
+
+/* itens do cardápio */
+
+/* Card de alimentos */
+
+.card-cardapio{
+    padding: 0px;
+    width: 95%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.card-cardapio:hover {
+    transform: none;
+}
+
+.conteudo-cardapio{
+    padding: 15px;
+    height: 27vh;
+}
+
+.conteudo-cardapio h1{
+    font-size: 40px;
+}
+
+.imagem-cardapio{
+    width: 40%;
+    padding: 15px;
+    height: 27vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.imagem-cardapio img{
+    height: 15vh;
+    background-size: cover;
+}
+
+.botao-acessar{ /*aqui estou reutilizando um botão e apenas alterando conforme necessidade*/
+    height: 4vh; 
+    width: 90px;
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+.botao-favoritos {
+    height: 4vh;
+    width: 9vw; 
+    margin-bottom: 4%;
+}
+
+}

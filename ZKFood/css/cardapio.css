@@ -43,6 +43,18 @@ body {
     margin-bottom: 10px;
 }
 
+#img-todos{
+    width: 50px;
+}
+
+#img-prato{
+    width: 45px;
+}
+
+#img-bebidas{
+    margin:5px
+}
+
 .item-cardapio {
     width: 100%;
     height: 8vh;

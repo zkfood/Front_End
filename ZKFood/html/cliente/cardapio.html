@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="../../css/homePosLogin.css">
     <link rel="stylesheet" href="../../css/cardapio.css">
 
+    <link rel="stylesheet" href="../../css/responsividade/homePosLogin-responsivo.css">
+    <link rel="stylesheet" href="../../css/responsividade/cardapio-responsivo.css">
+
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -77,6 +80,35 @@
         </div>
     </div>
 
+    <!-- Navbar Inferior na RESPONSIVIDADE -->
+    <div class="bottom-nav">
+        <a href="./home_pos_login.html">
+            <img src="../../assets/icons-responsivo/icon-casa.png" alt="Icone de casa retratando tela inicial no menu">
+            <span>Inicio</span>
+        </a>
+        <a href="./cardapio.html" class="active">
+            <img src="../../assets/icons-responsivo/icon-garfo-active.png"
+                alt="Icone de garfo retratando tela de cardápio no menu">
+            <span>Cardápio</span>
+        </a>
+        <a href="./carrinho.html">
+            <img src="../../assets/icons-responsivo/icon-carrinho.png"
+                alt="Icone de carrinho retratando tela de carrinho no menu">
+            <span>Carrinho</span>
+        </a>
+        <a href="./statusPedido.html">
+            <img src="../../assets/icons-responsivo/icon-documento.png"
+                alt="Icone de documento retratando tela de status do pedido no menu">
+            <span>Pedidos</span>
+        </a>
+        <a href="./cadastro_endereco.html">
+            <img src="../../assets/icons-responsivo/icon-endereco.png"
+                alt="Icone de endereço retratando tela de cadastro de endereço no menu">
+            <span>Endereço</span>
+        </a>
+
+    </div>
+
     <!-- Banner inicial do cadapio -->
     <div class="banner-cardapio"></div>
 
@@ -85,36 +117,36 @@
     <div class="container-menu">
         <div class="menu-cardapio">
             <div class="card-menu card1 active">
-                <img src="../../assets/icon-todos-pratos.png"
-                    alt="icone de copo e garfo, representando todos os itens do restaurante." style="width: 50px;">
+                <img src="../../assets/icon-todos-pratos.png" id="img-todos"
+                    alt="icone de copo e garfo, representando todos os itens do restaurante.">
                 <div class="item-cardapio item1">TODOS</div>
                 <div class="linha-cardapio linha1"></div>
             </div>
 
             <div class="card-menu card2">
-                <img src="../../assets/icon-prato-dia.png"
+                <img src="../../assets/icon-prato-dia.png " id="img-pratoDia"
                     alt="icone de tigela de sopa, representando os pratos do dia.">
                 <div class="item-cardapio item2">PRATO DO DIA</div>
                 <div class="linha-cardapio linha2"></div>
             </div>
 
             <div class="card-menu card3">
-                <img src="../../assets/icon-prato.png" alt="icone de prato de comida, representando os pratos vendidos."
-                    style="width: 45px;">
+                <img src="../../assets/icon-prato.png" id="img-prato"
+                    alt="icone de prato de comida, representando os pratos vendidos.">
                 <div class="item-cardapio item3">PRATOS</div>
                 <div class="linha-cardapio linha3"></div>
             </div>
 
             <div class="card-menu card4">
-                <img src="../../assets/icon-porcoes.png"
-                    alt="icone de dois espetos, representando as porções do restaurante." style="margin: 5px;">
+                <img src="../../assets/icon-porcoes.png" id="img-porcoes"
+                    alt="icone de dois espetos, representando as porções do restaurante.">
                 <div class="item-cardapio item4">PORÇÕES</div>
                 <div class="linha-cardapio linha4"></div>
             </div>
 
             <div class="card-menu card5">
-                <img src="../../assets/icon-bebidas.png" alt="icon de garrafa de vidro, representando as bebidas."
-                    style="margin:5px">
+                <img src="../../assets/icon-bebidas.png" id="img-bebidas"
+                    alt="icon de garrafa de vidro, representando as bebidas.">
                 <div class="item-cardapio item5">BEBIDAS</div>
                 <div class="linha-cardapio linha5"></div>
             </div>

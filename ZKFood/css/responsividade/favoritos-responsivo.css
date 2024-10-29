@@ -1,0 +1,65 @@
+@media screen and (max-width: 440px) {
+
+    .container-favoritos {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* titulo */
+
+    .container-titulo {
+        height: 20vh;
+        margin-top: 10%;
+    }
+
+    /* cards */
+    .container-cards {
+        height: 60vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    }
+
+    .card {
+        min-width: 80vw;
+        height: 45vh;
+        display: flex;
+        scroll-snap-align: center;
+        margin-right: 10%;
+    }
+
+    .img-prato {
+        height: 25vh;
+    }
+
+    .card h1 {
+        font-size: 35px;
+    }
+
+    .card p {
+        font-size: 18px;
+    }
+
+    .card-menu h2 {
+        font-size: 40px;
+    }
+
+    .card-menu span {
+        font-size: 30px;
+    }
+
+    .botao-carrinho img,
+    .botao-lixo img {
+        height: 2.5vh;
+        width: 2.5vh;
+        object-fit: contain;
+        /* Garante que a imagem se encaixe corretamente dentro do botão */
+    }
+}

@@ -1,0 +1,351 @@
+@media screen and (max-width: 440px) {
+
+/* Status Pedido */
+
+.caminho p{
+    font-size: 14px;
+}
+
+.titulo-status {
+    margin-top: 15%;
+}
+
+.container-status {
+    align-items: center;
+    height: 30vh;
+    margin-bottom: 10%;
+}
+
+.status-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    width: auto;
+    height: 20vh;
+}
+
+.status-card img {
+    height: 6vh;
+    width: 12vw;
+}
+.status-card p {
+    font-size: 15px;
+}
+
+/* Cards */
+.container-cards {
+    width: 90%;
+}
+
+.card-endereco {
+    width: 100%;
+    height: auto;
+    padding: 0%;
+    box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
+    border: none;
+    transition: none;
+}
+
+.titulo-pai {
+    width: 100%;
+    height: 8vh;
+    margin-bottom: 0%;
+    display: flex;
+    align-items: center;
+}
+
+.card-endereco:hover {
+    transform: none;
+    box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
+}
+
+.card-endereco img {
+    height: 30px;
+}
+
+.container-endereco {
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.titulo-endereco {
+    height: 30px;
+    font-size: 25px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+}
+
+.titulo-endereco span {
+    color: #FFB90A;
+    margin-top: 10px;
+}
+
+.conteudo-pai {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.informacao-endereco {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+
+.informacao-endereco span {
+    font-size: 18px;
+}
+
+.endereco-conteudo {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.botoes-endereco {
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    justify-content: space-between;
+}
+
+.botao-excluir {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    height: 50px;
+    width: 239px;
+    background-color: #fff;
+    color: #000000;
+    border-radius: 10px;
+    border: #000000 solid 1px;
+    box-shadow: 0px 0px 5px #625d5d;
+}
+
+.botao-editar {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    height: 50px;
+    width: 239px;
+    background-color: #68A5FF;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 5px #625d5d;
+}
+
+/* Cards */
+
+.card-divisao {
+    flex-direction: column;
+    height: auto;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.card-divisaoFilho {
+    height: auto;
+    width: 100%;
+    display: flex;
+}
+
+.card-item {
+    height: 30vh;
+}
+
+.card-cardapio {
+    height: 27vh;
+    padding: 00px;
+    transition: none;
+}
+
+.card-cardapio:hover {
+    transform: none;
+    box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
+}
+
+.conteudo-cardapio {
+    height: 25vh;
+    justify-content: space-around;
+    margin-left: 5%;
+}
+
+.conteudo-cardapio h2 {
+    font-size: 25px;
+}
+
+.conteudo-cardapio p {
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: 0;
+}
+
+.conteudo-cardapio h1 {
+    font-size: 35px;
+}
+
+.imagem-cardapio {
+    margin-right: 3%;
+}
+
+.imagem-cardapio img {
+    height: 180px;
+}
+
+.card-valor {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
+    transition: none;
+    margin-bottom: 20%;
+}
+
+.card-valor:hover {
+    transform: none;
+    box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
+}
+
+.container-valor {
+    width: 90%;
+    height: auto;
+    justify-content: start;
+}
+
+.valor-titulo {
+    height: 7vh;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.itens-lista {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.botao-valor {
+    align-items: start;
+}
+
+.cancelar-pedido {
+    height: 4vh;
+    width: 40%;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-bottom: 5%;
+}
+
+.cancelar-pedido:hover {
+    transform: none;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2);
+    background-color: #000;
+    color: white;
+}
+
+.valor-amarelo {
+    font-size: 35px;
+}
+
+.total-pai{
+    height: 15vh;
+    align-items: center;
+}
+
+/* Iniciando o avaliações */
+.total-pai-avaliacao{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-pai span b {
+    font-size: 20px;
+}
+
+.container-avaliacoes {
+    height: 90vh;
+    width: 100%;
+    background: url(../../assets/banner-amarelo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilizando o card */
+.avaliacao-container {
+    background-color: white;
+    padding: 5%;
+    width: 80%;
+    height: 55vh;
+    margin-bottom: 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.estrela {
+    font-size: 60px;
+}
+
+/* Histórico de pedidos */
+.historico-pedidos {
+    width: 90%;
+    margin-bottom: 20%;
+    margin-top: 20%;
+}
+
+.pedido-card {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.comprar-novamente {
+    width: 35%;
+    height: 5vh;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CSS para card de ERRO ou pedido cancelado */
+
+.card-notificacao {
+    width: 90%;
+    padding: 10px;
+    border-width: 15px; 
+}
+
+.conteudo-notificacao h2{
+    font-size: 18px;
+    margin-bottom: 5%;
+}
+
+.card-notificacao img{
+    width: 50px;
+}
+
+/* CSS para card sem pedidos */
+
+.card-semPedido h1{
+    font-size: 35px;
+}
+
+.botao-azul {
+    width: 50%;
+}
+}

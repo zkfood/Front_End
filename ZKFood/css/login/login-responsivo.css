@@ -4,6 +4,33 @@
         background: linear-gradient(to bottom, #FFD87A 0%, #F7C242 50%, #FFB400 100%);
     }
 
+    /* Navbar superior */
+    .header {
+        height: 10vh;
+    }
+
+    #imagem {
+        height: 7vh;
+    }
+
+    .org-nav-bar {
+        display: none;
+    }
+
+    .botoes-header {
+        width: 45%;
+    }
+
+    .botao-entrar {
+        font-size: 15px;
+    }
+
+    .botao-cadastre {
+        height: 35px;
+        width: 100px;
+        font-size: 18px;
+    }
+
     /* Formulário Login */
     .banner-login {
         background: url(../../assets/login/Ellipse\ 17.png);
@@ -15,16 +42,39 @@
 
     .container-login {
         position: unset;
+        flex-direction: column;
     }
 
     .formulario-login {
-        height: 428px;
-        width: 311px;
+        height: 50vh;
+        width: 70vw;
+    }
+
+    .titulo-bebas-responsivo {
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 500;
+        font-size: 40px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
     }
 
     .texto-comecar {
         display: none;
     }
+
+    /* .texto-comecar span {
+        display: flex;
+        height: 15vh;
+        align-items: center;
+        text-align: center;
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 50px;
+        color: #000000;
+    } */
 
     /* Estilos do formulário */
     .formulario-login label {
@@ -33,29 +83,44 @@
 
     .formulario-login #email,
     .formulario-login #password {
-        width: 280px;
-        height: 50px;
+        width: 100%;
+        height: 100px;
+        border: 1px solid #818181;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+
+    .formulario-login #email::placeholder,
+    .formulario-login #password::placeholder {
+        color: #818181;
+        font-size: 16px;
     }
 
     .checkbox-container {
         width: 90%;
         flex-direction: column;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .checkbox-container label,
+    .div-lembrar a u {
+        font-size: 18px;
     }
 
     .forgot-password {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .botao-login {
-        width: 175px;
-        height: 75px;
-        font-size: 40px;
+        width: 250px;
+        height: 48px;
     }
 
     .senha-grupo,
     .email-grupo {
         height: 56px;
-        width: 280px;
+        width: 100%;
     }
 
     .div-lembrar {

@@ -367,6 +367,13 @@ body {
     justify-content: space-between;
 }
 
+.total-pai-avaliacao {
+    width: 100%;
+    height: 110vh;
+    display: flex;
+    justify-content: space-between;
+}
+
 .total-pai span b {
     font-size: 25px;
 }
