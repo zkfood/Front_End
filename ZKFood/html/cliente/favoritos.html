@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,15 +14,30 @@
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap"
+        rel="stylesheet">
     <script src="../../js/fetch.js"></script>
 </head>
+
 <body>
-    <!-- Navbar -->
+    <!-- API de acessibilidade VLIBRAS -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
     <div class="container_navbar">
         <div class="parte_superior_navbar">
-            <div class="img_voltar"><a href="javascript:history.back()"><img src="../../assets/de-volta.png" alt="Seta para voltar a página"></a></div>
-            <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png" alt="Logo do ZKfood"></a></div>
+            <div class="img_voltar"> <a href="javascript:history.back()"><img src="../../assets/de-volta.png"
+                        alt="Seta para voltar a página"></a></div>
+            <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png"
+                        alt="Logo do ZKfood"></a></div>
             <div class="container_pesquisa">
                 <div class="search-container">
                     <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon">
@@ -30,13 +46,28 @@
                 </div>
             </div>
             <div class="container_favoritos_carrinho">
-                <div class="container_favoritos"><a href="favoritos.html"><img src="../../assets/coracao-branco.png" alt="Ícone de coração"></a></div>
-                <div class="container_carrinho"><a href="carrinho.html"><img src="../../assets/carrinho-carrinho.png" alt="Ícone de carrinho"></a></div>
+                <div class="container_favoritos">
+                    <a href="favoritos.html"> <img src="../../assets/coracao.png"
+                            alt="Icone de coração para sinalizar favoritos"></a>
+                </div>
+                <div class="container_carrinho">
+                    <a href="carrinho.html"> <img src="../../assets/carrinho-carrinho.png"
+                            alt="Icone de carrinho de mercado para sinalizar itens na lista de compras"> </a>
+                </div>
             </div>
+
+            <div class="profile_home">
+                <a class="perfil" href="perfil.html"></a>
+                <a class="logoff" href="#"></a>
+            </div>
+
+
         </div>
         <div class="parte_inferior_navbar">
             <ul class="menu">
-                <li><a href="home_pos_login.html"><p>Página Inicial</p></a></li>
+                <li><a href="home_pos_login.html" class="tela_atual">
+                        <p>Página Inicial</p>
+                    </a></li>
                 <li><a href="cardapio.html">Cardápio</a></li>
                 <li><a href="statusPedido.html">Meus Pedidos</a></li>
                 <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
@@ -44,30 +75,36 @@
         </div>
     </div>
 
-        <!-- Navbar Inferior na RESPONSIVIDADE -->
-        <div class="bottom-nav">
-            <a href="./home_pos_login.html">
-                <img src="../../assets/icons-responsivo/icon-casa.png" alt="Icone de casa retratando tela inicial no menu">
-                <span>Inicio</span>
-            </a>
-            <a href="./cardapio.html">
-                <img src="../../assets/icons-responsivo/icon-garfo.png" alt="Icone de garfo retratando tela de cardápio no menu">
-                <span>Cardápio</span>
-            </a>
-            <a href="./carrinho.html" >
-                <img src="../../assets/icons-responsivo/icon-carrinho.png" alt="Icone de carrinho retratando tela de carrinho no menu">
-                <span>Carrinho</span>
-            </a>
-            <a href="./statusPedido.html">
-                <img src="../../assets/icons-responsivo/icon-documento.png" alt="Icone de documento retratando tela de status do pedido no menu">
-                <span>Pedidos</span>
-            </a>
-            <a href="./cadastro_endereco.html">
-                <img src="../../assets/icons-responsivo/icon-endereco.png" alt="Icone de endereço retratando tela de cadastro de endereço no menu">
-                <span>Endereço</span>
-            </a>
-    
-        </div>
+    <!-- Navbar Inferior na RESPONSIVIDADE -->
+    <div class="bottom-nav">
+        <a href="./home_pos_login.html" class="active">
+            <img src="../../assets/icons-responsivo/icon-casa-active.png"
+                alt="Icone de casa retratando tela inicial no menu">
+            <span>Inicio</span>
+        </a>
+        <a href="./cardapio.html">
+            <img src="../../assets/icons-responsivo/icon-garfo.png"
+                alt="Icone de garfo retratando tela de cardápio no menu">
+            <span>Cardápio</span>
+        </a>
+        <a href="./carrinho.html">
+            <img src="../../assets/icons-responsivo/icon-carrinho.png"
+                alt="Icone de carrinho retratando tela de carrinho no menu">
+            <span>Carrinho</span>
+        </a>
+        <a href="./statusPedido.html">
+            <img src="../../assets/icons-responsivo/icon-documento.png"
+                alt="Icone de documento retratando tela de status do pedido no menu">
+            <span>Pedidos</span>
+        </a>
+        <a href="./cadastro_endereco.html">
+            <img src="../../assets/icons-responsivo/icon-endereco.png"
+                alt="Icone de endereço retratando tela de cadastro de endereço no menu">
+            <span>Endereço</span>
+        </a>
+
+    </div>
+
 
     <!-- Container Favoritos -->
     <div class="container-favoritos">
@@ -82,30 +119,56 @@
     </div>
 
     <!-- Footer -->
+
     <footer>
-        <img src="../../assets/Vector-ondas-footer.png" alt="Ondas para divisão de telas">
+        <div class="footer-top">
+            <img src="../../assets/Vector-ondas-footer.png" alt="Ondas para divisão de telas">
+        </div>
         <div class="footer">
             <div class="footer-paginas">
-                <div class="logo-footer"><img src="../../assets/logo-icon.png" alt="Logo da empresa ZKfood"></div>
-                <div class="bloco-footer"><a href="">Menu</a><a href="">Contato</a></div>
-                <div class="bloco-footer"><a href="">Sobre</a><a href="">Avaliações</a></div>
-                <div class="bloco-footer"><a href="">Cadastro</a><a href="">Pratos</a></div>
+                <div class="logo-footer">
+                    <img src="../../assets/logo-icon.png" alt="logo da empresa ZKfood">
+                </div>
+
+                <div class="bloco-footer">
+                    <a href="">Menu</a>
+                    <a href="">Contato</a>
+                </div>
+
+                <div class="bloco-footer">
+                    <a href="">Sobre</a>
+                    <a href="">Avaliações</a>
+                </div>
+
+                <div class="bloco-footer">
+                    <a href="">Cadastro</a>
+                    <a href="">Pratos</a>
+                </div>
             </div>
+
             <div class="linha"></div>
+
             <div class="redes-sociais">
-                <a href=""><img src="../../assets/Facebook.png" alt="Facebook"></a>
-                <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="WhatsApp"></a>
-                <a href=""><img src="../../assets/Instagram.png" alt="Instagram"></a>
+                <a href=""><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
+                <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="Icone WhatsApp"></a>
+                <a href=""><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
             </div>
+
             <div class="informacoes">
-                <p><a href="">Termos e Condições</a></p><p>|</p>
-                <p><a href="">Política de Privacidade</a></p><p>|</p>
-                <p><a href="">Acessibilidade</a></p><p>|</p>
-                <p><a href="">Suporte</a></p><p>|</p>
+                <p><a href="">Termos e Condições</a></p>
+                <p> | </p>
+                <p><a href="">Política de Privacidade</a></p>
+                <p> | </p>
+                <p><a href="">Acessibilidade</a></p>
+                <p> | </p>
+                <p><a href="">Suporte</a></p>
+                <p> | </p>
                 <p>Developed by © VisionarySolutions, 2024. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
     <script src="/ZKFood/js/favorito.js"></script>
 </body>
+
 </html>

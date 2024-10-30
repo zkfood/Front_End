@@ -18,13 +18,14 @@
 
     /* cards */
     .container-cards {
-        height: 60vh;
+        height: auto;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
+        margin-bottom: 30%;
     }
 
     .card {
