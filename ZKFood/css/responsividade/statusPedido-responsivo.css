@@ -194,10 +194,11 @@
 
 .imagem-cardapio {
     margin-right: 3%;
+    width: 60%;
 }
 
 .imagem-cardapio img {
-    height: 180px;
+    height: 160px;
 }
 
 .card-valor {
