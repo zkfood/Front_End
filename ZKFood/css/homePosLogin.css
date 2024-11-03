@@ -561,7 +561,7 @@ footer {
 
 .informacoes {
     display: flex;
-    width: 80%;
+    width: 70%;
     justify-content: space-between;
     align-items: end;
 }
@@ -590,6 +590,3 @@ footer {
     width: 100%;
     margin: 0;
 }
-
-.caminho b {
-    color:
