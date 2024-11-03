@@ -355,7 +355,7 @@ body {
 
 .botao-valor {
     width: 100%;
-    display: flex;
+    display: none;
     justify-content: end;
     margin-top: 10%;
 }
@@ -542,6 +542,10 @@ body {
 
 .status-pedido.concluido {
     color: #4CAF50;
+}
+
+.status-pedido.em-andamento {
+    color: #FFD700;
 }
 
 .item-pedido {

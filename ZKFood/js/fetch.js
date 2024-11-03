@@ -8,6 +8,7 @@ const prefix = {
     pedidos: "pedidos",
     produtos: "produtos",
     avaliacoes: "avaliacoes",
+    enderecos: "enderecos",
 };
 
 class FetchBuilder {
