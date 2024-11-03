@@ -83,6 +83,13 @@ body {
 
 .titulo-pai {
     width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.titulo-pai img{
+    margin-bottom: 5px;
+    margin-right: 10px;
 }
 
 .card-endereco:hover {
