@@ -43,6 +43,8 @@ body {
 
 .org-nav-bar {
     display: flex;
+    margin-left: 5%;
+    align-items: center;
     width: 100%;
 }
 
@@ -98,7 +100,7 @@ body {
 
 /* Formulário Cadastro */
 .banner-cadastro {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     justify-content: flex-start;
@@ -116,12 +118,12 @@ body {
 }
 
 .formulario-cadastro {
-    height: 520px;
+    height: 500px;
     width: 675px;
     background-color: white;
     box-shadow: 2px 2px 7px 4px rgba(0, 0, 0, 0.2);
     border-radius: 30px;
-    padding: 30px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -227,7 +229,7 @@ body {
 }
 
 .div-lembrar {
-    display: flex;
+    display: none;
 }
 
 .nome-grupo,

@@ -117,23 +117,15 @@
     }
 
 
-    /* BANNER CARROSSEL */
+/* BANNER CARROSSEL */
 
-    .container_carrossel {
-        height: 25vh;
-        align-items: start;
-    }
+.container-banner {
+    width: 100%;
+    height: 25vh;
+    background-image: url(../../assets/banner-inicial-responsivo.png);
+    background-size: cover;
+}
 
-    .carrossel {
-        height: 25vh;
-        background-image: url(../../assets/icons-responsivo/banner-inicial-responsivo.png);
-        background-size: cover;
-    }
-
-    .carrossel img {
-        width: 0%;
-        height: 0vh;
-    }
 
     /* Acesse nosso cardápio */
     .container-cardapio {

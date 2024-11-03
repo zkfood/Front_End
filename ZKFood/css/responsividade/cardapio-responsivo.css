@@ -5,13 +5,27 @@
 }
 
 /* MENU DO CARDAPIO  */
-.container-menu {
-    height: 20vh;
-}
 
 .menu-cardapio {
     width: 95%;
     height: 12vh;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+.container-menu {
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.container-cardapio {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    height: auto;
 }
 
 .card-menu img {

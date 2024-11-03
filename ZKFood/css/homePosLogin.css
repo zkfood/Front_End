@@ -209,24 +209,11 @@
 
 /* BANNER CARROSSEL */
 
-.container_carrossel {
+.container-banner {
     width: 100%;
-    height: 79vh;
-    display: flex;
-    overflow: hidden;
-}
-
-.carrossel {
-    width: 100%;
-    height: 100%;
-    display: flex;
-}
-
-.carrossel img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Ajusta a imagem para cobrir completamente o contêiner */
+    height: 80vh;
+    background-image: url(../assets/banner-inicial.png);
+    background-size: cover;
 }
 
 /* Acesse nosso cardápio */
@@ -605,5 +592,4 @@ footer {
 }
 
 .caminho b {
-    color: #181818;
-}
+    color:
