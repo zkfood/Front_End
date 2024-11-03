@@ -304,10 +304,12 @@ span{
     width: 100%;
     height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
+.card{
+    margin-right: 5%;
+}
 .titulo-carrossel{
     font-family: "Bebas Neue", sans-serif;
     color: #000000;
