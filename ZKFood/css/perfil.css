@@ -156,11 +156,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
-.card-endereco {
+.card-endereco .clicado{
     width: 60%;
     height: auto;
     border: none;
+    border-radius: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -173,6 +175,7 @@
     margin-bottom: 30px;
     position: relative;
     z-index: 2;
+    padding: 10px;
 }
 
 .titulo-pai {
