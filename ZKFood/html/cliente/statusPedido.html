@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seus Pedidos</title>
+    <title>Meus Pedidos</title>
 
     <link rel="stylesheet" href="../../css/statusPedido.css">
     <link rel="stylesheet" href="../../css/homePosLogin.css">
+
+    <link rel="stylesheet" href="../../css/responsividade/homePosLogin-responsivo.css">
+    <link rel="stylesheet" href="../../css/responsividade/statusPedido-responsivo.css">
 
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
@@ -33,7 +36,7 @@
     <!-- Navbar Superior -->
     <div class="container_navbar">
         <div class="parte_superior_navbar">
-            <div class="img_voltar"> <a href="home_pos_login.html"><img src="../../assets/de-volta.png"
+            <div class="img_voltar"> <a href="javascript:history.back()"><img src="../../assets/de-volta.png"
                         alt="Seta para voltar a página"></a></div>
             <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png"
                         alt="Logo do ZKfood"></a></div>
@@ -65,12 +68,37 @@
                 <li><a href="home_pos_login.html">Página Inicial</a></li>
                 <li><a href="cardapio.html">Cardápio</a></li>
                 <li><a href="statusPedido.html" class="tela_atual">
-                        <p>Seus Pedidos</p>
+                        <p>Meus Pedidos</p>
                     </a></li>
                 <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
             </ul>
         </div>
     </div>
+
+        <!-- Navbar Inferior na RESPONSIVIDADE -->
+        <div class="bottom-nav">
+            <a href="./home_pos_login.html">
+                <img src="../../assets/icons-responsivo/icon-casa.png" alt="Icone de casa retratando tela inicial no menu">
+                <span>Inicio</span>
+            </a>
+            <a href="./cardapio.html">
+                <img src="../../assets/icons-responsivo/icon-garfo.png" alt="Icone de garfo retratando tela de cardápio no menu">
+                <span>Cardápio</span>
+            </a>
+            <a href="./carrinho.html">
+                <img src="../../assets/icons-responsivo/icon-carrinho.png" alt="Icone de carrinho retratando tela de carrinho no menu">
+                <span>Carrinho</span>
+            </a>
+            <a href="./statusPedido.html" class="active">
+                <img src="../../assets/icons-responsivo/icon-documento-active.png" alt="Icone de documento retratando tela de status do pedido no menu">
+                <span>Pedidos</span>
+            </a>
+            <a href="./cadastro_endereco.html">
+                <img src="../../assets/icons-responsivo/icon-endereco.png" alt="Icone de endereço retratando tela de cadastro de endereço no menu">
+                <span>Endereço</span>
+            </a>
+    
+        </div>
 
     <!-- Status do Pedido -->
 
@@ -83,27 +111,27 @@
                <b>  Status do Pedido</b>
             </p>
         </div>
-        <span class="titulo-status">STATUS DO <span>SEU PEDIDO</span></span>
+        <span class="titulo-status">STATUS DO <span>MEU PEDIDO</span></span>
         <div class="container-status">
             <div class="status-overview">
                 <div class="status-card">
-                    <img src="/ZKFood/assets/Check Mark.png" alt="Pedidos Solicitados">
-                    <img src="/ZKFood/assets/pedido-confirmado 1.png" alt="">
+                    <img src="/ZKFood/assets/Check Mark.png" alt="Pedidos Aceito">
+                    <img src="/ZKFood/assets/pedido-confirmado 1.png" alt="Icone de sacola e check representando pedido aceito">
                     <p>Pedido aceito</p>
                 </div>
                 <div class="status-card">
-                    <img src="/ZKFood/assets/2 Circled.png" alt="Pedidos Solicitados">
-                    <img src="/ZKFood/assets/saco-de-papel 1.png" alt="">
+                    <img src="/ZKFood/assets/2 Circled.png" alt="Pedidos em Preparo">
+                    <img src="/ZKFood/assets/saco-de-papel 1.png" alt="icone de saco de papel representando pedido em preparo">
                     <p>Pedido em preparo</p>
                 </div>
                 <div class="status-card">
-                    <img src="/ZKFood/assets/Circled 3.png" alt="Pedidos em Preparo">
-                    <img src="/ZKFood/assets/bicicleta-de-entrega 1.png" alt="">
+                    <img src="/ZKFood/assets/Circled 3.png" alt="Pedidos a Caminho">
+                    <img src="/ZKFood/assets/bicicleta-de-entrega 1.png" alt="icone de moto representando pedido a caminho">
                     <p>Pedido a caminho</p>
                 </div>
                 <div class="status-card">
                     <img src="/ZKFood/assets/Circled 4.png" alt="Pedidos em Entrega">
-                    <img src="/ZKFood/assets/Home.png" alt="">
+                    <img src="/ZKFood/assets/Home.png" alt="icone de casa representando pedido entregue">
                     <p>Pedido entregue</p>
                 </div>
             </div>
@@ -113,7 +141,7 @@
             <div class="card-endereco">
                 <div class="container-endereco">
                     <div class="titulo-pai">
-                        <img src="/ZKFood/assets/Address.png" alt="">
+                        <img src="/ZKFood/assets/Address.png" alt="icone representando endereço">
                         <span class="titulo-endereco">ENDEREÇO PARA <span>ENTREGA</span></span>
                     </div>
 
@@ -135,6 +163,7 @@
                     <div class="card-item">
                         <div class="card-cardapio">
                             <div class="conteudo-cardapio">
+                                <div class="qtd-itens">2x</div>
                                 <h2>Nome do Prato</h2>
                                 <p>Descrição, descrição, descrição, descrição, descrição, descrição</p>
                                 <div class="servir">
@@ -152,6 +181,7 @@
                     <div class="card-item">
                         <div class="card-cardapio">
                             <div class="conteudo-cardapio">
+                                <div class="qtd-itens">20x</div>
                                 <h2>Nome do Prato</h2>
                                 <p>Descrição, descrição, descrição, descrição, descrição, descrição</p>
                                 <div class="servir">
@@ -166,6 +196,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
                 <div class="card-valor">
                     <div class="container-valor">
@@ -198,7 +229,7 @@
         </div>
 
         <!-- Formulario de avaliações -->
-        <div class="total-pai">
+        <div class="total-pai-avaliacao">
             <div class="container-avaliacoes">
                 <div class="avaliacao-container">
                     <h1> <span>AVALIE </span> SEU PEDIDO</h1>
@@ -259,7 +290,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-top">
-            <img src="../../assets/Vector-ondas-footer.png" alt="">
+            <img src="../../assets/Vector-ondas-footer.png" alt="Ondas para divisão de telas">
         </div>
         <div class="footer">
             <div class="footer-paginas">
@@ -309,7 +340,7 @@
 
     <div class="container-notificacao">
         <div class="card-notificacao">
-            <img src="../../assets/check erro.png" alt="X">
+            <img src="../../assets/check erro.png" alt="icone de X">
             <div class="conteudo-notificacao">
                 <h2>Oops! Tivemos um problema com o seu pedido.</h2>
                 <p>Descrição do problema. Entre em contato pelo WhatsApp <a

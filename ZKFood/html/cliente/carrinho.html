@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="../../css/favoritos.css">
     <link rel="stylesheet" href="../../css/carrinho.css">
 
+    <link rel="stylesheet" href="../../css/responsividade/homePosLogin-responsivo.css">
+    <link rel="stylesheet" href="../../css/responsividade/carrinho-responsivo.css">
+
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,11 +70,39 @@
                         <p>Página Inicial</p>
                     </a></li>
                 <li><a href="cardapio.html">Cardápio</a></li>
-                <li><a href="statusPedido.html">Meus Pedidos</a></li>
+                <li><a href="status
+                    o.html">Meus Pedidos</a></li>
                 <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
             </ul>
         </div>
     </div>
+    
+    
+    <!-- Navbar Inferior na RESPONSIVIDADE -->
+    <div class="bottom-nav">
+        <a href="./home_pos_login.html">
+            <img src="../../assets/icons-responsivo/icon-casa.png" alt="Icone de casa retratando tela inicial no menu">
+            <span>Inicio</span>
+        </a>
+        <a href="./cardapio.html">
+            <img src="../../assets/icons-responsivo/icon-garfo.png" alt="Icone de garfo retratando tela de cardápio no menu">
+            <span>Cardápio</span>
+        </a>
+        <a href="./carrinho.html" class="active">
+            <img src="../../assets/icons-responsivo/icon-carrinho-active.png" alt="Icone de carrinho retratando tela de carrinho no menu">
+            <span>Carrinho</span>
+        </a>
+        <a href="./statusPedido.html">
+            <img src="../../assets/icons-responsivo/icon-documento.png" alt="Icone de documento retratando tela de status do pedido no menu">
+            <span>Pedidos</span>
+        </a>
+        <a href="./cadastro_endereco.html">
+            <img src="../../assets/icons-responsivo/icon-endereco.png" alt="Icone de endereço retratando tela de cadastro de endereço no menu">
+            <span>Endereço</span>
+        </a>
+
+    </div>
+    
 
     <div class="container-favoritos">
 
@@ -212,12 +243,26 @@
                 </div>
             </div>
         </div>
+
         <div class="container-carrossel">
             <h1 class="titulo-carrossel">Adicione seus <span>favoritos</span></h1>
-
             <!-- Carrossel de itens favoritos -->
             <!-- Esse card esta vindo da tela de favoritos -->
             <div class="container-cards">
+                <div class="card">
+                    <img class="img-prato" src="../../assets/prato-feijoada-Zeca.png" alt="foto do prato.">
+                    <h1>Nome do Prato</h1>
+                    <p>descrição, descrição, descrição, descrição, descrição, descrição, descrição</p>
+                    <div class="card-menu">
+                        <h2><span>R$</span> 27,00</h2>
+                        <div class="card-botoes">
+                            <button class="botao-carrinho"><img src="../../assets/carrinho-carrinho-branco.png"
+                                    style="margin-right: 3px;" alt="icone de carrinho de compras"></button>
+                            <button class="botao-lixo"><img src="../../assets/Trash.png" alt="icone de lixo"></button>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="card">
                     <img class="img-prato" src="../../assets/prato-feijoada-Zeca.png" alt="foto do prato.">
                     <h1>Nome do Prato</h1>
@@ -239,7 +284,7 @@
 
     <footer>
         <div class="footer-top">
-            <img src="../../assets/Vector-ondas-footer.png" alt="">
+            <img src="../../assets/Vector-ondas-footer.png" alt="imagem de ondas para divisão de tela">
         </div>
         <div class="footer">
             <div class="footer-paginas">

@@ -1,0 +1,80 @@
+@media screen and (max-width: 440px) {
+
+.container {
+    width: 90%;
+    padding: 5%;
+    padding-top: 0%;
+}
+
+.container-endereco-titulo {
+    height: 20vh;
+    display: flex;
+}
+
+.container-endereco-titulo h1 {
+    font-size: 35px;
+}
+
+/* Card de endereço */
+
+.card-endereco {
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+.card-endereco img {
+    height: 30px;
+    margin-bottom: -5px;
+}
+
+.titulo-endereco {
+    width: 100%;
+    font-size: 25px;
+}
+
+.conteudo-pai {
+    font-size: 15px;
+}
+
+.informacao-endereco span {
+    font-size: 15px;
+}
+
+.botoes-endereco {
+    height: 100px;
+}
+
+/* Botões */
+
+.botao-excluir,
+.botao-editar {
+    font-size: 15px;
+    height: 30px;
+    width: 80px;
+}
+
+/* Alterando checkbox */
+.checkbox-endereco {
+    width: 20px;
+    height: 20px;
+}
+
+/* CSS para card sem endereço */
+.container-sem-endereco {
+    width: 90%;
+}
+
+.card-sem-endereco span{
+    display: none;
+}
+
+.card-sem-endereco h1{
+    font-size: 30px;
+}
+
+.botao-azul {
+    width: 90%;
+    margin-bottom: 25px;
+    text-decoration: none;
+}
+}

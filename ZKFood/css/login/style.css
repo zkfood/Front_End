@@ -37,6 +37,8 @@ body {
 
 .org-nav-bar {
     display: flex;
+    margin-left: 5%;
+    align-items: center;
     width: 100%;
 }
 

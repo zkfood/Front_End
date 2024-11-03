@@ -221,7 +221,7 @@ span{
 
 .card-pagamento{
     width: 60%;
-    height: 35vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -231,6 +231,11 @@ span{
     padding: 25px;
     text-align: center;
     margin-top: 5%;
+}
+
+.card-pagamento h2{
+    margin-bottom: 10%;
+    margin-top: 10%;
 }
 
 .lista-pedidos{
@@ -292,6 +297,7 @@ span{
     height: 100vh;
     display: flex;
     flex-direction: column;
+    margin-top: 10%;
 }
 
 .container-cards{

@@ -1,0 +1,32 @@
+@media screen and (max-width: 440px) {
+
+    .container_conteudo_cadastro_endereco {
+        flex-direction: column;
+        width: 100vw;
+        margin-bottom: 30%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container_div_esquerda_cadastro_endereco {
+        width: 90%;
+        height: 40vh;
+    }
+
+    .mapa_cadastro_endereco {
+        width: 90%;
+        height: 20vh;
+    }
+
+    .mapBox iframe {
+        border-radius: 15px;
+    }
+
+    .container_div_direita_cadastro_endereco {
+        width: 100%;
+    }
+    .botao-cadastrar {
+        margin-top: 10%;
+    }
+
+}

@@ -37,6 +37,10 @@ body {
     align-items: center;
 }
 
+.titulo-bebas-responsivo{
+    font-size: 0px;
+}
+
 .texto-comecar {
     margin-left: 15px;
 }
@@ -78,7 +82,7 @@ body {
 }
 
 .checkbox-container {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 15px;
@@ -92,7 +96,7 @@ body {
 .forgot-password {
     text-decoration: none;
     font-size: 16px;
-    color: #000000;
+    color: #111111;
 }
 
 .forgot-password:hover {
@@ -118,7 +122,7 @@ body {
 }
 
 .div-lembrar {
-    display: flex;
+    display: none;
 }
 
 .senha-grupo,
