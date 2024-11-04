@@ -1,37 +1,64 @@
-document.addEventListener("DOMContentLoaded", async function() {
+// Dados mockados para teste
+const mockData = [
+    { 
+        id: 1, 
+        nome: 'Produto A', 
+        valor: 29.99,
+        descricao: 'Descrição do produto A',
+        qtdPessoas: 2,
+        imagem: '../../assets/prato-feijoada-Zeca.png'
+    },
+    { 
+        id: 2, 
+        nome: 'Produto B', 
+        valor: 39.99,
+        descricao: 'Descrição do produto B',
+        qtdPessoas: 1,
+        imagem: '../../assets/prato-feijoada-Zeca.png'
+    },
+    { 
+        id: 3, 
+        nome: 'Produto C', 
+        valor: 49.99,
+        descricao: 'Descrição do produto C',
+        qtdPessoas: 2,
+        imagem: '../../assets/prato-feijoada-Zeca.png'
+    }
+];
+sessionStorage.setItem('PRODUTOS_CARRINHO', JSON.stringify(mockData));
+document.addEventListener("DOMContentLoaded", function() {
     const listaCardapio = document.querySelector('.lista');
     const containerFavoritos = document.querySelector('.container-cards');
     
-    let carrinhoItems = new Map();
-
-    async function receberPratos() {
-        const url = `${ambiente.local+prefix.produtos}`;
-        try {
-            const fetch = await new FetchBuilder().request(url);
-            renderizarCardapio(fetch);
-        } catch (error) {
-            console.error("Erro ao buscar produtos:", error);
-        }
+    // Inicializa o carrinho no sessionStorage se não existir
+    if (!sessionStorage.getItem('PRODUTOS_CARRINHO')) {
+        sessionStorage.setItem('PRODUTOS_CARRINHO', JSON.stringify(mockData));
     }
 
-    async function buscarFavoritos() {
-        const url = `${ambiente.local + prefix.avaliacoes}`;
-        const request = new Request({
-            newQueryStringParams: { favorito: true }
-        });
-
-        try {
-            const fetch = await new FetchBuilder().request(url, request);
-            renderizarFavoritos(fetch);
-        } catch (error) {
-            console.error("Erro ao buscar favoritos:", error);
-        }
+    // Inicializa as quantidades do carrinho no sessionStorage se não existir
+    if (!sessionStorage.getItem('CARRINHO_QUANTIDADES')) {
+        sessionStorage.setItem('CARRINHO_QUANTIDADES', JSON.stringify({}));
     }
 
-    function renderizarCardapio(produtos) {
+    // Map para controlar quantidades no carrinho
+    let carrinhoItems = new Map(Object.entries(JSON.parse(sessionStorage.getItem('CARRINHO_QUANTIDADES') || '{}')));
+
+    function getProdutosFromSession() {
+        return JSON.parse(sessionStorage.getItem('PRODUTOS_CARRINHO') || '[]');
+    }
+
+    function salvarCarrinhoNoSession() {
+        // Converte o Map para objeto antes de salvar
+        const carrinhoObj = Object.fromEntries(carrinhoItems);
+        sessionStorage.setItem('CARRINHO_QUANTIDADES', JSON.stringify(carrinhoObj));
+    }
+
+    function renderizarCardapio() {
+        const produtos = getProdutosFromSession();
         listaCardapio.innerHTML = '';
+        
         produtos.forEach(produto => {
-            const quantidade = carrinhoItems.get(produto.id) || 0;
+            const quantidade = carrinhoItems.get(produto.id.toString()) || 0;
             const cardHtml = `
                 <div class="card-cardapio" data-id="${produto.id}">
                     <div class="conteudo-cardapio">
@@ -41,10 +68,10 @@ document.addEventListener("DOMContentLoaded", async function() {
                             <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
                             <h5>Serve ${produto.qtdPessoas} pessoas</h5>
                         </div>
-                        <h1><span>R$</span>${produto.valor}</h1>
+                        <h1><span>R$</span>${produto.valor.toFixed(2)}</h1>
                     </div>
                     <div class="imagem-cardapio">
-                        <img src="${ambiente.local+prefix.produtos}/imagem/${produto.id}" alt="Foto do prato">
+                        <img src="${produto.imagem}" alt="Foto do prato">
                         <div class="menu-card">
                             <div class="seletor-quantidade">
                                 <button class="diminuir">-</button>
@@ -61,35 +88,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             listaCardapio.insertAdjacentHTML('beforeend', cardHtml);
         });
         
-        // listener no botao
         adicionarEventosCardapio();
-    }
-
-    function renderizarFavoritos(favoritos) {
-        containerFavoritos.innerHTML = '';
-        favoritos.forEach(favorito => {
-            const cardHtml = `
-                <div class="card" data-id="${favorito.produto.id}">
-                    <img class="img-prato" src="${ambiente.local+prefix.produtos}/imagem/${favorito.produto.id}" alt="foto do prato">
-                    <h1>${favorito.produto.nome}</h1>
-                    <p>${favorito.descricao || 'Sem descrição'}</p>
-                    <div class="card-menu">
-                        <h2><span>R$</span> ${favorito.produto.valor.toFixed(2)}</h2>
-                        <div class="card-botoes">
-                            <button class="botao-carrinho">
-                                <img src="../../assets/carrinho-carrinho-branco.png" style="margin-right: 3px;" alt="icone de carrinho de compras">
-                            </button>
-                            <button class="botao-lixo">
-                                <img src="../../assets/Trash.png" alt="icone de lixo">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            containerFavoritos.insertAdjacentHTML('beforeend', cardHtml);
-        });
-
-        adicionarEventosFavoritos();
     }
 
     function adicionarEventosCardapio() {
@@ -107,17 +106,6 @@ document.addEventListener("DOMContentLoaded", async function() {
         });
     }
 
-    function adicionarEventosFavoritos() {
-        document.querySelectorAll('.container-cards .card').forEach(card => {
-            const produtoId = card.dataset.id;
-            const botaoCarrinho = card.querySelector('.botao-carrinho');
-            const botaoLixo = card.querySelector('.botao-lixo');
-
-            botaoCarrinho.addEventListener('click', () => adicionarAoCarrinho(produtoId));
-            botaoLixo.addEventListener('click', () => removerFavorito(produtoId));
-        });
-    }
-
     function atualizarQuantidade(produtoId, delta, input) {
         let valorAtual = parseInt(input.value) || 0;
         let novoValor = valorAtual + delta;
@@ -128,48 +116,46 @@ document.addEventListener("DOMContentLoaded", async function() {
                 removerDoCarrinho(produtoId);
             } else {
                 carrinhoItems.set(produtoId, novoValor);
+                salvarCarrinhoNoSession(); // Salva após atualizar quantidade
                 atualizarResumo();
             }
         }
     }
 
-    async function adicionarAoCarrinho(produtoId) {
+    function adicionarAoCarrinho(produtoId) {
         const quantidade = carrinhoItems.get(produtoId) || 0;
         carrinhoItems.set(produtoId, quantidade + 1);
-        await receberPratos();
+        salvarCarrinhoNoSession(); // Salva após adicionar ao carrinho
+        renderizarCardapio();
         atualizarResumo();
     }
 
     function removerDoCarrinho(produtoId) {
+        // Remover o item do Map
         carrinhoItems.delete(produtoId);
-        receberPratos();
+        
+        // Atualiza o sessionStorage para remover o produto do carrinho
+        const produtos = getProdutosFromSession();
+        const produtosAtualizados = produtos.filter(produto => produto.id !== parseInt(produtoId));
+        
+        // Salva a lista atualizada de produtos no sessionStorage
+        sessionStorage.setItem('PRODUTOS_CARRINHO', JSON.stringify(produtosAtualizados));
+        
+        salvarCarrinhoNoSession(); // Salva após remover do carrinho
+        renderizarCardapio();
         atualizarResumo();
     }
 
-    async function removerFavorito(produtoId) {
-        const url = `${ambiente.local + prefix.avaliacoes}`;
-        const request = new Request({
-            method: 'DELETE',
-            newQueryStringParams: { usuario: 1, produto: produtoId }
-        });
-
-        try {
-            await new FetchBuilder().request(url, request);
-            await buscarFavoritos();
-        } catch (error) {
-            console.error("Erro ao remover favorito:", error);
-        }
-    }
-
-    async function atualizarResumo() {
+    function atualizarResumo() {
         const listaPedidos = document.querySelector('.lista-pedidos');
         listaPedidos.innerHTML = '';
         
+        const produtos = getProdutosFromSession();
         let total = 0;
+
         for (const [produtoId, quantidade] of carrinhoItems) {
-            const url = `${ambiente.local+prefix.produtos}/${produtoId}`;
-            try {
-                const produto = await new FetchBuilder().request(url);
+            const produto = produtos.find(p => p.id === parseInt(produtoId));
+            if (produto) {
                 const subtotal = produto.valor * quantidade;
                 total += subtotal;
 
@@ -179,8 +165,6 @@ document.addEventListener("DOMContentLoaded", async function() {
                         <p>R$ ${subtotal.toFixed(2)}</p>
                     </div>
                 `);
-            } catch (error) {
-                console.error("Erro ao buscar detalhes do produto:", error);
             }
         }
 
@@ -200,6 +184,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         `);
     }
 
-    await Promise.all([receberPratos(), buscarFavoritos()]);
+    // Inicialização
+    renderizarCardapio();
     atualizarResumo();
 });
