@@ -499,11 +499,13 @@ body {
     margin: 0 auto;
     font-family: "Roboto", sans-serif;
     margin-bottom: 10%;
+    margin-top: 5%;
 }
 
 .historico-pedidos h2 {
     color: #FFB90A;
     margin-bottom: 5%;
+    margin-top: 5%;
     font-family: "Bebas Neue", sans-serif;
     color: #000000;
     line-height: 24px;
