@@ -168,69 +168,42 @@
 </html>
 
 <script>
-
     let idEnderecoParaDeletar = null;
+    let idUsuario = sessionStorage.getItem('idUsuario');
 
-    let idUsuario = sessionStorage.getItem('IdUsuario');
+    let editando = false;
+
+    const cardEndereco = document.getElementById('cardEndereco');
 
     async function buscar() {
         if (idUsuario) {
             const url = `http://localhost:8080/usuarios/${idUsuario}/enderecos`;
             const resposta = await fetch(url);
-
             if (resposta.ok) {
                 const dados = await resposta.json();
                 console.log(dados);
                 const div_resposta = document.getElementById("retorno_de_dados");
-
                 if (dados.length <= 0) {
                     div_resposta.innerHTML = `
-                        <!-- Card caso a pessoa ainda não tenha nenhum endereço cadastrado -->
+                    <!-- Card caso a pessoa ainda não tenha nenhum endereço cadastrado -->
+                    <div class="container-sem-endereco">
                         <div class="container-sem-endereco">
-                            <div class="container-sem-endereco">
-                                <div class="card-sem-endereco">
-                                    <h1>Nenhum endereço cadastrado <span>:( </span></h1>
-                                    <p>Oops, parece que você ainda não cadastrou nenhum endereço para nossa equipe entregar o seu pedido.
-                                    </p>
-                                    <a class="botao-azul" href="./cadastro_endereco.html">Cadastrar Endereço</a>
-                                </div>
+                            <div class="card-sem-endereco">
+                                <h1>Nenhum endereço cadastrado <span>:( </span></h1>
+                                <p>Oops, parece que você ainda não cadastrou nenhum endereço para nossa equipe entregar o seu pedido.</p>
+                                <a class="botao-azul" href="./cadastro_endereco.html">Cadastrar Endereço</a>
                             </div>
                         </div>
-                    `;
+                    </div>
+                `;
                 } else {
                     div_resposta.innerHTML = `
-                        <div class="container-endereco-titulo">
-                            <h1>Escolha um <span>endereço</span></h1>
-                        </div>
-                        <div id="container_lista_enderecos"></div>`;
-
+                    <div class="container-endereco-titulo">
+                        <h1>Escolha um <span>endereço</span></h1>
+                    </div>
+                    <div id="container_lista_enderecos"></div>`;
                     const enderecos = document.getElementById("container_lista_enderecos");
-
-                    enderecos.innerHTML = dados.map((endereco, index) => {
-                        return `
-                        <!-- Card de endereço -->
-                        <div id="card-endereco-${index}" class="card-endereco" onclick="selecionarCard(this)">
-                            <div class="container-endereco">
-                                <div class="titulo-pai">
-                                    <input type="checkbox" class="checkbox-endereco" data-id="${index}" onclick="marcarCheckbox(${index})">
-                                    <img src="/ZKFood/assets/Address.png" alt="Icone Endereço">
-                                    <span class="titulo-endereco">ENDEREÇO PARA <span>ENTREGA</span></span>
-                                </div>
-
-                                <div class="conteudo-pai">
-                                    <div class="endereco-conteudo">
-                                        <div class="informacao-endereco">
-                                            <span class="info-rua">${endereco.rua}, ${endereco.numero} - ${endereco.complemento}</span>
-                                            <span class="info-cep">${endereco.bairro}, São Paulo, SP - ${endereco.cep}</span>
-                                        </div>
-                                    </div>
-                                    <button class="botao-excluir">Excluir</button>
-                                    <button class="botao-editar">Editar</button>
-                                </div>
-                            </div>
-                        </div>`;
-                    }).join('');
-
+                    enderecos.innerHTML = dados.map(renderizarCardEndereco).join('');
                     enderecos.innerHTML += `<a class="botao-azul" id="botaoContinuar" href="./pagamento.html" style="display: none;">Continuar</a>`;
                 }
             } else {
@@ -241,49 +214,161 @@
         }
     }
 
-    function selecionarCard(card) {
+    function renderizarCardEndereco(endereco) {
+        return `
+        <div id="card-endereco-${endereco.id}" class="card-endereco" onclick="selecionarCard(this, ${endereco.id})">
+            <div class="container-endereco">
+                <div class="titulo-pai">
+                    <input type="checkbox" class="checkbox-endereco" data-id="${endereco.id}" onclick="marcarCheckbox(${endereco.id}); event.stopPropagation();">
+                    <img src="/ZKFood/assets/Address.png" alt="Icone Endereço">
+                    <span class="titulo-endereco">ENDEREÇO PARA <span>ENTREGA</span></span>
+                </div>
+                <div class="conteudo-pai">
+                    <div class="endereco-conteudo">
+                        <div class="informacao-endereco">
+                            <span class="info-rua">${endereco.rua}, ${endereco.numero} - ${endereco.complemento}</span>
+                            <span class="info-cep">${endereco.bairro}, São Paulo, SP - ${endereco.cep}</span>
+                        </div>
+                    </div>
+                    <button class="botao-excluir" onclick="excluir(${endereco.id}); event.stopPropagation();">Excluir</button>
+                    <button class="botao-editar" onclick="editar(${endereco.id}); event.stopPropagation();">Editar</button>
+                </div>
+            </div>
+        </div>`;
+    }
+
+    function selecionarCard(card, idEndereco) {
         // Remove a classe 'clicado' de todos os cards
         const cards = document.querySelectorAll('.card-endereco');
         cards.forEach(c => {
             c.classList.remove('clicado');
             c.querySelector('.checkbox-endereco').checked = false; // Desmarcar o checkbox
         });
-
         // Adiciona a classe 'clicado' ao card selecionado
         card.classList.add('clicado');
         const checkbox = card.querySelector('.checkbox-endereco');
         checkbox.checked = true; // Marcar o checkbox
-
         // Armazenar o ID do endereço no sessionStorage
-        const idEndereco = Number(checkbox.dataset.id) + 1; // Supondo que o ID está no atributo data-id
         sessionStorage.setItem('IdEnderecoEscolhido', idEndereco);
-
         // Mostrar o link 'Continuar' se um card estiver selecionado
         const botaoContinuar = document.getElementById('botaoContinuar');
         botaoContinuar.style.display = 'block';
     }
 
-
-
     function marcarCheckbox(idSelecionado) {
         // Seleciona todas as checkboxes
         const checkboxes = document.querySelectorAll('.checkbox-endereco');
-
         // Itera sobre as checkboxes e desmarca as que não são a selecionada
         checkboxes.forEach((checkbox) => {
             if (parseInt(checkbox.dataset.id) !== idSelecionado) {
                 checkbox.checked = false;
             }
         });
-
         // Exibe o botão "Continuar" apenas se alguma checkbox estiver marcada
         const botaoContinuar = document.getElementById("botaoContinuar");
         const algumaMarcada = Array.from(checkboxes).some(checkbox => checkbox.checked);
         botaoContinuar.style.display = algumaMarcada ? 'block' : 'none';
     }
 
+    function editar(idEndereco) {
+        const enderecoCard = document.getElementById(`card-endereco-${idEndereco}`);
+        const enderecoRua = enderecoCard.querySelector('.info-rua').innerText.split(', ')[0];
+        const enderecoNumero = enderecoCard.querySelector('.info-rua').innerText.split(', ')[1].split(' - ')[0];
+        const enderecoComplemento = enderecoCard.querySelector('.info-rua').innerText.split(' - ')[1];
+        const enderecoBairro = enderecoCard.querySelector('.info-cep').innerText.split(', ')[0];
+        const enderecoCep = enderecoCard.querySelector('.info-cep').innerText.split(' - ')[1];
+
+        if (!editando) {
+            enderecoCard.innerHTML = `
+        <div class="container-endereco">
+            <div class="titulo-pai">
+                <input type="checkbox" class="checkbox-endereco" data-id="${idEndereco}" onclick="marcarCheckbox(${idEndereco}); event.stopPropagation();">
+                <img src="/ZKFood/assets/Address.png" alt="Icone Endereço">
+                <span class="titulo-endereco">ENDEREÇO PARA <span>ENTREGA</span></span>
+            </div>
+            <div class="conteudo-pai">
+                <div class="endereco-conteudo">
+                    <div class="informacao-endereco">
+                        <input type="text" id="inputCep" value="${enderecoCep}">
+                        <input type="text" id="inputBairro" value="${enderecoBairro}">
+                        <input type="text" id="inputRua" value="${enderecoRua}">
+                        <input type="text" id="inputNumero" value="${enderecoNumero}">
+                        <input type="text" id="inputComplemento" value="${enderecoComplemento}">
+                    </div>
+                </div>
+                <button class="botao-excluir" onclick="excluir(${idEndereco}); event.stopPropagation();">Excluir</button>
+                <button class="botao-editar" onclick="salvar(${idEndereco}); event.stopPropagation();">Salvar</button>
+            </div>
+        </div>
+    `;
+            editando = true;
+        } else {
+            salvar(idEndereco);
+        }
+    }
+
+
+    async function salvar(idEndereco) {
+        const enderecoCard = document.getElementById(`card-endereco-${idEndereco}`);
+        const novaRua = enderecoCard.querySelector('#inputRua').value;
+        const novoBairro = enderecoCard.querySelector('#inputBairro').value;
+        const novoNumero = enderecoCard.querySelector('#inputNumero').value;
+        const novoCep = enderecoCard.querySelector('#inputCep').value;
+        const novoComplemento = enderecoCard.querySelector('#inputComplemento').value;
+
+        const url = `http://localhost:8080/usuarios/${idUsuario}/enderecos/${idEndereco}`;
+        try {
+            const resposta = await fetch(url, {
+                method: "PATCH",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ cep: novoCep, rua: novaRua, bairro: novoBairro, numero: novoNumero, complemento: novoComplemento })
+            });
+
+            if (resposta.ok) {
+                const dadosAtualizados = await resposta.json();
+                console.log('Endereço atualizado:', dadosAtualizados);
+
+                enderecoCard.innerHTML = renderizarCardEndereco(dadosAtualizados);
+                editando = false;
+            } else {
+                console.error('Erro ao atualizar endereço');
+            }
+        } catch (erro) {
+            console.error('Erro:', erro);
+        }
+    }
+
+
+    async function excluir(idEndereco) {
+        const url = `http://localhost:8080/usuarios/${idUsuario}/enderecos/${idEndereco}`;
+        try {
+            const resposta = await fetch(url, {
+                method: "DELETE",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': '*/*'
+                }
+            });
+
+            if (resposta.status === 204) {
+                alert('Endereço deletado com sucesso.');
+                // Remover o card do endereço deletado
+                const card = document.getElementById(`card-endereco-${idEndereco}`);
+                if (card) {
+                    card.remove();
+                }
+
+                buscar()
+            } else {
+                console.log(`Erro ao deletar endereço: ${resposta.status}`);
+            }
+        } catch (erro) {
+            console.error('Erro:', erro);
+        }
+    }
 
     window.onload = buscar;
-
 
 </script>
