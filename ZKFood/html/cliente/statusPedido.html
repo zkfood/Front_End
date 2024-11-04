@@ -70,7 +70,7 @@
             <ul class="menu">
                 <li><a href="home_pos_login.html">Página Inicial</a></li>
                 <li><a href="cardapio.html">Cardápio</a></li>
-                <li><a href="statusPedido.html" class="tela_atual">
+                <li><a href="historico-pedidos.html" class="tela_atual">
                         <p>Meus Pedidos</p>
                     </a></li>
                 <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
@@ -92,7 +92,7 @@
                 <img src="../../assets/icons-responsivo/icon-carrinho.png" alt="Icone de carrinho retratando tela de carrinho no menu">
                 <span>Carrinho</span>
             </a>
-            <a href="./statusPedido.html" class="active">
+            <a href="./historico-pedidos.html" class="active">
                 <img src="../../assets/icons-responsivo/icon-documento-active.png" alt="Icone de documento retratando tela de status do pedido no menu">
                 <span>Pedidos</span>
             </a>
@@ -105,7 +105,7 @@
 
     <!-- Status do Pedido -->
 
-    <div class="banner-status">
+    <div class="banner-status" id="bannerStatus">
         
         <div class="caminho">
             <p>Carrinho >
@@ -166,7 +166,7 @@
                             <span class="valor-amarelo" id="valorTotal">R$</span>
                         </div>
                         <div class="botao-valor" id="divBotaoCancelar">
-                            <button class="cancelar-pedido">CANCELAR PEDIDO</button>
+                            <button class="cancelar-pedido" onclick="cancelarPedido()">CANCELAR PEDIDO</button>
                         </div>
                     </div>
 
@@ -246,35 +246,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- card de ERRO ou pedido cancelado -->
-
-    <div class="container-notificacao">
-        <div class="card-notificacao">
-            <img src="../../assets/check erro.png" alt="icone de X">
-            <div class="conteudo-notificacao">
-                <h2>Oops! Tivemos um problema com o seu pedido.</h2>
-                <p>Descrição do problema. Entre em contato pelo WhatsApp <a
-                        href="https://wa.me/5511986744335">(11)98674-4335</a></p>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Código para quando ocorrer erro na tela -->
-    <div class="container-semPedido">
-        <div class="container-semPedido">
-            <div class="card-semPedido">
-                <h1>Você não tem pedidos <span>:( </span></h1>
-                <p>Oops, parece que você ainda não fez nenhum pedido.</p>
-                <br>
-                <p>Não perca tempo e faça seu pedido agora!</p>
-                <a class="botao-azul" href="./cardapio.html">Acessar cardápio</a>
-            </div>
-
-        </div>
-    </div>
-
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 const idUsuario = sessionStorage.getItem('IdUsuario');
-const idEndereco = 2
+const pedidoSessionStorage = sessionStorage.getItem('PEDIDO_DETALHES');
+let idPedido = 0;
 
 function carregarStatusPedido(estado){
     if (estado === "Pedido cancelado") {
@@ -36,13 +37,14 @@ function carregarStatusPedido(estado){
 }
 
 async function carregarPedido(){
-    const pedidos = await new FetchBuilder().request(`${ambiente.local + prefix.pedidos}/8`);
+    const pedido = await new FetchBuilder().request(`${ambiente.local + prefix.pedidos}/${pedidoSessionStorage}`);
+    idPedido = pedido.id;
     const div = document.getElementById('disposicaoItens');
     const holerite = document.getElementById('holerite');
 
     let valorTotal = 0;
 
-    pedidos.produtos.map(
+    pedido.produtos.map(
         item => {
             valorTotal += item.valor * item.quantidade;
 
@@ -56,7 +58,7 @@ async function carregarPedido(){
                 <div class="card-item">
                     <div class="card-cardapio">
                         <div class="conteudo-cardapio">
-                            <div class="qtd-itens">${item.quantidade > 1 && `${item.quantidade}x`}</div>
+                            <div class="qtd-itens">${item.quantidade}x</div>
                             <h2>${item.nome}</h2>
                             <p>${item.descricao}</p>
                             <div class="servir">
@@ -85,13 +87,31 @@ async function carregarPedido(){
     const divValorTotal = document.getElementById('valorTotal');
     divValorTotal.innerHTML = 'R$ ' + valorTotal.toFixed(2);
 
-    carregarStatusPedido(pedidos.estado);
+    carregarStatusPedido(pedido.estado);
+    await carregarEndereco(pedido.endereco.id);
 }
 
-carregarPedido();
+window.onload = function () {
+    try {
+        carregarPedido();
+    } catch (erro) {
+        const div = document.getElementById('bannerStatus')
+        div.innerHTML = `
+            <div class="container-notificacao">
+                <div class="card-notificacao">
+                    <img src="../../assets/check erro.png" alt="icone de X">
+                    <div class="conteudo-notificacao">
+                        <h2>Oops! Tivemos um problema com o seu pedido.</h2>
+                        <p>Descrição do problema. Entre em contato pelo WhatsApp <a href="https://wa.me/5511986744335">(11)98674-4335</a></p>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+}
 
-async function carregarEndereco(){
-    const endereco = await new FetchBuilder().request(`${ambiente.local + prefix.usuarios}/${idUsuario}/${prefix.enderecos}/${idEndereco}`);
+async function carregarEndereco(id){
+    const endereco = await new FetchBuilder().request(`${ambiente.local + prefix.usuarios}/${idUsuario}/${prefix.enderecos}/${id}`);
 
     const div = document.getElementById('informacaoEndereco');
 
@@ -103,8 +123,21 @@ async function carregarEndereco(){
     `;
 }
 
-carregarEndereco();
-
 async function cancelarPedido(){
+    const fetchBuilder = new FetchBuilder();
 
+    const resposta = await fetch(`${ambiente.local}estado-pedido-historico`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json' // Definindo como JSON
+        },
+        body: JSON.stringify({
+            estado: "Pedido cancelado",
+            pedido: idPedido
+        })
+    })
+
+    await fetchBuilder.request(`${ambiente.local}estado-pedido-historico`, request);
+
+    alert("Pedido cancelado com sucesso!");
 }

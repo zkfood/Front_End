@@ -375,6 +375,7 @@ body {
 .cancelar-pedido:hover {
     transform: scale(1.02);
     box-shadow: 2px 2px 7px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 .valor-amarelo {
@@ -548,6 +549,10 @@ body {
     color: #FFD700;
 }
 
+.status-pedido.cancelado {
+    color: red;
+}
+
 .item-pedido {
     font-size: 16px;
     color: #666;
@@ -584,8 +589,7 @@ body {
 .container-notificacao{
     width: 100%;
     height: 50vh;
-    /* ative o card aqui */
-    display: none; 
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -594,7 +598,7 @@ body {
     width: 60%;
     height: auto;
     padding: 15px;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     border-width: 15px; 
@@ -612,8 +616,7 @@ body {
 .container-semPedido {
     width: 100%;
     height: 50vh;
-    /* ative a div aqui */
-    display: none;
+    display: block;
     justify-content: center;
     padding-top: 3%;
 }
