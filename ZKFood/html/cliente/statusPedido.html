@@ -18,6 +18,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap"
         rel="stylesheet">
+
+    <script src="../../js/fetch.js"></script>
+    <script src="../../js/status-pedido.js"></script>
 </head>
 
 <body>
@@ -67,7 +70,7 @@
             <ul class="menu">
                 <li><a href="home_pos_login.html">Página Inicial</a></li>
                 <li><a href="cardapio.html">Cardápio</a></li>
-                <li><a href="statusPedido.html" class="tela_atual">
+                <li><a href="historico-pedidos.html" class="tela_atual">
                         <p>Meus Pedidos</p>
                     </a></li>
                 <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
@@ -76,7 +79,7 @@
     </div>
 
         <!-- Navbar Inferior na RESPONSIVIDADE -->
-        <div class="bottom-nav">
+        <div class="bottom-nav" >
             <a href="./home_pos_login.html">
                 <img src="../../assets/icons-responsivo/icon-casa.png" alt="Icone de casa retratando tela inicial no menu">
                 <span>Inicio</span>
@@ -89,7 +92,7 @@
                 <img src="../../assets/icons-responsivo/icon-carrinho.png" alt="Icone de carrinho retratando tela de carrinho no menu">
                 <span>Carrinho</span>
             </a>
-            <a href="./statusPedido.html" class="active">
+            <a href="./historico-pedidos.html" class="active">
                 <img src="../../assets/icons-responsivo/icon-documento-active.png" alt="Icone de documento retratando tela de status do pedido no menu">
                 <span>Pedidos</span>
             </a>
@@ -102,7 +105,7 @@
 
     <!-- Status do Pedido -->
 
-    <div class="banner-status">
+    <div class="banner-status" id="bannerStatus">
         
         <div class="caminho">
             <p>Carrinho >
@@ -113,27 +116,27 @@
         </div>
         <span class="titulo-status">STATUS DO <span>MEU PEDIDO</span></span>
         <div class="container-status">
-            <div class="status-overview">
+            <div class="status-overview" id="">
                 <div class="status-card">
-                    <img src="/ZKFood/assets/Check Mark.png" alt="Pedidos Aceito">
+                    <img src="/ZKFood/assets/logo-icon.png" alt="Pedidos Aceito" id="icon1">
                     <img src="/ZKFood/assets/pedido-confirmado 1.png" alt="Icone de sacola e check representando pedido aceito">
                     <p>Pedido aceito</p>
                 </div>
                 <div class="status-card">
-                    <img src="/ZKFood/assets/2 Circled.png" alt="Pedidos em Preparo">
+                    <img src="/ZKFood/assets/2 Circled.png" alt="Pedidos em Preparo" id="icon2">
                     <img src="/ZKFood/assets/saco-de-papel 1.png" alt="icone de saco de papel representando pedido em preparo">
                     <p>Pedido em preparo</p>
                 </div>
                 <div class="status-card">
-                    <img src="/ZKFood/assets/Circled 3.png" alt="Pedidos a Caminho">
+                    <img src="/ZKFood/assets/Circled 3.png" alt="Pedidos a Caminho" id="icon3">
                     <img src="/ZKFood/assets/bicicleta-de-entrega 1.png" alt="icone de moto representando pedido a caminho">
                     <p>Pedido a caminho</p>
                 </div>
-                <div class="status-card">
-                    <img src="/ZKFood/assets/Circled 4.png" alt="Pedidos em Entrega">
-                    <img src="/ZKFood/assets/Home.png" alt="icone de casa representando pedido entregue">
-                    <p>Pedido entregue</p>
-                </div>
+<!--                <div class="status-card">-->
+<!--                    <img src="/ZKFood/assets/Circled 4.png" alt="Pedidos em Entrega">-->
+<!--                    <img src="/ZKFood/assets/Home.png" alt="icone de casa representando pedido entregue">-->
+<!--                    <p>Pedido entregue</p>-->
+<!--                </div>-->
             </div>
         </div>
 
@@ -147,80 +150,23 @@
 
                     <div class="conteudo-pai">
                         <div class="endereco-conteudo">
-                            <div class="informacao-endereco">
-                                <span class="info-nome">Maria Paula Barbosa Da Silva</span>
-                                <span class="info-numero">1197112771</span>
-                                <span class="info-rua">Rua Ludovico Liparini 190</span>
-                                <span class="info-cep">Jardim Dona Sinhá São paulo São Paulo Brazil 03923-220 Endereço
-                                    Padrão</span>
-                            </div>
+                            <div class="informacao-endereco" id="informacaoEndereco"></div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="card-divisao">
-                <div class="card-divisaoFilho">
-                    <div class="card-item">
-                        <div class="card-cardapio">
-                            <div class="conteudo-cardapio">
-                                <div class="qtd-itens">2x</div>
-                                <h2>Nome do Prato</h2>
-                                <p>Descrição, descrição, descrição, descrição, descrição, descrição</p>
-                                <div class="servir">
-                                    <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
-                                    <h5>Serve 2 pessoas</h5>
-                                </div>
-                                <h1><span>R$</span>27,00</h1>
-                            </div>
-
-                            <div class="imagem-cardapio">
-                                <img src="../../assets/prato-feijoada-Zeca.png" alt="Foto do prato">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-item">
-                        <div class="card-cardapio">
-                            <div class="conteudo-cardapio">
-                                <div class="qtd-itens">20x</div>
-                                <h2>Nome do Prato</h2>
-                                <p>Descrição, descrição, descrição, descrição, descrição, descrição</p>
-                                <div class="servir">
-                                    <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
-                                    <h5>Serve 2 pessoas</h5>
-                                </div>
-                                <h1><span>R$</span>27,00</h1>
-                            </div>
-
-                            <div class="imagem-cardapio">
-                                <img src="../../assets/prato-feijoada-Zeca.png" alt="Foto do prato">
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
+                <div class="card-divisaoFilho" id="disposicaoItens"></div>
                 <div class="card-valor">
                     <div class="container-valor">
                         <span class="valor-titulo">VALOR TOTAL</span>
-                        <div class="itens-lista">
-                            <div class="item-pedido">
-                                <span>Feijoada média</span> <span>R$ 27,00</span>
-                            </div>
-                            <div class="item-pedido">
-                                <span>Feijoada média</span> <span>R$ 27,00</span>
-                            </div>
-                            <div class="item-pedido">
-                                <span>Coca-Cola lata</span> <span>R$ 6,00</span>
-                            </div>
-                            <div class="item-pedido">
-                                <span>Taxa de entrega</span> <span>R$ 8,00</span>
-                            </div>
-                        </div>
+                        <div class="itens-lista" id="holerite"></div>
                         <div class="total-pai">
                             <span><b>Total</b></span>
-                            <span class="valor-amarelo">R$ 68,00</span>
+                            <span class="valor-amarelo" id="valorTotal">R$</span>
                         </div>
-                        <div class="botao-valor">
-                            <button class="cancelar-pedido">CANCELAR PEDIDO</button>
+                        <div class="botao-valor" id="divBotaoCancelar">
+                            <button class="cancelar-pedido" onclick="cancelarPedido()">CANCELAR PEDIDO</button>
                         </div>
                     </div>
 
@@ -251,41 +197,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Histórico de pedidos -->
-    <!-- Puxar somente uma quantidade limitada, tipo os últimos 5 pedidos -->
-    <div class="historico-pedidos">
-        <h2><span>Histórico</span> de Pedidos</h2>
-
-        <div class="data-pedido">10 de Outubro de 2024</div> <!-- Data do pedido -->
-        <div class="pedido-card">
-            <div class="pedido-info">
-                <div class="status-pedido concluido">✅ Concluído</div>
-                <div class="item-pedido">1x Feijoada</div>
-                <div class="item-pedido">2x Suco de laranja</div>
-                <div class="valor-pedido">R$ 39,90</div>
-                <div class="avaliacao-pedido">
-                    <span>⭐⭐⭐⭐⭐</span>
-                </div>
-            </div>
-            <button class="comprar-novamente">Comprar Novamente</button>
-        </div>
-
-        <div class="data-pedido">25 de Setembro de 2024</div> <!-- Data do pedido -->
-        <div class="pedido-card">
-            <div class="pedido-info">
-                <div class="status-pedido concluido">✅ Concluído</div>
-                <div class="item-pedido">3x Bisteca</div>
-                <div class="valor-pedido">R$ 59,90</div>
-                <div class="avaliacao-pedido">
-                    <span>⭐⭐⭐⭐⭐</span>
-                </div>
-            </div>
-            <button class="comprar-novamente">Comprar Novamente</button>
-        </div>
-    </div>
-
-
 
     <!-- Footer -->
     <footer>
@@ -333,35 +244,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- card de ERRO ou pedido cancelado -->
-
-    <div class="container-notificacao">
-        <div class="card-notificacao">
-            <img src="../../assets/check erro.png" alt="icone de X">
-            <div class="conteudo-notificacao">
-                <h2>Oops! Tivemos um problema com o seu pedido.</h2>
-                <p>Descrição do problema. Entre em contato pelo WhatsApp <a
-                        href="https://wa.me/5511986744335">(11)98674-4335</a></p>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Código para quando ocorrer erro na tela -->
-    <div class="container-semPedido">
-        <div class="container-semPedido">
-            <div class="card-semPedido">
-                <h1>Você não tem pedidos <span>:( </span></h1>
-                <p>Oops, parece que você ainda não fez nenhum pedido.</p>
-                <br>
-                <p>Não perca tempo e faça seu pedido agora!</p>
-                <a class="botao-azul" href="./cardapio.html">Acessar cardápio</a>
-            </div>
-
-        </div>
-    </div>
-
 </body>
 
 </html>
