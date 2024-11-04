@@ -64,7 +64,7 @@
                         <div class="container_input_adicionais">
                             <span class="titulo_cadastro_dados">Tipo do Prato:</span>
                             <select name="tipos_produto" id="select_tipo">
-                                
+
                             </select>
                         </div>
                     </div>
@@ -92,16 +92,16 @@
 <script>
     listarTipos();
     async function listarTipos() {
-    try {
-        const resposta = await fetch("http://localhost:8080/tipo-produtos");
-        const tipos = await resposta.json();
-        
-        const listaTipos = document.getElementById('select_tipo');
-        listaTipos.innerHTML = tipos.map(tipo => `<option value="${tipo.id}">${tipo.nome}</option>`).join("");
-    } catch (error) {
-        console.error("Erro ao listar tipos de produtos:", error);
+        try {
+            const resposta = await fetch("http://localhost:8080/tipo-produtos");
+            const tipos = await resposta.json();
+
+            const listaTipos = document.getElementById('select_tipo');
+            listaTipos.innerHTML = tipos.map(tipo => `<option value="${tipo.id}">${tipo.nome}</option>`).join("");
+        } catch (error) {
+            console.error("Erro ao listar tipos de produtos:", error);
+        }
     }
-}
 
     async function cadastrar() {
         const url = 'http://localhost:8080/produtos';
@@ -150,13 +150,16 @@
             console.log("Erro: ", erro);
         }
     }
-
     async function uploadImagem(idProduto, imagem) {
         const url = `http://localhost:8080/produtos/imagem/${idProduto}`;
 
         try {
             const arrayBuffer = await imagem.arrayBuffer();
             const bytes = new Uint8Array(arrayBuffer);
+
+            console.log('ID do Produto:', idProduto);
+            console.log('Tipo da Imagem:', imagem.type);
+            console.log('Bytes da Imagem:', bytes);
 
             const resposta = await fetch(url, {
                 method: 'PATCH',
@@ -175,8 +178,9 @@
             console.error('Erro: ', erro);
             throw erro;
         }
+        console.log('Status da Resposta:', resposta.status); // Adicione isso
+        console.log('Resposta:', await resposta.text());
     }
-
     function showPopup(title, message, type) {
         const popup = document.getElementById('popup');
         const popupTitle = document.getElementById('popup-title');
@@ -196,6 +200,7 @@
 
         popup.style.display = 'flex';
     }
+
 
     function closePopup() {
         document.getElementById('popup').style.display = 'none';

@@ -19,6 +19,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap"
         rel="stylesheet">
+        
+    <script src="../../js/carrinho.js"></script>
+    <script src="../../js/fetch.js"></script>
+
 </head>
 
 <body>
@@ -230,31 +234,28 @@
                     <h2>Revisão do <span>pagamento</span></h2>
                     <div class="lista-pedidos">
                         <div class="item">
-                            <p>1x Feijoada</p>
-                            <p>R$ 27,00</p>
+                            <p></p>
+                            <p></p>
                         </div>
                         <div class="item">
-                            <p>1x Contra Filé</p>
-                            <p>R$ 25,00</p>
+                            <p></p>
+                            <p></p>
                         </div>
                         <div class="item">
-                            <p>Taxa de entrega</p>
-                            <p>R$ 5,00</p>
+                            <p></p>
+                            <p></p>
                         </div>
                         <div class="total">
-                            <p><b>Valor total</b></p>
-                            <h2>R$57,00</h2>
+                            <p><b></b></p>
+                            <h2></h2>
                         </div>
                         <a class="botao-azul" href="./endereco.html">Continuar</a>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="container-carrossel">
+        <!-- </div>
+          <div class="container-carrossel">
             <h1 class="titulo-carrossel">Adicione seus <span>favoritos</span></h1>
-            <!-- Carrossel de itens favoritos -->
-            <!-- Esse card esta vindo da tela de favoritos -->
             <div class="container-cards">
                 <div class="card">
                     <img class="img-prato" src="../../assets/prato-feijoada-Zeca.png" alt="foto do prato.">
@@ -284,46 +285,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+    
     </div>
-
-
-    <!-- Oi Ale, se cuida e não dorme tão tarde viu <3 -->
-
-    <button id="openModal">Abrir Modal</button>
-
-    <!-- Fundo semitransparente -->
-    <div id="modalBackground" class="modal-background">
-        <!-- Modal -->
-        <div class="modal">
-            <span class="close" id="closeModal">&times;</span>
-            <h2>Feijoada Média</h2>
-            <div class="modal-content">
-                <img src="https://via.placeholder.com/150" alt="Prato de comida">
-                <div class="modal-info">
-                    <p>Descrição, descrição, descrição, descrição, descrição, descrição, descrição, descrição, </p>
-                    <label for="observacao">Observação</label>
-                    <textarea id="observacao" placeholder="Digite uma observação"></textarea>
-
-                    <div class="seletor-quantidade">
-                        <button class="diminuir">-</button>
-                        <input value="1" min="1" max="99" readonly>
-                        <button class="aumentar">+</button>
-                    </div>
-
-                    <div class="modal-botoes">
-                        <button class="botao-carrinho-modal">Adicionar ao Carrinho</button>
-                        <button class="botao-azul">Comprar Agora</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
     <!-- Footer -->
 
     <footer>
@@ -377,49 +341,3 @@
 </body>
 
 </html>
-
-<script>
-
-    //JS para o seletor de quantidade
-    document.querySelectorAll('.seletor-quantidade').forEach(seletor => {
-        const diminuir = seletor.querySelector('.diminuir');
-        const aumentar = seletor.querySelector('.aumentar');
-        const input = seletor.querySelector('input');
-
-        diminuir.addEventListener('click', () => {
-            let valorAtual = parseInt(input.value);
-            if (valorAtual > 1) {
-                input.value = valorAtual - 1;
-            }
-        });
-
-        aumentar.addEventListener('click', () => {
-            let valorAtual = parseInt(input.value);
-            if (valorAtual < 99) { // Definindo o máximo como 99
-                input.value = valorAtual + 1;
-            }
-        });
-    });
-
-
-    // JS que faz o modal aparecer
-    const openModal = document.getElementById('openModal');
-    const closeModal = document.getElementById('closeModal');
-    const modalBackground = document.getElementById('modalBackground');
-
-    openModal.addEventListener('click', () => {
-        modalBackground.style.display = 'flex';
-    });
-
-    closeModal.addEventListener('click', () => {
-        modalBackground.style.display = 'none';
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target === modalBackground) {
-            modalBackground.style.display = 'none';
-        }
-    });
-
-
-</script>
