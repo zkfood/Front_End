@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../css/menu_dashboard/testeMenu.css">
     <link rel="stylesheet" href="../../css/dashboard.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../js/dashboard_financeiro.js"></script>
 </head>
 
 <body>
@@ -32,8 +33,8 @@
                         <div id="barra_cor_status_bom"></div>
                         <div class="container_kpi_img">
                             <div class="kpi_dados">
-                                <span id="produto_mais_vendido">Compras Presenciais</span><br><br>
-                                <span id="quantidade_produto_mais_vendido"></span>
+                                <span id="compra_balcao">Compras Presenciais</span><br><br>
+                                <span id="div_compra_balcao"></span>
                             </div>
                             <div class="container_img_kpi">
                                 <div class="fundo_img_kpi">
@@ -42,13 +43,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="container_comparacao_kpi">
+                    <!-- <div class="container_comparacao_kpi">
                         <div class="img_status_mes">
                             <img src="../../assets/crescimento.png" alt="">
                         </div>
                         <span id="status_diferenca_mes_bom">1°</span><span id="valor_diferenca_bom">Compras
                             Delivery</span>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="kpi_card">
@@ -56,8 +57,8 @@
                         <div id="barra_cor_status_bom"></div>
                         <div class="container_kpi_img">
                             <div class="kpi_dados">
-                                <span id="produto_segundo_mais_vendido">Compras Delivery</span><br><br>
-                                <span id="quantidade_produto_segundo_mais_vendido"></span>
+                                <span id="compra_entrega">Compras Delivery</span><br><br>
+                                <span id="div_compra_entrega"></span>
                             </div>
                             <div class="container_img_kpi">
                                 <div class="fundo_img_kpi">
@@ -66,13 +67,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="container_comparacao_kpi">
+                    <!-- <div class="container_comparacao_kpi">
                         <div class="img_status_mes">
                             <img src="../../assets/crescimento.png" alt="">
                         </div>
                         <span id="status_diferenca_mes_bom">2°</span><span id="valor_diferenca_bom">Segundo mais vendido
                             no mês</span>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="kpi_card">
@@ -80,8 +81,8 @@
                         <div id="barra_cor_status_erro"></div>
                         <div class="container_kpi_img">
                             <div class="kpi_dados">
-                                <span id="produto_menos_vendido">Compras Retirar Presencial</span><br><br>
-                                <span id="quantidade_produto_menos_vendido"></span>
+                                <span id="compra_presencial">Compras Retirar Presencial</span><br><br>
+                                <span id="div_compra_presencial"></span>
                             </div>
                             <div class="container_img_kpi">
                                 <div class="fundo_img_kpi">
@@ -90,64 +91,38 @@
                             </div>
                         </div>
                     </div>
-                    <div class="container_comparacao_kpi">
+                    <!-- <div class="container_comparacao_kpi">
                         <div class="img_status_mes">
                             <img src="../../assets/decadencia.png" alt="">
                         </div>
                         <span id="status_diferenca_mes_ruim">1°</span><span id="valor_diferenca_ruim">Menos vendido no
                             mês</span>
-                    </div>
+                    </div> -->
                 </div>
 
 
             </div>
             <div class="dahsMaisVendidos">
-                <h2>Produtos Mais Vendidos</h2>
-                <canvas id="produtosMaisVendidosChart"></canvas>
+                <h2>Receita Mensal por Tipo de Pedido</h2>
+                <canvas id="receitaMensalTipoPedidoChart"></canvas>
             </div>
             <div class="dahsMaisVendidos">
-                <h2>Comportamento Sazonal</h2>
-                <canvas id="comportamentoSazonalChart"></canvas>
+                <h2>Receita Anual por Tipo de Pedido</h2>
+                <canvas id="receitaAnual"></canvas>
             </div>
             <h2>Top Receitas por Prato</h2>
             <div class="top-receitas">
-                <table>
+                <table id="top-receitas">
                     <tr>
                         <th>Pratos</th>
-                        <th>Qtd de Pratos</th>
+                        <th>Quantidade de Pratos Vendidos</th>
                         <th>Receita</th>
-                    </tr>
-                    <tr>
-                        <td>Feijoada</td>
-                        <td>80</td>
-                        <td>R$ 283</td>
-                    </tr>
-                    <tr>
-                        <td>Contra Filé</td>
-                        <td>56</td>
-                        <td>R$ 198</td>
-                    </tr>
-                    <tr>
-                        <td>Lasanha</td>
-                        <td>36</td>
-                        <td>R$ 142</td>
-                    </tr>
-                    <tr>
-                        <td>Frango Assado</td>
-                        <td>69</td>
-                        <td>R$ 105</td>
-                    </tr>
-                    <tr>
-                        <td>Parmegiana</td>
-                        <td>69</td>
-                        <td>R$ 85</td>
                     </tr>
                 </table>
             </div>
         </div>
     </div>
 
-    <script src="../../js/dashboard_financeiro.js"></script>
 </body>
 
 </html>
