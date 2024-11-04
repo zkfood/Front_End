@@ -148,33 +148,37 @@
                 <div class="logo-footer">
                     <img src="../../assets/logo-icon.png" alt="logo da empresa ZKfood">
                 </div>
+
                 <div class="bloco-footer">
-                    <a href="">Menu</a>
-                    <a href="">Contato</a>
+                    <a href="./home_pos_login.html">Home</a>
+                    <a href="./cardapio.html">Cardápio</a>
                 </div>
+
                 <div class="bloco-footer">
-                    <a href="">Sobre</a>
-                    <a href="">Avaliações</a>
+                    <a href="./carrinho.html">Carrinho</a>
+                    <a href="./statusPedido.html">Meus Pedidos</a>
                 </div>
+
                 <div class="bloco-footer">
-                    <a href="">Cadastro</a>
-                    <a href="">Pratos</a>
+                    <a href="./favoritos.html">Favoritos</a>
+                    <a href="./perfil.html">Perfil</a>
                 </div>
             </div>
+
             <div class="linha"></div>
+
             <div class="redes-sociais">
-                <a href=""><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
+                <a href="https://www.facebook.com/share/18D1CNrSUq/?mibextid=LQQJ4d"><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
                 <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="Icone WhatsApp"></a>
-                <a href=""><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
+                <a href="https://www.instagram.com/restaurante.do_zeca?igsh=MWNvMzd1ZDA0em1jMA=="><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
             </div>
+
             <div class="informacoes">
-                <p><a href="">Termos e Condições</a></p>
+                <p><a href="#">Termos e Condições</a></p>
                 <p> | </p>
-                <p><a href="">Política de Privacidade</a></p>
+                <p><a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras">Acessibilidade</a></p>
                 <p> | </p>
-                <p><a href="">Acessibilidade</a></p>
-                <p> | </p>
-                <p><a href="">Suporte</a></p>
+                <p><a href="#">Suporte</a></p>
                 <p> | </p>
                 <p>Developed by © VisionarySolutions, 2024. All rights reserved.</p>
             </div>
@@ -184,6 +188,41 @@
 
 </html>
 <script>
+
+let editando = false;
+    
+    let editandoEndereco = false;
+    // Alterna entre o card de perfil e o de endereço
+    document.getElementById('btnPerfil').addEventListener('click', function () {
+        document.getElementById('cardPerfil').style.display = 'flex';
+        document.getElementById('cardEndereco').style.display = 'none';
+    });
+    document.getElementById('btnEnderecos').addEventListener('click', function () {
+        document.getElementById('cardPerfil').style.display = 'none';
+        document.getElementById('cardEndereco').style.display = 'flex';
+    });
+    // Alterando o botão do menu que estara ativo
+    const navButtons = document.querySelectorAll('.nav-button');
+    navButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            // Remove a classe 'active' de todos os botões
+            navButtons.forEach(btn => btn.classList.remove('active'));
+            // Adiciona a classe 'active' ao botão clicado
+            this.classList.add('active');
+            // Alterna entre as seções
+            if (this.id === 'btnPerfil') {
+                document.getElementById('cardPerfil').style.display = 'flex';
+                document.getElementById('cardEndereco').style.display = 'none';
+            } else if (this.id === 'btnEnderecos') {
+                document.getElementById('cardPerfil').style.display = 'none';
+                document.getElementById('cardEndereco').style.display = 'flex';
+            }
+        });
+    });
+
+
+
+
     document.addEventListener("DOMContentLoaded", function () {
         let editando = false;
         let editandoEndereco = false;
@@ -434,6 +473,7 @@
                     <button class="botao-excluir" onclick="excluirEndereco(${endereco.id}); event.stopPropagation();">Excluir</button>
                     <button class="botao-editar" onclick="editarEndereco(${endereco.id}); event.stopPropagation();">Editar</button>
                 </div>
+
             </div>
         </div>`;
         }

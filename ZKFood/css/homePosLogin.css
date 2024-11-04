@@ -155,7 +155,7 @@
 
 .perfil {
     width: 35px;
-    height: 30px;
+    height: 27px;
     background-image: url(../assets/user.png);
     background-size: cover;
 }
@@ -251,6 +251,30 @@
 }
 
 /* Imagens Home*/
+.container-cardapio {
+    position: relative; /* Permite que o fundo seja posicionado em relação a este contêiner */
+    overflow: hidden; /* Impede que o conteúdo transborde */
+}
+
+.sessao-cardapio {
+    position: relative; /* Mantém o conteúdo acima do fundo parallax */
+    z-index: 1; /* Garante que o conteúdo fique acima do fundo */
+    padding: 20px; /* Adiciona algum preenchimento */
+}
+
+.background-parallax {
+    background-image: url("../../assets/sua-imagem-de-fundo.jpg"); /* Insira sua imagem de fundo */
+    background-attachment: fixed; /* Efeito parallax */
+    background-size: cover; /* Cobre toda a área */
+    background-position: center; /* Centraliza a imagem */
+    position: absolute; /* Para posicionar o fundo atrás do conteúdo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Cobre toda a seção */
+    z-index: 0; /* Coloca o fundo atrás do conteúdo */
+}
+
 .container-imagens {
     width: 100%;
     height: 60vh;
@@ -278,28 +302,17 @@
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between
+    justify-content: space-between;
 }
 
-.imagem-direita-cima {
-    width: 100%;
-    height: 48%;
-    border-radius: 15px;
-}
-
-.imagem-direita-cima img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-}
-
+.imagem-direita-cima,
 .imagem-direita-baixo {
     width: 100%;
-    height: 48%;
+    height: 48%; /* Ajuste conforme necessário */
     border-radius: 15px;
 }
 
+.imagem-direita-cima img,
 .imagem-direita-baixo img {
     width: 100%;
     height: 100%;
@@ -349,6 +362,7 @@
 .botao-saiba-mais button:hover {
     background-color: #68A5FF;
 }
+
 
 /* Ver pedidos */
 

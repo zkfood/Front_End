@@ -283,6 +283,7 @@
     .bloco-footer {
         height: 9vh;
         align-items: center;
+        width: 90%;
     }
 
     .logo-footer {
