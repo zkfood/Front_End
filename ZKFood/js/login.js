@@ -21,45 +21,51 @@ async function login() {
         });
 
         if (resposta.ok) {
-            const respostaTexto = await resposta.text();
-            if (respostaTexto) {
-                const respostaJson = JSON.parse(respostaTexto);
-                console.log('JSON: ', respostaJson);
-                showPopup('LOGIN FEITO COM SUCESSO!', 'Que tal uma feijoada?!', 'success');
+            const respostaJson = await resposta.json();
 
+            // Guardar todos os dados do usuário no sessionStorage
+            sessionStorage.setItem('usuario', JSON.stringify(respostaJson));
+            sessionStorage.setItem('idUsuario', JSON.stringify(respostaJson.id))
 
-                window.location.href = "../../html/cliente/home_pos_login.html"
-            } else {
-                console.log('Resposta não contém corpo.');
-            }
-        } else if (resposta.status === 400) {
-            showPopup('ERRO NO LOGIN!', '(E-mail ou senha estão incorretos)', 'error');
-        } else if (resposta.status === 409) {
-            showPopup('ERRO NO LOGIN!', '(Há campos vazios)', 'error');
+            showPopup('LOGIN FEITO COM SUCESSO!', 'Que tal uma feijoada?!', 'success', () => {
+                window.location.href = "../../html/cliente/home_pos_login.html";
+            });
+        } else if (resposta.status === 400) { 
+            showPopup('ERRO NO LOGIN!', '(Campos de email e senha são obrigatórios)', 'error'); 
+        } else if (resposta.status === 401 || resposta.status === 500 || resposta.status === 204) { 
+            showPopup('ERRO NO LOGIN!', '(Email ou senha incorretos)', 'error');
         }
     } catch (erro) {
         console.log("Erro: ", erro);
+        showPopup('ERRO NO LOGIN!', '(Email ou senha incorretos)', 'error');
     }
 }
 
-function showPopup(title, message, type) {
+function showPopup(title, message, type, callback) {
     const popup = document.getElementById('popup');
     const popupTitle = document.getElementById('popup-title');
     const popupMessage = document.getElementById('popup-message');
     const popupIcon = document.getElementById('popup-icon');
-
     popupTitle.textContent = title;
     popupMessage.textContent = message;
 
     if (type === 'success') {
         popupTitle.style.color = '#33D700';
-        popupIcon.src = '../assets/sucesso.png'; // Substitua pelo caminho do ícone de sucesso
+        popupIcon.src = '../../assets/sucesso.png'; 
     } else if (type === 'error') {
         popupTitle.style.color = '#EB3223';
-        popupIcon.src = '../assets/erro.png'; // Substitua pelo caminho do ícone de erro
+        popupIcon.src = '../../assets/erro.png';
     }
 
     popup.style.display = 'flex';
+
+
+    setTimeout(() => {
+        closePopup();
+        if (callback) {
+            callback();
+        }
+    }, 1250); 
 }
 
 function closePopup() {

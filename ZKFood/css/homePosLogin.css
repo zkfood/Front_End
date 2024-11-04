@@ -155,16 +155,16 @@
 
 .perfil {
     width: 35px;
-    height: 30px;
+    height: 27px;
     background-image: url(../assets/user.png);
-    background-size:cover;
+    background-size: cover;
 }
 
 .logoff {
     width: 30px;
     height: 30px;
     background-image: url(../assets/sign-out.png);
-    background-size:cover;
+    background-size: cover;
 }
 
 .parte_inferior_navbar {
@@ -197,35 +197,27 @@
     font-family: 'Roboto', sans-serif;
 }
 
-.tela_atual p{
+.tela_atual p {
     font-weight: bold;
     border-bottom: 4px solid white;
 }
 
+/* Estilos do menu inferior - RESPONSIVO */
+.bottom-nav {
+    display: none;
+}
+
 /* BANNER CARROSSEL */
 
-.container_carrossel {
+.container-banner {
     width: 100%;
-    height: 79vh;
-    display: flex;
-    overflow: hidden;
-}
-
-.carrossel {
-    width: 100%;
-    height: 100%;
-    display: flex;
-}
-
-.carrossel img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Ajusta a imagem para cobrir completamente o contêiner */
+    height: 80vh;
+    background-image: url(../assets/banner-inicial.png);
+    background-size: cover;
 }
 
 /* Acesse nosso cardápio */
-.container-cardapio{
+.container-cardapio {
     width: 100%;
     height: 120vh;
     display: flex;
@@ -234,7 +226,7 @@
     align-items: center;
 }
 
-.sessao-cardapio{
+.sessao-cardapio {
     width: 85%;
     height: 100vh;
     display: flex;
@@ -242,7 +234,7 @@
     justify-content: center;
 }
 
-.frase-cardapio{
+.frase-cardapio {
     width: 80%;
     align-items: end;
     display: flex;
@@ -253,13 +245,12 @@
     font-style: normal;
 }
 
-.span-amarelo{
+.span-amarelo {
     margin-left: 10px;
     color: #F7C242;
 }
 
-/* Imagens Home*/
-.container-imagens{
+.container-imagens {
     width: 100%;
     height: 60vh;
     display: flex;
@@ -267,69 +258,58 @@
     justify-content: space-between;
 }
 
-.imagem-esquerda{
+.imagem-esquerda {
     width: 50%;
     height: 90%;
     border-radius: 15px;
 }
 
-.imagem-esquerda img{
+.imagem-esquerda img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 15px;
 }
 
-.imagens-direita{
+.imagens-direita {
     width: 48%;
     height: 90%;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between
+    justify-content: space-between;
 }
 
-.imagem-direita-cima{
+.imagem-direita-cima,
+.imagem-direita-baixo {
     width: 100%;
-    height: 48%;
+    height: 48%; /* Ajuste conforme necessário */
     border-radius: 15px;
 }
 
-.imagem-direita-cima img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-}
-
-.imagem-direita-baixo{
-    width: 100%;
-    height: 48%;
-    border-radius: 15px;
-}
-
-.imagem-direita-baixo img{
+.imagem-direita-cima img,
+.imagem-direita-baixo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 15px;
 }
 
-.container-botao-saiba-mais{
+.container-botao-saiba-mais {
     width: 100%;
     height: 10vh;
     display: flex;
     justify-content: end;
 }
 
-.botao-saiba-mais{
+.botao-saiba-mais {
     width: 94%;
     height: 100%;
     display: flex;
     justify-content: end;
 }
 
-.botao-saiba-mais a{
+.botao-saiba-mais a {
     font-family: 'Bebas Neue', sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -339,7 +319,7 @@
     border-radius: 10px;
 }
 
-.botao-saiba-mais button{
+.botao-saiba-mais button {
     background: black;
     color: white;
     border: none;
@@ -354,13 +334,14 @@
     transition: background-color 2s, color 2s;
 }
 
-.botao-saiba-mais button:hover{
+.botao-saiba-mais button:hover {
     background-color: #68A5FF;
 }
 
+
 /* Ver pedidos */
 
-.container-pedidos{
+.container-pedidos {
     width: 100%;
     height: 110vh;
     display: flex;
@@ -368,17 +349,17 @@
     align-items: center;
 }
 
-.salada-pedidos{
+.salada-pedidos {
     width: 50%;
     background-attachment: fixed;
 }
 
-.salada-pedidos img{
+.salada-pedidos img {
     height: 110vh;
     width: 70%;
 }
 
-.conteudo-pedidos{
+.conteudo-pedidos {
     width: 50%;
     height: 60vh;
     display: flex;
@@ -386,7 +367,7 @@
     justify-content: space-around;
 }
 
-.conteudo-pedidos h1{
+.conteudo-pedidos h1 {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 500;
     font-size: 100px;
@@ -394,6 +375,7 @@
 }
 
 .conteudo-pedidos p {
+    width: 70%;
     font-family: "Roboto", sans-serif;
     color: #4B4B4B;
     line-height: 30px;
@@ -425,7 +407,7 @@
 
 /* Cadastro de endereço */
 
-.container-endereco{
+.container-endereco {
     width: 100%;
     height: 110vh;
     display: flex;
@@ -433,7 +415,7 @@
     align-items: center;
 }
 
-.conteudo-endereco{
+.conteudo-endereco {
     width: 40%;
     height: 60vh;
     display: flex;
@@ -444,14 +426,22 @@
     margin-right: 10%;
 }
 
-.conteudo-endereco h1{
+.conteudo-endereco h1 {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 500;
     font-size: 100px;
     line-height: 100px;
 }
 
-.container-mapa{
+.conteudo-endereco p {
+    width: 70%;
+    font-family: "Roboto", sans-serif;
+    color: #4B4B4B;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.container-mapa {
     width: 50%;
     height: 70vh;
 }
@@ -560,7 +550,7 @@ footer {
 
 .informacoes {
     display: flex;
-    width: 80%;
+    width: 70%;
     justify-content: space-between;
     align-items: end;
 }
@@ -572,24 +562,20 @@ footer {
 }
 
 /* Caminho no processo de pagamento */
-.caminho{
+.caminho {
     width: 50%;
     height: 10vh;
     display: flex;
     justify-content: center;
     align-items: end;
-    text-align: center; 
+    text-align: center;
 }
 
-.caminho p{
+.caminho p {
     width: 100%;
     color: #a3a3a3;
     font-size: 18px;
     font-weight: 200;
-    width: 100%; 
+    width: 100%;
     margin: 0;
-}
-
-.caminho b{
-    color: #181818;
 }

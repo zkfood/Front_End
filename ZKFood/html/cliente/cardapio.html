@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="../../css/homePosLogin.css">
     <link rel="stylesheet" href="../../css/cardapio.css">
 
+    <link rel="stylesheet" href="../../css/responsividade/homePosLogin-responsivo.css">
+    <link rel="stylesheet" href="../../css/responsividade/cardapio-responsivo.css">
+    <link rel="stylesheet" href="../../css/responsividade/carrinho-responsivo.css">
+
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,50 +75,78 @@
                 <li><a href="cardapio.html" class="tela_atual">
                         <p>Cardápio</p>
                     </a></li>
-                <li><a href="statusPedido.html">Meus Pedidos</a></li>
+                <li><a href="historico-pedidos.html">Meus Pedidos</a></li>
                 <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
             </ul>
         </div>
     </div>
 
+    <!-- Navbar Inferior na RESPONSIVIDADE -->
+    <div class="bottom-nav">
+        <a href="./home_pos_login.html">
+            <img src="../../assets/icons-responsivo/icon-casa.png" alt="Icone de casa retratando tela inicial no menu">
+            <span>Inicio</span>
+        </a>
+        <a href="./cardapio.html" class="active">
+            <img src="../../assets/icons-responsivo/icon-garfo-active.png"
+                alt="Icone de garfo retratando tela de cardápio no menu">
+            <span>Cardápio</span>
+        </a>
+        <a href="./carrinho.html">
+            <img src="../../assets/icons-responsivo/icon-carrinho.png"
+                alt="Icone de carrinho retratando tela de carrinho no menu">
+            <span>Carrinho</span>
+        </a>
+        <a href="./historico-pedidos.html">
+            <img src="../../assets/icons-responsivo/icon-documento.png"
+                alt="Icone de documento retratando tela de status do pedido no menu">
+            <span>Pedidos</span>
+        </a>
+        <a href="./cadastro_endereco.html">
+            <img src="../../assets/icons-responsivo/icon-endereco.png"
+                alt="Icone de endereço retratando tela de cadastro de endereço no menu">
+            <span>Endereço</span>
+        </a>
+
+    </div>
+
     <!-- Banner inicial do cadapio -->
     <div class="banner-cardapio"></div>
-
 
     <!-- Menu do cardápio -->
     <div class="container-menu">
         <div class="menu-cardapio">
             <div class="card-menu card1 active">
-                <img src="../../assets/icon-todos-pratos.png"
-                    alt="icone de copo e garfo, representando todos os itens do restaurante." style="width: 50px;">
+                <img src="../../assets/icon-todos-pratos.png" id="img-todos"
+                    alt="icone de copo e garfo, representando todos os itens do restaurante.">
                 <div class="item-cardapio item1">TODOS</div>
                 <div class="linha-cardapio linha1"></div>
             </div>
 
             <div class="card-menu card2">
-                <img src="../../assets/icon-prato-dia.png"
+                <img src="../../assets/icon-prato-dia.png " id="img-pratoDia"
                     alt="icone de tigela de sopa, representando os pratos do dia.">
                 <div class="item-cardapio item2">PRATO DO DIA</div>
                 <div class="linha-cardapio linha2"></div>
             </div>
 
             <div class="card-menu card3">
-                <img src="../../assets/icon-prato.png" alt="icone de prato de comida, representando os pratos vendidos."
-                    style="width: 45px;">
+                <img src="../../assets/icon-prato.png" id="img-prato"
+                    alt="icone de prato de comida, representando os pratos vendidos.">
                 <div class="item-cardapio item3">PRATOS</div>
                 <div class="linha-cardapio linha3"></div>
             </div>
 
             <div class="card-menu card4">
-                <img src="../../assets/icon-porcoes.png"
-                    alt="icone de dois espetos, representando as porções do restaurante." style="margin: 5px;">
+                <img src="../../assets/icon-porcoes.png" id="img-porcoes"
+                    alt="icone de dois espetos, representando as porções do restaurante.">
                 <div class="item-cardapio item4">PORÇÕES</div>
                 <div class="linha-cardapio linha4"></div>
             </div>
 
             <div class="card-menu card5">
-                <img src="../../assets/icon-bebidas.png" alt="icon de garrafa de vidro, representando as bebidas."
-                    style="margin:5px">
+                <img src="../../assets/icon-bebidas.png" id="img-bebidas"
+                    alt="icon de garrafa de vidro, representando as bebidas.">
                 <div class="item-cardapio item5">BEBIDAS</div>
                 <div class="linha-cardapio linha5"></div>
             </div>
@@ -122,9 +154,36 @@
     </div>
 
     <!-- Itens do cardapio -->
-
     <div class="container-cardapio">
         <div id="itensCardapio" class="itens-cardapio"></div>
+    </div>
+
+    <!-- Fundo semitransparente -->
+    <div id="modalBackground" class="modal-background">
+        <!-- Modal -->
+        <div class="modal">
+            <span class="close" id="closeModal">&times;</span>
+            <h2 id="card-nome">Feijoada Média</h2>
+            <div class="modal-content">
+                <img src="https://via.placeholder.com/150" alt="Prato de comida" id="card-imagem">
+                <div class="modal-info">
+                    <p id="card-descricao">Descrição, descrição, descrição, descrição, descrição, descrição, descrição, descrição, </p>
+                    <label for="observacao">Observação</label>
+                    <textarea id="observacao" placeholder="Digite uma observação"></textarea>
+
+                    <div class="seletor-quantidade">
+                        <button class="diminuir">-</button>
+                        <input value="1" min="1" max="99" id="input-quantidade" readonly>
+                        <button class="aumentar">+</button>
+                    </div>
+
+                    <div class="modal-botoes">
+                        <button class="botao-carrinho-modal" onclick="adicionarAoCarrinho()">Adicionar ao Carrinho</button>
+                        <button class="botao-azul" onclick="comprarAgora()">Comprar Agora</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
@@ -168,4 +227,26 @@
         });
     });
     receberPratos();
+
+
+    //JS para o seletor de quantidade
+    document.querySelectorAll('.seletor-quantidade').forEach(seletor => {
+        const diminuir = seletor.querySelector('.diminuir');
+        const aumentar = seletor.querySelector('.aumentar');
+        const input = seletor.querySelector('input');
+
+        diminuir.addEventListener('click', () => {
+            let valorAtual = parseInt(input.value);
+            if (valorAtual > 1) {
+                input.value = valorAtual - 1;
+            }
+        });
+
+        aumentar.addEventListener('click', () => {
+            let valorAtual = parseInt(input.value);
+            if (valorAtual < 99) { // Definindo o máximo como 99
+                input.value = valorAtual + 1;
+            }
+        });
+    });
 </script>

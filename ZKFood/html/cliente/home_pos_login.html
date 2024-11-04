@@ -7,6 +7,7 @@
     <title>Bem-Vindo!</title>
 
     <link rel="stylesheet" href="../../css/homePosLogin.css">
+    <link rel="stylesheet" href="../../css/responsividade/homePosLogin-responsivo.css">
 
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
@@ -17,6 +18,7 @@
 </head>
 
 <body>
+    
     <!-- API de acessibilidade VLIBRAS -->
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
@@ -28,6 +30,7 @@
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
+    
 
     <div class="container_navbar">
         <div class="parte_superior_navbar">
@@ -66,17 +69,41 @@
                         <p>Página Inicial</p>
                     </a></li>
                 <li><a href="cardapio.html">Cardápio</a></li>
-                <li><a href="statusPedido.html">Meus Pedidos</a></li>
+                <li><a href="historico-pedidos.html">Meus Pedidos</a></li>
                 <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
             </ul>
         </div>
     </div>
 
+    <!-- Navbar Inferior na RESPONSIVIDADE -->
+    <div class="bottom-nav">
+        <a href="./home_pos_login.html" class="active">
+            <img src="../../assets/icons-responsivo/icon-casa-active.png" alt="Icone de casa retratando tela inicial no menu">
+            <span>Inicio</span>
+        </a>
+        <a href="./cardapio.html">
+            <img src="../../assets/icons-responsivo/icon-garfo.png" alt="Icone de garfo retratando tela de cardápio no menu">
+            <span>Cardápio</span>
+        </a>
+        <a href="./carrinho.html">
+            <img src="../../assets/icons-responsivo/icon-carrinho.png" alt="Icone de carrinho retratando tela de carrinho no menu">
+            <span>Carrinho</span>
+        </a>
+        <a href="./historico-pedidos.html">
+            <img src="../../assets/icons-responsivo/icon-documento.png" alt="Icone de documento retratando tela de status do pedido no menu">
+            <span>Pedidos</span>
+        </a>
+        <a href="./cadastro_endereco.html">
+            <img src="../../assets/icons-responsivo/icon-endereco.png" alt="Icone de endereço retratando tela de cadastro de endereço no menu">
+            <span>Endereço</span>
+        </a>
+
+    </div>
+    
+   
+
     <!-- Carrossel com banner de comida -->
-    <div class="container_carrossel">
-        <div class="carrossel">
-            <img src="../../assets/v2 1.png" alt="Banner com prato de comida, valor e dados do restaurante.">
-        </div>
+    <div class="container-banner">
     </div>
 
     <!-- Iniciando cardapio -->
@@ -105,7 +132,7 @@
             </div>
             <div class="container-botao-saiba-mais">
                 <div class="botao-saiba-mais">
-                    <a href="./cardapio.html" style="width: 12%; height: 70%;"><button> + SAIBA MAIS</button></a>
+                    <a href="./cardapio.html"><button> + SAIBA MAIS</button></a>
                 </div>
             </div>
 
@@ -119,16 +146,16 @@
         </div>
         <div class="conteudo-pedidos">
             <h1>Deseja ver <br> seus<span class="span-amarelo">pedidos?</span></h1>
-            <p>Acesse seus pedidos, visualize o processo de preparo, <br>avalie e veja seu histórico. Bom apetite!</p>
-            <a href="./statusPedido.html"><button class="botao-acessar">Acessar</button></a>
+            <p>Acesse seus pedidos, visualize o processo de preparo, avalie e veja seu histórico. Bom apetite!</p>
+            <a href="./historico-pedidos.html"><button class="botao-acessar">Acessar</button></a>
         </div>
     </div>
 
     <!-- Cadastrar endereço -->
     <div class="container-endereco">
         <div class="conteudo-endereco">
-            <h1>Cadastre seu<br><span class="span-amarelo">endereço</span></h1>
-            <p>Cadastre seu endereço, faça um pedido e desfrute <br> seu prato preferido sem sair de casa!</p>
+            <h1>Cadastre seus <span class="span-amarelo">endereços</span></h1>
+            <p>Cadastre seu endereço, faça um pedido e desfrute seu prato preferido sem sair de casa!</p>
             <a href="./cadastro_endereco.html"><button class="botao-acessar">Cadastrar</button></a>
         </div>
         <div class="container-mapa">
@@ -146,7 +173,7 @@
 
     <footer>
         <div class="footer-top">
-            <img src="../../assets/Vector-ondas-footer.png" alt="">
+            <img src="../../assets/Vector-ondas-footer.png" alt="Ondas para divisão de telas">
         </div>
         <div class="footer">
             <div class="footer-paginas">
@@ -155,42 +182,85 @@
                 </div>
 
                 <div class="bloco-footer">
-                    <a href="">Menu</a>
-                    <a href="">Contato</a>
+                    <a href="./home_pos_login.html">Home</a>
+                    <a href="./cardapio.html">Cardápio</a>
                 </div>
 
                 <div class="bloco-footer">
-                    <a href="">Sobre</a>
-                    <a href="">Avaliações</a>
+                    <a href="./carrinho.html">Carrinho</a>
+                    <a href="./statusPedido.html">Meus Pedidos</a>
                 </div>
 
                 <div class="bloco-footer">
-                    <a href="">Cadastro</a>
-                    <a href="">Pratos</a>
+                    <a href="./favoritos.html">Favoritos</a>
+                    <a href="./perfil.html">Perfil</a>
                 </div>
             </div>
 
             <div class="linha"></div>
 
             <div class="redes-sociais">
-                <a href=""><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
+                <a href="https://www.facebook.com/share/18D1CNrSUq/?mibextid=LQQJ4d"><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
                 <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="Icone WhatsApp"></a>
-                <a href=""><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
+                <a href="https://www.instagram.com/restaurante.do_zeca?igsh=MWNvMzd1ZDA0em1jMA=="><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
             </div>
 
             <div class="informacoes">
-                <p><a href="">Termos e Condições</a></p>
+                <p><a href="#">Termos e Condições</a></p>
                 <p> | </p>
-                <p><a href="">Política de Privacidade</a></p>
+                <p><a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras">Acessibilidade</a></p>
                 <p> | </p>
-                <p><a href="">Acessibilidade</a></p>
-                <p> | </p>
-                <p><a href="">Suporte</a></p>
+                <p><a href="#">Suporte</a></p>
                 <p> | </p>
                 <p>Developed by © VisionarySolutions, 2024. All rights reserved.</p>
             </div>
         </div>
     </footer>
 </body>
-
 </html>
+
+<script>
+
+// Função para realizar as requisições e armazenar os resultados
+async function buscarDadosUsuarioEArmazenar() {
+    // Pegando o ID do usuário armazenado no sessionStorage
+    const idUsuario = sessionStorage.getItem('idUsuario');
+
+    // Verificando se o ID do usuário está disponível
+    if (!idUsuario) {
+        console.log('ID do usuário não encontrado no sessionStorage.');
+        return;
+    }
+
+    try {
+        // Requisição 1: Telefones do usuário
+        const respostaTelefones = await fetch(`http://localhost:8080/usuarios/${idUsuario}/telefones`);
+        if (respostaTelefones.ok) {
+            const dadosTelefones = await respostaTelefones.json();
+            // Armazenando no sessionStorage
+            sessionStorage.setItem('telefones', JSON.stringify(dadosTelefones));
+            console.log('Telefones do usuário armazenados no sessionStorage');
+        } else {
+            console.error('Erro na requisição de telefones:', respostaTelefones.status);
+        }
+
+        // Requisição 2: Dados do usuário
+        const respostaUsuario = await fetch(`http://localhost:8080/usuarios/${idUsuario}`);
+        if (respostaUsuario.ok) {
+            const dadosUsuario = await respostaUsuario.json();
+            // Armazenando no sessionStorage
+            sessionStorage.setItem('usuario', JSON.stringify(dadosUsuario));
+            console.log('Dados do usuário armazenados no sessionStorage');
+        } else {
+            console.error('Erro na requisição de dados do usuário:', respostaUsuario.status);
+        }
+
+    } catch (erro) {
+        console.log('Erro ao buscar dados:', erro);
+    }
+}
+
+// Corrigindo a chamada do onload
+window.onload = buscarDadosUsuarioEArmazenar;
+
+</script>

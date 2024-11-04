@@ -12,11 +12,17 @@
     <script src="../../js/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <script src="../../js/fetch.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/ZKFood/assets/logo-icon.png" type="image/png">
+    <link rel="stylesheet" href=../..css/..dashboard/">
     <title>Análise de Produtos</title>
 </head>
 
 <body>
-    <div class="container_sep_info_dash">
+
+    <!-- <div class="container_sep_info_dash">
+
         <div class="container_info">
             <div class="container_logo">
                 <img src="../../assets/logo-icon.png" alt="zkFood_logo">
@@ -41,8 +47,6 @@
                             <li> > <a href="./cadastro_produtos.html"> Cadastrar Produtos </a></li>
                         </ul>
                     </div>
-                    <li> > <img src="../../assets/silhueta-de-multiplos-usuarios.png" alt=""> Clientes</li>
-                    <li> > <img src="../../assets/cracha 1.png" alt=""> Funcionários</li>
                     <li> > <img src="../../assets/avaliacoes 1.png" alt=""> Avaliações</li>
                     <li> > <img src="../../assets/money-bag 1.png" alt=""> Financeiro</li>
                 </ul>
@@ -61,6 +65,40 @@
                             <img id="popup-icon" src="../../assets/deletar.png" alt="Icon">
                             <h2 id="popup-title" class="popup-title">REMOVER PRODUTO?</h2>
                             <p id="popup-message" class="popup-message">Tem certeza que deseja remover este produto?</p><br>
+                            <button id="confirm-delete-button" onclick="confirmarDelete()">REMOVER</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container_sep_info_dash">
+        <div id="menu-container" class="menu-container">
+            <script>
+                const menuContainer = document.getElementById("menu-container");
+                fetch("menu_dashboard.html")
+                    .then(response => response.text())
+                    .then(data => {
+                        menuContainer.innerHTML = data;
+                    })
+                    .catch(err => console.error("Erro ao carregar o menu:", err));
+            </script>
+        </div>
+        <div class="container_dash">
+            <div class="container_crud_produtos">
+                <div class="titulo_analise_produtos">
+                    ANÁLISE DE PRODUTOS
+                </div>
+                <div id="retorno_de_dados"></div>
+                <div id="popup_crud" class="popup_crud">
+                    <div class="popup-background">
+                        <div class="popup-content_crud">
+                            <span class="close" onclick="closePopup()">&times;</span>
+                            <img id="popup-icon" src="../../assets/deletar.png" alt="Icon">
+                            <h2 id="popup-title" class="popup-title">REMOVER PRODUTO?</h2>
+                            <p id="popup-message" class="popup-message">Tem certeza que deseja remover este produto?</p>
+                            <br>
                             <button id="confirm-delete-button" onclick="confirmarDelete()">REMOVER</button>
                         </div>
                     </div>
@@ -144,7 +182,7 @@
                 <div class="container_produto">
                     <div class="container_legenda">
                         <div class="imagem_legenda_lista">
-                            <img src="../../assets/Add Image.png" alt="${produto.nome}">
+                            <img src="${ambiente.local}${prefix.produtos}/imagem/${produto.id}" alt="${produto.nome}">
                         </div>
                         <div class="id_legenda_lista">
                             ${produto.id}

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../../css/carrinho.css">
     <link rel="stylesheet" href="../../css/pagamento.css">
 
+    <link rel="stylesheet" href="../../css/responsividade/homePosLogin-responsivo.css">
+    <link rel="stylesheet" href="../../css/responsividade/pagamento-resposivo.css">
 
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
@@ -67,11 +69,36 @@
                         <p>Página Inicial</p>
                     </a></li>
                 <li><a href="cardapio.html">Cardápio</a></li>
-                <li><a href="statusPedido.html">Meus Pedidos</a></li>
+                <li><a href="historico-pedidos.html">Meus Pedidos</a></li>
                 <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
             </ul>
         </div>
     </div>
+
+        <!-- Navbar Inferior na RESPONSIVIDADE -->
+        <div class="bottom-nav">
+            <a href="./home_pos_login.html">
+                <img src="../../assets/icons-responsivo/icon-casa.png" alt="Icone de casa retratando tela inicial no menu">
+                <span>Inicio</span>
+            </a>
+            <a href="./cardapio.html">
+                <img src="../../assets/icons-responsivo/icon-garfo.png" alt="Icone de garfo retratando tela de cardápio no menu">
+                <span>Cardápio</span>
+            </a>
+            <a href="./carrinho.html" class="active">
+                <img src="../../assets/icons-responsivo/icon-carrinho-active.png" alt="Icone de carrinho retratando tela de carrinho no menu">
+                <span>Carrinho</span>
+            </a>
+            <a href="./historico-pedidos.html">
+                <img src="../../assets/icons-responsivo/icon-documento.png" alt="Icone de documento retratando tela de status do pedido no menu">
+                <span>Pedidos</span>
+            </a>
+            <a href="./cadastro_endereco.html">
+                <img src="../../assets/icons-responsivo/icon-endereco.png" alt="Icone de endereço retratando tela de cadastro de endereço no menu">
+                <span>Endereço</span>
+            </a>
+    
+        </div>
 
     <div class="container-titulo">
         <div class="caminho">
@@ -90,13 +117,13 @@
                 <p>Você tem 15 minutos para realizar sua compra.</p>
                 <p>Escaneie o QRCODE na tela ou copie o código para fazer o pagamento de <b>PIX</b> no valor de
                     <b>R$57,00</b> </p>
-                <a class="botao-azul" href="./statusPedido.html">Já paguei</a>
+                <a class="botao-azul" href="./historico-pedidos.html">Já paguei</a>
             </div>
 
             <div class="card-qrCode">
                 <!-- Inserir aqui a foto do qrcode -->
                 <img src="" alt="foto do qrcode">
-                <a href="statusPedido.html" onclick="copiarCodigoPix()" id="codigoPix">Clique aqui para copiar a chave
+                <a href="historico-pedidos.html" onclick="copiarCodigoPix()" id="codigoPix">Clique aqui para copiar a chave
                     PIX</a>
             </div>
         </div>
@@ -106,7 +133,7 @@
 
     <footer>
         <div class="footer-top">
-            <img src="../../assets/Vector-ondas-footer.png" alt="">
+            <img src="../../assets/Vector-ondas-footer.png" alt="Ondas para divisão de telas">
         </div>
         <div class="footer">
             <div class="footer-paginas">
@@ -115,37 +142,35 @@
                 </div>
 
                 <div class="bloco-footer">
-                    <a href="">Menu</a>
-                    <a href="">Contato</a>
+                    <a href="./home_pos_login.html">Home</a>
+                    <a href="./cardapio.html">Cardápio</a>
                 </div>
 
                 <div class="bloco-footer">
-                    <a href="">Sobre</a>
-                    <a href="">Avaliações</a>
+                    <a href="./carrinho.html">Carrinho</a>
+                    <a href="./statusPedido.html">Meus Pedidos</a>
                 </div>
 
                 <div class="bloco-footer">
-                    <a href="">Cadastro</a>
-                    <a href="">Pratos</a>
+                    <a href="./favoritos.html">Favoritos</a>
+                    <a href="./perfil.html">Perfil</a>
                 </div>
             </div>
 
             <div class="linha"></div>
 
             <div class="redes-sociais">
-                <a href=""><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
+                <a href="https://www.facebook.com/share/18D1CNrSUq/?mibextid=LQQJ4d"><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
                 <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="Icone WhatsApp"></a>
-                <a href=""><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
+                <a href="https://www.instagram.com/restaurante.do_zeca?igsh=MWNvMzd1ZDA0em1jMA=="><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
             </div>
 
             <div class="informacoes">
-                <p><a href="">Termos e Condições</a></p>
+                <p><a href="#">Termos e Condições</a></p>
                 <p> | </p>
-                <p><a href="">Política de Privacidade</a></p>
+                <p><a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras">Acessibilidade</a></p>
                 <p> | </p>
-                <p><a href="">Acessibilidade</a></p>
-                <p> | </p>
-                <p><a href="">Suporte</a></p>
+                <p><a href="#">Suporte</a></p>
                 <p> | </p>
                 <p>Developed by © VisionarySolutions, 2024. All rights reserved.</p>
             </div>
@@ -183,7 +208,7 @@
             <div class="card-erro">
                 <h1>Seu pagamento <span> não foi processado</span></h1>
                 <p>Oops, tivemos um problema com o seu pagamento. Tente novamente.</p>
-                <a class="botao-azul" href="./statusPedido.html">Gerar QRCODE</a>
+                <a class="botao-azul" href="./historico-pedidos.html">Gerar QRCODE</a>
             </div>
 
         </div>

@@ -16,38 +16,17 @@
 </head>
 
 <body>
-    <div class="container_sep_info_dash">
-        <div class="container_info">
-            <div class="container_logo">
-                <img src="../../assets/zkFood_logo-removebg-preview.png" alt="zkFood_logo">
-            </div>
-            <div class="container_texto_Bem_vindo">
-                Bem Vindo, <br>
-                <h2>Zeca Silva</h2>
-            </div>
-            <div class="container_txt_dashboard">
-                Dashboards
-            </div>
-            <div class="container_opcoes_dash">
-                <ul>
-                    <li id="opcao_selecionada">
-                        <img src="../../assets/jantar 1.png" alt=""> Produtos
-                    </li>
-                    <div class="container_sub_opcoes_dash">
-                        <ul>
-                            <li> > <a href="dashboard.html"> Dashboard </a></li>
-                            <li> > <a href="crud_produtos.html"> Análise de Produtos
-                                </a> </li>
-                            <li> > <span id="sub_opcao_selecionada"> <a href="cadastro_produtos.html"> Cadastrar
-                                        Produtos </a> </span></li>
-                        </ul>
-                    </div>
-                    <li> > <img src="../../assets/silhueta-de-multiplos-usuarios 1.png" alt=""> Clientes</li>
-                    <li> > <img src="../../assets/cracha 1.png" alt=""> Funcionários</li>
-                    <li> > <img src="../../assets/avaliacoes 1.png" alt=""> Avaliações</li>
-                    <li> > <img src="../../assets/money-bag 1.png" alt=""> Financeiro</li>
-                </ul>
-            </div>
+    <div class="container_all">
+        <div id="menu-container">
+            <script>
+                const menuContainer = document.getElementById("menu-container");
+                fetch("menu_dashboard.html")
+                    .then(response => response.text())
+                    .then(data => {
+                        menuContainer.innerHTML = data;
+                    })
+                    .catch(err => console.error("Erro ao carregar o menu:", err));
+            </script>
         </div>
         <div class="container_cadastro_produtos">
             <div class="titulo_cadastro">
@@ -85,7 +64,7 @@
                         <div class="container_input_adicionais">
                             <span class="titulo_cadastro_dados">Tipo do Prato:</span>
                             <select name="tipos_produto" id="select_tipo">
-                                
+
                             </select>
                         </div>
                     </div>
@@ -113,16 +92,16 @@
 <script>
     listarTipos();
     async function listarTipos() {
-    try {
-        const resposta = await fetch("http://localhost:8080/tipo-produtos");
-        const tipos = await resposta.json();
-        
-        const listaTipos = document.getElementById('select_tipo');
-        listaTipos.innerHTML = tipos.map(tipo => `<option value="${tipo.id}">${tipo.nome}</option>`).join("");
-    } catch (error) {
-        console.error("Erro ao listar tipos de produtos:", error);
+        try {
+            const resposta = await fetch("http://localhost:8080/tipo-produtos");
+            const tipos = await resposta.json();
+
+            const listaTipos = document.getElementById('select_tipo');
+            listaTipos.innerHTML = tipos.map(tipo => `<option value="${tipo.id}">${tipo.nome}</option>`).join("");
+        } catch (error) {
+            console.error("Erro ao listar tipos de produtos:", error);
+        }
     }
-}
 
     async function cadastrar() {
         const url = 'http://localhost:8080/produtos';
@@ -171,13 +150,16 @@
             console.log("Erro: ", erro);
         }
     }
-
     async function uploadImagem(idProduto, imagem) {
         const url = `http://localhost:8080/produtos/imagem/${idProduto}`;
 
         try {
             const arrayBuffer = await imagem.arrayBuffer();
             const bytes = new Uint8Array(arrayBuffer);
+
+            console.log('ID do Produto:', idProduto);
+            console.log('Tipo da Imagem:', imagem.type);
+            console.log('Bytes da Imagem:', bytes);
 
             const resposta = await fetch(url, {
                 method: 'PATCH',
@@ -196,8 +178,9 @@
             console.error('Erro: ', erro);
             throw erro;
         }
+        console.log('Status da Resposta:', resposta.status); // Adicione isso
+        console.log('Resposta:', await resposta.text());
     }
-
     function showPopup(title, message, type) {
         const popup = document.getElementById('popup');
         const popupTitle = document.getElementById('popup-title');
@@ -217,6 +200,7 @@
 
         popup.style.display = 'flex';
     }
+
 
     function closePopup() {
         document.getElementById('popup').style.display = 'none';

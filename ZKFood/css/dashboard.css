@@ -11,10 +11,11 @@
 }
 
 /* Container principal */
-.container_sep_info_dash {
-    width: 100vw;
-    height: 100vh;
+.container_all {
+    width: 100%;
+    height: 100%;
     display: flex;
+    align-items: center;
 }
 
 /* Container de informações */
@@ -27,9 +28,12 @@
 
 /* Container de dashboard */
 .container_dash {
-    width: 80vw;
+    width: 80%;
     height: 100vh;
 }
+.menu-container{
+    width: 18%;
+ }
 
 /* Container de logo */
 .container_logo {
@@ -150,7 +154,10 @@
     align-items: center;
     justify-content: space-between;
 }
-
+.container_all{
+    display: flex;
+    overflow: hidden; 
+}
 #barra_cor_status_bom{
     height: 75%;
     width: 3%;

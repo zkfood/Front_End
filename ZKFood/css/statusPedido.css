@@ -63,6 +63,7 @@ body {
 /* Cards */
 .container-cards {
     width: 80%;
+    height: auto;
 }
 
 .card-endereco {
@@ -82,6 +83,13 @@ body {
 
 .titulo-pai {
     width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.titulo-pai img{
+    margin-bottom: 5px;
+    margin-right: 10px;
 }
 
 .card-endereco:hover {
@@ -173,13 +181,13 @@ body {
 .card-divisao {
     display: flex;
     width: 100%;
-    height: 110vh;
+    height: auto;
     justify-content: space-between;
     margin-top: 50px;
 }
 
 .card-divisaoFilho {
-    height: 595px;
+    height: auto;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -188,14 +196,16 @@ body {
 
 .card-item {
     width: 100%;
-    height: 275px;
+    height: min-content;
+    margin-bottom: 3%;
 }
 
 .card-cardapio {
     width: 100%;
+    height: max-content;
     background-color: white;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
@@ -210,8 +220,8 @@ body {
 }
 
 .conteudo-cardapio {
-    width: 45%;
-    height: 30vh;
+    width: 50%;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -224,6 +234,8 @@ body {
     line-height: 24px;
     font-size: 30px;
     font-weight: 400;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .conteudo-cardapio p {
@@ -235,10 +247,22 @@ body {
     font-weight: 400;
 }
 
+.qtd-itens{
+    background-color: #FFB90A;
+    height: 35px;
+    width: 35px;
+    border-radius: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .servir {
     display: flex;
     justify-content: baseline;
     align-items: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .servir h5 {
@@ -270,7 +294,7 @@ body {
 }
 
 .imagem-cardapio {
-    width: 55%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -279,7 +303,7 @@ body {
 
 .imagem-cardapio img {
     width: 100%;
-    height: 213px;
+    height: 230px;
     border-radius: 10px;
 }
 
@@ -288,7 +312,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 40%;
-    height: 595px;
+    height: min-content;
     border-radius: 20px;
     box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -301,11 +325,18 @@ body {
 
 .container-valor {
     width: 80%;
-    height: 90%;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.container-valor .total-pai{
+    text-align: end;
+    width: 100%;
 }
 
 .valor-titulo {
@@ -331,8 +362,9 @@ body {
 
 .botao-valor {
     width: 100%;
-    display: flex;
+    display: none;
     justify-content: end;
+    margin-top: 10%;
 }
 
 .cancelar-pedido {
@@ -350,6 +382,7 @@ body {
 .cancelar-pedido:hover {
     transform: scale(1.02);
     box-shadow: 2px 2px 7px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 .valor-amarelo {
@@ -357,14 +390,18 @@ body {
     font-size: 45px;
     font-family: "Bebas Neue", sans-serif;
     font-weight: 500;
+    margin-left: 5%;
 }
 
 /* Iniciando o avaliações */
-.total-pai {
+
+.total-pai-avaliacao {
     width: 100%;
-    height: 110vh;
+    height: 100vh;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5%;
+    margin-top: 8%;
 }
 
 .total-pai span b {
@@ -463,11 +500,13 @@ body {
     margin: 0 auto;
     font-family: "Roboto", sans-serif;
     margin-bottom: 10%;
+    margin-top: 5%;
 }
 
 .historico-pedidos h2 {
     color: #FFB90A;
     margin-bottom: 5%;
+    margin-top: 5%;
     font-family: "Bebas Neue", sans-serif;
     color: #000000;
     line-height: 24px;
@@ -515,6 +554,14 @@ body {
     color: #4CAF50;
 }
 
+.status-pedido.em-andamento {
+    color: #FFD700;
+}
+
+.status-pedido.cancelado {
+    color: red;
+}
+
 .item-pedido {
     font-size: 16px;
     color: #666;
@@ -551,8 +598,7 @@ body {
 .container-notificacao{
     width: 100%;
     height: 50vh;
-    /* ative o card aqui */
-    display: none; 
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -561,7 +607,7 @@ body {
     width: 60%;
     height: auto;
     padding: 15px;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     border-width: 15px; 
@@ -579,8 +625,7 @@ body {
 .container-semPedido {
     width: 100%;
     height: 50vh;
-    /* ative a div aqui */
-    display: none;
+    display: block;
     justify-content: center;
     padding-top: 3%;
 }
