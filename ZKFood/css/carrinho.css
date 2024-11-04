@@ -321,3 +321,148 @@ span{
     color: #FFB90A;
 
 }
+
+
+/* ---------------------------------------------------------- */
+
+/* Fundo do modal */
+.modal-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos do modal */
+.modal {
+    background: #fff;
+    width: 40vw;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: fadeIn 0.3s;
+    border: 20px solid #FFB90A;
+}
+
+/* Animação de fade */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Cabeçalho do modal */
+.modal h2 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 6%;
+    margin-top: 3%;
+}
+
+.modal h2 .medium {
+    font-weight: normal;
+}
+
+/* Fechar modal */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    font-size: 40px;
+    color: #333;
+    cursor: pointer;
+    margin-top: 3%;
+}
+
+/* Conteúdo do modal */
+.modal-content {
+    display: flex;
+    align-items: flex-start;
+}
+
+.modal-content img {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.modal-info {
+    flex: 1;
+}
+
+.modal-info .seletor-quantidade {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+}
+
+.modal-info .seletor-quantidade button {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-info p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5%;
+}
+
+.modal-info label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.modal-info textarea {
+    width: 90%;
+    height: 50px;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+}
+
+
+/* Botões de ação */
+.modal-botoes {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 5%;
+}
+
+.modal-botoes .botao-azul{
+    width: 100%;
+    height: 5vh;
+}
+
+.botao-carrinho-modal  {
+    background:black;
+    color: white;
+    border: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    width: 100%;
+    height: 5vh;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 2s, color 2s;
+    margin-top: 5%;
+}

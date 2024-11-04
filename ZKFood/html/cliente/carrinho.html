@@ -76,8 +76,8 @@
             </ul>
         </div>
     </div>
-    
-    
+
+
     <!-- Navbar Inferior na RESPONSIVIDADE -->
     <div class="bottom-nav">
         <a href="./home_pos_login.html">
@@ -85,24 +85,29 @@
             <span>Inicio</span>
         </a>
         <a href="./cardapio.html">
-            <img src="../../assets/icons-responsivo/icon-garfo.png" alt="Icone de garfo retratando tela de cardápio no menu">
+            <img src="../../assets/icons-responsivo/icon-garfo.png"
+                alt="Icone de garfo retratando tela de cardápio no menu">
             <span>Cardápio</span>
         </a>
         <a href="./carrinho.html" class="active">
-            <img src="../../assets/icons-responsivo/icon-carrinho-active.png" alt="Icone de carrinho retratando tela de carrinho no menu">
+            <img src="../../assets/icons-responsivo/icon-carrinho-active.png"
+                alt="Icone de carrinho retratando tela de carrinho no menu">
             <span>Carrinho</span>
         </a>
+
         <a href="./historico-pedidos.html">
             <img src="../../assets/icons-responsivo/icon-documento.png" alt="Icone de documento retratando tela de status do pedido no menu">
+
             <span>Pedidos</span>
         </a>
         <a href="./cadastro_endereco.html">
-            <img src="../../assets/icons-responsivo/icon-endereco.png" alt="Icone de endereço retratando tela de cadastro de endereço no menu">
+            <img src="../../assets/icons-responsivo/icon-endereco.png"
+                alt="Icone de endereço retratando tela de cadastro de endereço no menu">
             <span>Endereço</span>
         </a>
 
     </div>
-    
+
 
     <div class="container-favoritos">
 
@@ -280,9 +285,46 @@
         </div>
     </div>
 
+
+    <!-- Oi Ale, se cuida e não dorme tão tarde viu <3 -->
+
+    <button id="openModal">Abrir Modal</button>
+
+    <!-- Fundo semitransparente -->
+    <div id="modalBackground" class="modal-background">
+        <!-- Modal -->
+        <div class="modal">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Feijoada Média</h2>
+            <div class="modal-content">
+                <img src="https://via.placeholder.com/150" alt="Prato de comida">
+                <div class="modal-info">
+                    <p>Descrição, descrição, descrição, descrição, descrição, descrição, descrição, descrição, </p>
+                    <label for="observacao">Observação</label>
+                    <textarea id="observacao" placeholder="Digite uma observação"></textarea>
+
+                    <div class="seletor-quantidade">
+                        <button class="diminuir">-</button>
+                        <input value="1" min="1" max="99" readonly>
+                        <button class="aumentar">+</button>
+                    </div>
+
+                    <div class="modal-botoes">
+                        <button class="botao-carrinho-modal">Adicionar ao Carrinho</button>
+                        <button class="botao-azul">Comprar Agora</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
     <!-- Footer -->
 
-        <footer>
+    <footer>
         <div class="footer-top">
             <img src="../../assets/Vector-ondas-footer.png" alt="Ondas para divisão de telas">
         </div>
@@ -311,15 +353,18 @@
             <div class="linha"></div>
 
             <div class="redes-sociais">
-                <a href="https://www.facebook.com/share/18D1CNrSUq/?mibextid=LQQJ4d"><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
+                <a href="https://www.facebook.com/share/18D1CNrSUq/?mibextid=LQQJ4d"><img
+                        src="../../assets/Facebook.png" alt="Icone Facebook"></a>
                 <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="Icone WhatsApp"></a>
-                <a href="https://www.instagram.com/restaurante.do_zeca?igsh=MWNvMzd1ZDA0em1jMA=="><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
+                <a href="https://www.instagram.com/restaurante.do_zeca?igsh=MWNvMzd1ZDA0em1jMA=="><img
+                        src="../../assets/Instagram.png" alt="Icone Instagram"></a>
             </div>
 
             <div class="informacoes">
                 <p><a href="#">Termos e Condições</a></p>
                 <p> | </p>
-                <p><a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras">Acessibilidade</a></p>
+                <p><a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras">Acessibilidade</a>
+                </p>
                 <p> | </p>
                 <p><a href="#">Suporte</a></p>
                 <p> | </p>
@@ -332,6 +377,8 @@
 </html>
 
 <script>
+
+    //JS para o seletor de quantidade
     document.querySelectorAll('.seletor-quantidade').forEach(seletor => {
         const diminuir = seletor.querySelector('.diminuir');
         const aumentar = seletor.querySelector('.aumentar');
@@ -351,5 +398,26 @@
             }
         });
     });
+
+
+    // JS que faz o modal aparecer
+    const openModal = document.getElementById('openModal');
+    const closeModal = document.getElementById('closeModal');
+    const modalBackground = document.getElementById('modalBackground');
+
+    openModal.addEventListener('click', () => {
+        modalBackground.style.display = 'flex';
+    });
+
+    closeModal.addEventListener('click', () => {
+        modalBackground.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modalBackground) {
+            modalBackground.style.display = 'none';
+        }
+    });
+
 
 </script>
