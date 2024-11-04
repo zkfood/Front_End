@@ -9,7 +9,6 @@
 
     <link rel="icon" href="/ZKFood/assets/logo-icon.png" type="image/png">
 
-    <script src="../js/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>Dashboard - Gráfico de Produtos</title>
@@ -158,99 +157,135 @@
             </div>
         </div>
     </div>
+
+
+
+    <div class="container_dashboard_produtos_mais_vendidos">
+        <div class="titulo_dashboard">
+            RECEITA ANUAL POR TIPO DE ENTREGA
+        </div>
+        <div class="container_dash_dados">
+            <canvas id="receitaAnualChart"></canvas>
+        </div>
+    </div>
 </body>
 
 </html>
-
+<script src="../../js/fetch.js"></script>
 <script>
+    // Defina o ambiente (local/prod)
+    
+    // Função para buscar dados da API e atualizar o gráfico
     async function buscarDadosEAtualizar() {
+        const url = `${ambiente.local}relatorios/financeiro/receita-por-anos`;
+        const fetchBuilder = new FetchBuilder();
+
         try {
-            const resposta = await fetch("http://localhost:8080/crm/kpis-produtos");
-            const respostaDados = await resposta.json();
+            // Busca dados da API utilizando FetchBuilder
+            const dadosReceita = await fetchBuilder.request(url);
 
-            console.log("Resposta: ", respostaDados);
+            // Extrai dados do JSON para preencher o gráfico
+            const anos = dadosReceita.anos;
+            const receitaPresencial = dadosReceita.receitaPresencial;
+            const receitaBalcao = dadosReceita.receitaBalcao;
+            const receitaEntrega = dadosReceita.receitaEntrega;
 
-            // Extrair os produtos mais vendidos e menos vendidos
-            const top3Melhores = respostaDados.top3Melhores;
-            const top3Piores = respostaDados.top3Piores;
-
-            // Atualizar os dados nos elementos HTML para os produtos mais vendidos
-            const produtoMaisVendidoElement = document.getElementById('produto_mais_vendido');
-            const quantidadeProdutoMaisVendidoElement = document.getElementById('quantidade_produto_mais_vendido');
-            produtoMaisVendidoElement.textContent = top3Melhores[0][0];
-            quantidadeProdutoMaisVendidoElement.textContent = top3Melhores[0][1];
-
-            const produtoSegundoMaisVendidoElement = document.getElementById('produto_segundo_mais_vendido');
-            const quantidadeProdutoSegundoMaisVendidoElement = document.getElementById('quantidade_produto_segundo_mais_vendido');
-            produtoSegundoMaisVendidoElement.textContent = top3Melhores[1][0];
-            quantidadeProdutoSegundoMaisVendidoElement.textContent = top3Melhores[1][1];
-
-            // Atualizar os dados nos elementos HTML para os produtos menos vendidos
-            const produtoMenosVendidoElement = document.getElementById('produto_menos_vendido');
-            const quantidadeProdutoMenosVendidoElement = document.getElementById('quantidade_produto_menos_vendido');
-            produtoMenosVendidoElement.textContent = top3Piores[0][0];
-            quantidadeProdutoMenosVendidoElement.textContent = top3Piores[0][1];
-
-            const produtoSegundoMenosVendidoElement = document.getElementById('produto_segundo_menos_vendido');
-            const quantidadeProdutoSegundoMenosVendidoElement = document.getElementById('quantidade_produto_segundo_menos_vendido');
-            produtoSegundoMenosVendidoElement.textContent = top3Piores[1][0];
-            quantidadeProdutoSegundoMenosVendidoElement.textContent = top3Piores[1][1];
-
-            // Criar o gráfico com os dados dos produtos mais vendidos e menos vendidos
-            const ctx = document.getElementById('myChart').getContext('2d');
-
-            const nomesProdutos = [
-                top3Melhores[0][0],
-                top3Melhores[1][0],
-                top3Piores[0][0],
-                top3Piores[1][0]
-            ];
-
-            const quantidades = [
-                top3Melhores[0][1],
-                top3Melhores[1][1],
-                top3Piores[0][1],
-                top3Piores[1][1]
-            ];
-
+            // Cria o gráfico com os dados obtidos
+            const ctx = document.getElementById('receitaAnualChart').getContext('2d');
             new Chart(ctx, {
-                type: 'bar',
+                type: 'line',
                 data: {
-                    labels: nomesProdutos,
-                    datasets: [{
-                        label: 'Quantidade Vendida',
-                        data: quantidades,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 205, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 205, 86, 1)',
-                            'rgba(75, 192, 192, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
+                    labels: anos,
+                    datasets: [
+                        {
+                            label: 'Presencial',
+                            data: receitaPresencial,
+                            borderColor: 'rgb(75, 192, 192)',
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            fill: false,
+                            tension: 0.1
+                        },
+                        {
+                            label: 'Balcão',
+                            data: receitaBalcao,
+                            borderColor: 'rgb(255, 159, 64)',
+                            backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                            fill: false,
+                            tension: 0.1
+                        },
+                        {
+                            label: 'Entrega',
+                            data: receitaEntrega,
+                            borderColor: 'rgb(153, 102, 255)',
+                            backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                            fill: false,
+                            tension: 0.1
+                        }
+                    ]
                 },
                 options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Receita Anual por Tipo de Entrega'
+                        }
+                    },
                     scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Ano'
+                            }
+                        },
                         y: {
-                            beginAtZero: true
+                            title: {
+                                display: true,
+                                text: 'Receita (em R$)'
+                            }
                         }
                     }
                 }
             });
 
         } catch (error) {
-            console.error("Erro ao buscar os dados e atualizar:", error);
+            console.error("Erro ao carregar dados do gráfico:", error);
         }
     }
+    async function buscarKPIsProdutos() {
+    const url = `${ambiente.local}relatorios/kpis-produtos`;
+    const fetchBuilder = new FetchBuilder();
 
-    window.onload = buscarDadosEAtualizar;
+    try {
+        // Busca dados da API utilizando FetchBuilder
+        const dadosKPIs = await fetchBuilder.request(url);
+
+        // Atualiza os dados dos produtos mais vendidos no DOM
+        document.getElementById("produto_mais_vendido").textContent = dadosKPIs.top3Melhores[0][0]; 
+        document.getElementById("quantidade_produto_mais_vendido").textContent = dadosKPIs.top3Melhores[0][1];
+
+        document.getElementById("produto_segundo_mais_vendido").textContent = dadosKPIs.top3Melhores[1][0]; 
+        document.getElementById("quantidade_produto_segundo_mais_vendido").textContent = dadosKPIs.top3Melhores[1][1]; 
+
+        document.getElementById("produto_menos_vendido").textContent = dadosKPIs.top3Piores[0][0]; 
+        document.getElementById("quantidade_produto_menos_vendido").textContent = dadosKPIs.top3Piores[0][1]; 
+
+        document.getElementById("produto_segundo_menos_vendido").textContent = dadosKPIs.top3Piores[1][0]; 
+        document.getElementById("quantidade_produto_segundo_menos_vendido").textContent = dadosKPIs.top3Piores[1][1];
+
+    } catch (error) {
+        console.error("Erro ao carregar dados dos produtos:", error);
+    }
+}
 
 
 
+
+    window.onload = async () => {
+    await buscarDadosEAtualizar();
+    await buscarKPIsProdutos();
+};
 </script>
