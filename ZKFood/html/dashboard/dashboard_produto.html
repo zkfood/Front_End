@@ -11,40 +11,24 @@
 
     <script src="../js/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../../css/menu_dashboard/menu.css">
+    <link rel="stylesheet" href="../../css/menu_dashboard/testeMenu.css">
 
     <title>Dashboard - Gráfico de Produtos</title>
 </head>
 
 <body>
     <div class="container_sep_info_dash">
-        <div class="container_info">
-            <div class="container_logo">
-                <img src="../../assets/logo-icon.png" alt="zkFood_logo">
-            </div>
-            <div class="container_texto_Bem_vindo">
-                Bem Vindo, <br>
-                <h2>Zeca Silva</h2>
-            </div>
-            <div class="container_txt_dashboard">
-                Dashboards
-            </div>
-            <div class="container_opcoes_dash">
-                <ul>
-                    <li id="opcao_selecionada"><img src="../../assets/jantar 1.png" alt=""> Produtos</li>
-                    <div class="container_sub_opcoes_dash">
-                        <ul>
-                            <li> > <span id="sub_opcao_selecionada"> <a href="./dashboard.html"> Dashboard </a></span>
-                            </li>
-                            <li> > <a href="./crud_produtos.html"> Análise de Produtos </a> </li>
-                            <li> > <a href="./cadastro_produtos.html"> Cadastrar Produtos </a></li>
-                        </ul>
-                    </div>
-                    <li> > <img src="../../assets/silhueta-de-multiplos-usuarios 1.png" alt=""> Clientes</li>
-                    <li> > <img src="../../assets/cracha 1.png" alt=""> Funcionários</li>
-                    <li> > <img src="../../assets/avaliacoes 1.png" alt=""><a href="./avaliacoes.html">Avaliações</a></li>
-                    <li> > <img src="../../assets/money-bag 1.png" alt=""> Financeiro</li>
-                </ul>
-            </div>
+        <div id="menu-container">
+            <script>
+                const menuContainer = document.getElementById("menu-container");
+                fetch("menu_dashboard.html")
+                    .then(response => response.text())
+                    .then(data => {
+                        menuContainer.innerHTML = data;
+                    })
+                    .catch(err => console.error("Erro ao carregar o menu:", err));
+            </script>
         </div>
         <div class="container_dash">
             <div class="container_cards_kpi">

@@ -100,7 +100,7 @@
             <button id="btnPerfil" class="nav-button active">Meu Perfil</button>
             <button id="btnEnderecos" class="nav-button">Meus Endereços</button>
         </div>
-        <div class="listra-amarela"></div>
+        <!-- <div class="listra-amarela"></div> -->
         <div class="card-perfil" id="cardPerfil">
             <img src="../../assets/user.png" alt="icone de usuário para representar o cliente">
             <h1 id="nome_titulo">Usuario</h1>
@@ -131,50 +131,10 @@
         </div>
 
         <div class="container-listar-enderecos" id="cardEndereco" style="display: none;">
-
-            <!-- card de endereço -->
-            <div class="card-endereco">
-                <div class="container-endereco">
-                    <div class="titulo-pai">
-                        <img src="/ZKFood/assets/Address.png" alt="Icone Endereço">
-                        <span class="titulo-endereco">ENDEREÇO PARA <span>ENTREGA</span></span>
-                    </div>
-                    <div class="conteudo-pai">
-                        <div class="endereco-conteudo">
-                            <div class="informacao-endereco">
-                                <span class="info-bairro">Cidade Tiradentes</span>
-                                <span class="info-rua">Rua Ludovico Liparini <span class="info-numero">190</span></span>
-                                <span class="info-cep">Jardim Dona Sinhá - São paulo, Brazil 03923-220 </span>
-                            </div>
-                        </div>
-                        <button class="botao-excluir">Excluir</button>
-                        <button class="botao-editar" onclick="editarEndereco()">Editar</button>
-                    </div>
+            <div class="container-endereco">
+                <div id="retorno_de_dados">
                 </div>
             </div>
-
-
-            <!-- card de endereço -->
-            <div class="card-endereco">
-                <div class="container-endereco">
-                    <div class="titulo-pai">
-                        <img src="/ZKFood/assets/Address.png" alt="Icone Endereço">
-                        <span class="titulo-endereco">ENDEREÇO PARA <span>ENTREGA</span></span>
-                    </div>
-                    <div class="conteudo-pai">
-                        <div class="endereco-conteudo">
-                            <div class="informacao-endereco">
-                                <span class="info-bairro">Cidade Tiradentes</span>
-                                <span class="info-rua">Rua Ludovico Liparini <span class="info-numero">190</span></span>
-                                <span class="info-cep">Jardim Dona Sinhá - São paulo, Brazil 03923-220 </span>
-                            </div>
-                        </div>
-                        <button class="botao-excluir">Excluir</button>
-                        <button class="botao-editar" onclick="editarEndereco()">Editar</button>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 
@@ -264,11 +224,47 @@ let editando = false;
 
 
     document.addEventListener("DOMContentLoaded", function () {
+        let editando = false;
+        let editandoEndereco = false;
+
+        // Referências aos elementos
+        const btnPerfil = document.getElementById('btnPerfil');
+        const btnEnderecos = document.getElementById('btnEnderecos');
+        const cardPerfil = document.getElementById('cardPerfil');
+        const cardEndereco = document.getElementById('cardEndereco');
+        const navButtons = document.querySelectorAll('.nav-button');
+
+        // Funções para alternar entre os cards
+        function mostrarCardPerfil() {
+            cardPerfil.style.display = 'flex';
+            cardEndereco.style.display = 'none';
+        }
+
+        function mostrarCardEndereco() {
+            cardPerfil.style.display = 'none';
+            cardEndereco.style.display = 'flex';
+        }
+
+        // Event listeners para os botões
+        btnPerfil.addEventListener('click', mostrarCardPerfil);
+        btnEnderecos.addEventListener('click', mostrarCardEndereco);
+
+        // Alternar botão ativo no menu
+        navButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Remove a classe 'active' de todos os botões
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                // Adiciona a classe 'active' ao botão clicado
+                this.classList.add('active');
+            });
+        });
+
+        // Carregar dados do perfil
+    
         const usuario = JSON.parse(sessionStorage.getItem('usuario'));
         const telefones = JSON.parse(sessionStorage.getItem('telefones'));
-
         if (usuario) {
-            nome_titulo.innerHTML = usuario.nome;
+            document.getElementById('nome_titulo').innerHTML = usuario.nome;
             document.getElementById('nome').nextElementSibling.innerText = usuario.nome || 'Não encontrado';
             document.getElementById('cpf').nextElementSibling.innerText = usuario.cpf || 'Não encontrado';
             document.getElementById('email').nextElementSibling.innerText = usuario.email || 'Não encontrado';
@@ -277,7 +273,6 @@ let editando = false;
             document.getElementById('cpf').nextElementSibling.innerText = 'Não encontrado';
             document.getElementById('email').nextElementSibling.innerText = 'Não encontrado';
         }
-
         if (telefones && telefones.length > 0) {
             document.getElementById('telefone').nextElementSibling.innerText = telefones[0].numero || 'Não encontrado';
             document.getElementById('telefone2').nextElementSibling.innerText = telefones.length > 1 ? telefones[1].numero : 'Não encontrado';
@@ -286,146 +281,302 @@ let editando = false;
             document.getElementById('telefone2').nextElementSibling.innerText = 'Não encontrado';
         }
 
-        console.log(usuario);
-        console.log(telefones);
-    });
+        // Função para limpar valores undefined
+        function limparUndefined(dado) {
+            return dado === undefined || dado === "" ? null : dado;
+        }
 
-    // Função para limpar valores undefined
-    function limparUndefined(dado) {
-        return dado === undefined || dado === "" ? null : dado;
-    }
+        // Função para editar informações do perfil
+        document.querySelector('.botao-azul').addEventListener('click', function () {
+            const usuarioSession = JSON.parse(sessionStorage.getItem('usuario'));
+            const usuarioContainer = document.querySelector('.container-usuario');
 
-    // Editar dados do perfil
-    function editarInformacoes() {
-        const usuarioSession = JSON.parse(sessionStorage.getItem('usuario'));
-        const usuarioContainer = document.querySelector('.container-usuario');
-
-        if (!editando) {
-            const nome = document.getElementById('nome').nextElementSibling.innerText;
-            const telefone = document.getElementById('telefone').nextElementSibling.innerText;
-            const cpf = document.getElementById('cpf').nextElementSibling.innerText;
-            const telefone2 = document.getElementById('telefone2').nextElementSibling.innerText;
-            const email = document.getElementById('email').nextElementSibling.innerText;
-            const senha = document.getElementById('senha').nextElementSibling.innerText;
-
-            usuarioContainer.innerHTML = `
-            <div class="info-usuario">
-                <p id="nome">Nome:</p>
-                <input type="text" id="inputNome" value="${nome}">
-                <br>
-                <p id="telefone">Telefone:</p>
-                <input type="tel" id="inputTelefone" value="${telefone}">
-            </div>
-            <div class="info-usuario">
-                <p id="cpf">CPF:</p>
-                <input type="text" id="inputCpf" value="${cpf}">
-                <br>
-                <p id="telefone2">Telefone 2:</p>
-                <input type="tel" id="inputTelefone2" value="${telefone2}">
-            </div>
-            <div class="info-usuario">
-                <p id="email">Email:</p>
-                <input type="email" id="inputEmail" value="${email}">
-                <br>
-                <p id="senha">Senha:</p>
-                <input type="password" id="inputSenha" value="${senha}">
-            </div>
-        `;
-            document.querySelector('.botao-azul').innerText = 'Salvar';
-            editando = true;
-        } else {
-            const nome = limparUndefined(document.getElementById('inputNome').value);
-            const telefone = limparUndefined(document.getElementById('inputTelefone').value);
-            const cpf = limparUndefined(document.getElementById('inputCpf').value);
-            const telefone2 = limparUndefined(document.getElementById('inputTelefone2').value);
-            const email = limparUndefined(document.getElementById('inputEmail').value);
-            const senha = limparUndefined(document.getElementById('inputSenha').value);
-
-            // Atualizando sessionStorage
-            const novosDadosUsuario = {
-                id: usuarioSession.id, // Utilizando o ID do sessionStorage
-                nome: nome,
-                cpf: cpf,
-                email: email
-            };
-            sessionStorage.setItem('usuario', JSON.stringify(novosDadosUsuario));
-
-            const telefones = [
-                { id: 1, numero: telefone },
-                { id: 2, numero: telefone2 }
-            ];
-            sessionStorage.setItem('telefones', JSON.stringify(telefones));
-
-            // Requisição PATCH para atualizar o usuário
-            fetch(`http://localhost:8080/usuarios/${usuarioSession.id}`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(novosDadosUsuario)
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Erro na atualização do usuário');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Usuário atualizado:', data);
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
-                });
-
-            // Atualização dos telefones
-            telefones.forEach(telefone => {
-                fetch(`http://localhost:8080/usuarios/${usuarioSession.id}/telefones/${telefone.id}`, {
+            if (!editando) {
+                const nome = document.getElementById('nome').nextElementSibling.innerText;
+                const telefone = document.getElementById('telefone').nextElementSibling.innerText;
+                const cpf = document.getElementById('cpf').nextElementSibling.innerText;
+                const telefone2 = document.getElementById('telefone2').nextElementSibling.innerText;
+                const email = document.getElementById('email').nextElementSibling.innerText;
+                const senha = document.getElementById('senha').nextElementSibling.innerText;
+                usuarioContainer.innerHTML = `
+                <div class="info-usuario">
+                    <p id="nome">Nome:</p>
+                    <input type="text" id="inputNome" value="${nome}">
+                    <br>
+                    <p id="telefone">Telefone:</p>
+                    <input type="tel" id="inputTelefone" value="${telefone}">
+                </div>
+                <div class="info-usuario">
+                    <p id="cpf">CPF:</p>
+                    <input type="text" id="inputCpf" value="${cpf}">
+                    <br>
+                    <p id="telefone2">Telefone 2:</p>
+                    <input type="tel" id="inputTelefone2" value="${telefone2}">
+                </div>
+                <div class="info-usuario">
+                    <p id="email">Email:</p>
+                    <input type="email" id="inputEmail" value="${email}">
+                    <br>
+                    <p id="senha">Senha:</p>
+                    <input type="password" id="inputSenha" value="${senha}">
+                </div>
+            `;
+                this.innerText = 'Salvar';
+                editando = true;
+            } else {
+                const nome = limparUndefined(document.getElementById('inputNome').value);
+                const telefone = limparUndefined(document.getElementById('inputTelefone').value);
+                const cpf = limparUndefined(document.getElementById('inputCpf').value);
+                const telefone2 = limparUndefined(document.getElementById('inputTelefone2').value);
+                const email = limparUndefined(document.getElementById('inputEmail').value);
+                const senha = limparUndefined(document.getElementById('inputSenha').value);
+                // Atualizando sessionStorage
+                const novosDadosUsuario = {
+                    id: usuarioSession.id,
+                    nome: nome,
+                    cpf: cpf,
+                    email: email
+                };
+                sessionStorage.setItem('usuario', JSON.stringify(novosDadosUsuario));
+                const telefones = [
+                    { id: 1, numero: telefone },
+                    { id: 2, numero: telefone2 }
+                ];
+                sessionStorage.setItem('telefones', JSON.stringify(telefones));
+                // Requisição PATCH para atualizar o usuário
+                fetch(`http://localhost:8080/usuarios/${usuarioSession.id}`, {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ numero: telefone.numero })
+                    body: JSON.stringify(novosDadosUsuario)
                 })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Erro na atualização do telefone com ID ${telefone.id}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log(`Telefone ${telefone.id} atualizado:`, data);
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Erro na atualização do usuário');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Usuário atualizado:', data);
+                    })
+                    .catch(error => {
+                        console.error('Erro:', error);
+                    });
+                // Atualização dos telefones
+                telefones.forEach(telefone => {
+                    fetch(`http://localhost:8080/usuarios/${usuarioSession.id}/telefones/${telefone.id}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ numero: telefone.numero })
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Erro na atualização do telefone com ID ${telefone.id}`);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            console.log(`Telefone ${telefone.id} atualizado:`, data);
+                        })
+                        .catch(error => {
+                            console.error('Erro:', error);
+                        });
                 });
-            });
+                // Atualizar a visualização com os novos dados
+                nome_titulo.innerHTML = nome
+                usuarioContainer.innerHTML = `
+                <div class="info-usuario">
+                    <p id="nome">Nome:</p>
+                    <p>${nome}</p>
+                    <br>
+                    <p id="telefone">Telefone:</p>
+                    <p>${telefone}</p>
+                </div>
+                <div class="info-usuario">
+                    <p id="cpf">CPF:</p>
+                    <p>${cpf}</p>
+                    <br>
+                    <p id="telefone2">Telefone 2:</p>
+                    <p>${telefone2}</p>
+                </div>
+                <div class="info-usuario">
+                    <p id="email">Email:</p>
+                    <p>${email}</p>
+                    <br>
+                    <p id="senha">Senha:</p>
+                    <p>${senha}</p>
+                </div>
+            `;
+                this.innerText = 'Editar';
+                editando = false;
+            }
+        });
+    });
 
-            // Atualizar a visualização com os novos dados
-            usuarioContainer.innerHTML = `
-            <div class="info-usuario">
-                <p id="nome">Nome:</p>
-                <p>${nome}</p>
-                <br>
-                <p id="telefone">Telefone:</p>
-                <p>${telefone}</p>
-            </div>
-            <div class="info-usuario">
-                <p id="cpf">CPF:</p>
-                <p>${cpf}</p>
-                <br>
-                <p id="telefone2">Telefone 2:</p>
-                <p>${telefone2}</p>
-            </div>
-            <div class="info-usuario">
-                <p id="email">Email:</p>
-                <p>${email}</p>
-                <br>
-                <p id="senha">Senha:</p>
-                <p>${senha}</p>
-            </div>
-        `;
-            document.querySelector('.botao-azul').innerText = 'Editar';
-            editando = false;
+    let editando = false
+
+    let idUsuario = sessionStorage.getItem('idUsuario');
+
+    async function buscar() {
+            if (idUsuario) {
+                const url = `http://localhost:8080/usuarios/${idUsuario}/enderecos`;
+                const resposta = await fetch(url);
+                if (resposta.ok) {
+                    const dados = await resposta.json();
+                    console.log(dados);
+                    const div_resposta = document.getElementById("retorno_de_dados");
+                    if (dados.length <= 0) {
+                        div_resposta.innerHTML = `
+                    <!-- Card caso a pessoa ainda não tenha nenhum endereço cadastrado -->
+                    <div class="container-sem-endereco">
+                        <div class="container-sem-endereco">
+                            <div class="card-sem-endereco">
+                                <h1>Nenhum endereço cadastrado <span>:( </span></h1>
+                                <p>Oops, parece que você ainda não cadastrou nenhum endereço para nossa equipe entregar o seu pedido.</p>
+                                <a class="botao-azul" href="./cadastro_endereco.html">Cadastrar Endereço</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                    } else {
+                        div_resposta.innerHTML = `
+                    <div class="container-endereco-titulo">
+                        <h1>Seus <span>Endereços Cadastrados</span></h1>
+                    </div>
+                    <div id="container_lista_enderecos"></div>`;
+                        const enderecos = document.getElementById("container_lista_enderecos");
+                        enderecos.innerHTML = dados.map(renderizarCardEndereco).join('');
+                        enderecos.innerHTML += `<a class="botao-azul" id="botaoContinuar" href="./pagamento.html" style="display: none;">Continuar</a>`;
+                    }
+                } else {
+                    console.log('Erro ao buscar os dados');
+                }
+            } else {
+                console.log('ID do usuário não encontrado no sessionStorage.');
+            }
         }
-    }
+
+        function renderizarCardEndereco(endereco) {
+            return `
+        <div id="card-endereco-${endereco.id}" class="card-endereco" onclick="selecionarCard(this, ${endereco.id})">
+            <div class="container-endereco">
+                <div class="conteudo-pai">
+                    <div class="endereco-conteudo">
+                        <div class="informacao-endereco">
+                            <span class="info-rua">${endereco.rua}, ${endereco.numero} - ${endereco.complemento}</span>
+                            <span class="info-cep">${endereco.bairro}, São Paulo, SP - ${endereco.cep}</span>
+                        </div>
+                    </div>
+                    <button class="botao-excluir" onclick="excluirEndereco(${endereco.id}); event.stopPropagation();">Excluir</button>
+                    <button class="botao-editar" onclick="editarEndereco(${endereco.id}); event.stopPropagation();">Editar</button>
+                </div>
+
+            </div>
+        </div>`;
+        }
+
+        function editarEndereco(idEndereco) {
+            const enderecoCard = document.getElementById(`card-endereco-${idEndereco}`);
+            const enderecoRua = enderecoCard.querySelector('.info-rua').innerText.split(', ')[0];
+            const enderecoNumero = enderecoCard.querySelector('.info-rua').innerText.split(', ')[1].split(' - ')[0];
+            const enderecoComplemento = enderecoCard.querySelector('.info-rua').innerText.split(' - ')[1];
+            const enderecoBairro = enderecoCard.querySelector('.info-cep').innerText.split(', ')[0];
+            const enderecoCep = enderecoCard.querySelector('.info-cep').innerText.split(' - ')[1];
+
+            if (!editando) {
+                enderecoCard.innerHTML = `
+        <div class="container-endereco">
+            <div class="titulo-pai">
+                <input type="checkbox" class="checkbox-endereco" data-id="${idEndereco}" onclick="marcarCheckbox(${idEndereco}); event.stopPropagation();">
+                <img src="/ZKFood/assets/Address.png" alt="Icone Endereço">
+                <span class="titulo-endereco">ENDEREÇO PARA <span>ENTREGA</span></span>
+            </div>
+            <div class="conteudo-pai">
+                <div class="endereco-conteudo">
+                    <div class="informacao-endereco">
+                        <input type="text" id="inputCep" value="${enderecoCep}">
+                        <input type="text" id="inputBairro" value="${enderecoBairro}">
+                        <input type="text" id="inputRua" value="${enderecoRua}">
+                        <input type="text" id="inputNumero" value="${enderecoNumero}">
+                        <input type="text" id="inputComplemento" value="${enderecoComplemento}">
+                    </div>
+                </div>
+                <button class="botao-excluir" onclick="excluir(${idEndereco}); event.stopPropagation();">Excluir</button>
+                <button class="botao-editar" onclick="salvar(${idEndereco}); event.stopPropagation();">Salvar</button>
+            </div>
+        </div>
+    `;
+                editando = true;
+            } else {
+                salvar(idEndereco);
+            }
+        }
+
+
+        async function salvar(idEndereco) {
+            const enderecoCard = document.getElementById(`card-endereco-${idEndereco}`);
+            const novaRua = enderecoCard.querySelector('#inputRua').value;
+            const novoBairro = enderecoCard.querySelector('#inputBairro').value;
+            const novoNumero = enderecoCard.querySelector('#inputNumero').value;
+            const novoCep = enderecoCard.querySelector('#inputCep').value;
+            const novoComplemento = enderecoCard.querySelector('#inputComplemento').value;
+
+            const url = `http://localhost:8080/usuarios/${idUsuario}/enderecos/${idEndereco}`;
+            try {
+                const resposta = await fetch(url, {
+                    method: "PATCH",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ cep: novoCep, rua: novaRua, bairro: novoBairro, numero: novoNumero, complemento: novoComplemento })
+                });
+
+                if (resposta.ok) {
+                    const dadosAtualizados = await resposta.json();
+                    console.log('Endereço atualizado:', dadosAtualizados);
+
+                    enderecoCard.innerHTML = renderizarCardEndereco(dadosAtualizados);
+                    editando = false;
+                } else {
+                    console.error('Erro ao atualizar endereço');
+                }
+            } catch (erro) {
+                console.error('Erro:', erro);
+            }
+        }
+
+        async function excluirEndereco(idEndereco) {
+            const url = `http://localhost:8080/usuarios/${idUsuario}/enderecos/${idEndereco}`;
+            try {
+                const resposta = await fetch(url, {
+                    method: "DELETE",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': '*/*'
+                    }
+                });
+
+                if (resposta.status === 204) {
+                    alert('Endereço deletado com sucesso.');
+                    // Remover o card do endereço deletado
+                    const card = document.getElementById(`card-endereco-${idEndereco}`);
+                    if (card) {
+                        card.remove();
+                    }
+
+                    buscar()
+                } else {
+                    console.log(`Erro ao deletar endereço: ${resposta.status}`);
+                }
+            } catch (erro) {
+                console.error('Erro:', erro);
+            }
+        }
+
+        window.onload = buscar;
+
+
 </script>
