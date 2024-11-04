@@ -129,7 +129,7 @@ async function cancelarPedido(){
     const resposta = await fetch(`${ambiente.local}estado-pedido-historico`, {
         method: 'PATCH',
         headers: {
-            'Content-Type': 'application/json' // Definindo como JSON
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({
             estado: "Pedido cancelado",

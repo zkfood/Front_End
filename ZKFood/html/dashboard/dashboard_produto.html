@@ -149,7 +149,7 @@
 <script>
     async function buscarDadosEAtualizar() {
         try {
-            const resposta = await fetch("http://localhost:8080/crm/kpis-produtos");
+            const resposta = await fetch("http://localhost:8080/relatorios/kpis-produtos");
             const respostaDados = await resposta.json();
 
             console.log("Resposta: ", respostaDados);
