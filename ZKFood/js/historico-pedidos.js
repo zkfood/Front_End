@@ -1,4 +1,4 @@
-const idUsuario = sessionStorage.getItem('IdUsuario');
+const idUsuario = sessionStorage.getItem('idUsuario');
 
 const mes = {
     1: "Janeiro",
