@@ -25,7 +25,7 @@ async function carregarPedidos() {
     const pedidos = await new FetchBuilder().request(`${ambiente.local + prefix.pedidos}`, parametros)
     const div = document.getElementById('divHistoricoPedidos');
 
-    if (pedidos.length === 0) {
+    if (!pedidos || pedidos.length === 0) {
         div.innerHTML += `
         <div class="container-semPedido">
             <div class="container-semPedido">
@@ -80,8 +80,8 @@ async function carregarPedidos() {
 
 }
 
-window.onload = function () {
-    carregarPedidos();
+window.onload = async function () {
+    await carregarPedidos();
 }
 
 function verDetalhes(id){
