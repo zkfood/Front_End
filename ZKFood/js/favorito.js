@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                     'Content-Type': 'application/json'
                 }
             })
-            alert('Deletado com sucesso')
+            exibirPopup("Deletado com sucesso", "success")
             await buscarFavoritos(); // Recarregar os favoritos
         } catch (error) {
             console.error("Erro ao remover favorito:", error);
@@ -81,3 +81,30 @@ document.addEventListener("DOMContentLoaded", async function() {
     // Carregar os favoritos ao iniciar
     await buscarFavoritos();
 });
+
+// Função para exibir o popup de sucesso ou erro
+function exibirPopup(mensagem, tipo) {
+    const popup = document.getElementById("popup");
+    const popupIcon = document.getElementById("popup-icon");
+    const popupTitle = document.getElementById("popup-title");
+    const popupMessage = document.getElementById("popup-message");
+
+    if (tipo === "success") {
+        popupIcon.src = "/ZKFood/assets/sucesso.png";
+        popupTitle.textContent = "Sucesso!";
+        popupTitle.style.color = "#33D700";
+    } else {
+        popupIcon.src = "/ZKFood/assets/erro.png";
+        popupTitle.textContent = "Erro!";
+        popupTitle.style.color = "#EB3223";
+    }
+
+    popupMessage.textContent = mensagem;
+    popup.style.display = "flex";
+}
+
+// Função para fechar o popup
+function closePopup() {
+    const popup = document.getElementById("popup");
+    popup.style.display = "none";
+}

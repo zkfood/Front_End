@@ -84,19 +84,23 @@
             <span>Inicio</span>
         </a>
         <a href="./cardapio.html">
-            <img src="../../assets/icons-responsivo/icon-garfo.png" alt="Icone de garfo retratando tela de cardápio no menu">
+            <img src="../../assets/icons-responsivo/icon-garfo.png"
+                alt="Icone de garfo retratando tela de cardápio no menu">
             <span>Cardápio</span>
         </a>
         <a href="./carrinho.html" class="active">
-            <img src="../../assets/icons-responsivo/icon-carrinho-active.png" alt="Icone de carrinho retratando tela de carrinho no menu">
+            <img src="../../assets/icons-responsivo/icon-carrinho-active.png"
+                alt="Icone de carrinho retratando tela de carrinho no menu">
             <span>Carrinho</span>
         </a>
         <a href="./historico-pedidos.html">
-            <img src="../../assets/icons-responsivo/icon-documento.png" alt="Icone de documento retratando tela de status do pedido no menu">
+            <img src="../../assets/icons-responsivo/icon-documento.png"
+                alt="Icone de documento retratando tela de status do pedido no menu">
             <span>Pedidos</span>
         </a>
         <a href="./cadastro_endereco.html">
-            <img src="../../assets/icons-responsivo/icon-endereco.png" alt="Icone de endereço retratando tela de cadastro de endereço no menu">
+            <img src="../../assets/icons-responsivo/icon-endereco.png"
+                alt="Icone de endereço retratando tela de cadastro de endereço no menu">
             <span>Endereço</span>
         </a>
 
@@ -116,9 +120,21 @@
     </div>
 
 
+    <div id="popup" class="popup">
+        <div class="popup-background">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <img id="popup-icon" src="" alt="Icon">
+                <h2 id="popup-title" class="popup-title"></h2>
+                <p id="popup-message" class="popup-message"></p>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Footer -->
 
-        <footer>
+    <footer>
         <div class="footer-top">
             <img src="../../assets/Vector-ondas-footer.png" alt="Ondas para divisão de telas">
         </div>
@@ -147,15 +163,18 @@
             <div class="linha"></div>
 
             <div class="redes-sociais">
-                <a href="https://www.facebook.com/share/18D1CNrSUq/?mibextid=LQQJ4d"><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
+                <a href="https://www.facebook.com/share/18D1CNrSUq/?mibextid=LQQJ4d"><img
+                        src="../../assets/Facebook.png" alt="Icone Facebook"></a>
                 <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="Icone WhatsApp"></a>
-                <a href="https://www.instagram.com/restaurante.do_zeca?igsh=MWNvMzd1ZDA0em1jMA=="><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
+                <a href="https://www.instagram.com/restaurante.do_zeca?igsh=MWNvMzd1ZDA0em1jMA=="><img
+                        src="../../assets/Instagram.png" alt="Icone Instagram"></a>
             </div>
 
             <div class="informacoes">
                 <p><a href="#">Termos e Condições</a></p>
                 <p> | </p>
-                <p><a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras">Acessibilidade</a></p>
+                <p><a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras">Acessibilidade</a>
+                </p>
                 <p> | </p>
                 <p><a href="#">Suporte</a></p>
                 <p> | </p>
@@ -355,7 +374,7 @@
             });
 
             if (resposta.status === 204) {
-                alert('Endereço deletado com sucesso.');
+                exibirPopup("Endereço deletado com sucesso!", "success")
                 // Remover o card do endereço deletado
                 const card = document.getElementById(`card-endereco-${idEndereco}`);
                 if (card) {
@@ -369,6 +388,33 @@
         } catch (erro) {
             console.error('Erro:', erro);
         }
+    }
+
+    // Função para exibir o popup de sucesso ou erro
+    function exibirPopup(mensagem, tipo) {
+        const popup = document.getElementById("popup");
+        const popupIcon = document.getElementById("popup-icon");
+        const popupTitle = document.getElementById("popup-title");
+        const popupMessage = document.getElementById("popup-message");
+
+        if (tipo === "success") {
+            popupIcon.src = "/ZKFood/assets/sucesso.png";
+            popupTitle.textContent = "Sucesso!";
+            popupTitle.style.color = "#33D700";
+        } else {
+            popupIcon.src = "/ZKFood/assets/erro.png";
+            popupTitle.textContent = "Erro!";
+            popupTitle.style.color = "#EB3223";
+        }
+
+        popupMessage.textContent = mensagem;
+        popup.style.display = "flex";
+    }
+
+    // Função para fechar o popup
+    function closePopup() {
+        const popup = document.getElementById("popup");
+        popup.style.display = "none";
     }
 
     window.onload = buscar;
