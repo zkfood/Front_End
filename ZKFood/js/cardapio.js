@@ -1,4 +1,4 @@
-const idUsuario = sessionStorage.getItem('IdUsuario');
+const idUsuario = sessionStorage.getItem('idUsuario');
 
 async function receberPratos(tipo) {
     const buscarFavoritos = async () => {
@@ -122,11 +122,13 @@ function abrirModal(id) {
 }
 
 function comprarAgora() {
-    baseAdicionarCarrinho()
+    baseAdicionarCarrinho();
+    window.location = './carrinho.html';
 }
 
 function adicionarAoCarrinho() {
-    baseAdicionarCarrinho()
+    baseAdicionarCarrinho();
+    alert('Produto adicionado ao carrinho');
 }
 
 function baseAdicionarCarrinho() {
@@ -142,7 +144,7 @@ function baseAdicionarCarrinho() {
     const carrinho = JSON.parse(sessionStorage.getItem('PRODUTOS_CARRINHO'));
     const idProduto = sessionStorage.getItem('PRODUTO_ATUAL_MODAL')
 
-    carrinho.push({ id: idProduto, qtd: inputQuantidade.value, observacao: observacao.value });
+    carrinho.push({ id: idProduto, quantidade: inputQuantidade.value, observacao: observacao.value });
 
     sessionStorage.setItem('PRODUTOS_CARRINHO', JSON.stringify(carrinho));
 }
