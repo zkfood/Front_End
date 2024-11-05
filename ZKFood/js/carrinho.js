@@ -100,7 +100,7 @@ async function diminuir(id) {
 
     if (itemNoCarrinho) {
         if (itemNoCarrinho.quantidade === '0') {
-            alert("Não é possível pedir pedidos com quantidades negativas");
+            exibirPopup("Não é possível pedir pedidos com quantidades negativas...", "erro")
             return;
         }
         itemNoCarrinho.quantidade = (Number(itemNoCarrinho.quantidade) - 1).toString();
@@ -126,7 +126,7 @@ async function continuar() {
     });
 
     if (selectedOption === undefined) {
-        alert('Escolha um tipo de entrega antes de prosseguir');
+        exibirPopup("Escolha um tipo de entrega antes de prosseguir...", "erro")
         return;
     } else if (selectedOption === "Balcão") {
         sessionStorage.setItem('TIPO_ENTREGA_CARRINHO', selectedOption);
@@ -139,4 +139,31 @@ async function continuar() {
 
 window.onload = async function () {
     await listarProdutos();
+}
+
+// Função para exibir o popup de sucesso ou erro
+function exibirPopup(mensagem, tipo) {
+    const popup = document.getElementById("popup");
+    const popupIcon = document.getElementById("popup-icon");
+    const popupTitle = document.getElementById("popup-title");
+    const popupMessage = document.getElementById("popup-message");
+
+    if (tipo === "success") {
+        popupIcon.src = "/ZKFood/assets/sucesso.png";
+        popupTitle.textContent = "Sucesso!";
+        popupTitle.style.color = "#33D700";
+    } else {
+        popupIcon.src = "/ZKFood/assets/erro.png";
+        popupTitle.textContent = "Erro!";
+        popupTitle.style.color = "#EB3223";
+    }
+
+    popupMessage.textContent = mensagem;
+    popup.style.display = "flex";
+}
+
+// Função para fechar o popup
+function closePopup() {
+    const popup = document.getElementById("popup");
+    popup.style.display = "none";
 }

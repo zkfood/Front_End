@@ -46,7 +46,7 @@ class FetchBuilder {
         } catch (error) {
             console.error("Erro na requisição:", error);
             
-            window.location = "../cliente/telaErro.html";
+            //window.location = "../cliente/telaErro.html";
         }
     }
 }

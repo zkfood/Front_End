@@ -17,7 +17,7 @@ async function cadastrarEndereco() {
 
         // Validação simples dos campos obrigatórios
         if (!bairroValue || !logradouroValue || !numeroValue || !cepValue) {
-            alert("Todos os campos obrigatórios devem ser preenchidos!");
+            exibirPopup("Oops, você não preencheu todos os campos...", "erro");
             return;
         }
 
@@ -44,18 +44,45 @@ async function cadastrarEndereco() {
 
             // Verificando o status da resposta
             if (resposta.status === 201 || resposta.status === 200) {
-                alert('Endereço cadastrado com sucesso!');
+                exibirPopup("Seu endereço foi cadastrado!", "success");
             } else {
                 const errorData = await resposta.json();
                 console.log('Erro ao cadastrar:', errorData);
-                alert('Erro ao cadastrar o endereço!');
+                exibirPopup("Erro ao cadastrar endereço.", "erro");
             }
         } catch (error) {
             console.error("Erro ao cadastrar endereço:", error);
-            alert("Erro ao cadastrar o endereço.");
+            exibirPopup("Erro ao cadastrar endereço.", "erro");
         }
 
     } else {
         console.log('ID do usuário não encontrado no sessionStorage.');
     }
+}
+
+// Função para exibir o popup de sucesso ou erro
+function exibirPopup(mensagem, tipo) {
+    const popup = document.getElementById("popup");
+    const popupIcon = document.getElementById("popup-icon");
+    const popupTitle = document.getElementById("popup-title");
+    const popupMessage = document.getElementById("popup-message");
+
+    if (tipo === "success") {
+        popupIcon.src = "/ZKFood/assets/sucesso.png";
+        popupTitle.textContent = "Sucesso!";
+        popupTitle.style.color = "#33D700";
+    } else {
+        popupIcon.src = "/ZKFood/assets/erro.png";
+        popupTitle.textContent = "Erro!";
+        popupTitle.style.color = "#EB3223";
+    }
+
+    popupMessage.textContent = mensagem;
+    popup.style.display = "flex";
+}
+
+// Função para fechar o popup
+function closePopup() {
+    const popup = document.getElementById("popup");
+    popup.style.display = "none";
 }

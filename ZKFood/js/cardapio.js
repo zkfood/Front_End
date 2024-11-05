@@ -155,7 +155,7 @@ function comprarAgora() {
 
 function adicionarAoCarrinho() {
     baseAdicionarCarrinho();
-    alert('Produto adicionado ao carrinho');
+    exibirPopup("O produto foi adicionado ao carrinho!", "success")
 }
 
 function baseAdicionarCarrinho() {
