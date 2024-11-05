@@ -76,7 +76,6 @@ body {
   width: 30%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -101,6 +100,7 @@ body {
 }
 
 .order-card {
+  width: 240px;
   border: solid 1px black;
   background-color: #fff;
   padding: 20px;
@@ -110,6 +110,18 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.produtos-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.botoes-container{
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .orange-border {
@@ -160,6 +172,13 @@ button.accept {
   color: #fff;
 }
 
+button.edit {
+  background: url(/ZKFood/assets/editar.png);
+  background-size: cover;
+  width: 35px;
+  color: #fff;
+}
+
 button.done {
   background-color: #FDD835;
   color: #fff;
@@ -168,4 +187,108 @@ button.done {
 button.deliver {
   background-color: #4CAF50;
   color: #fff;
+}
+
+/* Popup */
+/* Estilizando o pop-up */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;background: rgba(0, 0, 0, 0.7);
+}
+
+.popup-background {
+  height: 412px;
+  width: 743px;
+  background: linear-gradient(to bottom, #FFB90A 0%, #FFD779 100%);
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  height: 332px;
+  width: 663px;
+  position: relative;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.popup-title {
+  margin: 0;
+  font-size: 45px;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+#motivo-cancelamento {
+  margin-top: 10px;
+  width: 90%; /* Ajuste a largura para caber melhor */
+  font-size: 18px; /* Tamanho de fonte */
+  border: 1px solid #ccc; /* Borda */
+  border-radius: 5px; /* Borda arredondada */
+  padding: 5px; /* Padding interno */
+}
+
+.confirmar-cancelamento {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.confirmar-cancelamento:hover {
+  background-color: #FFD779; /* Cor ao passar o mouse */
+}
+
+.close {
+  width: 39px;
+  height: 39px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 39px;
+}
+
+button.confirmar {
+  background: url(/ZKFood/assets/verifica.png);
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+  margin: 0;
+}
+
+button.deletar {
+  background: url(/ZKFood/assets/excluir.png);
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+  margin: 0;
+}
+
+.produto-container {
+  display: flex;
+}
+
+.produto-container p {
+  margin-right: 10px;
 }

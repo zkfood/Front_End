@@ -114,10 +114,18 @@
     margin-bottom: 5px;
 }
 
+.botao-favoritos img {
+    height: 2.5vh; 
+    width: 2.5vh; 
+    object-fit: contain; /* Garante que a imagem se encaixe corretamente dentro do botão */
+}
+
 .botao-favoritos {
-    height: 4vh;
-    width: 9vw; 
-    margin-bottom: 4%;
+    transition: transform 0.5s ease;
+}
+
+.botao-favoritos:hover {
+    transform: rotate(360deg);
 }
 
 /* ----------------------------MODAL---------------------------------- */

@@ -2,29 +2,29 @@ const idUsuario = sessionStorage.getItem('idUsuario');
 const pedidoSessionStorage = sessionStorage.getItem('PEDIDO_DETALHES');
 let idPedido = 0;
 
-function carregarStatusPedido(estado){
+function carregarStatusPedido(estado) {
     if (estado === "Pedido cancelado") {
         return
     }
 
-    if (estado === "Pedido em espera"){
+    if (estado === "Pedido em espera") {
         const divBotaoCancelar = document.getElementById("divBotaoCancelar")
         divBotaoCancelar.style.display = "flex";
 
         return;
     }
 
-    if (estado === "Pedido aceito"){
+    if (estado === "Pedido aceito") {
         const img = document.getElementById("icon1");
 
         img.src = "/ZKFood/assets/Check Mark.png"
-    } else if (estado === "Pedido em preparo"){
+    } else if (estado === "Pedido em preparo") {
         const img1 = document.getElementById("icon1");
         img1.src = "/ZKFood/assets/Check Mark.png"
 
         const img2 = document.getElementById("icon2");
         img2.src = "/ZKFood/assets/Check Mark.png"
-    } else if (estado === "Pedido a caminho"){
+    } else if (estado === "Pedido a caminho") {
         const img1 = document.getElementById("icon1");
         img1.src = "/ZKFood/assets/Check Mark.png"
 
@@ -36,7 +36,7 @@ function carregarStatusPedido(estado){
     }
 }
 
-async function carregarPedido(){
+async function carregarPedido() {
     const pedido = await new FetchBuilder().request(`${ambiente.local + prefix.pedidos}/${pedidoSessionStorage}`);
     idPedido = pedido.id;
     const div = document.getElementById('disposicaoItens');
@@ -88,7 +88,7 @@ async function carregarPedido(){
     divValorTotal.innerHTML = 'R$ ' + valorTotal.toFixed(2);
 
     carregarStatusPedido(pedido.estado);
-    await carregarEndereco(pedido.endereco.id);
+    await carregarEndereco(pedido?.endereco?.id ? pedido.endereco.id : null);
 }
 
 window.onload = function () {
@@ -111,6 +111,12 @@ window.onload = function () {
 }
 
 async function carregarEndereco(id){
+    if (!id) {
+        const div = document.getElementById('divEnderecoStatusPedido');
+        div.style.display = 'none';
+        return;
+    }
+
     const endereco = await new FetchBuilder().request(`${ambiente.local + prefix.usuarios}/${idUsuario}/${prefix.enderecos}/${id}`);
 
     const div = document.getElementById('informacaoEndereco');
@@ -123,7 +129,7 @@ async function carregarEndereco(id){
     `;
 }
 
-async function cancelarPedido(){
+async function cancelarPedido() {
     const fetchBuilder = new FetchBuilder();
 
     const resposta = await fetch(`${ambiente.local}estado-pedido-historico`, {
@@ -139,5 +145,32 @@ async function cancelarPedido(){
 
     await fetchBuilder.request(`${ambiente.local}estado-pedido-historico`, request);
 
-    alert("Pedido cancelado com sucesso!");
+    exibirPopup("Pedido cancelado com sucesso!", "success")
+}
+
+// Função para exibir o popup de sucesso ou erro
+function exibirPopup(mensagem, tipo) {
+    const popup = document.getElementById("popup");
+    const popupIcon = document.getElementById("popup-icon");
+    const popupTitle = document.getElementById("popup-title");
+    const popupMessage = document.getElementById("popup-message");
+
+    if (tipo === "success") {
+        popupIcon.src = "/ZKFood/assets/sucesso.png";
+        popupTitle.textContent = "Sucesso!";
+        popupTitle.style.color = "#33D700";
+    } else {
+        popupIcon.src = "/ZKFood/assets/erro.png";
+        popupTitle.textContent = "Erro!";
+        popupTitle.style.color = "#EB3223";
+    }
+
+    popupMessage.textContent = mensagem;
+    popup.style.display = "flex";
+}
+
+// Função para fechar o popup
+function closePopup() {
+    const popup = document.getElementById("popup");
+    popup.style.display = "none";
 }

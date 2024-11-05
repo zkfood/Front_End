@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     // Função para renderizar os favoritos
     function renderizarFavoritos(favoritos) {
+        const divQtdItensFavoritos = document.getElementById('qtdItensFavoritos');
+        divQtdItensFavoritos.innerHTML = `Itens (${favoritos.length})`
+
         containerCards.innerHTML = "";
 
         favoritos.forEach(favorito => {
