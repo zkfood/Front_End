@@ -18,6 +18,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap"
         rel="stylesheet">
+
+    <script src="../../js/fetch.js"></script>
+    <script src="../../js/pedido.js"></script>
 </head>
 
 <body>
@@ -101,16 +104,15 @@
 
     <div class="container-titulo">
         <div class="caminho">
-            <p>Carrinho >
+            <p>Cardapio >
+                Carrinho >
                 <b>Endereço ></b>
-                Pagamento >
                 Status do Pedido
             </p>
         </div>
     </div>
     <div class="container">
-        <div id="retorno_de_dados">
-        </div>
+        <div id="retorno_de_dados"></div>
     </div>
 
 
@@ -202,7 +204,7 @@
                     <div id="container_lista_enderecos"></div>`;
                     const enderecos = document.getElementById("container_lista_enderecos");
                     enderecos.innerHTML = dados.map(renderizarCardEndereco).join('');
-                    enderecos.innerHTML += `<a class="botao-azul" id="botaoContinuar" href="./pagamento.html" style="display: none;">Continuar</a>`;
+                    enderecos.innerHTML += `<a class="botao-azul" id="botaoContinuar" onclick="cadastrarPedido()" style="display: none;">Continuar</a>`;
                 }
             } else {
                 console.log('Erro ao buscar os dados');
@@ -266,6 +268,8 @@
         const botaoContinuar = document.getElementById("botaoContinuar");
         const algumaMarcada = Array.from(checkboxes).some(checkbox => checkbox.checked);
         botaoContinuar.style.display = algumaMarcada ? 'block' : 'none';
+
+        sessionStorage.setItem('ENDERECO_CARRINHO', JSON.stringify(idSelecionado));
     }
 
     function editar(idEndereco) {

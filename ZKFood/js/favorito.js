@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async function() {
     const containerCards = document.querySelector('.container-cards');
-    const idUsuario = sessionStorage.getItem('IdUsuario');
+    const idUsuario = sessionStorage.getItem('idUsuario');
 
     // Função para buscar favoritos do backend
     async function buscarFavoritos() {

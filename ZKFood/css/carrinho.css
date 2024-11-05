@@ -253,6 +253,9 @@ span{
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2%;
+    span {
+        color: black;
+    }
 }
 
 .total{
