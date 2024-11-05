@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Pedidos </title>
+    <title>Cadastrar Pedidos</title>
     <link rel="stylesheet" href="/ZKFood/css/atendente/style.css">
     <link rel="stylesheet" href="/ZKFood/css/atendente/formularioPedido.css">
 
@@ -28,7 +28,8 @@
                         alt="seta para retornar a página anterior">
                 </a>
                 <a href="./pedidos.html"><img id="imagem" class="imagem-logo"
-                        src="/ZKFood/assets/atendente/imagem_2024-02-29_210941642-removebg-preview 5.png" alt="Logo do ZKFOOD"></a>
+                        src="/ZKFood/assets/atendente/imagem_2024-02-29_210941642-removebg-preview 5.png"
+                        alt="Logo do ZKFOOD"></a>
             </div>
             <div class="org-nav-bar">
                 <ul class="navbar">
@@ -66,42 +67,16 @@
                     </div>
 
                 </div>
-        
-                <div class="form-group">
-                    <label for="pedido">Pedido</label>
-                    <div class="form-group pedido-item">
-
-                        <!-- Lista de categorias -->
-                        <select id="pedido" name="pedido">
-                            <option value="Prato">Prato</option>
-                            <option value="PratoDia">Prato do dia</option>
-                            <option value="Porcoes">Porções</option>
-                            <option value="Bebida">Bebida</option>
-                        </select>
-
-                        <!-- Lista de itens disponiveis da categoria selecionada -->
-                        <select id="pedido" name="pedido">
-                            <option value="Prato">Feijoada</option>
-                            <option value="Prato">Suco de laranja</option>
-    
-                        </select>
-
-                        <input type="number" id="quantidade" name="quantidade" min="1" placeholder="Qtd">
-                        <input type="text" id="observacao" name="observacao" placeholder="Observação">
-                    </div>
-
-                </div>
 
                 <button class="adicionar" type="button" onclick="adicionarPedido()">+</button>
 
-                <div class="form-group">
+                <div class="form-group" id="tipoEntregaContainer">
                     <label for="tipoEntrega">Tipo de entrega</label>
                     <select id="tipoEntrega" name="tipoEntrega">
                         <option value="Presencial">Presencial</option>
-                        <option value="Delivery">Delivery</option>
-                        <option value="Balcao">Retirada no balcão</option>
+                        <option value="Balcão">Retirada no balcão</option>
                     </select>
-                    <label for="numMesa">Número da mesa</label>
+                    <label for="numMesa" id="mesaLabel">Número da mesa</label>
                     <input type="number" id="mesa" name="mesa" placeholder="Número da mesa">
                 </div>
 
@@ -109,22 +84,20 @@
         </div>
         <button onclick="cadastrarPedido()" class="botao-pedido">CADASTRAR NOVO PEDIDO</button>
     </div>
+    
+    <!-- Popup de Sucesso/Erro -->
+    <div id="popup" class="popup">
+        <div class="popup-background">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <img id="popup-icon" src="" alt="Icon">
+                <h2 id="popup-title" class="popup-title"></h2>
+                <p id="popup-message" class="popup-message"></p>
+            </div>
+        </div>
+    </div>
 
-    <script>
-        function adicionarPedido() {
-            // Clona o bloco de campos
-            const pedidoContainer = document.getElementById('pedidoContainer');
-            const novoPedido = document.querySelector('.pedido-item').cloneNode(true);
-
-            // Limpa os campos do novo bloco clonado
-            novoPedido.querySelector('select[name="pedido"]').value = '';
-            novoPedido.querySelector('input[name="quantidade"]').value = '';
-            novoPedido.querySelector('input[name="observacao"]').value = '';
-
-            // Adiciona o novo bloco ao container
-            pedidoContainer.appendChild(novoPedido);
-        }
-    </script>
+    <script src="/ZKFood/js/atendente/cadastrar.js"></script>
 </body>
 
 </html>
