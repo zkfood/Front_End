@@ -88,7 +88,7 @@ async function carregarPedido(){
     divValorTotal.innerHTML = 'R$ ' + valorTotal.toFixed(2);
 
     carregarStatusPedido(pedido.estado);
-    await carregarEndereco(pedido.endereco.id);
+    await carregarEndereco(pedido?.endereco?.id ? pedido.endereco.id : null);
 }
 
 window.onload = function () {
@@ -111,6 +111,12 @@ window.onload = function () {
 }
 
 async function carregarEndereco(id){
+    if (!id) {
+        const div = document.getElementById('divEnderecoStatusPedido');
+        div.style.display = 'none';
+        return;
+    }
+
     const endereco = await new FetchBuilder().request(`${ambiente.local + prefix.usuarios}/${idUsuario}/${prefix.enderecos}/${id}`);
 
     const div = document.getElementById('informacaoEndereco');
