@@ -1,4 +1,4 @@
-const idUsuario = sessionStorage.getItem('IdUsuario');
+const idUsuario = sessionStorage.getItem('idUsuario');
 const pedidoSessionStorage = sessionStorage.getItem('PEDIDO_DETALHES');
 let idPedido = 0;
 
