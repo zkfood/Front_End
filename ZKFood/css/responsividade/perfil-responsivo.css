@@ -20,8 +20,8 @@
 }
 
 .card-perfil {
-    width: 90%;
-    height: 60vh;
+    width: 80%;
+    height: max-content;
     background-color: white;
     box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
@@ -37,6 +37,7 @@
 .card-perfil img {
     width: 50px;
     margin: 1%;
+    margin-top: 10%;
 }
 
 .card-perfil h1 {
@@ -49,15 +50,17 @@
 
 .container-usuario {
     display: flex;
-    width: 95%;
+    flex-direction: column;
+    width: 50%;
     justify-content: space-around;
 }
 
 .info-usuario {
-    width: 30%;
+    width: 100%;
     display: flex;
-    gap: 10px;
+    gap: 0px;
     flex-direction: column;
+    margin-top: 6%;
 }
 
 .info-usuario p,
@@ -85,6 +88,7 @@
     font-family: "Bebas Neue", sans-serif;
     cursor: pointer;
     margin-top: 15%;
+    margin-bottom: 10%;
     text-decoration: none;
     text-align: center;
     display: flex;
@@ -173,10 +177,12 @@
 .titulo-pai {
     width: 100%;
     margin-bottom: 15px;
+    display: flex;
 }
 
 .card-endereco img {
-    height: 40px;
+    height: 25px;
+    margin-right: 3%;
 }
 
 .container-endereco {
@@ -190,7 +196,7 @@
 
 .titulo-endereco {
     height: 40px;
-    font-size: 32px;
+    font-size: 25px;
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
 }
@@ -302,5 +308,198 @@
 
 #inputRua, #inputNumero{
     width: 26.5%;
+}
+
+/* Card de endereço */
+.container-listar-enderecos{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+.card-endereco .clicado{
+    width: 60%;
+    height: auto;
+    border: none;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 2%;
+    box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+    padding: 10px;
+}
+
+.card-endereco{
+    width: 100%;
+    height: auto;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #ffffff;
+    padding: 2%;
+    box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 30px;
+}
+
+.titulo-pai {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.card-endereco img {
+    height: 40px;
+}
+
+.container-endereco {
+    width: 90%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#retorno_de_dados{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#container_lista_enderecos{
+    width: 100%;
+}
+
+.titulo-endereco {
+    height: 40px;
+    font-size: 32px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+}
+
+.titulo-endereco span {
+    color: #FFB90A;
+}
+
+.conteudo-pai {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.informacao-endereco {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 90%;
+}
+
+.informacao-endereco span {
+    font-size: 24px;
+}
+
+
+.endereco-conteudo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-right: 10%;
+}
+
+.botoes-endereco {
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    justify-content: space-between;
+}
+
+/* Botões */
+
+.botao-excluir,
+.botao-editar {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+.botao-excluir {
+    background-color: #fff;
+    color: #000;
+    border: #000 solid 1px;
+}
+
+.botao-excluir:hover{
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+}
+
+.botao-editar {
+    background-color: #68A5FF;
+    color: #fff;
+    border: none;
+}
+
+.botao-azul {
+    background-color: #68A5FF;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    width: 100%; /* Ajuste a largura se necessário */
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Bebas Neue", sans-serif;
+    cursor: pointer;
+    margin-top: 8%;
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Adiciona a transição suave */
+    display: flex; /* Usado para centralizar */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: center; /* Garante que o texto dentro seja centralizado */
+    line-height: 40px; /* Ajusta a altura da linha para centralizar verticalmente */
+}
+
+
+.informacao-endereco input {
+    font-size: 1rem;
+    color: #333;
+}
+
+.informacao-endereco input {
+    width: 100%;
+    height: 25px;
+    border: 1px solid #818181;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+#inputRua, #inputNumero{
+    width: 100%;
 }
 }

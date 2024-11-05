@@ -74,7 +74,7 @@
                 <li><a href="cardapio.html" class="tela_atual">
                         <p>Cardápio</p>
                     </a></li>
-                <li><a href="statusPedido.html">Meus Pedidos</a></li>
+                <li><a href="historico-pedidos.html">Meus Pedidos</a></li>
                 <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
             </ul>
         </div>
@@ -96,7 +96,7 @@
                 alt="Icone de carrinho retratando tela de carrinho no menu">
             <span>Carrinho</span>
         </a>
-        <a href="./statusPedido.html">
+        <a href="./historico-pedidos.html">
             <img src="../../assets/icons-responsivo/icon-documento.png"
                 alt="Icone de documento retratando tela de status do pedido no menu">
             <span>Pedidos</span>
@@ -111,7 +111,6 @@
 
     <!-- Banner inicial do cadapio -->
     <div class="banner-cardapio"></div>
-
 
     <!-- Menu do cardápio -->
     <div class="container-menu">
@@ -154,9 +153,49 @@
     </div>
 
     <!-- Itens do cardapio -->
-
     <div class="container-cardapio">
         <div id="itensCardapio" class="itens-cardapio"></div>
+    </div>
+
+    <!-- Fundo semitransparente -->
+    <div id="modalBackground" class="modal-background">
+        <!-- Modal -->
+        <div class="modal">
+            <span class="close" id="closeModal">&times;</span>
+            <h2 id="card-nome">Feijoada Média</h2>
+            <div class="modal-content">
+                <img src="https://via.placeholder.com/150" alt="Prato de comida" id="card-imagem">
+                <div class="modal-info">
+                    <p id="card-descricao">Descrição, descrição, descrição, descrição, descrição, descrição, descrição,
+                        descrição, </p>
+                    <label for="observacao">Observação</label>
+                    <textarea id="observacao" placeholder="Digite uma observação"></textarea>
+
+                    <div class="seletor-quantidade">
+                        <button class="diminuir">-</button>
+                        <input value="1" min="1" max="99" id="input-quantidade" readonly>
+                        <button class="aumentar">+</button>
+                    </div>
+
+                    <div class="modal-botoes">
+                        <button class="botao-carrinho-modal" onclick="adicionarAoCarrinho()">Adicionar ao
+                            Carrinho</button>
+                        <button class="botao-azul" onclick="comprarAgora()">Comprar Agora</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-background">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <img id="popup-icon" src="" alt="Icon">
+                <h2 id="popup-title" class="popup-title"></h2>
+                <p id="popup-message" class="popup-message"></p>
+            </div>
+        </div>
     </div>
 </body>
 
@@ -200,4 +239,26 @@
         });
     });
     receberPratos();
+
+
+    //JS para o seletor de quantidade
+    document.querySelectorAll('.seletor-quantidade').forEach(seletor => {
+        const diminuir = seletor.querySelector('.diminuir');
+        const aumentar = seletor.querySelector('.aumentar');
+        const input = seletor.querySelector('input');
+
+        diminuir.addEventListener('click', () => {
+            let valorAtual = parseInt(input.value);
+            if (valorAtual > 1) {
+                input.value = valorAtual - 1;
+            }
+        });
+
+        aumentar.addEventListener('click', () => {
+            let valorAtual = parseInt(input.value);
+            if (valorAtual < 99) { // Definindo o máximo como 99
+                input.value = valorAtual + 1;
+            }
+        });
+    });
 </script>

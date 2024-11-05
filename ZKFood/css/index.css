@@ -50,6 +50,8 @@ body {
 
 .org-nav-bar {
     display: flex;
+    margin-left: 5%;
+    align-items: center;
     width: 100%;
 }
 
@@ -82,6 +84,7 @@ body {
     font-size: 18px;
     font-family: "Roboto", sans-serif;
     cursor: pointer;
+    margin-right: 50%;
 }
 
 .paginas-agora {
@@ -581,7 +584,7 @@ footer {
 
 .informacoes {
     display: flex;
-    width: 80%;
+    width: 70%;
     justify-content: space-between;
     align-items: end;
 }

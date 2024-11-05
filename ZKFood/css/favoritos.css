@@ -56,7 +56,8 @@ body {
     width: 90%;
     height: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
     margin-top: 2%;
 }
 
@@ -68,6 +69,7 @@ body {
     justify-content: space-between;
     margin-bottom: 10%;
     cursor: pointer;
+    margin-right: 10%;
 }
 
 .img-prato {

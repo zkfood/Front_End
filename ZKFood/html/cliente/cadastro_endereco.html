@@ -76,7 +76,7 @@
                         <p>Página Inicial</p>
                     </a></li>
                 <li><a href="cardapio.html">Cardápio</a></li>
-                <li><a href="statusPedido.html">Meus Pedidos</a></li>
+                <li><a href="historico-pedidos.html">Meus Pedidos</a></li>
                 <li><a href="cadastro_endereco.html" class="tela_atual">
                         <p> Cadastrar Endereço</p>
                     </a></li>
@@ -98,7 +98,7 @@
                 <img src="../../assets/icons-responsivo/icon-carrinho.png" alt="Icone de carrinho retratando tela de carrinho no menu">
                 <span>Carrinho</span>
             </a>
-            <a href="./statusPedido.html">
+            <a href="./historico-pedidos.html">
                 <img src="../../assets/icons-responsivo/icon-documento.png" alt="Icone de documento retratando tela de status do pedido no menu">
                 <span>Pedidos</span>
             </a>
@@ -136,17 +136,28 @@
                     <div class="div_numero">
 
                         <label>Número</label>
-                        <input type="text" id="numero" placeholder="Número">
+                        <input type="text" id="numero" placeholder="Número da sua casa/apartamento">
                     </div>
 
                     <div class="div_cep">
                         <label>CEP</label>
-                        <input type="text" id="cep" placeholder="08490490" onblur="buscarCEP()">
+                        <input type="text" id="cep" placeholder="Digite o seu CEP" onblur="buscarCEP()">
                     </div>
                 </div>
                 <label>Complemento</label>
-                <input type="text" id="complemento">
+                <input type="text" id="complemento" placeholder="Digite um complemento.">
                 <button class="botao-cadastrar" onclick="cadastrarEndereco()">Cadastrar Endereço</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-background">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <img id="popup-icon" src="" alt="Icon">
+                <h2 id="popup-title" class="popup-title"></h2>
+                <p id="popup-message" class="popup-message"></p>
             </div>
         </div>
     </div>

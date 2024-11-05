@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../css/dashboard_ajustes/analise_produtos.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+
+    <link rel="icon" href="/ZKFood/assets/logo-icon.png" type="image/png">
+
+    <script src="../../js/dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="../../js/fetch.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/ZKFood/assets/logo-icon.png" type="image/png">
+    <link rel="stylesheet" href=../..css/..dashboard/">
+    <title>Análise de Produtos</title>
+</head>
+
+<body>
+
+    <!-- <div class="container_sep_info_dash">
+
+        <div class="container_info">
+            <div class="container_logo">
+                <img src="../../assets/logo-icon.png" alt="zkFood_logo">
+            </div>
+            <div class="container_texto_Bem_vindo">
+                Bem Vindo, <br>
+                <h2>Zeca Silva</h2>
+            </div>
+            <div class="container_txt_dashboard">
+                Dashboards
+            </div>
+            <div class="container_opcoes_dash">
+                <ul>
+                    <li id="opcao_selecionada">
+                        <img src="../../assets/jantar 1.png" alt=""> Produtos
+                    </li>
+                    <div class="container_sub_opcoes_dash">
+                        <ul>
+                            <li> > <a href="./dashboard.html"> Dashboard </a></li>
+                            <li> > <span id="sub_opcao_selecionada"> <a href="./crud_produtos.html"> Análise de Produtos
+                                    </a> </span> </li>
+                            <li> > <a href="./cadastro_produtos.html"> Cadastrar Produtos </a></li>
+                        </ul>
+                    </div>
+                    <li> > <img src="../../assets/avaliacoes 1.png" alt=""> Avaliações</li>
+                    <li> > <img src="../../assets/money-bag 1.png" alt=""> Financeiro</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container_dash">
+            <div class="container_crud_produtos">
+                <div class="titulo_analise_produtos">
+                    ANÁLISE DE PRODUTOS
+                </div>
+                <div id="retorno_de_dados"></div>
+                <div id="popup_crud" class="popup_crud">
+                    <div class="popup-background">
+                        <div class="popup-content_crud">
+                            <span class="close" onclick="closePopup()">&times;</span>
+                            <img id="popup-icon" src="../../assets/deletar.png" alt="Icon">
+                            <h2 id="popup-title" class="popup-title">REMOVER PRODUTO?</h2>
+                            <p id="popup-message" class="popup-message">Tem certeza que deseja remover este produto?</p><br>
+                            <button id="confirm-delete-button" onclick="confirmarDelete()">REMOVER</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container_sep_info_dash">
+        <div id="menu-container" class="menu-container">
+            <script>
+                const menuContainer = document.getElementById("menu-container");
+                fetch("menu_dashboard.html")
+                    .then(response => response.text())
+                    .then(data => {
+                        menuContainer.innerHTML = data;
+                    })
+                    .catch(err => console.error("Erro ao carregar o menu:", err));
+            </script>
+        </div>
+        <div class="container_dash">
+            <div class="container_crud_produtos">
+                <div class="titulo_analise_produtos">
+                    ANÁLISE DE PRODUTOS
+                </div>
+                <div id="retorno_de_dados"></div>
+                <div id="popup_crud" class="popup_crud">
+                    <div class="popup-background">
+                        <div class="popup-content_crud">
+                            <span class="close" onclick="closePopup()">&times;</span>
+                            <img id="popup-icon" src="../../assets/deletar.png" alt="Icon">
+                            <h2 id="popup-title" class="popup-title">REMOVER PRODUTO?</h2>
+                            <p id="popup-message" class="popup-message">Tem certeza que deseja remover este produto?</p>
+                            <br>
+                            <button id="confirm-delete-button" onclick="confirmarDelete()">REMOVER</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    let idProdutoParaDeletar = null;
+
+    let produtosCache = []; // Armazena os produtos inicialmente carregados
+
+    async function buscar() {
+        const divResposta = document.getElementById("retorno_de_dados");
+
+        // Exibe uma mensagem de carregamento
+        exibirMensagemCarregando(divResposta);
+
+        try {
+            const resposta = await fetch("http://localhost:8080/produtos");
+            if (!resposta.ok) throw new Error("Erro ao buscar os produtos.");
+
+            const respostaDados = await resposta.json();
+            produtosCache = respostaDados; // Salva os produtos no cache para facilitar o filtro
+
+            if (respostaDados.length <= 0) {
+                exibirMensagemVazio(divResposta);
+            } else {
+                renderizarProdutos(divResposta, respostaDados);
+            }
+        } catch (error) {
+            console.error("Erro:", error);
+            exibirMensagemErro(divResposta);
+        }
+    }
+
+    function exibirMensagemCarregando(divResposta) {
+        divResposta.innerHTML = `<p>Carregando produtos, por favor aguarde...</p>`;
+    }
+
+    function exibirMensagemVazio(divResposta) {
+        divResposta.innerHTML = `
+        <div class="container_resposta_vazio">
+            <div class="titulo_resposta_vazio">NÃO HÁ NADA AQUI !!</div>
+            <div class="texto_resposta_vazio">Oops, parece que você ainda não fez o cadastro dos seus produtos.</div>
+            <div class="button_cadastrar_produto">
+                <button onclick="chamar_card_cadastrar()">CADASTRAR AGORA!</button>
+            </div>
+        </div>
+    `;
+    }
+
+    function exibirMensagemErro(divResposta) {
+        divResposta.innerHTML = `
+        <div class="container_resposta_erro">
+            <div class="titulo_resposta_erro">ERRO AO CARREGAR!</div>
+            <div class="texto_resposta_erro">Não foi possível carregar os produtos. Tente novamente mais tarde.</div>
+            <div class="button_tentar_novamente">
+                <button onclick="buscar()">TENTAR NOVAMENTE</button>
+            </div>
+        </div>
+    `;
+    }
+
+    // Função de renderização com filtro
+    function renderizarProdutos(divResposta, produtos) {
+        divResposta.innerHTML = `
+        <div class="container_card_lista_produtos">
+            <div class="card_lista_produtos">
+                <div class="container_opcoes_cadastro_filtro">
+                    <div class="container_opcoes">
+                        <button onclick="chamar_card_cadastrar()">+ CADASTRAR</button>
+                        <select name="tipos_produto" id="select_tipo" onchange="filtrarProdutos()">
+                            <option value="0">Filtro:</option>
+                            <option value="1">Comida</option>
+                            <option value="2">Porção</option>
+                            <option value="3">Bebida</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="container_legenda_lista">
+                    <div class="imagem_legenda_lista">Imagem</div>
+                    <div class="produto_legenda_lista">Produto</div>
+                    <div class="preco_legenda_lista">Preço</div>  
+                    <div class="disponibilidade_legenda_lista">Disponível</div>
+                </div>
+                <div id="container_lista_produtos"></div>
+            </div>
+        </div>
+    `;
+
+        const produtosContainer = document.getElementById("container_lista_produtos");
+        produtosContainer.innerHTML = produtos.map(produto => {
+            const disponibilidadeClasse = produto.disponibilidade ? "disponivel" : "indisponivel";
+            const disponibilidadeTexto = produto.disponibilidade ? "Ativo" : "Inativo";
+
+            return `
+            <div class="container_produto">
+                <div class="container_legenda">
+                    <div class="imagem_legenda_lista">
+                        <img src="${ambiente.local}${prefix.produtos}/imagem/${produto.id}" alt="${produto.nome}">
+                    </div>
+                    <div class="produto_legenda_lista">${produto.nome}</div>
+                    <div class="preco_legenda_lista">R$${produto.valor}.00</div>
+                    <div class="disponibilidade_legenda_lista_${disponibilidadeClasse}" onclick="alterarDisponibilidade(${produto.id})">
+                        ${disponibilidadeTexto}
+                    </div>
+                </div>
+                <div class="container_update_delete">
+                    <div class="container_funcionalidade_deletar" onclick="abrirPopup(${produto.id})">
+                        <img src="../../assets/lata-de-lixo 1.png" alt="Deletar">
+                    </div>
+                    <div class="container_funcionalidade_atualizar" onclick="atualizar()">
+                        <img src="../../assets/editar-codigo.png" alt="Atualizar">
+                    </div>
+                </div>
+            </div>
+            <br>
+        `;
+        }).join('');
+    }
+
+    // Função para filtrar os produtos
+    function filtrarProdutos() {
+    const filtro = document.getElementById("select_tipo").value;
+    let produtosFiltrados; // Declara a variável para armazenar os produtos filtrados
+
+    // Verifica se o filtro é "0" para exibir todos os produtos
+    if (filtro === "0") {
+        produtosFiltrados = produtosCache; // Se for "0", exibe todos os produtos
+    } else {
+        // Caso contrário, filtra os produtos pelo tipoProduto
+        produtosFiltrados = produtosCache.filter(produto => produto.tipoProduto === parseInt(filtro));
+    }
+
+    // Renderiza os produtos filtrados ou todos os produtos
+    const divResposta = document.getElementById("retorno_de_dados");
+    renderizarProdutos(divResposta, produtosFiltrados);
+}
+
+
+
+    // Executa a função buscar ao carregar a página
+    window.onload = buscar;
+
+
+
+    function chamar_card_cadastrar() {
+        window.location.href = "cadastro_produtos.html";
+    }
+
+    async function alterarDisponibilidade(idProduto) {
+        const url = `http://localhost:8080/produtos/${idProduto}`;
+
+        try {
+            // Primeiro, busque os dados do produto atual
+            const respostaProduto = await fetch(url);
+            if (!respostaProduto.ok) {
+                throw new Error('Erro ao buscar o produto');
+            }
+            const produto = await respostaProduto.json();
+
+            // Inverter a disponibilidade atual
+            const novaDisponibilidade = !produto.disponibilidade;
+
+            let headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            headers.append('Accept', '*/*');
+
+            const resposta = await fetch(url, {
+                method: "PATCH",
+                headers: headers,
+                body: JSON.stringify({
+                    disponibilidade: novaDisponibilidade
+                })
+            });
+
+            if (!resposta.ok) {
+                throw new Error('Erro ao alterar disponibilidade do produto');
+            }
+
+            const dados = await resposta.json();
+            console.log("Produto atualizado:", dados);
+
+            // Após atualizar a disponibilidade, chamar a função buscar() para atualizar a lista
+            await buscar();
+        } catch (erro) {
+            console.log("Erro: ", erro);
+        }
+    }
+
+    function abrirPopup(idProduto) {
+        idProdutoParaDeletar = idProduto;  // Guardar o ID do produto para deletar
+        document.getElementById("popup_crud").style.display = "block";
+    }
+
+    async function confirmarDelete() {
+        if (!idProdutoParaDeletar) return;
+
+        const url = `http://localhost:8080/produtos/${idProdutoParaDeletar}`;
+
+        try {
+            const resposta = await fetch(url, {
+                method: "DELETE"
+            });
+
+            if (!resposta.ok) {
+                throw new Error('Erro ao deletar o produto');
+            }
+
+            console.log("Produto deletado com sucesso!");
+
+            // Após deletar o produto, chamar a função buscar() para atualizar a lista
+            await buscar();
+        } catch (erro) {
+            console.log("Erro: ", erro);
+        } finally {
+            closePopup();  // Fechar o popup após deletar o produto
+        }
+    }
+
+    // Função para fechar o pop-up
+    function closePopup() {
+        document.getElementById("popup_crud").style.display = "none";
+    }
+
+</script>
+
+</html>

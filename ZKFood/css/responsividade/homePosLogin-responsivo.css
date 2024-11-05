@@ -117,23 +117,15 @@
     }
 
 
-    /* BANNER CARROSSEL */
+/* BANNER CARROSSEL */
 
-    .container_carrossel {
-        height: 25vh;
-        align-items: start;
-    }
+.container-banner {
+    width: 100%;
+    height: 25vh;
+    background-image: url(../../assets/banner-inicial-responsivo.png);
+    background-size: cover;
+}
 
-    .carrossel {
-        height: 25vh;
-        background-image: url(../../assets/icons-responsivo/banner-inicial-responsivo.png);
-        background-size: cover;
-    }
-
-    .carrossel img {
-        width: 0%;
-        height: 0vh;
-    }
 
     /* Acesse nosso cardápio */
     .container-cardapio {
@@ -291,6 +283,7 @@
     .bloco-footer {
         height: 9vh;
         align-items: center;
+        width: 90%;
     }
 
     .logo-footer {
@@ -349,4 +342,51 @@
     .caminho b {
         color: #181818;
     }
+
+/* CARD DE NOTIFICAÇÃO */
+
+.popup-background {
+    height: auto;
+    width: 85vw;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.popup-content {
+    height: auto;
+    width: 90%;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.popup-title {
+    margin: 0;
+    font-size: 40px;
+    font-family: "Bebas Neue", sans-serif;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.popup-message {
+    margin: 10px 0 0;
+    font-size: 25px;
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 5%;
+}
+
+.close {
+    width: 39px;
+    height: 39px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 50px;
+}
+
+.popup img {
+    width: 103px;
+    height: 103px;
+    margin-bottom: 10px;
+}
 }

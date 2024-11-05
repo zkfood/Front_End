@@ -18,6 +18,7 @@
 </head>
 
 <body>
+    
     <!-- API de acessibilidade VLIBRAS -->
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
@@ -29,6 +30,7 @@
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
+    
 
     <div class="container_navbar">
         <div class="parte_superior_navbar">
@@ -67,7 +69,7 @@
                         <p>Página Inicial</p>
                     </a></li>
                 <li><a href="cardapio.html">Cardápio</a></li>
-                <li><a href="statusPedido.html">Meus Pedidos</a></li>
+                <li><a href="historico-pedidos.html">Meus Pedidos</a></li>
                 <li><a href="cadastro_endereco.html">Cadastrar Endereço</a></li>
             </ul>
         </div>
@@ -87,7 +89,7 @@
             <img src="../../assets/icons-responsivo/icon-carrinho.png" alt="Icone de carrinho retratando tela de carrinho no menu">
             <span>Carrinho</span>
         </a>
-        <a href="./statusPedido.html">
+        <a href="./historico-pedidos.html">
             <img src="../../assets/icons-responsivo/icon-documento.png" alt="Icone de documento retratando tela de status do pedido no menu">
             <span>Pedidos</span>
         </a>
@@ -101,10 +103,7 @@
    
 
     <!-- Carrossel com banner de comida -->
-    <div class="container_carrossel">
-        <div class="carrossel">
-            <img src="../../assets/v2 1.png" alt="Banner com prato de comida, valor e dados do restaurante.">
-        </div>
+    <div class="container-banner">
     </div>
 
     <!-- Iniciando cardapio -->
@@ -148,7 +147,7 @@
         <div class="conteudo-pedidos">
             <h1>Deseja ver <br> seus<span class="span-amarelo">pedidos?</span></h1>
             <p>Acesse seus pedidos, visualize o processo de preparo, avalie e veja seu histórico. Bom apetite!</p>
-            <a href="./statusPedido.html"><button class="botao-acessar">Acessar</button></a>
+            <a href="./historico-pedidos.html"><button class="botao-acessar">Acessar</button></a>
         </div>
     </div>
 
@@ -183,37 +182,35 @@
                 </div>
 
                 <div class="bloco-footer">
-                    <a href="">Menu</a>
-                    <a href="">Contato</a>
+                    <a href="./home_pos_login.html">Home</a>
+                    <a href="./cardapio.html">Cardápio</a>
                 </div>
 
                 <div class="bloco-footer">
-                    <a href="">Sobre</a>
-                    <a href="">Avaliações</a>
+                    <a href="./carrinho.html">Carrinho</a>
+                    <a href="./statusPedido.html">Meus Pedidos</a>
                 </div>
 
                 <div class="bloco-footer">
-                    <a href="">Cadastro</a>
-                    <a href="">Pratos</a>
+                    <a href="./favoritos.html">Favoritos</a>
+                    <a href="./perfil.html">Perfil</a>
                 </div>
             </div>
 
             <div class="linha"></div>
 
             <div class="redes-sociais">
-                <a href=""><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
+                <a href="https://www.facebook.com/share/18D1CNrSUq/?mibextid=LQQJ4d"><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
                 <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="Icone WhatsApp"></a>
-                <a href=""><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
+                <a href="https://www.instagram.com/restaurante.do_zeca?igsh=MWNvMzd1ZDA0em1jMA=="><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
             </div>
 
             <div class="informacoes">
-                <p><a href="">Termos e Condições</a></p>
+                <p><a href="#">Termos e Condições</a></p>
                 <p> | </p>
-                <p><a href="">Política de Privacidade</a></p>
+                <p><a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras">Acessibilidade</a></p>
                 <p> | </p>
-                <p><a href="">Acessibilidade</a></p>
-                <p> | </p>
-                <p><a href="">Suporte</a></p>
+                <p><a href="#">Suporte</a></p>
                 <p> | </p>
                 <p>Developed by © VisionarySolutions, 2024. All rights reserved.</p>
             </div>
@@ -222,16 +219,17 @@
 </body>
 </html>
 
-<script>
+<!-- <script>
 
 // Função para realizar as requisições e armazenar os resultados
 async function buscarDadosUsuarioEArmazenar() {
     // Pegando o ID do usuário armazenado no sessionStorage
-    const idUsuario = sessionStorage.getItem('IdUsuario');
+    const idUsuario = sessionStorage.getItem('idUsuario');
+
 
     // Verificando se o ID do usuário está disponível
     if (!idUsuario) {
-        console.error('ID do usuário não encontrado no sessionStorage.');
+        console.log('ID do usuário não encontrado no sessionStorage.');
         return;
     }
 
@@ -259,11 +257,11 @@ async function buscarDadosUsuarioEArmazenar() {
         }
 
     } catch (erro) {
-        console.error('Erro ao buscar dados:', erro);
+        console.log('Erro ao buscar dados:', erro);
     }
 }
 
 // Corrigindo a chamada do onload
 window.onload = buscarDadosUsuarioEArmazenar;
 
-</script>
+</script> -->

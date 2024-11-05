@@ -5,13 +5,27 @@
 }
 
 /* MENU DO CARDAPIO  */
-.container-menu {
-    height: 20vh;
-}
 
 .menu-cardapio {
     width: 95%;
     height: 12vh;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+.container-menu {
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.container-cardapio {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    height: auto;
 }
 
 .card-menu img {
@@ -40,6 +54,13 @@
     font-size: 15px;
 }
 
+.linha-item-cardapio{
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
 /* itens do cardápio */
 
 /* Card de alimentos */
@@ -49,6 +70,8 @@
     width: 95%;
     height: auto;
     border-radius: 15px;
+    margin-top: 0%;
+    margin-bottom: 8%;
 }
 
 .card-cardapio:hover {
@@ -58,16 +81,20 @@
 .conteudo-cardapio{
     padding: 15px;
     height: 27vh;
+    width: 40%;
 }
 
-.conteudo-cardapio h1{
-    font-size: 40px;
+.conteudo-cardapio h2{
+    font-size: 30px;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }
 
 .imagem-cardapio{
-    width: 40%;
-    padding: 15px;
-    height: 27vh;
+    width: 60%;
+    padding: 10px;
+    padding-left: 0px;
+    height: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -75,6 +102,7 @@
 }
 
 .imagem-cardapio img{
+    width: 100%;
     height: 15vh;
     background-size: cover;
 }
@@ -86,10 +114,171 @@
     margin-bottom: 5px;
 }
 
+.botao-favoritos img {
+    height: 2.5vh; 
+    width: 2.5vh; 
+    object-fit: contain; /* Garante que a imagem se encaixe corretamente dentro do botão */
+}
+
 .botao-favoritos {
-    height: 4vh;
-    width: 9vw; 
-    margin-bottom: 4%;
+    transition: transform 0.5s ease;
+}
+
+.botao-favoritos:hover {
+    transform: rotate(360deg);
+}
+
+/* ----------------------------MODAL---------------------------------- */
+
+/* Fundo do modal */
+.modal-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos do modal */
+.modal {
+    background: #fff;
+    width: 80vw;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: fadeIn 0.3s;
+    border: 10px solid #FFB90A;
+}
+
+/* Animação de fade */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Cabeçalho do modal */
+.modal h2 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 6%;
+    margin-top: 3%;
+    margin-left: 10px;
+}
+
+.modal h2 .medium {
+    font-weight: normal;
+}
+
+/* Fechar modal */
+.close {
+    position: absolute;
+    top: px;
+    right: 30px;
+    font-size: 40px;
+    color: #333;
+    cursor: pointer;
+    margin-top: 3%;
+}
+
+/* Conteúdo do modal */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.modal-content img {
+    width: 250px;
+    height: 150px;
+    border-radius: 8px;
+    margin-right: 0px;
+    margin-bottom: 5%;
+}
+
+.modal-info {
+    width: 90%;
+    flex: 1;
+}
+
+.modal-info .seletor-quantidade {
+    width: 120px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    margin-top: 5%;
+}
+
+.modal-info .seletor-quantidade button {
+    border-radius: 50%;
+    width: 70px;
+    height: 40px;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-info p {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10%;
+    text-align: center;
+}
+
+.modal-info label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.modal-info textarea {
+    width: 90%;
+    height: 50px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+}
+
+
+/* Botões de ação */
+.modal-botoes {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.modal-botoes .botao-azul{
+    width: 100%;
+    height: 5vh;
+    font-size: 18px;
+}
+
+.botao-carrinho-modal  {
+    background:black;
+    color: white;
+    border: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    width: 100%;
+    height: 5vh;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 2s, color 2s;
+    margin-top: 5%;
 }
 
 }
+

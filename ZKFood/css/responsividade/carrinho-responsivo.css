@@ -28,34 +28,44 @@
 
     .lista {
         width: 95%;
+        height: auto;
     }
 
-    .card-cardapio {
-        height: 25vh;
-        margin-top: 8%;
+    .card-cardapio{
+        padding: 0px;
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+        margin-top: 0%;
+        margin-bottom: 8%;
     }
-
-    .conteudo-cardapio {
-        height: 25vh;
+    
+    .card-cardapio:hover {
+        transform: none;
     }
-
-    .conteudo-cardapio h2 {
-        width: 95%;
-        font-size: 25px;
+    
+    .conteudo-cardapio{
+        padding: 15px;
+        height: 27vh;
     }
-
-    .conteudo-cardapio p {
-        line-height: 18px;
-        font-size: 17px;
-    }
-
-    .conteudo-cardapio h1 {
+    
+    .conteudo-cardapio h1{
         font-size: 40px;
     }
-
-    .imagem-cardapio img {
+    
+    .imagem-cardapio{
+        padding: 15px;
+        height: 27vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: end;
+    }
+    
+    .imagem-cardapio img{
         width: 100%;
         height: 15vh;
+        background-size: cover;
     }
 
     .botao-lixo img {
@@ -80,6 +90,7 @@
 
     /* Estilo base do radio */
     .custom-radio {
+        width: 100%;
         padding-left: 8vw;
         margin-bottom: 0vh;
         font-size: 18px;
@@ -217,4 +228,17 @@
         transition: transform 0.5s ease;
     }
 
+    .total {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 8%;
+    }
+    .total h2 {
+        width: 40%;
+        color: #FFB90A;
+        align-self: flex-end;
+        text-align: end;
+    }
 }

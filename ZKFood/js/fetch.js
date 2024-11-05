@@ -8,12 +8,10 @@ const prefix = {
     pedidos: "pedidos",
     produtos: "produtos",
     avaliacoes: "avaliacoes",
+    enderecos: "enderecos",
 };
-
 class FetchBuilder {
     async request(url, request = {}) {
-        // padrão se nn tiver request
-
         const {
             body,
             newQueryStringParams = null,
@@ -23,14 +21,12 @@ class FetchBuilder {
 
         const headers = new Headers({
             ...newHeaders
-        })
-        // define como json
+        });
+
         if (newHeaders.contentType !== undefined) {
             headers.append('Content-Type', 'application/json');
         }
 
-
-        //faz a query
         const queryStringParams = newQueryStringParams
             ? '?' + new URLSearchParams(newQueryStringParams).toString()
             : '';
@@ -46,12 +42,11 @@ class FetchBuilder {
                 throw new Error(`Erro: ${response.status} - ${response.statusText}`);
             }
 
-            return await response.json(); 
+            return await response.json();
         } catch (error) {
-            //TODO: fazer o popup
-            
             console.error("Erro na requisição:", error);
-            throw error; // Propaga o erro
+            
+            //window.location = "../cliente/telaErro.html";
         }
     }
 }
