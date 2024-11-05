@@ -267,8 +267,9 @@ span{
 }
 
 .total h2{
-    width: 25%;
+    width: 90%;
     color: #FFB90A;
+    align-self: flex-end;
 }
 
 .botao-azul {

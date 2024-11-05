@@ -11,7 +11,6 @@
 
     <link rel="stylesheet" href="../../css/responsividade/homePosLogin-responsivo.css">
     <link rel="stylesheet" href="../../css/responsividade/cardapio-responsivo.css">
-    <link rel="stylesheet" href="../../css/responsividade/carrinho-responsivo.css">
 
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
@@ -19,8 +18,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap"
         rel="stylesheet">
-        <script src="../../js/fetch.js"></script>
-        <script src="../../js/cardapio.js"></script>
+    <script src="../../js/fetch.js"></script>
+    <script src="../../js/cardapio.js"></script>
 </head>
 
 <body>
@@ -167,7 +166,8 @@
             <div class="modal-content">
                 <img src="https://via.placeholder.com/150" alt="Prato de comida" id="card-imagem">
                 <div class="modal-info">
-                    <p id="card-descricao">Descrição, descrição, descrição, descrição, descrição, descrição, descrição, descrição, </p>
+                    <p id="card-descricao">Descrição, descrição, descrição, descrição, descrição, descrição, descrição,
+                        descrição, </p>
                     <label for="observacao">Observação</label>
                     <textarea id="observacao" placeholder="Digite uma observação"></textarea>
 
@@ -178,10 +178,22 @@
                     </div>
 
                     <div class="modal-botoes">
-                        <button class="botao-carrinho-modal" onclick="adicionarAoCarrinho()">Adicionar ao Carrinho</button>
+                        <button class="botao-carrinho-modal" onclick="adicionarAoCarrinho()">Adicionar ao
+                            Carrinho</button>
                         <button class="botao-azul" onclick="comprarAgora()">Comprar Agora</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-background">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <img id="popup-icon" src="" alt="Icon">
+                <h2 id="popup-title" class="popup-title"></h2>
+                <p id="popup-message" class="popup-message"></p>
             </div>
         </div>
     </div>
