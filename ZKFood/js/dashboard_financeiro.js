@@ -181,7 +181,7 @@ async function buscarTableProdutoMaisVendido() {
         respostaDados.map(
             item => {
                 div_table.innerHTML += `
-                 <tr>
+                    <tr>
                         <td>${item.produto}</td>
                         <td>${item.quantidadeVendida}</td>
                         <td>R$ ${item.receita.toFixed(2)}</td>
