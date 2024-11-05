@@ -11,7 +11,7 @@ async function buscarCEP() {
                 const data = await resposta.json(); // Convertendo a resposta para JSON
 
                 if (data.erro) {
-                    exibirPopup("CEP não encontrado.", "erro")
+                    alert("CEP não encontrado.");
                     return;
                 }
 
@@ -20,40 +20,12 @@ async function buscarCEP() {
                 document.getElementById('logradouro').value = data.logradouro;
                 document.getElementById('complemento').value = data.complemento || '';
             } catch (error) {
-                exibirPopup("Erro ao buscar o CEP. Tente novamente.", "erro")
+                alert("Erro ao buscar o CEP. Tente novamente.");
             }
 
         } else {
             // TODO: colocar span com cor vermelha para exibir mensagem de erro no formulário
-            exibirPopup("Formato de CEP inválido.", "erro")
-            
+            alert("Formato de CEP inválido.");
         }
     }
-}
-
-// Função para exibir o popup de sucesso ou erro
-function exibirPopup(mensagem, tipo) {
-    const popup = document.getElementById("popup");
-    const popupIcon = document.getElementById("popup-icon");
-    const popupTitle = document.getElementById("popup-title");
-    const popupMessage = document.getElementById("popup-message");
-
-    if (tipo === "success") {
-        popupIcon.src = "/ZKFood/assets/sucesso.png";
-        popupTitle.textContent = "Sucesso!";
-        popupTitle.style.color = "#33D700";
-    } else {
-        popupIcon.src = "/ZKFood/assets/erro.png";
-        popupTitle.textContent = "Erro!";
-        popupTitle.style.color = "#EB3223";
-    }
-
-    popupMessage.textContent = mensagem;
-    popup.style.display = "flex";
-}
-
-// Função para fechar o popup
-function closePopup() {
-    const popup = document.getElementById("popup");
-    popup.style.display = "none";
 }

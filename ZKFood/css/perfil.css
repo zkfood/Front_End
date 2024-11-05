@@ -157,7 +157,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 5%;
+    position: relative;
 }
 .card-endereco .clicado{
     width: 60%;
@@ -174,23 +174,9 @@
     background-color: #ffffff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-bottom: 30px;
+    position: relative;
     z-index: 2;
     padding: 10px;
-}
-
-.card-endereco{
-    width: 100%;
-    height: auto;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    padding: 2%;
-    box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-top: 30px;
 }
 
 .titulo-pai {
@@ -233,7 +219,6 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
-    width: 90%;
 }
 
 .informacao-endereco span {
@@ -244,7 +229,7 @@
 .endereco-conteudo {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 500px;
     flex-wrap: wrap;
     margin-right: 10%;
 }
@@ -294,7 +279,7 @@
     border: none;
     border-radius: 10px;
     height: 40px;
-    width: 100%; /* Ajuste a largura se necessário */
+    width: 50%; /* Ajuste a largura se necessário */
     color: #ffffff;
     font-size: 20px;
     font-family: "Bebas Neue", sans-serif;
@@ -325,5 +310,5 @@
 }
 
 #inputRua, #inputNumero{
-    width: 100%;
+    width: 26.5%;
 }
