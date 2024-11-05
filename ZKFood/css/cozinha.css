@@ -59,7 +59,8 @@ header {
     padding: 10px;
     border-radius: 10px;
     background-color: white;
-    text-align: center; /* Centraliza o texto */
+    text-align: center;
+    /* Centraliza o texto */
 }
 
 .balc {
@@ -90,7 +91,8 @@ header {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center; /* Alinha os cartões no centro */
+    justify-content: center;
+    /* Alinha os cartões no centro */
 }
 
 .card {
@@ -98,13 +100,17 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid rgb(143, 143, 143); /* Borda preta */
-    border-radius: 10px; /* Bordas arredondadas */
+    border: 1px solid rgb(143, 143, 143);
+    /* Borda preta */
+    border-radius: 10px;
+    /* Bordas arredondadas */
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: white;
-    width: 250px; /* Largura fixa */
-    height: auto; /* Altura fixa */
+    width: 250px;
+    /* Largura fixa */
+    height: auto;
+    /* Altura fixa */
     box-sizing: border-box;
 }
 
@@ -148,5 +154,82 @@ li {
 p {
     margin: 10px 0 0 0;
     font-size: 1rem;
-    text-align: center; /* Centralizar texto das observações */
+    text-align: center;
+    /* Centralizar texto das observações */
+}
+
+.order-category {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.order-category h2 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.orange {
+    color: #FFA500;
+}
+
+.yellow {
+    color: #FDD835;
+}
+
+.green {
+    color: #4CAF50;
+}
+
+.order-card {
+    width: 240px;
+    border: solid 1px black;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.produtos-container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.orders div {
+    display: flex;
+    flex-direction: column;
+}
+
+.orders div div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+
+.orders-section {
+    justify-content: start2;
+    align-items: center;
+}
+
+.order-id {
+    font-size: 40px;
+    color: inherit;
+    font-weight: 400;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.order-card p {
+    margin: 5px 0;
+
 }

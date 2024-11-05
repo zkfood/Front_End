@@ -7,7 +7,6 @@
     <title>Pedidos - ZKFood</title>
     <link rel="stylesheet" href="/ZKFood/css/atendente/style.css">
     <link rel="stylesheet" href="/ZKFood/css/atendente/kanban.css">
-
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
     <!-- Links Fonts -->
@@ -22,13 +21,16 @@
         <div class="container-header">
             <div class="imagens-header">
                 <a href="./pedidos.html">
-                    <img class="imagem-seta" src="/ZKFood/assets/atendente/Left.png" alt="seta para retornar a página anterior">
+                    <img class="imagem-seta" src="/ZKFood/assets/atendente/Left.png"
+                        alt="seta para retornar a página anterior">
                 </a>
-                <a href="./pedidos.html"><img id="imagem" class="imagem-logo" src="/ZKFood/assets/atendente/imagem_2024-02-29_210941642-removebg-preview 5.png"></a>
+                <a href="./pedidos.html"><img id="imagem" class="imagem-logo"
+                        src="/ZKFood/assets/atendente/imagem_2024-02-29_210941642-removebg-preview 5.png"></a>
             </div>
             <div class="org-nav-bar">
                 <ul class="navbar">
-                    <li class="paginas"><a href="./gerenciarPedidos.html" class="pagina-atual">Gerenciar Pedidos</a></li>
+                    <li class="paginas"><a href="./gerenciarPedidos.html" class="pagina-atual">Gerenciar Pedidos</a>
+                    </li>
                     <li class="paginas"><a href="./cadastrarPedido.html" class="sem-linha">Cadastrar Pedidos</a></li>
                 </ul>
             </div>
@@ -40,85 +42,63 @@
         <div class="container">
             <h1 class="title">GERENCIAR <span class="highlight">PEDIDOS</span></h1>
 
+            <!-- Status Overview com contadores vazios -->
             <div class="status-overview">
                 <div class="status-card">
                     <img src="/ZKFood/assets/atendente/simbolo-de-interface-de-circulo-de-talheres-de-garfo-e-faca-para-restaurante.png"
                         alt="Pedidos Solicitados">
                     <p>Pedidos Solicitados</p>
-                    <div class="counter">2</div>
+                    <div class="counter">0</div>
                 </div>
                 <div class="status-card">
                     <img src="/ZKFood/assets/atendente/simbolo-de-interface-de-circulo-de-talheres-de-garfo-e-faca-para-restaurante (3).png"
                         alt="Pedidos em Preparo">
                     <p>Pedidos em Preparo</p>
-                    <div class="counter">1</div>
+                    <div class="counter">0</div>
                 </div>
                 <div class="status-card">
                     <img src="/ZKFood/assets/atendente/simbolo-de-interface-de-circulo-de-talheres-de-garfo-e-faca-para-restaurante (4).png"
                         alt="Pedidos em Entrega">
                     <p>Pedidos em Entrega</p>
-                    <div class="counter">2</div>
+                    <div class="counter">0</div>
                 </div>
             </div>
 
+            <!-- Seções de Pedidos vazias para preenchimento via JavaScript -->
             <div class="orders-section">
+                <!-- Seção de Pedidos Solicitados -->
                 <div class="order-category">
                     <h2>PEDIDOS <span class="orange">SOLICITADOS</span></h2>
-                    <div class="order-card">
-                        <p class="order-id">657</p>
-                        <span>
-                            <p>1x Feijoada Média</p>
-                            <p>1x Coca-Cola Lata 350ml</p>
-                            <p><strong>OBS:</strong> Sem gelo e com limão</p>
-                            <p><strong>Nº da Mesa:</strong> <input type="number" value="2"></p>
-                        </span>
-                        
-                        <span>
-                            <button class="cancel">Cancelar</button>
-                            <button class="accept">Aceitar</button>
-                        </span>
-                        
-                    </div>
+                    <div class="order-list solicitados"></div>
                 </div>
+
+                <!-- Seção de Pedidos em Preparo -->
                 <div class="order-category">
                     <h2>PEDIDOS <span class="yellow">EM PREPARO</span></h2>
-                    <div class="order-card">
-                        <p class="order-id">656</p>
-                        <span>
-                            <p>1x Feijoada Média</p>
-                            <p><strong>OBS:</strong> Sem gelo e com limão</p>
-                            <p><strong>Nº da Mesa:</strong> <input type="number" value="2"></p>
-                        </span>
-                        
-                        <span>
-                            <button class="cancel">Cancelar</button>
-                            <button class="done">Feito</button>
-                        </span>
-
-                    </div>
+                    <div class="order-list em-preparo"></div>
                 </div>
+
+                <!-- Seção de Pedidos em Entrega -->
                 <div class="order-category">
                     <h2>PEDIDOS <span class="green">EM ENTREGA</span></h2>
-                    <div class="order-card">
-                        <p class="order-id">655</p>
-                        <span>
-                            <p>1x Feijoada Média</p>
-                            <p>1x Coca-Cola Lata 350ml</p>
-                            <p><strong>OBS:</strong> Sem gelo e com limão</p>
-                            <p><strong>Nº da Mesa:</strong> <input type="number" value="2"></p>
-                        </span>
-                        
-                        <span>
-                            <button class="cancel">Cancelar</button>
-                            <button class="deliver">Entregue</button>
-                        </span>
-                        
-                    </div>
+                    <div class="order-list em-entrega"></div>
                 </div>
             </div>
         </div>
-
     </div>
+
+    <div id="cancel-popup" class="popup">
+        <div class="popup-background">
+            <div class="popup-content">
+                <span id="cancelar-cancelamento" class="close">&times;</span>
+                <h2 class="popup-title">Cancelar Pedido</h2>
+                <textarea id="motivo-cancelamento" rows="4" placeholder="Digite o motivo do cancelamento..."></textarea>
+                <button id="confirmar-cancelamento" class="confirmar-cancelamento">Confirmar Cancelamento</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/ZKFood/js/atendente/gerenciar.js"></script>
 </body>
 
 </html>

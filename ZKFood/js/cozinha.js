@@ -1,7 +1,3 @@
-const pedidosEntrega = document.getElementById('pedidosEntrega');
-const pedidosMesa = document.getElementById('pedidosMesa');
-const pedidosBalcao = document.getElementById('pedidosBalcao');
-
 function updateDateTime() {
     const now = new Date();
     const daysOfWeek = ["DOMINGO", "SEGUNDA-FEIRA", "TERÇA-FEIRA", "QUARTA-FEIRA", "QUINTA-FEIRA", "SEXTA-FEIRA", "SÁBADO"];
@@ -15,164 +11,76 @@ function updateDateTime() {
 setInterval(updateDateTime, 1000);
 updateDateTime();
 
-function addordem(tipo, id, quantidade, items, obs) {
-    const card = document.createElement('div');
-    card.className = 'card';
-    
-    const title = document.createElement('h2');
-    title.textContent = `Pedido #${id}`;
-    card.appendChild(title);
-    
-    const itemsList = document.createElement('ul');
-    items.forEach(item => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${quantidade}x ${item}`;
-        itemsList.appendChild(listItem);
-    });
-    card.appendChild(itemsList);
-    
-    const obsText = document.createElement('p');
-    obsText.textContent = `OBS: ${obs}`;
-    card.appendChild(obsText);
-    
-    if (tipo === 'entrega') {
-        pedidosEntrega.appendChild(card);
-    } else if (tipo === 'mesa') {
-        pedidosMesa.appendChild(card);
-    } else if (tipo === 'balcao') {
-        pedidosBalcao.appendChild(card);
+document.addEventListener("DOMContentLoaded", () => {
+    function carregarPedidos() {
+        fetch("http://localhost:8080/pedidos/kanban")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("pedidosEntrega").innerHTML = "";
+                document.getElementById("pedidosMesa").innerHTML = "";
+                document.getElementById("pedidosBalcao").innerHTML = "";
+
+                const pedidosEmPreparo = data.filter(pedido => pedido.estado === "Pedido em preparo");
+
+                pedidosEmPreparo.forEach(pedido => {
+                    const pedidoCard = criarCardPedido(pedido);
+
+                    if (pedido.tipoEntrega === "Entrega") {
+                        document.getElementById("pedidosEntrega").appendChild(pedidoCard);
+                    } else if (pedido.tipoEntrega === "Presencial") {
+                        document.getElementById("pedidosMesa").appendChild(pedidoCard);
+                    } else if (pedido.tipoEntrega === "Balcão") {
+                        document.getElementById("pedidosBalcao").appendChild(pedidoCard);
+                    }
+                });
+            })
+            .catch(error => console.error("Erro ao buscar pedidos:", error));
     }
-}
 
-const pedidos = [
-    {
-        "id": 1,
-        "estado": "Pedido em preparo",
-        "estadoPedidoHistorico": [
-            {
-                "id": 1,
-                "estado": "Pedido em espera",
-                "hora": "2024-06-10T23:35:16"
-            }
-        ],
-        "produtos": [
-            {
-                "id": 1,
-                "quantidade": 2,
-                "observacao": "Descrição Legal",
-                "nome": "Produto Exemplo",
-                "imagem": null,
-                "valor": 20.0,
-                "qtdPessoas": "2",
-                "descricao": "Descrição do produto exemplo"
-            }
-        ],
-        "numeroMesa": "5",
-        "delivery": 12.5,
-        "formaPagamento": "Cartão de Crédito",
-        "motivoCancelamento": null,
-        "tipoEntrega": "Presencial",
-        "usuario": {
-            "id": 1,
-            "nome": "Ale"
-        },
-        "colaborador": null,
-        "telefone": {
-            "id": 1,
-            "numero": "123456789"
-        },
-        "endereco": {
-            "id": 1,
-            "cep": "08160475",
-            "rua": "Rua Fred Astaire",
-            "bairro": "Jardim Silva Teles",
-            "numero": "123",
-            "complemento": "complemento"
+    function criarCardPedido(pedido) {
+        const card = document.createElement("div");
+        card.classList.add("order-card");
+
+        const orderId = document.createElement("p");
+        orderId.classList.add("order-id");
+        orderId.textContent = pedido.id;
+        card.appendChild(orderId);
+
+        const preparoHistorico = pedido.estadoPedidoHistorico.find(
+            estado => estado.estado === "Pedido em preparo"
+        );
+        if (preparoHistorico) {
+            const horaPreparo = document.createElement("p");
+            horaPreparo.classList.add("hora-preparo");
+            horaPreparo.textContent = `Horário do pedido: ${new Date(preparoHistorico.hora).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+            card.appendChild(horaPreparo);
         }
-    },
-    {
-        "id": 2,
-        "estado": "Pedido em preparo",
-        "estadoPedidoHistorico": [
-            {
-                "id": 2,
-                "estado": "Pedido em espera",
-                "hora": "2024-06-10T23:35:16"
-            }
-        ],
-        "produtos": [
-            {
-                "id": 4,
-                "quantidade": 2,
-                "observacao": "oloko",
-                "nome": "Produto Exemplo",
-                "imagem": null,
-                "valor": 20.0,
-                "qtdPessoas": "2",
-                "descricao": "Descrição do produto exemplo"
-            }
-        ],
-        "numeroMesa": "5",
-        "delivery": 12.5,
-        "formaPagamento": "Cartão de Crédito",
-        "motivoCancelamento": null,
-        "tipoEntrega": "Presencial",
-        "usuario": {
-            "id": 1,
-            "nome": "Ale"
-        },
-        "colaborador": null,
-        "telefone": {
-            "id": 1,
-            "numero": "123456789"
-        },
-        "endereco": {
-            "id": 1,
-            "cep": "08160475",
-            "rua": "Rua Fred Astaire",
-            "bairro": "Jardim Silva Teles",
-            "numero": "123",
-            "complemento": "complemento"
-        }
-    }
-];
 
-function filtrarPedidosEmPreparo(pedidos) {
-    return pedidos.filter(pedido => pedido.estado === "Pedido em preparo");
-}
+        const produtosContainer = document.createElement("span");
+        produtosContainer.classList.add("produtos-container");
 
-function exibirPedidos(pedidos) {
-    pedidos.forEach(pedido => {
-        const tipoEntrega = pedido.tipoEntrega.toLowerCase();
-        
         pedido.produtos.forEach(produto => {
-            const id = pedido.id;
-            const quantidade = produto.quantidade;
-            const observacao = produto.observacao || "";
-            const items = [produto.nome];
+            const produtoInfo = document.createElement("p");
 
-            if (tipoEntrega === 'entrega') {
-                addordem('entrega', id, quantidade, items, observacao);
-            } else if (tipoEntrega === 'presencial') {
-                addordem('mesa', id, quantidade, items, observacao);
-            } else if (tipoEntrega === 'balcão') {
-                addordem('balcao', id, quantidade, items, observacao);
+            if (produto.entregue) {
+                produtoInfo.style.textDecoration = "line-through";
+                produtoInfo.style.color = "#a0a0a0";
+            }
+
+            produtoInfo.textContent = `${produto.quantidade}x ${produto.nome}`;
+            produtosContainer.appendChild(produtoInfo);
+
+            if (produto.observacao) {
+                const observacaoInfo = document.createElement("p");
+                observacaoInfo.innerHTML = `<strong>OBS:</strong> ${produto.observacao}`;
+                produtosContainer.appendChild(observacaoInfo);
             }
         });
-    });
-}
 
-// Filtra os pedidos que estão "em preparo"
-const pedidosEmPreparo = filtrarPedidosEmPreparo(pedidos);
+        card.appendChild(produtosContainer);
 
-// Exibe os pedidos filtrados na interface
-exibirPedidos(pedidosEmPreparo);
+        return card;
+    }
 
-// Função para adicionar uma nova ordem baseada em dados vindos do backend
-async function novaOrdemBack(tipo, quantidade, items, obs) {
-    const id = Math.floor(Math.random() * 1000) + 1;
-
-    // Lógica para filtrar e exibir pedidos
-
-    addordem(tipo, id, quantidade, items, obs);
-}
+    carregarPedidos();
+});

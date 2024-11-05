@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela Inicial Cozinha</title>
-    <link rel="stylesheet" href="/ZKFood/css/cozinha.css">
+    <link rel="stylesheet" href="/ZKFood/css/cozinha.css">    
 </head>
 <body>
     <div class="div_inicial">
@@ -25,20 +25,23 @@
         </header>
     </div>
     <main>
-        <section class="orders">
-            <div class="orders-section entrega">
-                <h2 class="enty">PEDIDOS ENTREGA</h2>
-                <div id="pedidosEntrega" class="cards-container"></div>
-            </div>
-            <div class="orders-section mesa">
-                <h2 class="mes">PEDIDOS MESA</h2>
-                <div id="pedidosMesa" class="cards-container"></div>
-            </div>
-            <div class="orders-section balcao">
-                <h2 class="balc">PEDIDOS BALCÃO</h2>
-                <div id="pedidosBalcao" class="cards-container"></div>
-            </div>
-        </section>
+        <!-- Div Pai para agrupar as fileiras -->
+        <div class="orders-container">
+            <section class="orders">
+                <div class="orders-section entrega">
+                    <h2 class="enty">PEDIDOS ENTREGA</h2>
+                    <div id="pedidosEntrega" class="cards-container"></div>
+                </div>
+                <div class="orders-section mesa">
+                    <h2 class="mes">PEDIDOS MESA</h2>
+                    <div id="pedidosMesa" class="cards-container"></div>
+                </div>
+                <div class="orders-section balcao">
+                    <h2 class="balc">PEDIDOS BALCÃO</h2>
+                    <div id="pedidosBalcao" class="cards-container"></div>
+                </div>
+            </section>
+        </div>
     </main>
     <script src="/ZKFood/js/cozinha.js"></script>
 </body>

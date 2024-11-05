@@ -10,9 +10,6 @@
 
     <link rel="icon" href="/ZKFood/assets/logo-icon.png" type="image/png">
 
-    <!-- <script src="../js/dashboard.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-wordcloud"></script>
 
@@ -69,6 +66,9 @@
             </div>
             <div class="container_baixo">
                 <div class="container_avaliacao_estrela">
+                    <div class="container_titulo_wc"> <!-- Título estilizado igual -->
+                        <h2>Avaliações por Estrelas</h2>
+                    </div>
                     <div class="chart-container">
                         <canvas id="ratingsChart"></canvas>
                     </div>
@@ -103,7 +103,7 @@
                     fetchBuilder.request(`${ambiente.local}relatorios/avaliacoes/nuvem-de-palavras`),
                     fetchBuilder.request(`${ambiente.local}relatorios/avaliacoes/avaliacoes-por-estrela`),
                     fetchBuilder.request(`${ambiente.local}relatorios/avaliacoes/top-pratos`)
-                ])
+                ]);
 
                 gerarWordCloud(nuvemPalavras);
 
@@ -119,8 +119,8 @@
         function gerarWordCloud(wordCloud) {
             const ctx1 = document.getElementById('wordCloudChart').getContext('2d');
 
-            // TODO: Retirar depois o multiplicador
-            const resultadosMultiplicadosParaMelhorVisualizacaoDasPalavrasRetirarDepois = wordCloud.quantidades.map(item => item * 5)
+            // Ajuste para multiplicar a quantidade por 10
+            const resultadosMultiplicadosParaMelhorVisualizacaoDasPalavras = wordCloud.quantidades.map(item => item * 10);
 
             new Chart(ctx1, {
                 type: 'wordCloud',
@@ -128,7 +128,7 @@
                     labels: wordCloud.palavras,
                     datasets: [{
                         label: 'Palavras mais usadas',
-                        data: resultadosMultiplicadosParaMelhorVisualizacaoDasPalavrasRetirarDepois,
+                        data: resultadosMultiplicadosParaMelhorVisualizacaoDasPalavras,
                         color: ['#A52A2A', '#8B0000', '#FF4500', '#DAA520', '#FFD700', '#FF6347', '#FF8C00']
                     }]
                 },
