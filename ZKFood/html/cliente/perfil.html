@@ -138,6 +138,17 @@
         </div>
     </div>
 
+    <div id="popup" class="popup">
+        <div class="popup-background">
+            <div class="popup-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <img id="popup-icon" src="" alt="Icon">
+                <h2 id="popup-title" class="popup-title"></h2>
+                <p id="popup-message" class="popup-message"></p>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="footer-top">
@@ -168,15 +179,18 @@
             <div class="linha"></div>
 
             <div class="redes-sociais">
-                <a href="https://www.facebook.com/share/18D1CNrSUq/?mibextid=LQQJ4d"><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
+                <a href="https://www.facebook.com/share/18D1CNrSUq/?mibextid=LQQJ4d"><img
+                        src="../../assets/Facebook.png" alt="Icone Facebook"></a>
                 <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="Icone WhatsApp"></a>
-                <a href="https://www.instagram.com/restaurante.do_zeca?igsh=MWNvMzd1ZDA0em1jMA=="><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
+                <a href="https://www.instagram.com/restaurante.do_zeca?igsh=MWNvMzd1ZDA0em1jMA=="><img
+                        src="../../assets/Instagram.png" alt="Icone Instagram"></a>
             </div>
 
             <div class="informacoes">
                 <p><a href="#">Termos e Condições</a></p>
                 <p> | </p>
-                <p><a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras">Acessibilidade</a></p>
+                <p><a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras">Acessibilidade</a>
+                </p>
                 <p> | </p>
                 <p><a href="#">Suporte</a></p>
                 <p> | </p>
@@ -188,7 +202,7 @@
 
 </html>
 <script>
-    
+
     let editandoEndereco = false;
     // Alterna entre o card de perfil e o de endereço
     document.getElementById('btnPerfil').addEventListener('click', function () {
@@ -258,7 +272,7 @@
         });
 
         // Carregar dados do perfil
-    
+
         const usuario = JSON.parse(sessionStorage.getItem('usuario'));
         const telefones = JSON.parse(sessionStorage.getItem('telefones'));
         if (usuario) {
@@ -419,15 +433,15 @@
     let idUsuario = sessionStorage.getItem('idUsuario');
 
     async function buscar() {
-            if (idUsuario) {
-                const url = `http://localhost:8080/usuarios/${idUsuario}/enderecos`;
-                const resposta = await fetch(url);
-                if (resposta.ok) {
-                    const dados = await resposta.json();
-                    console.log(dados);
-                    const div_resposta = document.getElementById("retorno_de_dados");
-                    if (dados.length <= 0) {
-                        div_resposta.innerHTML = `
+        if (idUsuario) {
+            const url = `http://localhost:8080/usuarios/${idUsuario}/enderecos`;
+            const resposta = await fetch(url);
+            if (resposta.ok) {
+                const dados = await resposta.json();
+                console.log(dados);
+                const div_resposta = document.getElementById("retorno_de_dados");
+                if (dados.length <= 0) {
+                    div_resposta.innerHTML = `
                     <!-- Card caso a pessoa ainda não tenha nenhum endereço cadastrado -->
                     <div class="container-sem-endereco">
                         <div class="container-sem-endereco">
@@ -439,26 +453,26 @@
                         </div>
                     </div>
                 `;
-                    } else {
-                        div_resposta.innerHTML = `
+                } else {
+                    div_resposta.innerHTML = `
                     <div class="container-endereco-titulo">
                         <h1>Seus <span>Endereços Cadastrados</span></h1>
                     </div>
                     <div id="container_lista_enderecos"></div>`;
-                        const enderecos = document.getElementById("container_lista_enderecos");
-                        enderecos.innerHTML = dados.map(renderizarCardEndereco).join('');
-                        enderecos.innerHTML += `<a class="botao-azul" id="botaoContinuar" href="./pagamento.html" style="display: none;">Continuar</a>`;
-                    }
-                } else {
-                    console.log('Erro ao buscar os dados');
+                    const enderecos = document.getElementById("container_lista_enderecos");
+                    enderecos.innerHTML = dados.map(renderizarCardEndereco).join('');
+                    enderecos.innerHTML += `<a class="botao-azul" id="botaoContinuar" href="./pagamento.html" style="display: none;">Continuar</a>`;
                 }
             } else {
-                console.log('ID do usuário não encontrado no sessionStorage.');
+                console.log('Erro ao buscar os dados');
             }
+        } else {
+            console.log('ID do usuário não encontrado no sessionStorage.');
         }
+    }
 
-        function renderizarCardEndereco(endereco) {
-            return `
+    function renderizarCardEndereco(endereco) {
+        return `
         <div id="card-endereco-${endereco.id}" class="card-endereco" onclick="selecionarCard(this, ${endereco.id})">
             <div class="container-endereco">
                 <div class="conteudo-pai">
@@ -474,18 +488,18 @@
 
             </div>
         </div>`;
-        }
+    }
 
-        function editarEndereco(idEndereco) {
-            const enderecoCard = document.getElementById(`card-endereco-${idEndereco}`);
-            const enderecoRua = enderecoCard.querySelector('.info-rua').innerText.split(', ')[0];
-            const enderecoNumero = enderecoCard.querySelector('.info-rua').innerText.split(', ')[1].split(' - ')[0];
-            const enderecoComplemento = enderecoCard.querySelector('.info-rua').innerText.split(' - ')[1];
-            const enderecoBairro = enderecoCard.querySelector('.info-cep').innerText.split(', ')[0];
-            const enderecoCep = enderecoCard.querySelector('.info-cep').innerText.split(' - ')[1];
+    function editarEndereco(idEndereco) {
+        const enderecoCard = document.getElementById(`card-endereco-${idEndereco}`);
+        const enderecoRua = enderecoCard.querySelector('.info-rua').innerText.split(', ')[0];
+        const enderecoNumero = enderecoCard.querySelector('.info-rua').innerText.split(', ')[1].split(' - ')[0];
+        const enderecoComplemento = enderecoCard.querySelector('.info-rua').innerText.split(' - ')[1];
+        const enderecoBairro = enderecoCard.querySelector('.info-cep').innerText.split(', ')[0];
+        const enderecoCep = enderecoCard.querySelector('.info-cep').innerText.split(' - ')[1];
 
-            if (!editando) {
-                enderecoCard.innerHTML = `
+        if (!editando) {
+            enderecoCard.innerHTML = `
         <div class="container-endereco">
             <div class="titulo-pai">
                 <input type="checkbox" class="checkbox-endereco" data-id="${idEndereco}" onclick="marcarCheckbox(${idEndereco}); event.stopPropagation();">
@@ -507,74 +521,101 @@
             </div>
         </div>
     `;
-                editando = true;
+            editando = true;
+        } else {
+            salvar(idEndereco);
+        }
+    }
+
+
+    async function salvar(idEndereco) {
+        const enderecoCard = document.getElementById(`card-endereco-${idEndereco}`);
+        const novaRua = enderecoCard.querySelector('#inputRua').value;
+        const novoBairro = enderecoCard.querySelector('#inputBairro').value;
+        const novoNumero = enderecoCard.querySelector('#inputNumero').value;
+        const novoCep = enderecoCard.querySelector('#inputCep').value;
+        const novoComplemento = enderecoCard.querySelector('#inputComplemento').value;
+
+        const url = `http://localhost:8080/usuarios/${idUsuario}/enderecos/${idEndereco}`;
+        try {
+            const resposta = await fetch(url, {
+                method: "PATCH",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ cep: novoCep, rua: novaRua, bairro: novoBairro, numero: novoNumero, complemento: novoComplemento })
+            });
+
+            if (resposta.ok) {
+                const dadosAtualizados = await resposta.json();
+                console.log('Endereço atualizado:', dadosAtualizados);
+
+                enderecoCard.innerHTML = renderizarCardEndereco(dadosAtualizados);
+                editando = false;
             } else {
-                salvar(idEndereco);
+                console.error('Erro ao atualizar endereço');
             }
+        } catch (erro) {
+            console.error('Erro:', erro);
         }
+    }
 
-
-        async function salvar(idEndereco) {
-            const enderecoCard = document.getElementById(`card-endereco-${idEndereco}`);
-            const novaRua = enderecoCard.querySelector('#inputRua').value;
-            const novoBairro = enderecoCard.querySelector('#inputBairro').value;
-            const novoNumero = enderecoCard.querySelector('#inputNumero').value;
-            const novoCep = enderecoCard.querySelector('#inputCep').value;
-            const novoComplemento = enderecoCard.querySelector('#inputComplemento').value;
-
-            const url = `http://localhost:8080/usuarios/${idUsuario}/enderecos/${idEndereco}`;
-            try {
-                const resposta = await fetch(url, {
-                    method: "PATCH",
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ cep: novoCep, rua: novaRua, bairro: novoBairro, numero: novoNumero, complemento: novoComplemento })
-                });
-
-                if (resposta.ok) {
-                    const dadosAtualizados = await resposta.json();
-                    console.log('Endereço atualizado:', dadosAtualizados);
-
-                    enderecoCard.innerHTML = renderizarCardEndereco(dadosAtualizados);
-                    editando = false;
-                } else {
-                    console.error('Erro ao atualizar endereço');
+    async function excluirEndereco(idEndereco) {
+        const url = `http://localhost:8080/usuarios/${idUsuario}/enderecos/${idEndereco}`;
+        try {
+            const resposta = await fetch(url, {
+                method: "DELETE",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': '*/*'
                 }
-            } catch (erro) {
-                console.error('Erro:', erro);
-            }
-        }
+            });
 
-        async function excluirEndereco(idEndereco) {
-            const url = `http://localhost:8080/usuarios/${idUsuario}/enderecos/${idEndereco}`;
-            try {
-                const resposta = await fetch(url, {
-                    method: "DELETE",
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': '*/*'
-                    }
-                });
-
-                if (resposta.status === 204) {
-                    alert('Endereço deletado com sucesso.');
-                    // Remover o card do endereço deletado
-                    const card = document.getElementById(`card-endereco-${idEndereco}`);
-                    if (card) {
-                        card.remove();
-                    }
-
-                    buscar()
-                } else {
-                    console.log(`Erro ao deletar endereço: ${resposta.status}`);
+            if (resposta.status === 204) {
+                exibirPopup("Endereço deletado com sucesso!", "success")
+                // Remover o card do endereço deletado
+                const card = document.getElementById(`card-endereco-${idEndereco}`);
+                if (card) {
+                    card.remove();
                 }
-            } catch (erro) {
-                console.error('Erro:', erro);
+
+                buscar()
+            } else {
+                console.log(`Erro ao deletar endereço: ${resposta.status}`);
             }
+        } catch (erro) {
+            console.error('Erro:', erro);
+        }
+    }
+
+    // Função para exibir o popup de sucesso ou erro
+    function exibirPopup(mensagem, tipo) {
+        const popup = document.getElementById("popup");
+        const popupIcon = document.getElementById("popup-icon");
+        const popupTitle = document.getElementById("popup-title");
+        const popupMessage = document.getElementById("popup-message");
+
+        if (tipo === "success") {
+            popupIcon.src = "/ZKFood/assets/sucesso.png";
+            popupTitle.textContent = "Sucesso!";
+            popupTitle.style.color = "#33D700";
+        } else {
+            popupIcon.src = "/ZKFood/assets/erro.png";
+            popupTitle.textContent = "Erro!";
+            popupTitle.style.color = "#EB3223";
         }
 
-        window.onload = buscar;
+        popupMessage.textContent = mensagem;
+        popup.style.display = "flex";
+    }
+
+    // Função para fechar o popup
+    function closePopup() {
+        const popup = document.getElementById("popup");
+        popup.style.display = "none";
+    }
+
+    window.onload = buscar;
 
 
 </script>
