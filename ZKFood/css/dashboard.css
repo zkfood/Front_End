@@ -122,7 +122,7 @@
 
 .container_cards_kpi {
     width: 80vw;
-    height: 20vh;
+    height: 30vh;
     /* position: absolute; */
     display: flex;
     justify-content: space-around;
@@ -130,8 +130,9 @@
 }
 
 .kpi_card {
-    width: 15%;
-    height: 60%;
+    width: 30%;
+    font-size: 20px;
+    height: 70%;
     background-color: white;
     border-radius: 10px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2),
@@ -144,7 +145,17 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-left: 10%;
 }
+
+.kpi-nome{
+    font-size: 18px;
+}
+
+.kpi-num{
+    font-size: 25px;
+}
+
 
 .container_dados_kpi {
     width: 80%;
@@ -467,7 +478,7 @@ a {
 
 .container_card_cadastro{
     width: 100%;
-    height: 60%;
+    height: 70%;
     /* background-color: blue; */
     display: flex;
     justify-content: center;
@@ -482,9 +493,9 @@ a {
     border-radius: 25px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2),
     /* Leve sombra no lado direito */
-    -2px 0 5px rgba(0, 0, 0, 0.2),
+    -2px 0 5px rgba(0, 0, 0, 0.0),
     /* Leve sombra no lado esquerdo */
-    0 4px 10px rgba(0, 0, 0, 0.5);
+    0 4px 10px rgba(0, 0, 0, 0.0);
 /* Forte sombra na base inferior */
     display: flex;
     flex-direction: column;
@@ -513,6 +524,8 @@ a {
     /* background-color: gray; */
     align-items: center;
     justify-content: center;
+    margin-bottom: 3%;
+    margin-bottom: 3%;
 }
 
 .container_imagem_cadastro{
@@ -841,7 +854,7 @@ input[type="file"] {
     /* Leve sombra no lado direito */
     -2px 0 5px rgba(0, 0, 0, 0.2),
     /* Leve sombra no lado esquerdo */
-    0 4px 10px rgba(0, 0, 0, 0.5);
+    0 4px 10px rgba(0, 0, 0, 0.0);
 /* Forte sombra na base inferior */
 }
 
