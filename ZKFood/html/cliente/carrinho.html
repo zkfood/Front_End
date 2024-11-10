@@ -275,3 +275,14 @@
 </body>
 
 </html>
+
+<script>
+    const radioButtons = document.querySelectorAll('input[type="radio"][name="entrega"]');
+    radioButtons.forEach((radio) => {
+        const eEntrega = radio.value === 'Entrega'
+
+        radio.addEventListener("change", () => {
+            listarProdutos(eEntrega);
+        });
+    });
+</script>

@@ -1,4 +1,4 @@
-async function listarProdutos() {
+async function listarProdutos(eEntrega) {
     const pedidosCarrinho = JSON.parse(sessionStorage.getItem('PRODUTOS_CARRINHO'));
 
     const totalItensH3 = document.getElementById('totalItensCarrinho');
@@ -10,6 +10,10 @@ async function listarProdutos() {
 
     let valorTotal = 0;
 
+    if (eEntrega) {
+        valorTotal += 8;
+    }
+
     const tipoEntrega = sessionStorage.getItem('TIPO_ENTREGA_CARRINHO');
     const radios = document.getElementsByName('entrega');
 
@@ -19,11 +23,12 @@ async function listarProdutos() {
         }
     });
 
+    const divListagemProdutos = document.getElementById('listagemProdutos');
+    divListagemProdutos.innerHTML = '';
+
     for (const item of pedidosCarrinho) {
         const produto = await new FetchBuilder().request(`${ambiente.local}${prefix.produtos}/${item.id}`);
         const itemNoCarrinho = pedidosCarrinho.find(produto => produto.id === item.id);
-
-        const divListagemProdutos = document.getElementById('listagemProdutos');
 
         divListagemProdutos.innerHTML += `
                 <div class="card-cardapio" data-id="${produto.id}">
@@ -61,6 +66,15 @@ async function listarProdutos() {
         `;
 
         valorTotal += produto.valor * itemNoCarrinho.quantidade;
+    }
+
+    if (eEntrega) {
+        divCardPagameto.innerHTML += `
+            <div class="item">
+                <span>Taxa de entrega</span>
+                <span>R$ ${(8).toFixed(2)}</span>
+            </div>
+        `;
     }
 
     divCardPagameto.innerHTML += `
