@@ -15,15 +15,25 @@ const mes = {
     12: "Dezembro"
 }
 
-async function carregarPedidos() {
-    const parametros = new Request({
+async function carregarPedidos(paginacao) {
+    const divPaginasPaginacao = document.getElementById('paginasPaginacao');
+    divPaginasPaginacao.innerHTML = '';
+
+    const parametros = !paginacao ? new Request({
         newQueryStringParams: {
-            idUsuario: idUsuario
+            idUsuario,
+        }
+    }) : new Request({
+        newQueryStringParams: {
+            idUsuario,
+            pagina: paginacao
         }
     })
 
-    const pedidos = await new FetchBuilder().request(`${ambiente.local + prefix.pedidos}`, parametros)
+    const resposta = await new FetchBuilder().request(`${ambiente.local + prefix.pedidos}`, parametros);
+    const pedidos = resposta.pedidos;
     const div = document.getElementById('divHistoricoPedidos');
+    div.innerHTML = '';
 
     if (!pedidos || pedidos.length === 0) {
         div.innerHTML += `
@@ -61,7 +71,7 @@ async function carregarPedidos() {
                 </div>
             `;
         }
-    )
+    );
     pedidos.forEach(
         item => {
             const pedidoInfo = document.getElementById(`pedidoInfo-${item.id}`);
@@ -74,10 +84,21 @@ async function carregarPedidos() {
                 }
             )
 
+            if (item.tipoEntrega === 'Entrega') {
+                pedidoInfo.innerHTML += `<div class="item-pedido">Delivery</div>`;
+                valorTotal += 8
+            }
+
             pedidoInfo.innerHTML += `<div class="valor-pedido">R$ ${valorTotal.toFixed(2)}</div>`;
         }
-    )
+    );
 
+    const totalDePaginas = resposta.paginacao.totalDePaginas;
+    for (let i = 1; i <= totalDePaginas; i++) {
+        divPaginasPaginacao.innerHTML += `
+            <button onclick="carregarPedidos(${i})">${i}</button>
+        `;
+    }
 }
 
 window.onload = async function () {
