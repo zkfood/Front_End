@@ -76,13 +76,16 @@ async function carregarPedido() {
         }
     )
 
-    holerite.innerHTML += `
-        <div class="item-pedido">
-            <span>Taxa de entrega</span> <span>R$ 8,00</span>
-        </div>
-    `;
+    if (pedido.tipoEntrega === 'Entrega') {
+        holerite.innerHTML += `
+            <div class="item-pedido">
+                <span>Taxa de entrega</span> <span>R$ 8,00</span>
+            </div>
+        `;
 
-    valorTotal += 8;
+        valorTotal += 8;
+    }
+
 
     const divValorTotal = document.getElementById('valorTotal');
     divValorTotal.innerHTML = 'R$ ' + valorTotal.toFixed(2);
@@ -130,9 +133,7 @@ async function carregarEndereco(id){
 }
 
 async function cancelarPedido() {
-    const fetchBuilder = new FetchBuilder();
-
-    const resposta = await fetch(`${ambiente.local}estado-pedido-historico`, {
+    await fetch(`${ambiente.local}estado-pedido-historico`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -143,9 +144,9 @@ async function cancelarPedido() {
         })
     })
 
-    await fetchBuilder.request(`${ambiente.local}estado-pedido-historico`, request);
+    exibirPopup("Pedido cancelado com sucesso!", "success");
 
-    exibirPopup("Pedido cancelado com sucesso!", "success")
+    window.location = '../html/cliente/historico-pedidos.html';
 }
 
 // Função para exibir o popup de sucesso ou erro
