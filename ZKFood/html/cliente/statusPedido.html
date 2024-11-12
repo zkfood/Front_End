@@ -6,21 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meus Pedidos</title>
 
+    <!-- Links CSS -->
     <link rel="stylesheet" href="../../css/statusPedido.css">
     <link rel="stylesheet" href="../../css/homePosLogin.css">
-
     <link rel="stylesheet" href="../../css/responsividade/homePosLogin-responsivo.css">
     <link rel="stylesheet" href="../../css/responsividade/statusPedido-responsivo.css">
 
+    <!-- Icon -->
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap"
         rel="stylesheet">
 
+    <!-- JavaScript -->
     <script src="../../js/fetch.js"></script>
     <script src="../../js/status-pedido.js"></script>
+    <script src="../../js/carrossel-statusPedido.js"></script>
+
 </head>
 
 <body>
@@ -78,40 +83,44 @@
         </div>
     </div>
 
-        <!-- Navbar Inferior na RESPONSIVIDADE -->
-        <div class="bottom-nav" >
-            <a href="./home_pos_login.html">
-                <img src="../../assets/icons-responsivo/icon-casa.png" alt="Icone de casa retratando tela inicial no menu">
-                <span>Inicio</span>
-            </a>
-            <a href="./cardapio.html">
-                <img src="../../assets/icons-responsivo/icon-garfo.png" alt="Icone de garfo retratando tela de cardápio no menu">
-                <span>Cardápio</span>
-            </a>
-            <a href="./carrinho.html">
-                <img src="../../assets/icons-responsivo/icon-carrinho.png" alt="Icone de carrinho retratando tela de carrinho no menu">
-                <span>Carrinho</span>
-            </a>
-            <a href="./historico-pedidos.html" class="active">
-                <img src="../../assets/icons-responsivo/icon-documento-active.png" alt="Icone de documento retratando tela de status do pedido no menu">
-                <span>Pedidos</span>
-            </a>
-            <a href="./cadastro_endereco.html">
-                <img src="../../assets/icons-responsivo/icon-endereco.png" alt="Icone de endereço retratando tela de cadastro de endereço no menu">
-                <span>Endereço</span>
-            </a>
-    
-        </div>
+    <!-- Navbar Inferior na RESPONSIVIDADE -->
+    <div class="bottom-nav">
+        <a href="./home_pos_login.html">
+            <img src="../../assets/icons-responsivo/icon-casa.png" alt="Icone de casa retratando tela inicial no menu">
+            <span>Inicio</span>
+        </a>
+        <a href="./cardapio.html">
+            <img src="../../assets/icons-responsivo/icon-garfo.png"
+                alt="Icone de garfo retratando tela de cardápio no menu">
+            <span>Cardápio</span>
+        </a>
+        <a href="./carrinho.html">
+            <img src="../../assets/icons-responsivo/icon-carrinho.png"
+                alt="Icone de carrinho retratando tela de carrinho no menu">
+            <span>Carrinho</span>
+        </a>
+        <a href="./historico-pedidos.html" class="active">
+            <img src="../../assets/icons-responsivo/icon-documento-active.png"
+                alt="Icone de documento retratando tela de status do pedido no menu">
+            <span>Pedidos</span>
+        </a>
+        <a href="./cadastro_endereco.html">
+            <img src="../../assets/icons-responsivo/icon-endereco.png"
+                alt="Icone de endereço retratando tela de cadastro de endereço no menu">
+            <span>Endereço</span>
+        </a>
+
+    </div>
 
     <!-- Status do Pedido -->
 
     <div class="banner-status" id="bannerStatus">
-        
+
         <div class="caminho">
             <p>Carrinho >
                 Endereço >
-               Pagamento >
-               <b>  Status do Pedido</b>
+                Pagamento >
+                <b> Status do Pedido</b>
             </p>
         </div>
         <span class="titulo-status">STATUS DO <span>MEU PEDIDO</span></span>
@@ -119,24 +128,27 @@
             <div class="status-overview" id="">
                 <div class="status-card">
                     <img src="/ZKFood/assets/logo-icon.png" alt="Pedidos Aceito" id="icon1">
-                    <img src="/ZKFood/assets/pedido-confirmado 1.png" alt="Icone de sacola e check representando pedido aceito">
+                    <img src="/ZKFood/assets/pedido-confirmado 1.png"
+                        alt="Icone de sacola e check representando pedido aceito">
                     <p>Pedido aceito</p>
                 </div>
                 <div class="status-card">
                     <img src="/ZKFood/assets/2 Circled.png" alt="Pedidos em Preparo" id="icon2">
-                    <img src="/ZKFood/assets/saco-de-papel 1.png" alt="icone de saco de papel representando pedido em preparo">
+                    <img src="/ZKFood/assets/saco-de-papel 1.png"
+                        alt="icone de saco de papel representando pedido em preparo">
                     <p>Pedido em preparo</p>
                 </div>
                 <div class="status-card">
                     <img src="/ZKFood/assets/Circled 3.png" alt="Pedidos a Caminho" id="icon3">
-                    <img src="/ZKFood/assets/bicicleta-de-entrega 1.png" alt="icone de moto representando pedido a caminho">
+                    <img src="/ZKFood/assets/bicicleta-de-entrega 1.png"
+                        alt="icone de moto representando pedido a caminho">
                     <p>Pedido a caminho</p>
                 </div>
-<!--                <div class="status-card">-->
-<!--                    <img src="/ZKFood/assets/Circled 4.png" alt="Pedidos em Entrega">-->
-<!--                    <img src="/ZKFood/assets/Home.png" alt="icone de casa representando pedido entregue">-->
-<!--                    <p>Pedido entregue</p>-->
-<!--                </div>-->
+                <!--                <div class="status-card">-->
+                <!--                    <img src="/ZKFood/assets/Circled 4.png" alt="Pedidos em Entrega">-->
+                <!--                    <img src="/ZKFood/assets/Home.png" alt="icone de casa representando pedido entregue">-->
+                <!--                    <p>Pedido entregue</p>-->
+                <!--                </div>-->
             </div>
         </div>
 
@@ -178,7 +190,41 @@
         <div class="total-pai-avaliacao">
             <div class="container-avaliacoes">
                 <div class="avaliacao-container">
-                    <h1> <span>AVALIE </span> SEU PEDIDO</h1>
+
+                    
+                    <div class="avaliacoes" id="avaliacoes">
+                        <h1 class="titulo-bebas">Nossas Avaliações</h1>
+                    </div>
+                    <div class="container-cards">
+                        <button class="carousel-btn prev-btn" style="margin: 20px;">❮</button>
+                        <div class="card-avaliacao active">
+                            <div class="texto-avaliacao">
+                                <h5>Avaliação</h5>
+                                <h2>Enzo</h2>
+                                <p>Gostei muito</p>
+                                <span>⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <div class="foto-avaliacao">
+                                <img src="../../assets/logo-icon.png" alt="Foto da pessoa que fez a avaliação">
+                            </div>
+                        </div>
+
+                        <div class="card-avaliacao">
+                            <div class="texto-avaliacao">
+                                <h5>Avaliação</h5>
+                                <h2>Kaick</h2>
+                                <p>O melhor restaurante da região!</p>
+                                <span>⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <div class="foto-avaliacao">
+                                <img src="../../assets/logo-icon.png" alt="Foto da pessoa que fez a avaliação">
+                            </div>
+                        </div>
+                        <button class="carousel-btn next-btn" style="margin: 20px;">❯</button>
+                    </div>
+
+
+                    <!-- <h1> <span>AVALIE </span> SEU PEDIDO</h1>
                     <p>Quantas estrelas você acha que seu pedido merece?</p>
                     <div class="estrelas">
                         <span class="estrela" data-avaliacao="1">&#9733;</span>
@@ -192,7 +238,7 @@
                             <textarea placeholder="Digite seu comentário"></textarea>
                         </div>
                         <button class="botao-enviar" type="submit">ENVIAR</button>
-                    </form>
+                    </form> -->
                 </div>
             </div>
         </div>
@@ -228,15 +274,18 @@
             <div class="linha"></div>
 
             <div class="redes-sociais">
-                <a href="https://www.facebook.com/share/18D1CNrSUq/?mibextid=LQQJ4d"><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
+                <a href="https://www.facebook.com/share/18D1CNrSUq/?mibextid=LQQJ4d"><img
+                        src="../../assets/Facebook.png" alt="Icone Facebook"></a>
                 <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="Icone WhatsApp"></a>
-                <a href="https://www.instagram.com/restaurante.do_zeca?igsh=MWNvMzd1ZDA0em1jMA=="><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
+                <a href="https://www.instagram.com/restaurante.do_zeca?igsh=MWNvMzd1ZDA0em1jMA=="><img
+                        src="../../assets/Instagram.png" alt="Icone Instagram"></a>
             </div>
 
             <div class="informacoes">
                 <p><a href="#">Termos e Condições</a></p>
                 <p> | </p>
-                <p><a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras">Acessibilidade</a></p>
+                <p><a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras">Acessibilidade</a>
+                </p>
                 <p> | </p>
                 <p><a href="#">Suporte</a></p>
                 <p> | </p>
@@ -276,5 +325,8 @@
             }
         });
     }
+
+
+
 
 </script>
