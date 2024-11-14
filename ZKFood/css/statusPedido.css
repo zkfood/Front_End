@@ -52,7 +52,8 @@ body {
 }
 
 .status-card img {
-    height: 120px;
+    height: 100px;
+    margin-bottom: 20%;
 }
 
 
