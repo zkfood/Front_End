@@ -1,0 +1,22 @@
+@media screen and (max-width: 440px) {
+/* Histórico de pedidos */
+.historico-pedidos {
+    width: 90%;
+    margin-bottom: 20%;
+    margin-top: 20%;
+}
+
+.pedido-card {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.comprar-novamente {
+    width: 35%;
+    height: 5vh;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+}

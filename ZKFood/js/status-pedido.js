@@ -142,11 +142,14 @@ async function cancelarPedido() {
             estado: "Pedido cancelado",
             pedido: idPedido
         })
+        
     })
 
     exibirPopup("Pedido cancelado com sucesso!", "success");
 
-    window.location = '../html/cliente/historico-pedidos.html';
+    setTimeout(() => {
+        window.location = '../cliente/historico-pedidos.html';
+    }, 2000); // 5000 ms = 5 segundos
 }
 
 // Função para exibir o popup de sucesso ou erro
