@@ -185,61 +185,41 @@
                 </div>
             </div>
         </div>
-
-        <!-- Formulario de avaliações -->
         <div class="total-pai-avaliacao">
-            <div class="container-avaliacoes">
-                <div class="avaliacao-container">
-
-                    
-                    <div class="avaliacoes" id="avaliacoes">
-                        <h1 class="titulo-bebas">Nossas Avaliações</h1>
-                    </div>
-                    <div class="container-cards">
-                        <button class="carousel-btn prev-btn" style="margin: 20px;">❮</button>
-                        <div class="card-avaliacao active">
-                            <div class="texto-avaliacao">
-                                <h5>Avaliação</h5>
-                                <h2>Enzo</h2>
-                                <p>Gostei muito</p>
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                            <div class="foto-avaliacao">
-                                <img src="../../assets/logo-icon.png" alt="Foto da pessoa que fez a avaliação">
-                            </div>
-                        </div>
-
-                        <div class="card-avaliacao">
-                            <div class="texto-avaliacao">
-                                <h5>Avaliação</h5>
-                                <h2>Kaick</h2>
-                                <p>O melhor restaurante da região!</p>
-                                <span>⭐⭐⭐⭐⭐</span>
-                            </div>
-                            <div class="foto-avaliacao">
-                                <img src="../../assets/logo-icon.png" alt="Foto da pessoa que fez a avaliação">
-                            </div>
-                        </div>
-                        <button class="carousel-btn next-btn" style="margin: 20px;">❯</button>
-                    </div>
-
-
-                    <!-- <h1> <span>AVALIE </span> SEU PEDIDO</h1>
-                    <p>Quantas estrelas você acha que seu pedido merece?</p>
-                    <div class="estrelas">
-                        <span class="estrela" data-avaliacao="1">&#9733;</span>
-                        <span class="estrela" data-avaliacao="2">&#9733;</span>
-                        <span class="estrela" data-avaliacao="3">&#9733;</span>
-                        <span class="estrela" data-avaliacao="4">&#9733;</span>
-                        <span class="estrela" data-avaliacao="5">&#9733;</span>
-                    </div>
-                    <form>
-                        <div class="form-group">
-                            <textarea placeholder="Digite seu comentário"></textarea>
-                        </div>
-                        <button class="botao-enviar" type="submit">ENVIAR</button>
-                    </form> -->
+            <!-- Banner fixo com efeito parallax -->
+            <div class="banner-avaliacoes"></div>
+            <!-- Cards de avaliação com rolagem -->
+            <div class="container-cards-avaliacoes">
+                <div class="titulo-avaliacoes">
+                    <h1>Avalie o seu <span class="amarelo">pedido</span></h1>
                 </div>
+                
+
+
+                <!-- Card de avaliação -->
+                <div class="card-avaliacao">
+                    <div class="card-imagem">
+                        <img src="../../assets/prato-feijoada-Zeca.png" alt="imagem do item do pedido">
+                    </div>
+                    <div class="card-texto">
+                        <h1>Nome do prato</h1>
+                        <div class="estrelas">
+                            <span class="estrela" data-avaliacao="1">&#9733;</span>
+                            <span class="estrela" data-avaliacao="2">&#9733;</span>
+                            <span class="estrela" data-avaliacao="3">&#9733;</span>
+                            <span class="estrela" data-avaliacao="4">&#9733;</span>
+                            <span class="estrela" data-avaliacao="5">&#9733;</span>
+                        </div>
+                        <textarea placeholder="Digite seu comentário"></textarea>
+                        <button class="botao-enviar">Enviar</button>
+                    </div>
+                </div>
+
+
+                <!-- Oie Kaick
+                 Vamos ter que mudar a lógica das estrelas, pois a lógica atua se repete em todos os cards-->
+
+
             </div>
         </div>
     </div>
@@ -262,7 +242,7 @@
 
                 <div class="bloco-footer">
                     <a href="./carrinho.html">Carrinho</a>
-                    <a href="./statusPedido.html">Meus Pedidos</a>
+                    <a href="./historico-pedidos.html">Meus Pedidos</a>
                 </div>
 
                 <div class="bloco-footer">
