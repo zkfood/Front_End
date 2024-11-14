@@ -469,6 +469,7 @@ body {
 .card-imagem img {
     width: 100%;
     height: auto;
+    border-radius: 10px;
 }
 
 .card-texto {
