@@ -28,10 +28,10 @@
 
 .status-card img {
     height: 6vh;
-    width: 12vw;
 }
 .status-card p {
     font-size: 15px;
+    width: 70%;
 }
 
 /* Cards */
