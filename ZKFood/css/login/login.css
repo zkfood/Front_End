@@ -133,8 +133,7 @@ body {
     justify-content: space-between;
 }
 
-/* Popup */
-/* Estilizando o pop-up */
+/* Pop-up */
 .popup {
     display: none;
     position: fixed;
@@ -145,6 +144,7 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .popup-background {
