@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="/ZKFood/assets/logo-icon.png" type="image/png">
     <link rel="stylesheet" href=../..css/..dashboard/">
+    <script src="../../js/fetch.js"></script>
     <title>Análise de Produtos</title>
 </head>
 
@@ -187,6 +188,7 @@
                     <div class="produto_legenda_lista">Produto</div>
                     <div class="preco_legenda_lista">Preço</div>  
                     <div class="disponibilidade_legenda_lista">Disponível</div>
+                    <div class="disponibilidade_legenda_lista">Prato do Dia</div>
                 </div>
                 <div id="container_lista_produtos"></div>
             </div>
@@ -198,6 +200,8 @@
             const disponibilidadeClasse = produto.disponibilidade ? "disponivel" : "indisponivel";
             const disponibilidadeTexto = produto.disponibilidade ? "Ativo" : "Inativo";
 
+            const pratoDoDia = produto.pratoDoDia;
+
             return `
             <div class="container_produto">
                 <div class="container_legenda">
@@ -208,6 +212,18 @@
                     <div class="preco_legenda_lista">R$${produto.valor}.00</div>
                     <div class="disponibilidade_legenda_lista_${disponibilidadeClasse}" onclick="alterarDisponibilidade(${produto.id})">
                         ${disponibilidadeTexto}
+                    </div>
+                    <div>
+                        <select onchange="alterarPratoDoDia(${produto.id}, this.value)">
+                            <option value="0" ${pratoDoDia === 0 ? 'selected' : ''}>Não é prato do dia</option>
+                            <option value="1" ${pratoDoDia === 1 ? 'selected' : ''}>Domingo</option>
+                            <option value="2" ${pratoDoDia === 2 ? 'selected' : ''}>Segunda</option>
+                            <option value="3" ${pratoDoDia === 3 ? 'selected' : ''}>Terça</option>
+                            <option value="4" ${pratoDoDia === 4 ? 'selected' : ''}>Quarta</option>
+                            <option value="5" ${pratoDoDia === 5 ? 'selected' : ''}>Quinta</option>
+                            <option value="6" ${pratoDoDia === 6 ? 'selected' : ''}>Sexta</option>
+                            <option value="7" ${pratoDoDia === 7 ? 'selected' : ''}>Sábado</option>
+                        </select>
                     </div>
                 </div>
                 <div class="container_update_delete">
@@ -222,6 +238,18 @@
             <br>
         `;
         }).join('');
+    }
+
+    async function alterarPratoDoDia(id, valor) {
+        await fetch(`${ambiente.local}${prefix.produtos}/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                pratoDoDia: valor
+            })
+        })
     }
 
     // Função para filtrar os produtos
