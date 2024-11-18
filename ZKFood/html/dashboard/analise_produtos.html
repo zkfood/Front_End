@@ -23,91 +23,91 @@
 
 <body>
 
-<!-- <div class="container_sep_info_dash">
+    <!-- <div class="container_sep_info_dash">
 
-    <div class="container_info">
-        <div class="container_logo">
-            <img src="../../assets/logo-icon.png" alt="zkFood_logo">
-        </div>
-        <div class="container_texto_Bem_vindo">
-            Bem Vindo, <br>
-            <h2>Zeca Silva</h2>
-        </div>
-        <div class="container_txt_dashboard">
-            Dashboards
-        </div>
-        <div class="container_opcoes_dash">
-            <ul>
-                <li id="opcao_selecionada">
-                    <img src="../../assets/jantar 1.png" alt=""> Produtos
-                </li>
-                <div class="container_sub_opcoes_dash">
-                    <ul>
-                        <li> > <a href="./dashboard.html"> Dashboard </a></li>
-                        <li> > <span id="sub_opcao_selecionada"> <a href="./crud_produtos.html"> Análise de Produtos
-                                </a> </span> </li>
-                        <li> > <a href="./cadastro_produtos.html"> Cadastrar Produtos </a></li>
-                    </ul>
-                </div>
-                <li> > <img src="../../assets/avaliacoes 1.png" alt=""> Avaliações</li>
-                <li> > <img src="../../assets/money-bag 1.png" alt=""> Financeiro</li>
-            </ul>
-        </div>
-    </div>
-    <div class="container_dash">
-        <div class="container_crud_produtos">
-            <div class="titulo_analise_produtos">
-                ANÁLISE DE PRODUTOS
+        <div class="container_info">
+            <div class="container_logo">
+                <img src="../../assets/logo-icon.png" alt="zkFood_logo">
             </div>
-            <div id="retorno_de_dados"></div>
-            <div id="popup_crud" class="popup_crud">
-                <div class="popup-background">
-                    <div class="popup-content_crud">
-                        <span class="close" onclick="closePopup()">&times;</span>
-                        <img id="popup-icon" src="../../assets/deletar.png" alt="Icon">
-                        <h2 id="popup-title" class="popup-title">REMOVER PRODUTO?</h2>
-                        <p id="popup-message" class="popup-message">Tem certeza que deseja remover este produto?</p><br>
-                        <button id="confirm-delete-button" onclick="confirmarDelete()">REMOVER</button>
+            <div class="container_texto_Bem_vindo">
+                Bem Vindo, <br>
+                <h2>Zeca Silva</h2>
+            </div>
+            <div class="container_txt_dashboard">
+                Dashboards
+            </div>
+            <div class="container_opcoes_dash">
+                <ul>
+                    <li id="opcao_selecionada">
+                        <img src="../../assets/jantar 1.png" alt=""> Produtos
+                    </li>
+                    <div class="container_sub_opcoes_dash">
+                        <ul>
+                            <li> > <a href="./dashboard.html"> Dashboard </a></li>
+                            <li> > <span id="sub_opcao_selecionada"> <a href="./crud_produtos.html"> Análise de Produtos
+                                    </a> </span> </li>
+                            <li> > <a href="./cadastro_produtos.html"> Cadastrar Produtos </a></li>
+                        </ul>
+                    </div>
+                    <li> > <img src="../../assets/avaliacoes 1.png" alt=""> Avaliações</li>
+                    <li> > <img src="../../assets/money-bag 1.png" alt=""> Financeiro</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container_dash">
+            <div class="container_crud_produtos">
+                <div class="titulo_analise_produtos">
+                    ANÁLISE DE PRODUTOS
+                </div>
+                <div id="retorno_de_dados"></div>
+                <div id="popup_crud" class="popup_crud">
+                    <div class="popup-background">
+                        <div class="popup-content_crud">
+                            <span class="close" onclick="closePopup()">&times;</span>
+                            <img id="popup-icon" src="../../assets/deletar.png" alt="Icon">
+                            <h2 id="popup-title" class="popup-title">REMOVER PRODUTO?</h2>
+                            <p id="popup-message" class="popup-message">Tem certeza que deseja remover este produto?</p><br>
+                            <button id="confirm-delete-button" onclick="confirmarDelete()">REMOVER</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container_sep_info_dash">
+        <div id="menu-container" class="menu-container">
+            <script>
+                const menuContainer = document.getElementById("menu-container");
+                fetch("menu_dashboard.html")
+                    .then(response => response.text())
+                    .then(data => {
+                        menuContainer.innerHTML = data;
+                    })
+                    .catch(err => console.error("Erro ao carregar o menu:", err));
+            </script>
+        </div>
+        <div class="container_dash">
+            <div class="container_crud_produtos">
+                <div class="titulo_analise_produtos">
+                    ANÁLISE DE PRODUTOS
+                </div>
+                <div id="retorno_de_dados"></div>
+                <div id="popup_crud" class="popup_crud">
+                    <div class="popup-background">
+                        <div class="popup-content_crud">
+                            <span class="close" onclick="closePopup()">&times;</span>
+                            <img id="popup-icon" src="../../assets/deletar.png" alt="Icon">
+                            <h2 id="popup-title" class="popup-title">REMOVER PRODUTO?</h2>
+                            <p id="popup-message" class="popup-message">Tem certeza que deseja remover este produto?</p>
+                            <br>
+                            <button id="confirm-delete-button" onclick="confirmarDelete()">REMOVER</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div> -->
-
-<div class="container_sep_info_dash">
-    <div id="menu-container" class="menu-container">
-        <script>
-            const menuContainer = document.getElementById("menu-container");
-            fetch("menu_dashboard.html")
-                .then(response => response.text())
-                .then(data => {
-                    menuContainer.innerHTML = data;
-                })
-                .catch(err => console.error("Erro ao carregar o menu:", err));
-        </script>
-    </div>
-    <div class="container_dash">
-        <div class="container_crud_produtos">
-            <div class="titulo_analise_produtos">
-                ANÁLISE DE PRODUTOS
-            </div>
-            <div id="retorno_de_dados"></div>
-            <div id="popup_crud" class="popup_crud">
-                <div class="popup-background">
-                    <div class="popup-content_crud">
-                        <span class="close" onclick="closePopup()">&times;</span>
-                        <img id="popup-icon" src="../../assets/deletar.png" alt="Icon">
-                        <h2 id="popup-title" class="popup-title">REMOVER PRODUTO?</h2>
-                        <p id="popup-message" class="popup-message">Tem certeza que deseja remover este produto?</p>
-                        <br>
-                        <button id="confirm-delete-button" onclick="confirmarDelete()">REMOVER</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 </body>
 
 <script>
@@ -254,21 +254,21 @@
 
     // Função para filtrar os produtos
     function filtrarProdutos() {
-        const filtro = document.getElementById("select_tipo").value;
-        let produtosFiltrados; // Declara a variável para armazenar os produtos filtrados
+    const filtro = document.getElementById("select_tipo").value;
+    let produtosFiltrados; // Declara a variável para armazenar os produtos filtrados
 
-        // Verifica se o filtro é "0" para exibir todos os produtos
-        if (filtro === "0") {
-            produtosFiltrados = produtosCache; // Se for "0", exibe todos os produtos
-        } else {
-            // Caso contrário, filtra os produtos pelo tipoProduto
-            produtosFiltrados = produtosCache.filter(produto => produto.tipoProduto === parseInt(filtro));
-        }
-
-        // Renderiza os produtos filtrados ou todos os produtos
-        const divResposta = document.getElementById("retorno_de_dados");
-        renderizarProdutos(divResposta, produtosFiltrados);
+    // Verifica se o filtro é "0" para exibir todos os produtos
+    if (filtro === "0") {
+        produtosFiltrados = produtosCache; // Se for "0", exibe todos os produtos
+    } else {
+        // Caso contrário, filtra os produtos pelo tipoProduto
+        produtosFiltrados = produtosCache.filter(produto => produto.tipoProduto === parseInt(filtro));
     }
+
+    // Renderiza os produtos filtrados ou todos os produtos
+    const divResposta = document.getElementById("retorno_de_dados");
+    renderizarProdutos(divResposta, produtosFiltrados);
+}
 
 
 
