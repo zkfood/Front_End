@@ -45,7 +45,7 @@
             <img class="img-prato" src="${favorito.imagem}" alt="foto do prato">
             <h1>${favorito.nome}</h1>
             <p>${favorito.descricao}</p>
-            <div class="card-menu">
+            <div class="card-menu-fav">
                 <h2><span>R$</span> ${favorito.valor.toFixed(2)}</h2>
                 <div class="card-botoes">
                     <button class="botao-carrinho" onclick="abrirModal(${favorito.idProduto})" id="openModal-${favorito.idProduto}"><img src="../../assets/carrinho-carrinho-branco.png" style="margin-right: 3px;" alt="icone de carrinho de compras"></button>

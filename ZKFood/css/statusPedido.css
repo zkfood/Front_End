@@ -16,6 +16,7 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    margin-bottom: 10%;
 }
 
 .titulo-status {
@@ -51,7 +52,8 @@ body {
 }
 
 .status-card img {
-    height: 120px;
+    height: 100px;
+    margin-bottom: 20%;
 }
 
 
@@ -393,61 +395,105 @@ body {
     margin-left: 5%;
 }
 
-/* Iniciando o avaliações */
 
+/* Iniciando o avaliações */
 .total-pai-avaliacao {
-    width: 100%;
-    height: 100vh;
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 5%;
+    width: 100%;
+    height: auto;
     margin-top: 8%;
 }
 
-.total-pai span b {
-    font-size: 25px;
-}
-
-.container-avaliacoes {
+.banner-avaliacoes {
+    position: sticky;
+    top: 0;
+    width: 30%;
     height: 100vh;
-    width: 85%;
-    background: url(/ZKFood/assets/Sacolas-ZKfood.png);
-    background-repeat: no-repeat;
+    background: url(/ZKFood/assets/Sacolas-ZKfood.png) no-repeat center center;
+    background-size: cover;
     display: flex;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
+    margin-right: 15%;
 }
 
-/* Estilizando o card */
-.avaliacao-container {
-    border-radius: 10px;
-    width: 50%;
-    margin-bottom: 8%;
+.container-cards-avaliacoes {
+    width: 65%;
+    height: auto;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
 }
 
-.avaliacao-container h1 {
+.titulo-avaliacoes{
+    position: sticky;
+    top: 0;
+    width: 90%;
+    height: 10vh;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+}
+
+.titulo-avaliacoes h1 {
+    font-size: 45px;
     font-family: "Bebas Neue", sans-serif;
-    font-size: 40px;
-    margin-bottom: 20px;
-    font-weight: 300;
+    font-weight: 500;
 }
 
-.avaliacao-container h1 span {
+.amarelo {
     color: #FFB90A;
 }
 
-.avaliacao-container p {
-    font-size: 18px;
-    margin-bottom: 10px;
+.card-avaliacao {
+    width: 100%;
+    max-width: 600px;
+    height: 200px;
+    background-color: #ffffff;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 15px;
+    box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
+}
+
+.card-imagem {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5%;
+}
+
+.card-imagem img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.card-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.card-texto h1 {
+    font-size: 24px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    margin: 0;
 }
 
 .estrelas {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .estrela {
-    font-size: 40px;
+    font-size: 35px;
     color: #ccc;
     cursor: pointer;
     transition: color 0.3s;
@@ -457,13 +503,8 @@ body {
     color: #FFB90A;
 }
 
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group textarea {
+.card-texto textarea {
     width: 100%;
-    height: 20vh;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -471,14 +512,15 @@ body {
     box-sizing: border-box;
 }
 
+
 .botao-enviar {
     background-color: #68A5FF;
     border: none;
     border-radius: 10px;
-    height: 40px;
-    width: 100%;
+    height: 30px;
+    width: 50%;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 18px;
     font-family: "Bebas Neue", sans-serif;
     cursor: pointer;
     margin-top: 5%;
@@ -493,105 +535,6 @@ body {
 .botao-enviar:hover {
     background-color: #002865;
 }
-
-/* Histórico de pedidos */
-.historico-pedidos {
-    width: 70%;
-    margin: 0 auto;
-    font-family: "Roboto", sans-serif;
-    margin-bottom: 10%;
-    margin-top: 5%;
-}
-
-.historico-pedidos h2 {
-    color: #FFB90A;
-    margin-bottom: 5%;
-    margin-top: 5%;
-    font-family: "Bebas Neue", sans-serif;
-    color: #000000;
-    line-height: 24px;
-    font-size: 40px;
-    font-weight: 400;
-}
-
-.historico-pedidos span {
-    color: #FFB90A;
-}
-
-.data-pedido {
-    font-size: 16px;
-    color: #888;
-    margin-bottom: 10px;
-    margin-top: 50px;
-    font-weight: 500;
-}
-
-.pedido-card {
-    background-color: #f7f7f7;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    padding: 20px;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
-}
-
-.pedido-info {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.status-pedido {
-    font-size: 18px;
-    font-weight: bold;
-    color: #68A5FF;
-}
-
-.status-pedido.concluido {
-    color: #4CAF50;
-}
-
-.status-pedido.em-andamento {
-    color: #FFD700;
-}
-
-.status-pedido.cancelado {
-    color: red;
-}
-
-.item-pedido {
-    font-size: 16px;
-    color: #666;
-}
-
-.valor-pedido {
-    font-size: 18px;
-    color: #000;
-}
-
-.avaliacao-pedido span {
-    font-size: 18px;
-    color: #FFD700;
-}
-
-.comprar-novamente {
-    background-color: #68A5FF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.comprar-novamente:hover {
-    background-color: #002865;
-}
-
 
 /* CSS para card de ERRO ou pedido cancelado */
 
@@ -671,3 +614,4 @@ body {
     justify-content: center;
     transition: background-color 0.3s ease; /* Adiciona a transição suave */
 }
+
