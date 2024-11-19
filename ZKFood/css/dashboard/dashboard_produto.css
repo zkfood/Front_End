@@ -1,0 +1,944 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+/* Reset de margem */
+* {
+    margin: 0;
+}
+
+/* Container de dashboard */
+.container_dash {
+    width: 100%;
+    height: 150vh;
+    background-color: #3BFF00;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.menu-container{
+    width: 18%;
+ }
+
+#sub_opcao_selecionada {
+    font-size: 12px;
+    margin-left: 2%;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#opcao_selecionada {
+    background-color: #EEA800;
+    border-radius: 5px;
+}
+
+.container_cards_kpi {
+    width: 100%;
+    height: 30vh;
+    /* position: absolute; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #68A5FF;
+}
+
+.kpi_card {
+    width: 30%;
+    font-size: 20px;
+    height: 70%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2),
+        /* Leve sombra no lado direito */
+        -2px 0 5px rgba(0, 0, 0, 0.2),
+        /* Leve sombra no lado esquerdo */
+        0 4px 10px rgba(0, 0, 0, 0.5);
+    /* Forte sombra na base inferior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.kpi-nome{
+    font-size: 18px;
+}
+
+.kpi-num{
+    font-size: 25px;
+}
+
+
+.container_dados_kpi {
+    width: 80%;
+    height: 70%;
+    /* background-color: black; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container_all{
+    display: flex;
+    overflow: hidden; 
+}
+#barra_cor_status_bom{
+    height: 75%;
+    width: 3%;
+    background-color: green;
+    border-radius: 40px;
+}
+
+#barra_cor_status_erro{
+    height: 75%;
+    width: 3%;
+    background-color: red;
+    border-radius: 40px;
+}
+
+.container_kpi_img{
+    width: 95%;
+    height: 70%;
+    /* background-color: black; */
+    display: flex;
+}
+
+.kpi_dados{
+    width: 80%;
+    height:100%;
+    background-color: white;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 10px;
+    margin-left: 2%;
+}
+
+#valor_kpi{
+    font-size: 16px;
+}
+
+.container_img_kpi{
+    height: 100%;
+    width: 20%;
+}
+
+.fundo_img_kpi{
+    width: 80%;
+    height: 45%;
+    border-radius: 5px;
+    background-color: #F7C242;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fundo_img_kpi img{
+    width: 80%;
+    height: 85%;
+}
+
+.container_comparacao_kpi{
+    width: 80%;
+    height: 30%;
+    /* background-color: yellow; */
+    display: flex;
+    align-items: center;
+}
+
+.img_status_mes{
+    width: 15%;
+    height: 60%;
+}
+
+.img_status_mes img{
+    width: 100%;
+    height: 100%;
+}
+
+#status_diferenca_mes_bom{
+    font-family: 'Inria Sans', sans-serif;
+    color: #3BFF00;
+    font-size: 10px;
+}
+
+#valor_diferenca_bom{
+    font-family: 'Inria Sans', sans-serif;
+    color: #3BFF00;
+    font-size: 10px;
+    margin-right: 3%;
+}
+
+#status_diferenca_mes_ruim{
+    font-family: 'Inria Sans', sans-serif;
+    color: red;
+    font-size: 10px;
+}
+
+#valor_diferenca_ruim{
+    font-family: 'Inria Sans', sans-serif;
+    color: red;
+    font-size: 10px;
+    margin-right: 3%;
+}
+
+.container_comparacao_kpi{
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 10px;
+}
+
+.container_dashboard_produtos_mais_vendidos{
+    /* background-color: black; */
+    width: 80%;
+    height: 80%;
+    display: flex;
+    margin-top: 10%;
+}
+
+.titulo_dashboard{
+    display: flex;
+    height: 15%;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    /* background-color: yellow; */
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+}
+
+.container_dash_dados{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 65%;
+    /* background-color: blue; */
+}
+
+#dash_produtos{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+    /* background-color: black; */
+}
+
+#dash_produtos canvas{
+    background-color:#F7F9FB;
+}
+
+a {
+    margin-left: 2%;
+    color: white;
+    text-decoration: none;
+}
+
+.container_crud_produtos{
+    /* background-color: black; */
+    width: 80%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+}
+
+.titulo_analise_produtos{
+    display: flex;
+    height: 15%;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    /* background-color: yellow; */
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    /* font-weight: bold; */
+}
+
+#retorno_de_dados{
+    width: 100%;
+    height: 100%;
+    /* background-color: black; */
+}
+
+.container_resposta_vazio{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    /* background-color: yellow; */
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titulo_resposta_vazio{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    /* background-color: yellow; */
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.texto_resposta_vazio{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    /* background-color: yellow; */
+    width: 52%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button_cadastrar_produto{
+    width: 28%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: yellow; */
+}
+
+.button_cadastrar_produto button{
+    background-color: #68A5FF;
+    color: white;
+    padding: 1%;
+    border-radius: 10px;
+    width: 55%;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    border: none;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2),
+    /* Leve sombra no lado direito */
+    -2px 0 5px rgba(0, 0, 0, 0.2),
+    /* Leve sombra no lado esquerdo */
+    0 4px 10px rgba(0, 0, 0, 0.5);
+/* Forte sombra na base inferior */
+    cursor: pointer;
+}
+
+/* Estilo para esconder o pop-up por padrão
+.popup {
+    display: flex none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+/* Estilo para o conteúdo do pop-up */
+/* .popup-content {
+    background: linear-gradient(0deg, rgba(255, 215, 121, 1) 0%, rgba(255, 185, 10, 1) 79%);
+    margin-top: 10%;
+    margin-left: 40%;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 25px;
+    width: 80%;
+    height: 55%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+
+/* Estilo para o botão de fechar
+.close {
+    display: flex;
+    width: 95%;
+    justify-content:end;
+    color: #aaa;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: blue;
+} */
+
+/* .close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+} */
+
+
+.container_cadastro_produtos{
+    width: 80%;
+    height: 100vh;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo_cadastro{
+    width: 38%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+}
+
+.cadastro_titulo{
+    margin-right: 5px;
+    color: #FFB90A;
+}
+
+.container_card_cadastro{
+    width: 100%;
+    height: 70%;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_cadastro{
+    width: 80%;
+    height: 100%;
+    /* background-color:red; */
+    border: none;
+    border-radius: 25px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2),
+    /* Leve sombra no lado direito */
+    -2px 0 5px rgba(0, 0, 0, 0.0),
+    /* Leve sombra no lado esquerdo */
+    0 4px 10px rgba(0, 0, 0, 0.0);
+/* Forte sombra na base inferior */
+    display: flex;
+    flex-direction: column;
+}
+
+.container_dados_principais{
+    width: 100%;
+    height: 65%;
+    display: flex;
+    /* background-color: red; */
+    justify-content: space-evenly;
+}
+
+.container_dados_adicionais{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    /* background-color: blue; */
+    justify-content: space-evenly;
+}
+
+.container_button_cadastrar{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    /* background-color: gray; */
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3%;
+    margin-bottom: 3%;
+}
+
+.container_imagem_cadastro{
+    width: 40%;
+    height: 100%;
+    /* background-color: gray; */
+    display: flex;
+    flex-direction: column;
+}
+
+.container_cadastro_principais{
+    width: 60%;
+    height: 100%;
+    /* background-color: gray; */
+}
+
+.titulo_cadastro_imagem{
+    width: 100%;
+    height: 20%;
+    /* background-color: blue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;   
+}
+
+.imagem_upload{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;   
+}
+
+.custom-file-upload {
+    width: 45%;
+    height: 80%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    padding: 6%;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    background-color: gray;
+    text-align: center;
+    background-image: url(../assets/Add\ Image.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.custom-file-upload:hover {
+    background-color: black;
+}
+/* Escondendo o input de arquivo */
+input[type="file"] {
+    display: none;
+}
+
+.titulo_cadastro_dados{
+    height: 20%;
+    align-items: center;
+    display: flex;
+    align-items: end;
+    /* background-color: blue; */
+    font-family: 'Roboto', sans-serif; 
+    margin-bottom: 8px;
+}
+
+.container_cadastro_principais input{
+    border: 1px solid black;
+    width: 80%;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+#descricao_produto_input{
+    height: 30%;
+}
+
+.container_input_adicionais{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    width: 20%;
+    height: 100%;
+    /* background-color: white; */
+}
+
+.container_input_adicionais input{
+    border: 1px solid black;
+    width: 100%;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.container_input_adicionais select{
+    border: 1px solid black;
+    width: 100%;
+    border-radius: 4px;
+    padding: 4px;
+}
+
+.container_button_cadastrar button{
+    background-color: #68A5FF;
+    color: white;
+    padding: 1%;
+    border-radius: 10px;
+    width: 35%;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    border: none;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2),
+    /* Leve sombra no lado direito */
+    -2px 0 5px rgba(0, 0, 0, 0.2),
+    /* Leve sombra no lado esquerdo */
+    0 4px 10px rgba(0, 0, 0, 0.5);
+/* Forte sombra na base inferior */
+    cursor: pointer;   
+}
+
+#retorno_cadastro{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius:25px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Popup */
+/* Estilizando o pop-up */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.popup-background {
+    height: 412px;
+    width: 743px;
+    background: linear-gradient(to bottom, #FFB90A 0%, #FFD779 100%);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* /* margin-top: 10%; */
+    margin-left: 20%;
+}
+
+.popup-content {
+    height: 332px;
+    width: 663px;
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.popup-title {
+    margin: 0;
+    font-size: 45px;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.popup-message {
+    margin: 10px 0 0;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+}
+
+.close {
+    width: 39px;
+    height: 39px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 39px;
+}
+
+.popup img {
+    width: 103px;
+    height: 103px;
+    margin-bottom: 10px;
+}
+
+.container_card_lista_produtos{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    width: 100%;
+    height: 100%;
+}
+
+.card_lista_produtos{
+    width: 90%;
+    height: 95%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2),
+    /* Leve sombra no lado direito */
+    -2px 0 5px rgba(0, 0, 0, 0.2),
+    /* Leve sombra no lado esquerdo */
+    0 4px 10px rgba(0, 0, 0, 0.5);
+/* Forte sombra na base inferior */   
+}
+
+.container_opcoes_cadastro_filtro{
+    width: 90%;
+    height: 10%;
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: end;
+}
+
+.container_opcoes{
+    width: 40%;
+    height: 100%;
+    /* border: 2px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.container_opcoes button{
+    width: 40%;
+    height: 70%;
+    border: none;
+    cursor: pointer;
+    background-color: #FFB90A;
+    color: white;
+    font-family: "Bebas Neue", sans-serif;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.container_opcoes select{
+    border: 1px solid black;
+    width: 40%;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 10px;
+    font-family: "Inria Sans", sans-serif;
+    font-weight: bold;
+    border: none;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2),
+    /* Leve sombra no lado direito */
+    -2px 0 5px rgba(0, 0, 0, 0.2),
+    /* Leve sombra no lado esquerdo */
+    0 4px 10px rgba(0, 0, 0, 0.5);
+/* Forte sombra na base inferior */
+}
+
+.container_lista_produtos{
+    width: 95%;
+    height: 15%;
+    /* background-color: blue; */
+    /* margin-left: 5%; */
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.container_lista_produtos::-webkit-scrollbar {
+    width: 15px; /* Largura da barra de rolagem */
+}
+
+.container_lista_produtos::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Cor de fundo da trilha */
+    border-radius: 10px; /* Bordas arredondadas da trilha */
+}
+
+.container_lista_produtos::-webkit-scrollbar-thumb {
+    background: #848383; /* Cor do polegar ao passar o mouse */
+    border-radius: 10px;
+}
+
+.container_lista_produtos::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Cor do polegar ao passar o mouse */
+}
+
+.container_legenda_lista{
+    /* background-color: blue; */
+    height: 5%;
+    margin-left: 5%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'Inter', sans-serif;
+    /* border: 2px solid black; */
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.container_produto{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    height: 30px;
+    margin-left: 5%;
+    width: 90%;
+    display: flex;
+    /* justify-content: space-around; */
+    /* align-items: center; */
+    /* align-items: center; */
+    font-family: 'Inter', sans-serif;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2),
+    /* Leve sombra no lado direito */
+    -2px 0 5px rgba(0, 0, 0, 0.2),
+    /* Leve sombra no lado esquerdo */
+    0 4px 10px rgba(0, 0, 0, 0.0);
+/* Forte sombra na base inferior */
+}
+
+.container_produto img{
+    /* display: flex; */
+    /* background-color: #848383; */
+    height: 100%;
+}
+
+.imagem_legenda_lista{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    height: 100%;
+}
+
+.imagem_legenda_lista img{
+    background-color: #848383;
+}
+
+.id_legenda_lista{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    height: 100%;
+    /* background-color: blue; */
+}
+
+.produto_legenda_lista{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    /* background-color: blue; */
+}
+
+.preco_legenda_lista{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    height: 100%;
+    /* background-color: blue; */
+}
+
+.disponibilidade_legenda_lista_indisponivel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    height: 100%;
+    /* padding: 10px; */
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+    background-color: red;
+    color: darkred;
+}
+
+.disponibilidade_legenda_lista_disponivel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    height: 100%;
+    /* padding: 10px; */
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;    
+    background-color: green;
+    color: lightgreen;
+}
+
+.container_legenda{
+    width: 81%;
+    display: flex;
+    /* background-color: blue; */
+    justify-content: space-around;
+}
+
+.container_update_delete{
+    width: 18%;
+    height: 100%;
+    display: flex;
+    /* justify-content: space-around; */
+    /* background-color:black; */
+}
+
+.container_funcionalidade_deletar{
+    width: 40%;
+    height: 100%;
+    /* background-color: #020F1F; */
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    font-size: 5px;
+    cursor: pointer;
+}
+
+.container_funcionalidade_atualizar{
+    width: 40%;
+    height: 100%;
+    /* background-color: #020F1F; */
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    font-size: 5px;
+    cursor: pointer;
+}
+
+.popup-content_crud button{
+    background-color: red;
+    color: white;
+    padding: 1%;
+    border-radius: 10px;
+    width: 55%;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    border: none;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2),
+    /* Leve sombra no lado direito */
+    -2px 0 5px rgba(0, 0, 0, 0.2),
+    /* Leve sombra no lado esquerdo */
+    0 4px 10px rgba(0, 0, 0, 0.5);
+/* Forte sombra na base inferior */
+    cursor: pointer;
+}
+
+.popup_crud {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.popup-background {
+    margin-top:10%;
+    /* margin-left: 15%; */
+    height: 412px;
+    width: 743px;
+    background: linear-gradient(to bottom, #FFB90A 0%, #FFD779 100%);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* /* margin-top: 10%; */
+    margin-left: 20%;
+}
+
+.popup-content_crud{
+    /* margin-top: 10%;
+    margin-left: 35%; */
+    height: 332px;
+    width: 663px;
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

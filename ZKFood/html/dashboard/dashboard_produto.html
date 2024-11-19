@@ -5,20 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../css/dashboard_ajustes/dashboard_produto.css">
-    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/dashboard/dashboard_produto.css">
+    <link rel="stylesheet" href="../../css/menu_dashboard/menu.css">
+    <link rel="stylesheet" href="../../css/menu_dashboard/testeMenu.css">
 
     <link rel="icon" href="/ZKFood/assets/logo-icon.png" type="image/png">
 
     <script src="../js/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="../../css/menu_dashboard/menu.css">
-    <link rel="stylesheet" href="../../css/menu_dashboard/testeMenu.css">
 
-    <title>Dashboard - Gráfico de Produtos</title>
+    <title>Dashboard Produtos</title>
 </head>
 
 <body>
+    <!-- Menu -->
     <div class="container_sep_info_dash">
         <div id="menu-container">
             <script>
@@ -31,15 +31,18 @@
                     .catch(err => console.error("Erro ao carregar o menu:", err));
             </script>
         </div>
-        <div class="container_dash">
+
+        <!-- Dashboard -->
+        <div class="container_dash"><h2>teste</h2>
             <div class="container_cards_kpi">
+                
                 <div class="kpi_card">
                     <div class="container_dados_kpi">
                         <div id="barra_cor_status_bom"></div>
                         <div class="container_kpi_img">
                             <div class="kpi_dados">
                                 <span class="kpi-nome" id="produto_mais_vendido">Produto Mais Vendido</span><br><br>
-                                <span class="kpi-num" id="quantidade_produto_mais_vendido"></span>
+                                <span class="kpi-num" id="quantidade_produto_mais_vendido">x</span>
                             </div>
                             <div class="container_img_kpi">
                                 <div class="fundo_img_kpi">

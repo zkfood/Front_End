@@ -28,10 +28,10 @@
 
 .status-card img {
     height: 6vh;
-    width: 12vw;
 }
 .status-card p {
     font-size: 15px;
+    width: 70%;
 }
 
 /* Cards */
@@ -262,65 +262,146 @@
 }
 
 /* Iniciando o avaliações */
-.total-pai-avaliacao{
-    width: 100%;
-    height: 90vh;
+
+.banner-avaliacoes {
+    display: none;
+}
+ 
+/* Iniciando o avaliações */
+.total-pai-avaliacao {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-}
-
-.total-pai span b {
-    font-size: 20px;
-}
-
-.container-avaliacoes {
-    height: 90vh;
     width: 100%;
+    height: auto;
+    margin-top: 8%;
     background: url(../../assets/banner-amarelo.png);
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-/* Estilizando o card */
-.avaliacao-container {
-    background-color: white;
-    padding: 5%;
-    width: 80%;
-    height: 55vh;
-    margin-bottom: 8%;
+.container-cards-avaliacoes {
+    width: 95%;
+    height: auto;
+    overflow-y: unset;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 0px;
+    margin-bottom: 10%;
 }
 
-.estrela {
-    font-size: 60px;
+.titulo-avaliacoes{
+    position: unset;
+    top: 0;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 10%;
 }
 
-/* Histórico de pedidos */
-.historico-pedidos {
+.titulo-avaliacoes h1 {
+    font-size: 45px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.amarelo {
+    color: #ffffff;
+}
+
+.card-avaliacao {
+    width: 100%;
+    max-width: 100%;
+    height: 250px;
+    background-color: #ffffff;
+    padding: 0%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 15px;
+    box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
+}
+
+.card-imagem {
     width: 90%;
-    margin-bottom: 20%;
-    margin-top: 20%;
-}
-
-.pedido-card {
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-.comprar-novamente {
-    width: 35%;
-    height: 5vh;
-    font-size: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 3%;
+}
+
+.card-imagem img {
+    width: 100%;
+    height: 60%;
+    border-radius: 10px;
+}
+
+.card-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.card-texto h1 {
+    font-size: 24px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    margin: 0;
+}
+
+.estrelas {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.estrela {
+    font-size: 35px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.estrela.ativa {
+    color: #FFB90A;
+}
+
+.card-texto textarea {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+
+.botao-enviar {
+    background-color: #68A5FF;
+    border: none;
+    border-radius: 10px;
+    height: 35px;
+    width: 90%;
+    color: #ffffff;
+    font-size: 18px;
+    font-family: "Bebas Neue", sans-serif;
+    cursor: pointer;
+    margin-top: 5%;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* Adiciona a transição suave */
+}
+
+.botao-enviar:hover {
+    background-color: #002865;
 }
 
 /* CSS para card de ERRO ou pedido cancelado */

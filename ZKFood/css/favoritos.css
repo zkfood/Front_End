@@ -95,20 +95,21 @@ body {
     font-weight: 400;
 }
 
-.card-menu {
+.card-menu-fav {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.card-menu h2 {
+.card-menu-fav h2 {
+    width: 100%;
     font-family: "Bebas Neue", sans-serif;
     color: #FFB90A;
     font-weight: 500;
     font-size: 30px;
 }
 
-.card-menu span {
+.card-menu-fav span {
     font-family: "Bebas Neue", sans-serif;
     color: #FFB90A;
     font-weight: 500;
@@ -139,6 +140,7 @@ body {
     height: 3vh; 
     width: 3vh; 
     object-fit: contain; /* Garante que a imagem se encaixe corretamente dentro do botão */
+    margin-bottom: 0%;
 }
 
 .botao-carrinho, .botao-lixo {

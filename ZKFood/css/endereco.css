@@ -38,7 +38,7 @@
 
 /* Card de endereço */
 
-#card-endereco {
+.card-endereco {
     width: 90%;
     height: auto;
     border: none;
@@ -60,14 +60,10 @@
 
 .card-endereco:hover {
     box-shadow: 1px 1px 10px 5px #ffd364;
-    border-radius: 25px;
-    padding: 10px;
 }
 
 .card-endereco.clicado {
     box-shadow: 1px 1px 15px rgba(255, 178, 10, 0.8);
-    padding: 15px;
-    border-radius:25px;
     /* Sombra amarela quando selecionado */
 }
 

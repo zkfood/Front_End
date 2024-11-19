@@ -1,0 +1,150 @@
+
+/* Histórico de pedidos */
+.historico-pedidos {
+    width: 70%;
+    margin: 0 auto;
+    font-family: "Roboto", sans-serif;
+    margin-bottom: 10%;
+    margin-top: 5%;
+}
+
+.historico-pedidos h2 {
+    color: #FFB90A;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    font-family: "Bebas Neue", sans-serif;
+    color: #000000;
+    line-height: 24px;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.historico-pedidos span {
+    color: #FFB90A;
+}
+
+.data-pedido {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    font-weight: 500;
+}
+
+.pedido-card {
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.pedido-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.status-pedido {
+    font-size: 18px;
+    font-weight: bold;
+    color: #68A5FF;
+}
+
+.status-pedido.concluido {
+    color: #4CAF50;
+}
+
+.status-pedido.em-andamento {
+    color: #FFD700;
+}
+
+.status-pedido.cancelado {
+    color: red;
+}
+
+.item-pedido {
+    font-size: 16px;
+    color: #666;
+}
+
+.valor-pedido {
+    font-size: 18px;
+    color: #000;
+}
+
+.avaliacao-pedido span {
+    font-size: 18px;
+    color: #FFD700;
+}
+
+.comprar-novamente {
+    background-color: #68A5FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comprar-novamente:hover {
+    background-color: #002865;
+}
+
+/* paginação */
+
+.paginacao {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin-bottom: 5%;
+    overflow-x: auto;   
+    white-space: nowrap;/* Impede quebra de linha para itens inline */
+}
+
+.paginacao::-webkit-scrollbar {
+    height: 8px;/* Altura da barra de rolagem */
+}
+
+.paginacao::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+.paginacao::-webkit-scrollbar-thumb:hover {
+    background-color: #888; 
+}
+
+.paginacao button {
+    width: 40px;
+    height: 40px;
+    margin-right: 1%;
+    border: 1px solid #5c5c5c;  
+    border-radius: 50%;       
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: #5c5c5c;
+    background-color: #fff; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.paginacao button:hover {
+    background-color: #333;  
+    color: #fff;      
+}
+
+.paginacao button.active {
+    background-color: #333;
+    color: white;
+}

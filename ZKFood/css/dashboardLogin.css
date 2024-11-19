@@ -27,7 +27,6 @@ body{
 .banner-login {
     width: 100%;
     height: 90vh;
-    background: url(../../assets/login/background_desktop.png);
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -130,8 +129,7 @@ body{
     margin-top: 5%;
 }
 
-/* Popup */
-/* Estilizando o pop-up */
+/* Pop-up */
 .popup {
     display: none;
     position: fixed;
@@ -142,6 +140,7 @@ body{
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .popup-background {
