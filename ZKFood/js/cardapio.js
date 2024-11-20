@@ -44,27 +44,33 @@ async function receberPratos(tipo) {
         const favorito = favoritos.find(item => item.produto.id === produto.id);
         const corBotao = favorito ? "botao-favoritos red" : "botao-favoritos"
 
-        linhaItemCardapio.innerHTML += `
-            <div class="card-cardapio">
-                <div class="conteudo-cardapio">
-                    <h2>${produto.nome}</h2>
-                    <p>${produto.descricao}</p>
-                    <div class="servir">
-                        <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
-                        <h5>Serve ${produto.qtdPessoas} pessoas</h5>
-                    </div>
-                    <h1><span>R$</span>${produto.valor}</h1>
-                </div>
-                <div class="imagem-cardapio">
-                    <img id="imagem-${produto.descricao}" src="${ambiente.local + prefix.produtos}/imagem/${produto.id}" alt="Foto do prato">
-                    <div class="menu-card">
-                        <button class="botao-acessar" onclick="abrirModal(${produto.id})" id="openModal-${produto.id}">Ver mais</button>
-                        <button class="${corBotao}" onclick="favoritar(${produto.id})"><img src="../../assets/icon-coração-branco.png" alt=""></button>
-                    </div>
-                </div>
+console.log(produto)
+
+
+if (produto.disponibilidade == true) {
+    linhaItemCardapio.innerHTML += `
+    <div class="card-cardapio">
+        <div class="conteudo-cardapio">
+            <h2>${produto.nome}</h2>
+            <p>${produto.descricao}</p>
+            <div class="servir">
+                <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
+                <h5>Serve ${produto.qtdPessoas} pessoas</h5>
             </div>
-        `;
-        contador++
+            <h1><span>R$</span>${produto.valor}</h1>
+        </div>
+        <div class="imagem-cardapio">
+            <img id="imagem-${produto.descricao}" src="${ambiente.local + prefix.produtos}/imagem/${produto.id}" alt="Foto do prato">
+            <div class="menu-card">
+                <button class="botao-acessar" onclick="abrirModal(${produto.id})" id="openModal-${produto.id}">Ver mais</button>
+                <button class="${corBotao}" onclick="favoritar(${produto.id})"><img src="../../assets/icon-coração-branco.png" alt=""></button>
+            </div>
+        </div>
+    </div>
+`;
+contador++
+}
+       
     })
 }
 
@@ -82,7 +88,7 @@ async function favoritar(id) {
     })
     exibirPopup("Adicionado aos favoritos!", "success")
 
-    window.reload()
+    window.location= "./cardapio.html"
 }
 
 // Função para exibir o popup de sucesso ou erro
