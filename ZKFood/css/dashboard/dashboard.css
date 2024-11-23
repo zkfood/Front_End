@@ -10,12 +10,18 @@
     margin: 0;
 }
 
+.container_sep_info_dash{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
 /* Container principal */
 .container_all {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
-    /* align-items: center; */
+    justify-content: space-between;
 }
 
 /* Container de informações */
@@ -320,12 +326,15 @@ a {
     text-decoration: none;
 }
 
+/* --------------------------------------------------------------------- */
+/* Analise de produto */
 .container_crud_produtos{
-    /* background-color: black; */
+
     width: 80%;
     height: 100%;
     display: flex;
-    position: absolute;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -461,14 +470,14 @@ a {
 }
 
 .titulo_cadastro{
-    width: 38%;
+    width: 40%;
     height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
     /* background-color: blue; */
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px;
+    font-size: 35px;
 }
 
 .cadastro_titulo{
@@ -493,9 +502,9 @@ a {
     border-radius: 25px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2),
     /* Leve sombra no lado direito */
-    -2px 0 5px rgba(0, 0, 0, 0.0),
+    -2px 0 5px rgba(0, 0, 0, 0.2),
     /* Leve sombra no lado esquerdo */
-    0 4px 10px rgba(0, 0, 0, 0.0);
+    0 4px 10px rgba(0, 0, 0, 0.1);
 /* Forte sombra na base inferior */
     display: flex;
     flex-direction: column;
@@ -562,7 +571,7 @@ a {
 }
 
 .custom-file-upload {
-    width: 45%;
+    width: 60%;
     height: 80%;
     display: flex;
     align-items: end;
@@ -573,7 +582,7 @@ a {
     border-radius: 25px;
     background-color: gray;
     text-align: center;
-    background-image: url(../assets/Add\ Image.png);
+    background-image: url(../../assets/Add\ Image.png);
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -596,7 +605,7 @@ input[type="file"] {
 }
 
 .container_cadastro_principais input{
-    border: 1px solid black;
+    border: 1px solid rgb(135, 135, 135);
     width: 80%;
     border-radius: 4px;
     padding: 4px;
@@ -616,14 +625,14 @@ input[type="file"] {
 }
 
 .container_input_adicionais input{
-    border: 1px solid black;
+    border: 1px solid rgb(135, 135, 135);
     width: 100%;
     border-radius: 4px;
     padding: 4px;
 }
 
 .container_input_adicionais select{
-    border: 1px solid black;
+    border: 1px solid rgb(135, 135, 135);
     width: 100%;
     border-radius: 4px;
     padding: 4px;
@@ -638,12 +647,7 @@ input[type="file"] {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 24px;
     border: none;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2),
-    /* Leve sombra no lado direito */
-    -2px 0 5px rgba(0, 0, 0, 0.2),
-    /* Leve sombra no lado esquerdo */
-    0 4px 10px rgba(0, 0, 0, 0.5);
-/* Forte sombra na base inferior */
+
     cursor: pointer;   
 }
 
@@ -681,7 +685,7 @@ input[type="file"] {
     justify-content: center;
     align-items: center;
     /* /* margin-top: 10%; */
-    margin-left: 20%;
+    margin-left: 10%;
 }
 
 .popup-content {
@@ -970,65 +974,4 @@ input[type="file"] {
     cursor: pointer;
 }
 
-.popup-content_crud button{
-    background-color: red;
-    color: white;
-    padding: 1%;
-    border-radius: 10px;
-    width: 55%;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 24px;
-    border: none;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2),
-    /* Leve sombra no lado direito */
-    -2px 0 5px rgba(0, 0, 0, 0.2),
-    /* Leve sombra no lado esquerdo */
-    0 4px 10px rgba(0, 0, 0, 0.5);
-/* Forte sombra na base inferior */
-    cursor: pointer;
-}
 
-.popup_crud {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    background-color: rgba(0,0,0,0.7);
-}
-
-.popup-background {
-    margin-top:10%;
-    /* margin-left: 15%; */
-    height: 412px;
-    width: 743px;
-    background: linear-gradient(to bottom, #FFB90A 0%, #FFD779 100%);
-    padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* /* margin-top: 10%; */
-    margin-left: 20%;
-}
-
-.popup-content_crud{
-    /* margin-top: 10%;
-    margin-left: 35%; */
-    height: 332px;
-    width: 663px;
-    position: relative;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}

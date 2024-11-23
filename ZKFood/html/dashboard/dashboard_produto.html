@@ -7,7 +7,6 @@
 
     <link rel="stylesheet" href="../../css/dashboard/dashboard_produto.css">
     <link rel="stylesheet" href="../../css/menu_dashboard/menu.css">
-    <link rel="stylesheet" href="../../css/menu_dashboard/testeMenu.css">
 
     <link rel="icon" href="/ZKFood/assets/logo-icon.png" type="image/png">
 
@@ -33,30 +32,25 @@
         </div>
 
         <!-- Dashboard -->
-        <div class="container_dash"><h2>teste</h2>
+        <div class="container_dash">
+
+            <!-- KPIs -->
             <div class="container_cards_kpi">
-                
+
                 <div class="kpi_card">
                     <div class="container_dados_kpi">
                         <div id="barra_cor_status_bom"></div>
                         <div class="container_kpi_img">
                             <div class="kpi_dados">
                                 <span class="kpi-nome" id="produto_mais_vendido">Produto Mais Vendido</span><br><br>
-                                <span class="kpi-num" id="quantidade_produto_mais_vendido">x</span>
+                                <span class="kpi-num" id="quantidade_produto_mais_vendido"></span>
                             </div>
                             <div class="container_img_kpi">
                                 <div class="fundo_img_kpi">
-                                    <img src="../../assets/Money Bag.png" alt="">
+                                    <img src="../../assets/positivo.png" alt="">
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="container_comparacao_kpi">
-                        <div class="img_status_mes">
-                            <img src="../../assets/crescimento.png" alt="">
-                        </div>
-                        <span id="status_diferenca_mes_bom">1°</span><span id="valor_diferenca_bom">Mais vendido no
-                            mês</span>
                     </div>
                 </div>
 
@@ -65,22 +59,16 @@
                         <div id="barra_cor_status_bom"></div>
                         <div class="container_kpi_img">
                             <div class="kpi_dados">
-                                <span class="kpi-nome" id="produto_segundo_mais_vendido">Segundo Produto Mais Vendido</span><br><br>
+                                <span class="kpi-nome" id="produto_segundo_mais_vendido">Segundo Produto Mais
+                                    Vendido</span><br><br>
                                 <span class="kpi-num" id="quantidade_produto_segundo_mais_vendido"></span>
                             </div>
                             <div class="container_img_kpi">
                                 <div class="fundo_img_kpi">
-                                    <img src="../../assets/Money Bag.png" alt="">
+                                    <img src="../../assets/positivo.png" alt="">
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="container_comparacao_kpi">
-                        <div class="img_status_mes">
-                            <img src="../../assets/crescimento.png" alt="">
-                        </div>
-                        <span id="status_diferenca_mes_bom">2°</span><span id="valor_diferenca_bom">Segundo mais vendido
-                            no mês</span>
                     </div>
                 </div>
 
@@ -94,17 +82,10 @@
                             </div>
                             <div class="container_img_kpi">
                                 <div class="fundo_img_kpi">
-                                    <img src="../../assets/Money Bag.png" alt="">
+                                    <img src="../../assets/negativo.png" alt="">
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="container_comparacao_kpi">
-                        <div class="img_status_mes">
-                            <img src="../../assets/decadencia.png" alt="">
-                        </div>
-                        <span id="status_diferenca_mes_ruim">1°</span><span id="valor_diferenca_ruim">Menos vendido no
-                            mês</span>
                     </div>
                 </div>
 
@@ -113,23 +94,24 @@
                         <div id="barra_cor_status_erro"></div>
                         <div class="container_kpi_img">
                             <div class="kpi_dados">
-                                <span class="kpi-nome" id="produto_segundo_menos_vendido">Segundo Produto Menos Vendido</span><br><br>
+                                <span class="kpi-nome" id="produto_segundo_menos_vendido">Segundo Produto Menos
+                                    Vendido</span><br><br>
                                 <span class="kpi-num" id="quantidade_produto_segundo_menos_vendido"></span>
                             </div>
                             <div class="container_img_kpi">
                                 <div class="fundo_img_kpi">
-                                    <img src="../../assets/Money Bag.png" alt="">
+                                    <img src="../../assets/negativo.png" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="container_comparacao_kpi">
+                    <!-- <div class="container_comparacao_kpi">
                         <div class="img_status_mes">
                             <img src="../../assets/decadencia.png" alt="">
                         </div>
                         <span id="status_diferenca_mes_ruim">2°</span><span id="valor_diferenca_ruim">Segundo menos
                             vendido no mês</span>
-                    </div>
+                    </div> -->
                 </div>
 
 
@@ -188,49 +170,74 @@
             const ctx = document.getElementById('myChart').getContext('2d');
 
             const nomesProdutos = [
-                top3Melhores[0][0],
-                top3Melhores[1][0],
-                top3Piores[0][0],
-                top3Piores[1][0]
+                top3Melhores[0][0], 
+                top3Melhores[1][0], 
+                top3Melhores[2][0], 
+                top3Piores[0][0],   
+                top3Piores[1][0],   
+                top3Piores[2][0] 
             ];
 
             const quantidades = [
-                top3Melhores[0][1],
-                top3Melhores[1][1],
-                top3Piores[0][1],
-                top3Piores[1][1]
+                top3Melhores[0][1], 
+                top3Melhores[1][1], 
+                top3Melhores[2][1], 
+                top3Piores[0][1],   
+                top3Piores[1][1],  
+                top3Piores[2][1]
             ];
 
+
             new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: nomesProdutos,
-                    datasets: [{
-                        label: 'Quantidade Vendida',
-                        data: quantidades,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 205, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 205, 86, 1)',
-                            'rgba(75, 192, 192, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
+    type: 'bar',
+    data: {
+        labels: nomesProdutos, 
+        datasets: [{
+            label: 'Quantidade Vendida',
+            data: quantidades, 
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 205, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 205, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    stepSize: 1, 
                 }
-            });
+            },
+            x: {
+                ticks: {
+                    autoSkip: false 
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                display: true, 
+                position: 'top', 
+            }
+        }
+    }
+});
+
 
         } catch (error) {
             console.error("Erro ao buscar os dados e atualizar:", error);

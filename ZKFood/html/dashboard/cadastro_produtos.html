@@ -5,15 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../css/dashboard_ajustes/cadastro_produto.css">
-    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/dashboard/cadastro_produto.css">
 
     <link rel="icon" href="/ZKFood/assets/logo-icon.png" type="image/png">
 
     <script src="../../js/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <title>Análise de Produtos</title>
+    <title>Cadastrar Produtos</title>
 </head>
 
 <body>
@@ -47,20 +46,20 @@
                         </div>
                         <div class="container_cadastro_principais">
                             <span class="titulo_cadastro_dados"> Nome:</span>
-                            <input type="text" id="nome_produto_input" placeholder="Nome do Produto:">
+                            <input type="text" id="nome_produto_input" placeholder="Nome do produto">
                             <span class="titulo_cadastro_dados"> Descricao:</span>
                             <input type="text" id="descricao_produto_input"
-                                placeholder="Descricao Detalhada do Produto:">
+                                placeholder="Descricao breve do seu produto">
                         </div>
                     </div>
                     <div class="container_dados_adicionais">
                         <div class="container_input_adicionais">
                             <span class="titulo_cadastro_dados">Serve quantas pessoas?</span>
-                            <input type="text" id="qtdPessoas_input" placeholder="Digite a quantidade:">
+                            <input type="text" id="qtdPessoas_input" placeholder="Digite a quantidade">
                         </div>
                         <div class="container_input_adicionais">
                             <span class="titulo_cadastro_dados">Preço do Prato:</span>
-                            <input type="number" id="preco_input" placeholder="R$00.00">
+                            <input type="number" id="preco_input" placeholder="R$ 0.00">
                         </div>
                         <div class="container_input_adicionais">
                             <span class="titulo_cadastro_dados">Tipo do Prato:</span>
@@ -105,105 +104,145 @@
     }
 
     async function cadastrar() {
-        const url = 'http://localhost:8080/produtos';
+    const url = 'http://localhost:8080/produtos';
 
-        try {
-            let headers = new Headers();
-            headers.append('Content-Type', 'application/json');
-            headers.append('Accept', '*/*');
+    try {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Accept', '*/*');
 
-            const nome = document.getElementById("nome_produto_input").value;
-            const descricao = document.getElementById("descricao_produto_input").value;
-            const qtdPessoas = document.getElementById("qtdPessoas_input").value;
-            const preco = Number(document.getElementById("preco_input").value);
-            const disponibilidade = true;
-            const tipoProduto = Number(document.getElementById("select_tipo").value);
+        const nome = document.getElementById("nome_produto_input").value;
+        const descricao = document.getElementById("descricao_produto_input").value;
+        const qtdPessoas = document.getElementById("qtdPessoas_input").value;
+        const preco = Number(document.getElementById("preco_input").value);
+        const disponibilidade = true;
+        const tipoProduto = Number(document.getElementById("select_tipo").value);
 
-            const resposta = await fetch(url, {
-                method: "POST",
-                headers: headers,
-                body: JSON.stringify({
-                    nome: nome,
-                    descricao: descricao,
-                    valor: preco,
-                    qtdPessoas: qtdPessoas,
-                    tipoProduto: tipoProduto,
-                    disponibilidade: disponibilidade
-                })
-            });
+        const resposta = await fetch(url, {
+            method: "POST",
+            headers: headers,
+            body: JSON.stringify({
+                nome: nome,
+                descricao: descricao,
+                valor: preco,
+                qtdPessoas: qtdPessoas,
+                tipoProduto: tipoProduto,
+                disponibilidade: disponibilidade
+            })
+        });
 
-            if (resposta.ok) {
-                const respostaJson = await resposta.json();
-                console.log('Produto cadastrado: ', respostaJson);
+        if (resposta.ok) {
+            const respostaJson = await resposta.json();
+            console.log('Produto cadastrado: ', respostaJson);
 
-                const fileInput = document.getElementById('fileInput');
-                if (fileInput.files.length > 0) {
-                    await uploadImagem(respostaJson.id, fileInput.files[0]);
-                }
-
-                showPopup('CADASTRADO COM SUCESSO!', 'Produto cadastrado com sucesso!', 'success');
-            } else if (resposta.status === 400) {
-                showPopup('ERRO NO CADASTRO!', '(Há campos vazios!)', 'error_bad_request');
-            } else if (resposta.status === 409) {
-                showPopup('ERRO NO CADASTRO!', '(Conflito de dados!)', 'error_conflito');
-            }
-        } catch (erro) {
-            console.log("Erro: ", erro);
-        }
-    }
-    async function uploadImagem(idProduto, imagem) {
-        const url = `http://localhost:8080/produtos/imagem/${idProduto}`;
-
-        try {
-            const arrayBuffer = await imagem.arrayBuffer();
-            const bytes = new Uint8Array(arrayBuffer);
-
-            console.log('ID do Produto:', idProduto);
-            console.log('Tipo da Imagem:', imagem.type);
-            console.log('Bytes da Imagem:', bytes);
-
-            const resposta = await fetch(url, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': imagem.type,
-                },
-                body: bytes
-            });
-
-            if (!resposta.ok) {
-                throw new Error('Erro ao fazer upload da imagem');
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput.files.length > 0) {
+                // Se houver imagem, faz o upload
+                console.log("Imagem encontrada, iniciando o upload...");
+                await uploadImagem(respostaJson.id, fileInput.files[0]);
             }
 
-            console.log('Imagem enviada com sucesso!');
-        } catch (erro) {
-            console.error('Erro: ', erro);
-            throw erro;
+            // Exibe o pop-up de sucesso após o cadastro do produto
+            showPopup('CADASTRADO COM SUCESSO!', 'Produto cadastrado com sucesso!', 'success');
+        } else if (resposta.status === 400) {
+            showPopup('ERRO NO CADASTRO!', '(Há campos vazios!)', 'error_bad_request');
+        } else if (resposta.status === 409) {
+            showPopup('ERRO NO CADASTRO!', '(Conflito de dados!)', 'error_conflito');
         }
-        console.log('Status da Resposta:', resposta.status); // Adicione isso
-        console.log('Resposta:', await resposta.text());
+    } catch (erro) {
+        console.log("Erro no cadastro:", erro);
     }
-    function showPopup(title, message, type) {
-        const popup = document.getElementById('popup');
-        const popupTitle = document.getElementById('popup-title');
-        const popupMessage = document.getElementById('popup-message');
-        const popupIcon = document.getElementById('popup-icon');
+}
 
-        popupTitle.textContent = title;
-        popupMessage.textContent = message;
+async function uploadImagem(idProduto, imagem) {
+    const url = `http://localhost:8080/produtos/imagem/${idProduto}`;
+    console.log("Iniciando upload da imagem para o produto ID:", idProduto);
 
-        if (type === 'success') {
-            popupTitle.style.color = '#33D700';
-            popupIcon.src = '../assets/sucesso.png';
-        } else if (type === 'error_conflito' || type === 'error_bad_request') {
-            popupTitle.style.color = '#EB3223';
-            popupIcon.src = '../assets/erro.png';
+    try {
+        const arrayBuffer = await imagem.arrayBuffer();
+        const bytes = new Uint8Array(arrayBuffer);
+
+        console.log('Bytes da Imagem:', bytes);
+
+        const resposta = await fetch(url, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': imagem.type,
+            },
+            body: bytes
+        });
+
+        if (!resposta.ok) {
+            throw new Error('Erro ao fazer upload da imagem');
         }
 
-        popup.style.display = 'flex';
+        console.log('Imagem enviada com sucesso!');
+    } catch (erro) {
+        console.error('Erro ao enviar imagem:', erro);
+        throw erro;
     }
+}
+
+function showPopup(title, message, type) {
+    const popup = document.getElementById('popup');
+    const popupTitle = document.getElementById('popup-title');
+    const popupMessage = document.getElementById('popup-message');
+    const popupIcon = document.getElementById('popup-icon');
+    const fileUploadLabel = document.querySelector('.custom-file-upload');
+
+    popupTitle.textContent = title;
+    popupMessage.textContent = message;
+
+    if (type === 'success') {
+        popupTitle.style.color = '#33D700';
+        popupIcon.src = '../../assets/sucesso.png';
+    } else if (type === 'error_conflito' || type === 'error_bad_request') {
+        popupTitle.style.color = '#EB3223';
+        popupIcon.src = '../../assets/erro.png';
+    }
+
+    popup.style.display = 'flex';
+
+    // Adicionando o setTimeout para ocultar o popup após 2 segundos e limpar os inputs
+    setTimeout(() => {
+        popup.style.display = 'none'; // Esconde o popup
+
+        // Limpa os campos de input
+        document.getElementById("nome_produto_input").value = '';
+        document.getElementById("descricao_produto_input").value = '';
+        document.getElementById("qtdPessoas_input").value = '';
+        document.getElementById("preco_input").value = '';
+        document.getElementById("select_tipo").value = ''; // Limpa o select
+
+        // Limpa a imagem do label e reseta o tamanho e posicionamento do fundo
+        fileUploadLabel.style.backgroundImage = '';
+        fileUploadLabel.style.backgroundSize = ''; 
+        fileUploadLabel.style.backgroundPosition = '';
+    }, 2000); // 2000ms = 2 segundos
+}
+
 
 
     function closePopup() {
         document.getElementById('popup').style.display = 'none';
     }
+
+
+    // Funcionalidade para substituir img do cardapio pela img que o usuario escolher
+    document.getElementById('fileInput').addEventListener('change', function (event) {
+    const file = event.target.files[0]; // Captura o arquivo selecionado
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            // Define a imagem como fundo do elemento <label>
+            document.querySelector('.custom-file-upload').style.backgroundImage = `url(${e.target.result})`;
+            document.querySelector('.custom-file-upload').style.backgroundSize = 'cover'; 
+            document.querySelector('.custom-file-upload').style.backgroundPosition = 'center'; 
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+    
 </script>
