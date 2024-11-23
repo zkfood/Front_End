@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../css/dashboard_ajustes/analise_produtos.css">
-    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/dashboard/analise-produtos.css">
 
     <link rel="icon" href="/ZKFood/assets/logo-icon.png" type="image/png">
 
@@ -14,66 +13,10 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script src="../../js/fetch.js"></script>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="/ZKFood/assets/logo-icon.png" type="image/png">
-    <link rel="stylesheet" href=../..css/..dashboard/">
-    <script src="../../js/fetch.js"></script>
     <title>Análise de Produtos</title>
 </head>
 
 <body>
-
-    <!-- <div class="container_sep_info_dash">
-
-        <div class="container_info">
-            <div class="container_logo">
-                <img src="../../assets/logo-icon.png" alt="zkFood_logo">
-            </div>
-            <div class="container_texto_Bem_vindo">
-                Bem Vindo, <br>
-                <h2>Zeca Silva</h2>
-            </div>
-            <div class="container_txt_dashboard">
-                Dashboards
-            </div>
-            <div class="container_opcoes_dash">
-                <ul>
-                    <li id="opcao_selecionada">
-                        <img src="../../assets/jantar 1.png" alt=""> Produtos
-                    </li>
-                    <div class="container_sub_opcoes_dash">
-                        <ul>
-                            <li> > <a href="./dashboard.html"> Dashboard </a></li>
-                            <li> > <span id="sub_opcao_selecionada"> <a href="./crud_produtos.html"> Análise de Produtos
-                                    </a> </span> </li>
-                            <li> > <a href="./cadastro_produtos.html"> Cadastrar Produtos </a></li>
-                        </ul>
-                    </div>
-                    <li> > <img src="../../assets/avaliacoes 1.png" alt=""> Avaliações</li>
-                    <li> > <img src="../../assets/money-bag 1.png" alt=""> Financeiro</li>
-                </ul>
-            </div>
-        </div>
-        <div class="container_dash">
-            <div class="container_crud_produtos">
-                <div class="titulo_analise_produtos">
-                    ANÁLISE DE PRODUTOS
-                </div>
-                <div id="retorno_de_dados"></div>
-                <div id="popup_crud" class="popup_crud">
-                    <div class="popup-background">
-                        <div class="popup-content_crud">
-                            <span class="close" onclick="closePopup()">&times;</span>
-                            <img id="popup-icon" src="../../assets/deletar.png" alt="Icon">
-                            <h2 id="popup-title" class="popup-title">REMOVER PRODUTO?</h2>
-                            <p id="popup-message" class="popup-message">Tem certeza que deseja remover este produto?</p><br>
-                            <button id="confirm-delete-button" onclick="confirmarDelete()">REMOVER</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
     <div class="container_sep_info_dash">
         <div id="menu-container" class="menu-container">
@@ -174,7 +117,7 @@
             <div class="card_lista_produtos">
                 <div class="container_opcoes_cadastro_filtro">
                     <div class="container_opcoes">
-                        <button onclick="chamar_card_cadastrar()">+ CADASTRAR</button>
+                        <button onclick="chamar_card_cadastrar()">CADASTRAR + </button>
                         <select name="tipos_produto" id="select_tipo" onchange="filtrarProdutos()">
                             <option value="0">Filtro:</option>
                             <option value="1">Comida</option>
@@ -184,11 +127,11 @@
                     </div>
                 </div>
                 <div class="container_legenda_lista">
-                    <div class="imagem_legenda_lista">Imagem</div>
-                    <div class="produto_legenda_lista">Produto</div>
-                    <div class="preco_legenda_lista">Preço</div>
-                    <div class="disponibilidade_legenda_lista">Disponível</div>
-                    <div class="disponibilidade_legenda_lista">Prato do Dia</div>
+                    <div class="imagem_legenda_lista_titulo">Imagem</div>
+                    <div class="produto_legenda_lista_titulo">Produto</div>
+                    <div class="preco_legenda_lista_titulo">Preço</div>
+                    <div class="disponibilidade_legenda_lista_titulo">Disponível</div>
+                    <div class="disponibilidade_legenda_prato_titulo">Prato do Dia</div>
                 </div>
                 <div id="container_lista_produtos"></div>
             </div>
@@ -213,7 +156,7 @@
                     <div class="disponibilidade_legenda_lista_${disponibilidadeClasse}" onclick="alterarDisponibilidade(${produto.id})">
                         ${disponibilidadeTexto}
                     </div>
-                    <div>
+                    <div class="select_prato_dia">
                         <select onchange="alterarPratoDoDia(${produto.id}, this.value)">
                             <option value="0" ${pratoDoDia === 0 ? 'selected' : ''}>Não é prato do dia</option>
                             <option value="1" ${pratoDoDia === 1 ? 'selected' : ''}>Domingo</option>

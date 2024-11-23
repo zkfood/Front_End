@@ -11,8 +11,8 @@
     background: linear-gradient(0deg, rgba(255, 215, 121, 1) 0%, rgba(255, 185, 10, 1) 79%);
     width: 20vw;
     height: 100vh;
-    position: fixed;
     display: flex;
+    position: fixed;
     flex-direction: column;
 }
 
