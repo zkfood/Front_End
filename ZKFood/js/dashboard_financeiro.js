@@ -199,3 +199,51 @@ window.onload = buscarKpis();
 window.onload = buscarReceitaAnoMeses();
 window.onload = buscarReceitaAnual();
 window.onload = buscarTableProdutoMaisVendido();
+
+function saidasDoDiaCsv(){
+    const url = 'http://localhost:8080/relatorios/csv/saidas-do-dia?data=2024-11-24'
+
+    importCsv(url, 'saidas-do-dia-24-11-2024');
+}
+
+// function saidasDoDiaTxt(){
+//     const url = 'http://localhost:8080/relatorios/csv/saidas-do-dia?data=2024-11-24'
+//
+//     importCsv(url);
+// }
+
+function receitasCsv(){
+    const url = 'http://localhost:8080/relatorios/csv/top-pratos?mes=11&ano=2024'
+
+    importCsv(url, 'receitas-11-2024');
+}
+
+function motoboy(){
+    const url = 'http://localhost:8080/relatorios/csv/motoboy-mes-ano?mes=11&ano=2024'
+
+    importCsv(url, 'motoboy-11-2024');
+}
+
+function importCsv(url, nomeArquivo) {
+    fetch(url, {
+            method: 'POST'
+        }
+    )
+        .then(response => {
+            if (response.ok) {
+                return response.blob();
+            }
+            throw new Error('Erro ao baixar o arquivo');
+        })
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = nomeArquivo + '.csv';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            window.URL.revokeObjectURL(url);
+        })
+        .catch(error => console.error('Erro:', error));
+}

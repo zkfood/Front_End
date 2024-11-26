@@ -4,6 +4,13 @@ async function cadastrarPedido() {
     const tipoEntrega = sessionStorage.getItem('TIPO_ENTREGA_CARRINHO');
     const produtos = JSON.parse(sessionStorage.getItem('PRODUTOS_CARRINHO'));
 
+    if (!endereco && tipoEntrega === "Entrega") {
+        exibirPopup("Parece que houve algum erro ao tentar adicionar seu endereço ao pedido, tente novamente", "error");
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        window.location = "./carrinho.html";
+    }
+
     const pedido = await fetch(`${ambiente.local}${prefix.pedidos}`, {
         method: 'POST',
         headers: {

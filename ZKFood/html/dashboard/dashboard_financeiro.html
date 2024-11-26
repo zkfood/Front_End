@@ -84,15 +84,15 @@
 
             <!-- IMPORT E EXPORT -->
             <div class="container-botoes">
-                <button class="button-import-receitas-txt">
-                    <h1>Top Receitas por prato CSV</h1>
+                <button onclick="saidasDoDiaCsv()" class="button-import-receitas-txt">
+                    <h1>Relatório saídas do dia CSV</h1>
                     <p>Clique e faça o export do documento</p>
                 </button>
-                <button class="button-import-receitas-csv">
-                    <h1>Top Receitas por prato TXT</h1>
+                <button onclick="saidasDoDiaTxt()" class="button-import-receitas-csv">
+                    <h1>Relatório saídas do dia TXT</h1>
                     <p>Clique e faça o export do documento</p>
                 </button>
-                <button class="button-import-motoboy">
+                <button onclick="motoboy()" class="button-import-motoboy">
                     <h1>Rotas Mensais do Motoboy CSV</h1>
                     <p>Clique e faça o export do documento</p>
                 </button>
@@ -107,9 +107,9 @@
                     <h2>Receita Anual por Tipo de Pedido</h2>
                     <canvas id="receitaAnual"></canvas>
                 </div>
-                
+
                 <div class="top-receitas">
-                    <h2>Top Receitas por Prato <button class="button-import-tabela"></button></h2>
+                    <h2>Top Receitas por Prato <button onclick="receitasCsv()" class="button-import-tabela"></button></h2>
                     <table id="top-receitas">
                         <tr>
                             <th>Pratos</th>
