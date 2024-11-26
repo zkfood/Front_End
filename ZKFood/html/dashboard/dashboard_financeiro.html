@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - ZKFood</title>
+    <title>Dashboard Financeira</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="../../css/dashboard_financeira.css">
     <link rel="stylesheet" href="../../css/menu_dashboard/menu.css">
-    <link rel="stylesheet" href="../../css/menu_dashboard/testeMenu.css">
-    <link rel="stylesheet" href="../../css/dashboard.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="icon" href="/ZKFood/assets/logo-icon.png" type="image/png">
+
     <script src="../../js/dashboard_financeiro.js"></script>
 </head>
 
@@ -34,11 +36,11 @@
                         <div class="container_kpi_img">
                             <div class="kpi_dados">
                                 <span id="compra_balcao">Compras Presenciais</span><br><br>
-                                <span id="div_compra_balcao"></span>
+                                R$<span id="div_compra_balcao"></span>
                             </div>
                             <div class="container_img_kpi">
                                 <div class="fundo_img_kpi">
-                                    <img src="../../assets/Money Bag.png" alt="">
+                                    <img src="../../assets/moneybag.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -51,11 +53,11 @@
                         <div class="container_kpi_img">
                             <div class="kpi_dados">
                                 <span id="compra_entrega">Compras Delivery</span><br><br>
-                                <span id="div_compra_entrega"></span>
+                                R$<span id="div_compra_entrega"></span>
                             </div>
                             <div class="container_img_kpi">
                                 <div class="fundo_img_kpi">
-                                    <img src="../../assets/Money Bag.png" alt="">
+                                    <img src="../../assets/moneybag.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -64,23 +66,38 @@
 
                 <div class="kpi_card">
                     <div class="container_dados_kpi">
-                        <div id="barra_cor_status_erro"></div>
+                        <div id="barra_cor_status_bom"></div>
                         <div class="container_kpi_img">
                             <div class="kpi_dados">
                                 <span id="compra_presencial">Compras Retirar Presencial</span><br><br>
-                                <span id="div_compra_presencial"></span>
+                                R$<span id="div_compra_presencial"></span>
                             </div>
                             <div class="container_img_kpi">
                                 <div class="fundo_img_kpi">
-                                    <img src="../../assets/Money Bag.png" alt="">
+                                    <img src="../../assets/moneybag.png" alt="">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
+
+            <!-- IMPORT E EXPORT -->
+            <div class="container-botoes">
+                <button class="button-import-receitas-txt">
+                    <h1>Top Receitas por prato CSV</h1>
+                    <p>Clique e faça o export do documento</p>
+                </button>
+                <button class="button-import-receitas-csv">
+                    <h1>Top Receitas por prato TXT</h1>
+                    <p>Clique e faça o export do documento</p>
+                </button>
+                <button class="button-import-motoboy">
+                    <h1>Rotas Mensais do Motoboy CSV</h1>
+                    <p>Clique e faça o export do documento</p>
+                </button>
+            </div>
+
             <div class="dahsMaisVendidos">
                 <h2>Receita Mensal por Tipo de Pedido</h2>
                 <canvas id="receitaMensalTipoPedidoChart"></canvas>
@@ -92,7 +109,7 @@
                 </div>
                 
                 <div class="top-receitas">
-                    <h2>Top Receitas por Prato</h2>
+                    <h2>Top Receitas por Prato <button class="button-import-tabela"></button></h2>
                     <table id="top-receitas">
                         <tr>
                             <th>Pratos</th>

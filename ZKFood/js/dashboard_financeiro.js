@@ -73,9 +73,9 @@ async function buscarReceitaAnoMeses() {
             }
         });
         const colors = {
-            Entrega: 'rgba(255, 99, 132, 0.6)',
-            Balcão: 'rgba(54, 162, 235, 0.6)',
-            Presencial: 'lime'
+            Entrega: '#ff823f',
+            Balcão: '#ffb90a',
+            Presencial: '#ffeb32'
         }
         respostaDados.map(
             item => {
@@ -108,24 +108,24 @@ async function buscarReceitaAnual() {
                     {
                         label: 'Presencial',
                         data: respostaDados.receitaPresencial,
-                        borderColor: 'rgb(75, 192, 192)',
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: '#ff823f',
+                        backgroundColor: '#ff823f',
                         fill: false,
                         tension: 0.1
                     },
                     {
                         label: 'Balcão',
                         data: respostaDados.receitaBalcao,
-                        borderColor: 'rgb(255, 159, 64)',
-                        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                        borderColor: '#ffb90a',
+                        backgroundColor: '#ffb90a',
                         fill: false,
                         tension: 0.1
                     },
                     {
                         label: 'Online',
                         data: respostaDados.receitaOnline,
-                        borderColor: 'rgb(153, 102, 255)',
-                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                        borderColor: '#ffeb32',
+                        backgroundColor: '#ffeb32',
                         fill: false,
                         tension: 0.1
                     }
