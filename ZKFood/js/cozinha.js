@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("pedidosMesa").innerHTML = "";
                 document.getElementById("pedidosBalcao").innerHTML = "";
 
-                const pedidosEmPreparo = data.filter(pedido => pedido.estado === "Pedido em preparo");
+                const pedidosEmPreparo = data.filter(pedido => pedido.estado === "Pedido em preparo" || pedido.estado === "Produto adicionado ao pedido, em preparo");
 
                 pedidosEmPreparo.forEach(pedido => {
                     const pedidoCard = criarCardPedido(pedido);
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         card.appendChild(orderId);
 
         const preparoHistorico = pedido.estadoPedidoHistorico.find(
-            estado => estado.estado === "Pedido em preparo"
+            estado => estado.estado === "Pedido em preparo" || estado.estado === "Produto adicionado ao pedido, em preparo"
         );
         if (preparoHistorico) {
             const horaPreparo = document.createElement("p");
