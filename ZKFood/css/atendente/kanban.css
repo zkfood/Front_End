@@ -1,5 +1,5 @@
 body {
-    font-family: "Roboto", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .container {
@@ -118,10 +118,11 @@ body {
   flex-direction: column;
 }
 
-.botoes-container{
+.botoes-container {
   width: 90%;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .orange-border {
@@ -145,7 +146,7 @@ body {
 
 .order-card p {
   margin: 5px 0;
-  
+
 }
 
 input[type="number"] {
@@ -173,10 +174,20 @@ button.accept {
 }
 
 button.edit {
-  background: url(/ZKFood/assets/editar.png);
-  background-size: cover;
-  width: 35px;
-  color: #fff;
+  width: 32px;
+  height: 32px;
+  color: #000000;
+  text-align: center;
+  padding: 0;
+  border: solid black 1px;
+  background: none;
+  transition: 0.3s all;
+  transform: scale(1);
+  cursor: pointer;
+}
+
+button.edit:hover {
+  transform: scale(1.05);
 }
 
 button.done {
@@ -199,7 +210,8 @@ button.deliver {
   width: 100%;
   height: 100%;
   align-items: center;
-  justify-content: center;background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .popup-background {
@@ -237,11 +249,16 @@ button.deliver {
 
 #motivo-cancelamento {
   margin-top: 10px;
-  width: 90%; /* Ajuste a largura para caber melhor */
-  font-size: 18px; /* Tamanho de fonte */
-  border: 1px solid #ccc; /* Borda */
-  border-radius: 5px; /* Borda arredondada */
-  padding: 5px; /* Padding interno */
+  width: 90%;
+  /* Ajuste a largura para caber melhor */
+  font-size: 18px;
+  /* Tamanho de fonte */
+  border: 1px solid #ccc;
+  /* Borda */
+  border-radius: 5px;
+  /* Borda arredondada */
+  padding: 5px;
+  /* Padding interno */
 }
 
 .confirmar-cancelamento {
@@ -256,7 +273,8 @@ button.deliver {
 }
 
 .confirmar-cancelamento:hover {
-  background-color: #FFD779; /* Cor ao passar o mouse */
+  background-color: #FFD779;
+  /* Cor ao passar o mouse */
 }
 
 .close {
@@ -291,4 +309,236 @@ button.deletar {
 
 .produto-container p {
   margin-right: 10px;
+}
+
+.topo-container {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+.editar-pedido {
+  background: url(/ZKFood/assets/editar.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 32px;
+}
+
+#form-editar-pedido {
+  display: flex;
+  flex-direction: column;
+}
+
+.confirmar-adicao {
+  height: 45px;
+  width: 100%;
+  max-width: 500px;
+  font-size: 24px;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  background-color: #68A5FF;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px #625d5d;
+  transition: 0.3s all;
+  transform: scale(1);
+  cursor: pointer;
+}
+
+.confirmar-adicao:hover {
+  transform: scale(1.05);
+}
+
+.botao-remover {
+  background: none;
+  border: none;
+  background-image: url(/ZKFood/assets/atendente/remover.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 21px;
+  width: 22px;
+  transition: 0.3s all;
+  transform: scale(1);
+  cursor: pointer;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  padding: 0;
+  position: relative;
+  right: 0.2rem;
+}
+
+.botao-remover:hover {
+  transform: scale(1.05);
+}
+
+.adicionar{
+  width: 5%;
+  height: 5vh;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 35px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.adicionar:hover{
+  background-color: #e4e4e4;
+}
+
+input#observacao {
+  width: 35%;
+  background-color: white;
+}
+
+input#quantidade {
+  width: 8%;
+}
+
+.form-group input,
+.form-group select {
+    width: 25%;
+    height: 5vh;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #68A5FF;
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(104, 165, 255, 0.5);
+}
+
+input[type="number"],
+input#mesa {
+    width: 20%;
+}
+
+/* Popup de Edição */
+#popupEditar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+#popupEditar .popup-background {
+  width: 743px;
+  background: linear-gradient(to bottom, #FFB90A 0%, #FFD779 100%);
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#popupEditar .popup-content {
+  width: 663px;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#popupEditar #popup-title {
+  font-size: 40px;
+  font-family: "Bebas Neue", sans-serif;
+  color: #333;
+  margin: 0;
+}
+
+#popupEditar .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #333;
+}
+
+#popupEditar .form-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  width: 100%;
+  align-items: center;
+}
+
+#popupEditar .form-group select,
+#popupEditar .form-group input {
+  width: 23%;
+  height: 40px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#popupEditar .form-group select:focus,
+#popupEditar .form-group input:focus {
+  border-color: #68A5FF;
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(104, 165, 255, 0.5);
+}
+
+#popupEditar .adicionar {
+  width: 50px;
+  height: 40px;
+  font-size: 20px;
+  background-color: #e4e4e4;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s;
+}
+
+#popupEditar .adicionar:hover {
+  background-color: #d4d4d4;
+}
+
+#popupEditar .confirmar-adicao {
+  width: 80%;
+  height: 45px;
+  font-size: 24px;
+  font-family: "Bebas Neue", sans-serif;
+  background-color: #68A5FF;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px #625d5d;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: 0.3s all;
+}
+
+#popupEditar .confirmar-adicao:hover {
+  transform: scale(1.05);
+}
+
+.pedido-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+#form-editar-pedido {
+  max-height: 150px;
+  overflow-y: auto;
 }

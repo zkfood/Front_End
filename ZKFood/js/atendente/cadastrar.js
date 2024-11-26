@@ -46,22 +46,26 @@ function removerPedido(elemento) {
         const pedido = elemento.parentNode;
         pedidoContainer.removeChild(pedido);
     } else {
-        alert("Você deve ter pelo menos um pedido.");
     }
 }
 
 async function carregarCategorias(categoriaId, produtoId) {
-    const resposta = await fetch("http://localhost:8080/tipo-produtos");
-    const categorias = await resposta.json();
-
-    const categoriaLista = document.getElementById(categoriaId);
-    categoriaLista.innerHTML = categorias.map(categoria => `<option value="${categoria.id}">${categoria.nome}</option>`).join("");
-
-    categoriaLista.addEventListener('change', (event) => {
-        const categoriaSelecionada = event.target.value;
-        carregarProdutosPorCategoria(categoriaSelecionada, produtoId);
-    });
+    try {
+        const resposta = await fetch("http://localhost:8080/tipo-produtos");
+        const categorias = await resposta.json();
+        const categoriaLista = document.getElementById(categoriaId);
+        const categoriasExistentes = Array.from(categoriaLista.options).map(option => option.value);
+        const categoriasFiltradas = categorias.filter(categoria => !categoriasExistentes.includes(categoria.id.toString()));
+        categoriaLista.innerHTML += categoriasFiltradas.map(categoria => `<option value="${categoria.id}">${categoria.nome}</option>`).join("");
+        categoriaLista.addEventListener('change', (event) => {
+            const categoriaSelecionada = event.target.value;
+            carregarProdutosPorCategoria(categoriaSelecionada, produtoId);
+        });
+    } catch (error) {
+        console.error("Erro ao carregar categorias:", error);
+    }
 }
+
 
 async function carregarProdutosPorCategoria(categoriaId, produtoId) {
     if (!categoriaId) {
@@ -74,20 +78,26 @@ async function carregarProdutosPorCategoria(categoriaId, produtoId) {
         if (!resposta.ok) throw new Error("Erro ao carregar produtos");
 
         const produtos = await resposta.json();
-        const produtosFiltrados = produtos.filter(produto => produto.tipoProduto === Number(categoriaId));
+
+        // Filtra os produtos pela categoria e disponibilidade
+        const produtosFiltrados = produtos.filter(produto =>
+            produto.tipoProduto === Number(categoriaId) && produto.disponibilidade === true
+        );
 
         const produtoLista = document.getElementById(produtoId);
-        produtoLista.innerHTML = produtosFiltrados.map(produto => `<option value="${produto.id}">${produto.nome}</option>`).join("");
+        produtoLista.innerHTML = produtosFiltrados.map(produto =>
+            `<option value="${produto.id}">${produto.nome}</option>`
+        ).join("");
     } catch (error) {
         console.error(error);
-        alert("Erro ao carregar produtos. Tente novamente.");
     }
 }
+
 
 async function cadastrarPedido() {
     const tipoEntrega = document.getElementById("tipoEntrega").value;
     const numeroMesa = document.getElementById("mesa").value;
-    
+
     const produtos = [];
     const pedidoItems = document.querySelectorAll(".pedido-item");
 
