@@ -27,44 +27,48 @@ async function listarProdutos(eEntrega) {
     divListagemProdutos.innerHTML = '';
 
     for (const item of pedidosCarrinho) {
+
         const produto = await new FetchBuilder().request(`${ambiente.local}${prefix.produtos}/${item.id}`);
         const itemNoCarrinho = pedidosCarrinho.find(produto => produto.id === item.id);
 
-        divListagemProdutos.innerHTML += `
-                <div class="card-cardapio" data-id="${produto.id}">
-                    <div class="conteudo-cardapio">
-                        <h2>${produto.nome}</h2>
-                        <p>${produto.descricao}</p>
-                        <div class="servir">
-                            <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
-                            <h5>Serve ${produto.qtdPessoas} pessoas</h5>
-                        </div>
-                        <h1><span>R$</span>${produto.valor.toFixed(2)}</h1>
+        if (produto.disponibilidade != false) {
+            divListagemProdutos.innerHTML += `
+            <div class="card-cardapio" data-id="${produto.id}">
+                <div class="conteudo-cardapio">
+                    <h2>${produto.nome}</h2>
+                    <p>${produto.descricao}</p>
+                    <div class="servir">
+                        <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
+                        <h5>Serve ${produto.qtdPessoas} pessoas</h5>
                     </div>
-                    <div class="imagem-cardapio">
-                        <img src="${ambiente.local}${prefix.produtos}/imagem/${produto.id}" alt="Foto do prato">
-                        <div class="menu-card">
-                            <div class="seletor-quantidade">
-                                <button class="diminuir" onclick="diminuir(${produto.id})">-</button>
-                                <input value="${itemNoCarrinho.quantidade}" min="1" max="99" readonly>
-                                <button class="aumentar" onclick="somar(${produto.id})">+</button>
-                            </div>
-                            <button class="botao-lixo" onclick="deletarItemCarrinho(${produto.id})">
-                                <img src="../../assets/Trash.png" alt="icone de lixo">
-                            </button>
+                    <h1><span>R$</span>${produto.valor.toFixed(2)}</h1>
+                </div>
+                <div class="imagem-cardapio">
+                    <img src="${ambiente.local}${prefix.produtos}/imagem/${produto.id}" alt="Foto do prato">
+                    <div class="menu-card">
+                        <div class="seletor-quantidade">
+                            <button class="diminuir" onclick="diminuir(${produto.id})">-</button>
+                            <input value="${itemNoCarrinho.quantidade}" min="1" max="99" readonly>
+                            <button class="aumentar" onclick="somar(${produto.id})">+</button>
                         </div>
+                        <button class="botao-lixo" onclick="deletarItemCarrinho(${produto.id})">
+                            <img src="../../assets/Trash.png" alt="icone de lixo">
+                        </button>
                     </div>
                 </div>
-            `;
-
-        divCardPagameto.innerHTML += `
-            <div class="item">
-                <span>${itemNoCarrinho.quantidade}x</span>
-                <span>${produto.nome}</span>
-                <span>R$ ${(produto.valor * itemNoCarrinho.quantidade).toFixed(2)}</span>
             </div>
         `;
 
+    divCardPagameto.innerHTML += `
+        <div class="item">
+            <span>${itemNoCarrinho.quantidade}x</span>
+            <span>${produto.nome}</span>
+            <span>R$ ${(produto.valor * itemNoCarrinho.quantidade).toFixed(2)}</span>
+        </div>
+    `;
+
+        }
+       
         valorTotal += produto.valor * itemNoCarrinho.quantidade;
     }
 
