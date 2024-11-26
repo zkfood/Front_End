@@ -93,7 +93,7 @@
             const ctx1 = document.getElementById('wordCloudChart').getContext('2d');
 
             // Ajuste para multiplicar a quantidade por 10
-            const resultadosMultiplicadosParaMelhorVisualizacaoDasPalavras = wordCloud.quantidades.map(item => item * 10);
+            const resultadosMultiplicadosParaMelhorVisualizacaoDasPalavras = wordCloud.quantidades.map(item => item * 50);
 
             new Chart(ctx1, {
                 type: 'wordCloud',
