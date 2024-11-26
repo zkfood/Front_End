@@ -201,9 +201,9 @@ window.onload = buscarReceitaAnual();
 window.onload = buscarTableProdutoMaisVendido();
 
 function saidasDoDiaCsv(){
-    const url = 'http://localhost:8080/relatorios/csv/saidas-do-dia?data=2024-11-24'
+    const url = 'http://localhost:8080/relatorios/csv/saidas-do-dia?data=2024-11-26'
 
-    importCsv(url, 'saidas-do-dia-24-11-2024');
+    importCsv(url, 'saidas-do-dia-26-11-2024');
 }
 
 // function saidasDoDiaTxt(){
