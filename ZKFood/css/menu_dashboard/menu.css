@@ -95,3 +95,14 @@
     font-size: 12px;
     width: 100%;
 }
+
+/* Adicionando botão de logoff */
+.container-logoff{
+    width: 92%;
+    height: 40px;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    font-size: 16px;
+}
+

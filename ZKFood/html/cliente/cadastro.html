@@ -98,13 +98,14 @@
 
 
                 <div class="checkbox-container">
-                    <div class="div-lembrar">
-                        <input type="checkbox" id="remember-me">
-                        <label for="remember-me">Lembre-se de mim</label>
+                    <div class="div-termos">
+                        <input type="checkbox" id="accept-terms">
+                        <label for="accept-terms">Eu aceito os <a href="https://drive.google.com/file/d/1yQBSvnm8qGFnMTT33sv2RFl_KKAw6n5r/view?usp=sharing" target="_blank">Termos e Condições</a></label>
                     </div>
                 </div>
+                
+                <button id="botao-cadastro" class="botao-cadastro">ME CADASTRAR!</button>
 
-                <button onclick="cadastro()" class="botao-cadastro">ME CADASTRAR!</button>
             </div>
             <div class="texto-cadastro">
                 <span>CA</span>
@@ -117,7 +118,7 @@
     <div id="popup" class="popup">
         <div class="popup-background">
             <div class="popup-content">
-                <span class="close" onclick="closePopup()"></span>
+                <span class="close" onclick="closePopup()">x</span>
                 <img id="popup-icon" src="">
                 <h2 id="popup-title" class="popup-title"></h2>
                 <p id="popup-message" class="popup-message"></p>

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('.botao-cadastro').addEventListener('click', cadastro);
+    document.querySelector('.botao-cadastro').addEventListener('click', checkTermos);
 });
 
 async function cadastro() {
@@ -64,8 +64,8 @@ async function cadastroTelefone(usuarioId) {
         if (respostaTelefone.ok || respostaTelefone.status === 201) {
             const telefoneCadastrado = await respostaTelefone.json();
             console.log('Telefone cadastrado com sucesso:', telefoneCadastrado);
-            showPopup('Cadastro Realizado', 'Telefone cadastrado com sucesso!', 'success');
-            window.location.href = "../../html/cliente/login.html";
+            //showPopup('Cadastro Realizado', 'Telefone cadastrado com sucesso!', 'success');
+            // window.location.href = "../../html/cliente/login.html";
         } else {
             tratarErros(respostaTelefone.status, 'telefone');
         }
@@ -125,3 +125,16 @@ function closePopup() {
     console.log('Fechando popup'); // Log para depuração
     document.getElementById('popup').style.display = 'none';
 }
+
+function checkTermos() {
+    const checkbox = document.getElementById("accept-terms");
+
+    if (checkbox.checked) {
+        // Se o checkbox estiver marcado, chama a função de cadastro
+        cadastro();
+    } else {
+        // Exibe o popup com mensagem de erro
+        showPopup('Atenção', 'Você deve aceitar os Termos e Condições para continuar.', 'error');
+    }
+}
+
