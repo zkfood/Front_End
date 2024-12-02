@@ -2,47 +2,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.querySelector('.botao-login').addEventListener('click', login);
 });
 
-async function login() {
-    const url = 'http://localhost:8080/usuarios/entrar';
-
-    try {
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        headers.append('Accept', '*/*');
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        const resposta = await fetch(url, {
-            method: "POST",
-            headers: headers,
-            body: JSON.stringify({
-                email: email,
-                senha: password
-            })
-        });
-
-        if (resposta.ok) {
-            const respostaJson = await resposta.json();
-
-            // Guardar todos os dados do usuário no sessionStorage
-            sessionStorage.setItem('usuario', JSON.stringify(respostaJson));
-            sessionStorage.setItem('idUsuario', JSON.stringify(respostaJson.id))
-
-            showPopup('LOGIN FEITO COM SUCESSO!', 'Que tal uma feijoada?!', 'success', () => {
-                window.location.href = "../../html/cliente/home_pos_login.html";
-            });
-        } else if (resposta.status === 400) { 
-            showPopup('ERRO NO LOGIN!', '(Campos de email e senha são obrigatórios)', 'error'); 
-        } else if (resposta.status === 500 || resposta.status === 204) { 
-            showPopup('ERRO NO LOGIN!', '(Email ou senha incorretos)', 'error');
-        } else if (resposta.status === 401 || resposta.status === 500 || resposta.status === 204) { 
-            showPopup('ERRO NO LOGIN!', '(Usuário não autorizado)', 'error');
-        }
-    } catch (erro) {
-        console.log("Erro: ", erro);
-        showPopup('ERRO NO LOGIN!', '(Email ou senha incorretos)', 'error');
-    }
-}
-
 async function loginDashboard() {
     const url = 'http://localhost:8080/usuarios/entrar/dashboard';
 
@@ -68,7 +27,7 @@ async function loginDashboard() {
             sessionStorage.setItem('usuario', JSON.stringify(respostaJson));
             sessionStorage.setItem('idUsuario', JSON.stringify(respostaJson.id))
 
-            showPopup('LOGIN FEITO COM SUCESSO!', 'Que tal uma feijoada?!', 'success', () => {
+            showPopup('LOGIN FEITO COM SUCESSO!', 'Bem vindo a sua tela de análises!', 'success', () => {
                 window.location.href = "../../html/dashboard/dashboard_produto.html";
             });
         } else if (resposta.status === 400) { 

@@ -6,7 +6,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; 
+    background-color: #f4f4f4;
     /* overflow: hidden; */
 }
 
@@ -17,14 +17,15 @@ a {
 }
 
 .container {
-   display: flex;
+    display: flex;
     width: 100%;
     overflow-y: auto;
 }
- .menu-container{
-    width:20%;
+
+.menu-container {
+    width: 20%;
     height: 100%;
- }
+}
 
 .main-content {
     height: auto;
@@ -40,14 +41,14 @@ h1 {
     margin-bottom: 10px;
 }
 
-.container_cards_kpi{
+.container_cards_kpi {
     width: 100%;
     height: 30vh;
     display: flex;
     justify-content: space-around;
     align-items: start;
     margin-top: 3%;
-   
+
 }
 
 .kpi_card {
@@ -108,19 +109,19 @@ h1 {
     font-size: 16px;
 }
 
-#div_compra_balcao{
+#div_compra_balcao {
     font-size: 35px;
     margin-left: 5px;
     font-family: 'Bebas Neue', sans-serif;
 }
 
-#div_compra_entrega{
+#div_compra_entrega {
     font-size: 35px;
     margin-left: 5px;
     font-family: 'Bebas Neue', sans-serif;
 }
 
-#div_compra_presencial{
+#div_compra_presencial {
     font-size: 35px;
     margin-left: 5px;
     font-family: 'Bebas Neue', sans-serif;
@@ -156,29 +157,34 @@ h1 {
     align-items: center;
 }
 
-.top-receitas th, .top-receitas td {
+.top-receitas th,
+.top-receitas td {
     border: 1px solid #ddd;
-    padding: 10px; 
-    text-align: left; 
+    padding: 10px;
+    text-align: left;
 }
-.div_baixo{
+
+.div_baixo {
     display: flex;
-   width: 100%;
-   height: 80vh;
-   justify-content: space-around;
-   align-items: center;
+    width: 100%;
+    height: 80vh;
+    justify-content: space-around;
+    align-items: center;
 }
+
 .top-receitas th {
-    background-color: #f2f2f2; 
+    background-color: #f2f2f2;
 }
-.top-receitas{
+
+.top-receitas {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 40%;
 }
-.dashReceitaAnual{
+
+.dashReceitaAnual {
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -186,46 +192,48 @@ h1 {
     justify-content: center;
 }
 
-.dashReceitaAnual h2{
+.dashReceitaAnual h2 {
     text-align: center;
     margin-bottom: 50px;
 }
 
-.top-receitas h2{
+.top-receitas h2 {
     text-align: center;
     margin-bottom: 30px;
     display: flex;
     align-items: center;
 }
 
-#receitaMensalTipoPedidoChart{
-   margin-top: 30px;
-   width: 100%;
+#receitaMensalTipoPedidoChart {
+    margin-top: 30px;
+    width: 100%;
 }
 
-#receitaMensalTipoPedidoChart h2{
+#receitaMensalTipoPedidoChart h2 {
     margin-top: 30px;
- }
+}
 
-.dahsMaisVendidos{
+.dahsMaisVendidos {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 60vh;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
+
 canvas {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
-.barra_cor_status_bom{
-   background-color: #ffb90a; 
+
+.barra_cor_status_bom {
+    background-color: #ffb90a;
 }
 
 /* Import e export */
 
-.container-botoes{
+.container-botoes {
     width: 100%;
     height: 15vh;
     margin-bottom: 10%;
@@ -233,42 +241,47 @@ canvas {
     justify-content: space-around;
 }
 
-.button-import-receitas-txt{
+.button-import-receitas-txt {
     width: 30%;
     border: none;
     cursor: pointer;
     background-color: #ff823f;
-    
+
 }
 
-.button-import-receitas-csv{
+.button-import-receitas-csv {
     width: 30%;
     border: none;
     cursor: pointer;
     background-color: #ffb90a;
 }
 
-.button-import-motoboy{
+.button-import-motoboy {
     width: 30%;
     border: none;
     cursor: pointer;
     background-color: #ffeb32;
 }
 
-.container-botoes h1{
+.container-botoes h1 {
     font-family: "Bebas Neue", sans-serif;
     font-weight: 500;
     font-size: 30px;
     margin: 0%;
 }
 
-.button-import-receitas-csv, .button-import-receitas-txt, .button-import-motoboy, button{
+.button-import-receitas-csv,
+.button-import-receitas-txt,
+.button-import-motoboy,
+button {
     border-radius: 15px;
 }
 
-.button-import-receitas-csv:hover, .button-import-receitas-txt:hover, .button-import-motoboy:hover {
+.button-import-receitas-csv:hover,
+.button-import-receitas-txt:hover,
+.button-import-motoboy:hover {
     transform: scale(1.03);
-  }
+}
 
 .button-import-tabela {
     width: 40px;
@@ -281,11 +294,23 @@ canvas {
     background-repeat: no-repeat;
     background-position: center;
     margin-left: 10px;
-border: 0.5px solid rgb(127, 127, 127);
-  }
-  
-  .button-import-tabela:hover {
+    border: 0.5px solid rgb(127, 127, 127);
+}
+
+.button-import-tabela:hover {
     transform: scale(1.1);
-  }
-  
-  
+}
+
+.container_filtro {
+    width: auto;
+    height: 10%;
+    /* background-color: blue; */
+    display: flex;
+    margin-left: 10%;
+    align-items: center;
+}
+
+.container_filtro input{
+    height: 15%;   
+    width: 10%;
+}
