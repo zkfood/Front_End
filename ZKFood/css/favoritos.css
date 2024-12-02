@@ -146,3 +146,22 @@ body {
 .botao-carrinho, .botao-lixo {
     transition: transform 0.5s ease;
 }
+#containerCards {
+    display: flex;
+    flex-wrap: wrap; /* Faz a quebra de linha quando a largura é excedida */
+    gap: 16px; /* Espaçamento entre os cards */
+}
+
+.grupo-cards {
+    display: flex;
+    /* flex-wrap: wrap; */
+    gap: 16px; /* Espaçamento entre os cards */
+    width: 100%; /* Garante que o grupo de cards ocupe a largura total disponível */
+}
+
+.card {
+    width: 20vw; /* Cada card ocupa 32% da largura do contêiner, para garantir 3 cards por linha */
+    box-sizing: border-box; /* Evita que o padding aumente a largura do card */
+    margin-bottom: 16px; /* Espaçamento abaixo de cada card */
+}
+
