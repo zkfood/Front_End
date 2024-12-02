@@ -83,19 +83,40 @@
             </div>
 
             <!-- IMPORT E EXPORT -->
-            <div class="container-botoes">
-                <button onclick="saidasDoDiaCsv()" class="button-import-receitas-txt">
-                    <h1>Relatório saídas do dia CSV</h1>
-                    <p>Clique e faça o export do documento</p>
-                </button>
-                <button onclick="saidasDoDiaTxt()" class="button-import-receitas-csv">
-                    <h1>Relatório saídas do dia TXT</h1>
-                    <p>Clique e faça o export do documento</p>
-                </button>
-                <button onclick="motoboy()" class="button-import-motoboy">
-                    <h1>Rotas Mensais do Motoboy CSV</h1>
-                    <p>Clique e faça o export do documento</p>
-                </button>
+            <div class="container-import-export">
+                <div class="banner-botoes">
+                    <h1><img src="../../assets/icon-documento.png" alt="">Gerenciamento de Relatórios</h1>
+
+                    <div class="container-botoes">
+                        <div class="divisao">
+                            <button onclick="saidasDoDiaCsv()" class="button-import-receitas-txt">
+                                <h1>Relatório saídas do dia CSV</h1>
+                                <p>Clique e faça o export do documento</p>
+                            </button>
+                            <button onclick="saidasDoDiaTxt()" class="button-import-receitas-csv">
+                                <h1>Relatório saídas do dia TXT</h1>
+                                <p>Clique e faça o export do documento</p>
+                            </button>
+                        </div>
+
+                        <div class="divisao">
+                            <button onclick="motoboyExport()" class="button-export-motoboy">
+                                <h1>Rotas Mensais do Motoboy CSV</h1>
+                                <p>Clique e faça o export do documento</p>
+                            </button>
+                            <label for="motoboyFile" class="button-import-motoboy">
+                                <h1>Importar Rotas Mensais do Motoboy CSV</h1>
+                                <p>Clique e faça o upload do documento</p>
+                            </label>
+                            <input type="file" id="motoboyFile" accept=".csv" style="display: none;" onchange="motoboyImport()">
+                            
+                        </div>
+                        
+                        
+                    </div>
+
+                </div>
+
             </div>
 
             <div class="dahsMaisVendidos">
@@ -109,7 +130,8 @@
                 </div>
 
                 <div class="top-receitas">
-                    <h2>Top Receitas por Prato <button onclick="receitasCsv()" class="button-import-tabela"></button></h2>
+                    <h2>Top Receitas por Prato <button onclick="receitasCsv()" class="button-import-tabela"></button>
+                    </h2>
                     <table id="top-receitas">
                         <thead>
                             <tr>
@@ -122,7 +144,7 @@
                     </table>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </body>
