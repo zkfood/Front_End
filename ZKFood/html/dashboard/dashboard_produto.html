@@ -169,20 +169,13 @@
             // Criar o gráfico com os dados dos produtos mais vendidos e menos vendidos
             const ctx = document.getElementById('myChart').getContext('2d');
 
-            const nomesProdutos = [
-                top3Melhores[0][0], 
-                top3Melhores[1][0], 
-                top3Piores[0][0],   
-                top3Piores[1][0],   
-            ];
+            const dados = await fetch("http://localhost:8080/relatorios/dashboard-produtos")
+            const dadosGrafico = await dados.json();
+            const tamanhoGrafico = 6;
+            const dadosGraficoLimitado = dadosGrafico.slice(0, tamanhoGrafico);
 
-            const quantidades = [
-                top3Melhores[0][1], 
-                top3Melhores[1][1], 
-                top3Piores[0][1],   
-                top3Piores[1][1],  
-            ];
-
+            const nomesProdutos = dadosGraficoLimitado.map(subarray => subarray[0])
+            const quantidades = dadosGraficoLimitado.map(subarray => subarray[1])
 
             new Chart(ctx, {
     type: 'bar',

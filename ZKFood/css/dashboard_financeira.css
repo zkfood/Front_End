@@ -148,13 +148,18 @@ h1 {
     height: 100%;
 }
 
+.top-receitas {
+    overflow-y: auto;
+    max-height: 200px;
+}
 
 .top-receitas table {
     width: 80%;
     border-collapse: collapse;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+thead, tbody {
+    display: table-row-group;
 }
 
 .top-receitas th,
