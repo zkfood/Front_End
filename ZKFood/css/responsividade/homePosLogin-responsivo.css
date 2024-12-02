@@ -72,6 +72,10 @@
         height: 28px;
     }
 
+    .logoff:hover {
+        cursor: pointer;
+    }
+
     .parte_inferior_navbar {
         display: none;
     }

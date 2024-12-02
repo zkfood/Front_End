@@ -14,15 +14,6 @@ async function listarProdutos(eEntrega) {
         valorTotal += 8;
     }
 
-    const tipoEntrega = sessionStorage.getItem('TIPO_ENTREGA_CARRINHO');
-    const radios = document.getElementsByName('entrega');
-
-    radios.forEach((radio) => {
-        if (radio.value === tipoEntrega) {
-            radio.checked = true;
-        }
-    });
-
     const divListagemProdutos = document.getElementById('listagemProdutos');
     divListagemProdutos.innerHTML = '';
 
@@ -31,7 +22,7 @@ async function listarProdutos(eEntrega) {
         const produto = await new FetchBuilder().request(`${ambiente.local}${prefix.produtos}/${item.id}`);
         const itemNoCarrinho = pedidosCarrinho.find(produto => produto.id === item.id);
 
-        if (produto.disponibilidade != false) {
+        if (produto.disponibilidade) {
             divListagemProdutos.innerHTML += `
             <div class="card-cardapio" data-id="${produto.id}">
                 <div class="conteudo-cardapio">

@@ -1,13 +1,13 @@
 async function buscarKpis() {
     const data = new Date();
-    const formattedDate = data.toISOString().slice(0, 19);
+    const data2 = new Date(data.valueOf() - data.getTimezoneOffset() * 60000);
+    const dataBase = data2.toISOString().replace(/\.\d{3}Z$/, '');
 
-    const url = `http://localhost:8080/relatorios/financeiro/kpis?data=${formattedDate}`
+    const url = `http://localhost:8080/relatorios/financeiro/kpis?data=${dataBase}`
 
     try {
         const resposta = await fetch(url);
         const respostaDados = await resposta.json();
-        console.log(respostaDados)
 
         const div_kpis_presencial = document.getElementById('div_compra_presencial')
         const div_kpis_balcao = document.getElementById('div_compra_balcao')
@@ -23,7 +23,6 @@ async function buscarKpis() {
                 }
                 if (item.tipo_entrega == 'Balcão') {
                     div_kpis_balcao.innerHTML = `${item.receita}`
-                    console.log(respostaDados.receita)
                 }
 
             }
@@ -43,7 +42,6 @@ async function buscarReceitaAnoMeses() {
     try {
         const resposta = await fetch(url);
         const respostaDados = await resposta.json();
-        console.log(respostaDados)
 
         const ctx = document.getElementById('receitaMensalTipoPedidoChart').getContext('2d');
         const chatReceita = new Chart(ctx, {
@@ -97,7 +95,6 @@ async function buscarReceitaAnual() {
     try {
         const resposta = await fetch(url);
         const respostaDados = await resposta.json();
-        console.log(respostaDados)
 
         const ctx = document.getElementById('receitaAnual').getContext('2d');
         new Chart(ctx, {
@@ -165,43 +162,44 @@ async function buscarReceitaAnual() {
 }
 async function buscarTableProdutoMaisVendido() {
     const data = new Date();
-    const ano = data.getFullYear();
-    const mes = data.getMonth() + 1;
+    const data2 = new Date(data.valueOf() - data.getTimezoneOffset() * 60000);
+    const dataBase = data2.toISOString().replace(/\.\d{3}Z$/, '');
+    const dataTransformada = (dataBase).split("T")[0]
 
+    const url = `http://localhost:8080/relatorios/financeiro/top-receitas?data=${dataTransformada}`;
 
-    const url = `http://localhost:8080/relatorios/financeiro/top-receitas?mes=${mes}&ano=${ano}`
-
-    const div_table = document.getElementById('top-receitas')
-
+    const tbody = document.querySelector('#top-receitas tbody');
     try {
         const resposta = await fetch(url);
         const respostaDados = await resposta.json();
-        console.log(respostaDados)
 
-        respostaDados.map(
-            item => {
-                div_table.innerHTML += `
-                    <tr>
-                        <td>${item.produto}</td>
-                        <td>${item.quantidadeVendida}</td>
-                        <td>R$ ${item.receita.toFixed(2)}</td>
-                    </tr>`
-            }
-        )
+        let linhas = '';
+        respostaDados.map(item => {
+            linhas += `
+                <tr>
+                    <td>${item.produto}</td>
+                    <td>${item.quantidadeVendida}</td>
+                    <td>R$ ${item.receita.toFixed(2)}</td>
+                </tr>
+            `;
+        });
+
+        tbody.innerHTML = linhas;
 
     } catch (error) {
-
+        console.error(error);
     }
 }
 
-
-window.onload = buscarKpis();
-window.onload = buscarReceitaAnoMeses();
-window.onload = buscarReceitaAnual();
-window.onload = buscarTableProdutoMaisVendido();
+window.onload = function () {
+    buscarKpis();
+    buscarReceitaAnoMeses();
+    buscarReceitaAnual();
+    buscarTableProdutoMaisVendido();
+}
 
 function saidasDoDiaCsv(){
-    const url = 'http://localhost:8080/relatorios/csv/saidas-do-dia?data=2024-11-26'
+    const url = 'http://localhost:8080/relatorios/csv/saidas-do-dia?data=2024-11-26';
 
     importCsv(url, 'saidas-do-dia-26-11-2024');
 }

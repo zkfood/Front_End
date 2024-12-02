@@ -147,19 +147,24 @@ h1 {
     height: 100%;
 }
 
+.top-receitas {
+    overflow-y: auto;
+    max-height: 200px;
+}
 
 .top-receitas table {
     width: 80%;
     border-collapse: collapse;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+thead, tbody {
+    display: table-row-group;
 }
 
 .top-receitas th, .top-receitas td {
     border: 1px solid #ddd;
-    padding: 10px; 
-    text-align: left; 
+    padding: 10px;
+    text-align: left;
 }
 .div_baixo{
     display: flex;
@@ -169,7 +174,7 @@ h1 {
    align-items: center;
 }
 .top-receitas th {
-    background-color: #f2f2f2; 
+    background-color: #f2f2f2;
 }
 .top-receitas{
     display: flex;

@@ -44,10 +44,7 @@ async function receberPratos(tipo) {
         const favorito = favoritos.find(item => item.produto.id === produto.id);
         const corBotao = favorito ? "botao-favoritos red" : "botao-favoritos"
 
-console.log(produto)
-
-
-if (produto.disponibilidade == true) {
+if (produto.disponibilidade) {
     linhaItemCardapio.innerHTML += `
     <div class="card-cardapio">
         <div class="conteudo-cardapio">
@@ -141,6 +138,8 @@ function abrirModal(id) {
         imagem.src = `${ambiente.local}${prefix.produtos}/imagem/${produto.id}`;
         descricao.innerHTML = produto.descricao;
     });
+
+    openModal.click();
 
     closeModal.addEventListener('click', () => {
         modalBackground.style.display = 'none';
