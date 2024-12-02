@@ -16,24 +16,37 @@
     // Função para renderizar os favoritos
     function renderizarFavoritos(favoritos) {
         const containerCards = document.getElementById('containerCards');
-
+    
         const divQtdItensFavoritos = document.getElementById('qtdItensFavoritos');
-        divQtdItensFavoritos.innerHTML = `Itens (${favoritos.length})`
-
-        containerCards.innerHTML = "";
-
-        favoritos.forEach(favorito => {
+        divQtdItensFavoritos.innerHTML = `Itens (${favoritos.length})`;
+    
+        containerCards.innerHTML = ""; // Limpa o contêiner principal
+    
+        let grupoDiv = null;
+    
+        favoritos.forEach((favorito, index) => {
+            // Se for o primeiro card ou múltiplo de 3, cria uma nova div de grupo
+            if (index % 3 === 0) {
+                grupoDiv = document.createElement('div');
+                grupoDiv.classList.add('grupo-cards'); // Classe para o grupo
+                containerCards.appendChild(grupoDiv);
+            }
+    
+            // Criar o objeto prato a partir do favorito
             const prato = {
                 idProduto: favorito.produto.id,
                 nome: favorito.produto.nome,
-                descricao: favorito.descricao || 'Sem descrição',
+                descricao: favorito.produto.descricao || 'Sem descrição',
                 valor: favorito.produto.valor,
-                imagem: `${ambiente.local+prefix.produtos}/imagem/${favorito.produto.id}`,
+                imagem: `${ambiente.local + prefix.produtos}/imagem/${favorito.produto.id}`,
                 favorito: favorito.favorito
             };
-            adicionarCard(prato, containerCards);
+    
+            // Adiciona o card no grupo atual
+            adicionarCard(prato, grupoDiv);
         });
     }
+    
 
     // Função para adicionar um card
     function adicionarCard(favorito, container) {

@@ -33,26 +33,40 @@ async function buscarKpis() {
     }
 }
 
-async function buscarReceitaAnoMeses() {
+const data = new Date();
+var ano = data.getFullYear();
+buscarReceitaAnoMeses(ano)
 
-    const data = new Date();
-    const ano = data.getFullYear();
+let receitaMensalTipoPedidoChart;
+let receitaAnualChart;
 
-    const url = `http://localhost:8080/relatorios/financeiro/receita-ano-meses?ano=${ano}`
+// Função buscarReceitaAnoMeses ajustada
+async function buscarReceitaAnoMeses(ano) {
+    const url = `http://localhost:8080/relatorios/financeiro/receita-ano-meses?ano=${ano}`;
     try {
         const resposta = await fetch(url);
         const respostaDados = await resposta.json();
 
         const ctx = document.getElementById('receitaMensalTipoPedidoChart').getContext('2d');
-        const chatReceita = new Chart(ctx, {
+
+        // Destroi o gráfico existente se necessário
+        if (receitaMensalTipoPedidoChart) {
+            receitaMensalTipoPedidoChart.destroy();
+        }
+
+        receitaMensalTipoPedidoChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: [
                     'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
                     'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
                 ],
-                datasets: [
-                ]
+                datasets: respostaDados.map(item => ({
+                    label: item.tipoEntrega,
+                    data: item.valores,
+                    backgroundColor: item.tipoEntrega === 'Entrega' ? '#ff823f' :
+                                     item.tipoEntrega === 'Balcão' ? '#ffb90a' : '#ffeb32',
+                }))
             },
             options: {
                 responsive: true,
@@ -64,40 +78,31 @@ async function buscarReceitaAnoMeses() {
                         beginAtZero: true,
                         title: {
                             display: true,
-                            text: 'Receita Mensal por TIpo de Pedido'
+                            text: 'Receita Mensal por Tipo de Pedido'
                         }
                     }
                 }
             }
         });
-        const colors = {
-            Entrega: '#ff823f',
-            Balcão: '#ffb90a',
-            Presencial: '#ffeb32'
-        }
-        respostaDados.map(
-            item => {
-
-                chatReceita.data.datasets.push({
-                    label: item.tipoEntrega,
-                    data: item.valores,
-                    backgroundColor: colors[item.tipoEntrega],
-                },)
-            }
-        )
-
     } catch (error) {
         console.error("Error", error);
     }
 }
+
 async function buscarReceitaAnual() {
-    const url = `http://localhost:8080/relatorios/financeiro/receita-por-anos`
+    const url = `http://localhost:8080/relatorios/financeiro/receita-por-anos`;
     try {
         const resposta = await fetch(url);
         const respostaDados = await resposta.json();
 
         const ctx = document.getElementById('receitaAnual').getContext('2d');
-        new Chart(ctx, {
+
+        // Destroi o gráfico existente se necessário
+        if (receitaAnualChart) {
+            receitaAnualChart.destroy();
+        }
+
+        receitaAnualChart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: respostaDados.anos,
@@ -155,11 +160,11 @@ async function buscarReceitaAnual() {
                 }
             }
         });
-
     } catch (error) {
         console.error("Error", error);
     }
 }
+
 async function buscarTableProdutoMaisVendido() {
     const data = new Date();
     const data2 = new Date(data.valueOf() - data.getTimezoneOffset() * 60000);
@@ -244,4 +249,15 @@ function importCsv(url, nomeArquivo) {
             window.URL.revokeObjectURL(url);
         })
         .catch(error => console.error('Erro:', error));
+}
+
+function filtrar() {
+    const inputFiltro = document.getElementById('input_filtro');
+    const anoFiltro = parseInt(inputFiltro.value, 10);
+
+    if (!isNaN(anoFiltro) && anoFiltro > 2000) {
+        buscarReceitaAnoMeses(anoFiltro);
+    } else {
+        alert('Insira um ano válido.');
+    }
 }
