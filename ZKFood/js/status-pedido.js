@@ -17,22 +17,34 @@ function carregarStatusPedido(estado) {
     if (estado === "Pedido aceito") {
         const img = document.getElementById("icon1");
 
-        img.src = "/ZKFood/assets/Check Mark.png"
+        img.src = "/ZKFood/assets/Check Mark.png";
     } else if (estado === "Pedido em preparo") {
         const img1 = document.getElementById("icon1");
-        img1.src = "/ZKFood/assets/Check Mark.png"
+        img1.src = "/ZKFood/assets/Check Mark.png";
 
         const img2 = document.getElementById("icon2");
-        img2.src = "/ZKFood/assets/Check Mark.png"
+        img2.src = "/ZKFood/assets/Check Mark.png";
     } else if (estado === "Pedido a caminho") {
         const img1 = document.getElementById("icon1");
-        img1.src = "/ZKFood/assets/Check Mark.png"
+        img1.src = "/ZKFood/assets/Check Mark.png";
 
         const img2 = document.getElementById("icon2");
-        img2.src = "/ZKFood/assets/Check Mark.png"
+        img2.src = "/ZKFood/assets/Check Mark.png";
 
         const img3 = document.getElementById("icon3");
-        img3.src = "/ZKFood/assets/Check Mark.png"
+        img3.src = "/ZKFood/assets/Check Mark.png";
+    } else if (estado === "Pedido entregue") {
+        const img1 = document.getElementById("icon1");
+        img1.src = "/ZKFood/assets/Check Mark.png";
+
+        const img2 = document.getElementById("icon2");
+        img2.src = "/ZKFood/assets/Check Mark.png";
+
+        const img3 = document.getElementById("icon3");
+        img3.src = "/ZKFood/assets/Check Mark.png";
+
+        const img4 = document.getElementById("icon4");
+        img4.src = "/ZKFood/assets/Check Mark.png";
     }
 }
 

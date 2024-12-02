@@ -23,6 +23,7 @@
     <script src="../../js/carrinho.js"></script>
     <script src="../../js/fetch.js"></script>
     <script src="../../js/pedido.js"></script>
+    <script src="../../js/logoff.js"></script>
 </head>
 
 <body>
@@ -66,7 +67,7 @@
 
             <div class="profile_home">
                 <a class="perfil" href="perfil.html"></a>
-                <a class="logoff" href="#"></a>
+                <a class="logoff" onclick="logoff()"></a>
             </div>
         </div>
         <div class="parte_inferior_navbar">
@@ -143,7 +144,7 @@
                         <label class="custom-radio">
                             <input type="radio" value="Entrega" name="entrega">
                             <span class="radio-mark"></span>
-                            Quero receber em casa (8 reais de frete)
+                            Quero receber em casa
                         </label>
                         <label class="custom-radio">
                             <input type="radio" value="Balcão" name="entrega">
