@@ -233,55 +233,100 @@ canvas {
 
 /* Import e export */
 
-.container-botoes {
+.container-import-export{
     width: 100%;
-    height: 15vh;
+    height: 35vh;
     margin-bottom: 10%;
     display: flex;
+    justify-content: center;
+}
+
+.banner-botoes{
+    width: 95%;
+    height: 100%;
+    margin-bottom: 10%;
+    display: flex;
+    flex-direction: column;
     justify-content: space-around;
-}
-
-.button-import-receitas-txt {
-    width: 30%;
-    border: none;
-    cursor: pointer;
-    background-color: #ff823f;
-
-}
-
-.button-import-receitas-csv {
-    width: 30%;
-    border: none;
-    cursor: pointer;
-    background-color: #ffb90a;
-}
-
-.button-import-motoboy {
-    width: 30%;
-    border: none;
-    cursor: pointer;
-    background-color: #ffeb32;
-}
-
-.container-botoes h1 {
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 500;
-    font-size: 30px;
-    margin: 0%;
-}
-
-.button-import-receitas-csv,
-.button-import-receitas-txt,
-.button-import-motoboy,
-button {
+    padding: 15px;
     border-radius: 15px;
 }
 
-.button-import-receitas-csv:hover,
-.button-import-receitas-txt:hover,
-.button-import-motoboy:hover {
-    transform: scale(1.03);
+.banner-botoes img{
+    height: 30px;
+    margin-right: 10px;
 }
+
+.container-import-export h1{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    margin: 0%;
+    display: flex;
+    margin-left: 10px;
+}
+
+.container-botoes{
+    display: flex;
+}
+
+.divisao{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.divisao button{
+    text-align: start;
+}
+
+.button-import-receitas-csv{
+    width: 95%;
+    border: none;
+    cursor: pointer;
+    background-color: #FFB90A;
+}
+
+.button-import-receitas-txt{
+    width: 95%;
+    border: none;
+    cursor: pointer;
+    background-color: #FFC857;
+}
+
+.button-export-motoboy{
+    width: 95%;
+    border: none;
+    cursor: pointer;
+    background-color: #FFA726;
+}
+
+.button-import-motoboy{
+    width: 95%;
+    border: none;
+    cursor: pointer;
+    background-color: #FF8C00;
+}
+
+.button-import-motoboy p{
+    font-size: 13px;
+}
+
+.divisao h1{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin: 0%;
+}
+
+.button-import-receitas-csv, .button-import-receitas-txt, .button-import-motoboy, button{
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
 
 .button-import-tabela {
     width: 40px;
