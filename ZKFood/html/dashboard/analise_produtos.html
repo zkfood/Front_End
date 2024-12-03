@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/dashboard/cadastro-produto.css">
 
     <link rel="stylesheet" href="../../css/dashboard/analise-produtos.css">
 
     <link rel="icon" href="/ZKFood/assets/logo-icon.png" type="image/png">
+
+
 
     <script src="../../js/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -49,45 +52,96 @@
                     </div>
                 </div>
             </div>
+
+            <div class="container_card_cadastro popup_crud" id="popup_crud_editar">
+                <div class="card_cadastro">
+                    <div class="container_dados_principais">
+                        <div class="container_imagem_cadastro">
+                            <span class="titulo_cadastro_imagem"> Clique e insira uma imagem </span>
+                            <!-- Botão personalizado para upload -->
+                            <div class="imagem_upload">
+                                <label class="custom-file-upload">
+                                    <input type="file" id="fileInput" accept="image/*">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="container_cadastro_principais">
+                            <span class="titulo_cadastro_dados"> Nome:</span>
+                            <input type="text" id="nome_produto_input" placeholder="Nome do produto">
+                            <span class="titulo_cadastro_dados"> Descricao:</span>
+                            <input type="text" id="descricao_produto_input"
+                                placeholder="Descricao breve do seu produto">
+                        </div>
+                    </div>
+                    <div class="container_dados_adicionais">
+                        <div class="container_input_adicionais">
+                            <span class="titulo_cadastro_dados">Serve quantas pessoas?</span>
+                            <input type="text" id="qtdPessoas_input" placeholder="Digite a quantidade">
+                        </div>
+                        <div class="container_input_adicionais">
+                            <span class="titulo_cadastro_dados">Preço do Prato:</span>
+                            <input type="number" id="preco_input" placeholder="R$ 0.00">
+                        </div>
+                        <div class="container_input_adicionais">
+                            <span class="titulo_cadastro_dados">Tipo do Prato:</span>
+                            <select name="tipos_produto" id="select_tipo" disabled> 
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="container_button_cadastrar">
+                        <button onclick="editarProduto()">EDITAR PRODUTO!</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Popup de Sucesso/Erro -->
+            <div id="popup" class="popup">
+                <div class="popup-background">
+                    <div class="popup-content">
+                        <span class="close" onclick="closePopup()">&times;</span>
+                        <img id="popup-icon" src="" alt="Icon">
+                        <h2 id="popup-title" class="popup-title"></h2>
+                        <p id="popup-message" class="popup-message"></p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</body>
 
-<script>
-    let idProdutoParaDeletar = null;
+        <script>
+            let idProdutoParaDeletar = null;
 
-    let produtosCache = []; // Armazena os produtos inicialmente carregados
+            let produtosCache = []; // Armazena os produtos inicialmente carregados
 
-    async function buscar() {
-        const divResposta = document.getElementById("retorno_de_dados");
+            async function buscar() {
+                const divResposta = document.getElementById("retorno_de_dados");
 
-        // Exibe uma mensagem de carregamento
-        exibirMensagemCarregando(divResposta);
+                // Exibe uma mensagem de carregamento
+                exibirMensagemCarregando(divResposta);
 
-        try {
-            const resposta = await fetch("http://localhost:8080/produtos");
-            if (!resposta.ok) throw new Error("Erro ao buscar os produtos.");
+                try {
+                    const resposta = await fetch("http://localhost:8080/produtos");
+                    if (!resposta.ok) throw new Error("Erro ao buscar os produtos.");
 
-            const respostaDados = await resposta.json();
-            produtosCache = respostaDados; // Salva os produtos no cache para facilitar o filtro
+                    const respostaDados = await resposta.json();
+                    produtosCache = respostaDados; // Salva os produtos no cache para facilitar o filtro
 
-            if (respostaDados.length <= 0) {
-                exibirMensagemVazio(divResposta);
-            } else {
-                renderizarProdutos(divResposta, respostaDados);
+                    if (respostaDados.length <= 0) {
+                        exibirMensagemVazio(divResposta);
+                    } else {
+                        renderizarProdutos(divResposta, respostaDados);
+                    }
+                } catch (error) {
+                    console.error("Erro:", error);
+                    exibirMensagemErro(divResposta);
+                }
             }
-        } catch (error) {
-            console.error("Erro:", error);
-            exibirMensagemErro(divResposta);
-        }
-    }
 
-    function exibirMensagemCarregando(divResposta) {
-        divResposta.innerHTML = `<p>Carregando produtos, por favor aguarde...</p>`;
-    }
+            function exibirMensagemCarregando(divResposta) {
+                divResposta.innerHTML = `<p>Carregando produtos, por favor aguarde...</p>`;
+            }
 
-    function exibirMensagemVazio(divResposta) {
-        divResposta.innerHTML = `
+            function exibirMensagemVazio(divResposta) {
+                divResposta.innerHTML = `
         <div class="container_resposta_vazio">
             <div class="titulo_resposta_vazio">NÃO HÁ NADA AQUI !!</div>
             <div class="texto_resposta_vazio">Oops, parece que você ainda não fez o cadastro dos seus produtos.</div>
@@ -96,10 +150,10 @@
             </div>
         </div>
     `;
-    }
+            }
 
-    function exibirMensagemErro(divResposta) {
-        divResposta.innerHTML = `
+            function exibirMensagemErro(divResposta) {
+                divResposta.innerHTML = `
         <div class="container_resposta_erro">
             <div class="titulo_resposta_erro">ERRO AO CARREGAR!</div>
             <div class="texto_resposta_erro">Não foi possível carregar os produtos. Tente novamente mais tarde.</div>
@@ -108,11 +162,11 @@
             </div>
         </div>
     `;
-    }
+            }
 
-    // Função de renderização com filtro
-    function renderizarProdutos(divResposta, produtos) {
-        divResposta.innerHTML = `
+            // Função de renderização com filtro
+            function renderizarProdutos(divResposta, produtos) {
+                divResposta.innerHTML = `
         <div class="container_card_lista_produtos">
             <div class="card_lista_produtos">
                 <div class="container_opcoes_cadastro_filtro">
@@ -138,14 +192,14 @@
         </div>
     `;
 
-        const produtosContainer = document.getElementById("container_lista_produtos");
-        produtosContainer.innerHTML = produtos.map(produto => {
-            const disponibilidadeClasse = produto.disponibilidade ? "disponivel" : "indisponivel";
-            const disponibilidadeTexto = produto.disponibilidade ? "Ativo" : "Inativo";
+                const produtosContainer = document.getElementById("container_lista_produtos");
+                produtosContainer.innerHTML = produtos.map(produto => {
+                    const disponibilidadeClasse = produto.disponibilidade ? "disponivel" : "indisponivel";
+                    const disponibilidadeTexto = produto.disponibilidade ? "Ativo" : "Inativo";
 
-            const pratoDoDia = produto.pratoDoDia;
+                    const pratoDoDia = produto.pratoDoDia;
 
-            return `
+                    return `
             <div class="container_produto">
                 <div class="container_legenda">
                     <div class="imagem_legenda_lista">
@@ -170,135 +224,274 @@
                     </div>
                 </div>
                 <div class="container_update_delete">
-                    <div class="container_funcionalidade_deletar" onclick="abrirPopup(${produto.id})">
+                    <div class="container_funcionalidade_deletar" onclick="abrirPopup(${produto.id}, 'deletar')">
                         <img src="../../assets/lata-de-lixo 1.png" alt="Deletar">
                     </div>
-                    <div class="container_funcionalidade_atualizar" onclick="atualizar()">
+                    <div class="container_funcionalidade_atualizar" onclick="abrirPopup(${produto.id}, 'editar')">
                         <img src="../../assets/editar-codigo.png" alt="Atualizar">
                     </div>
                 </div>
             </div>
             <br>
         `;
-        }).join('');
-    }
-
-    async function alterarPratoDoDia(id, valor) {
-        await fetch(`${ambiente.local}${prefix.produtos}/${id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                pratoDoDia: valor
-            })
-        })
-    }
-
-    // Função para filtrar os produtos
-    function filtrarProdutos() {
-    const filtro = document.getElementById("select_tipo").value;
-    let produtosFiltrados; // Declara a variável para armazenar os produtos filtrados
-
-    // Verifica se o filtro é "0" para exibir todos os produtos
-    if (filtro === "0") {
-        produtosFiltrados = produtosCache; // Se for "0", exibe todos os produtos
-    } else {
-        // Caso contrário, filtra os produtos pelo tipoProduto
-        produtosFiltrados = produtosCache.filter(produto => produto.tipoProduto === parseInt(filtro));
-    }
-
-    // Renderiza os produtos filtrados ou todos os produtos
-    const divResposta = document.getElementById("retorno_de_dados");
-    renderizarProdutos(divResposta, produtosFiltrados);
-}
-
-
-
-    // Executa a função buscar ao carregar a página
-    window.onload = buscar;
-
-
-
-    function chamar_card_cadastrar() {
-        window.location.href = "cadastro_produtos.html";
-    }
-
-    async function alterarDisponibilidade(idProduto) {
-        const url = `http://localhost:8080/produtos/${idProduto}`;
-
-        try {
-            // Primeiro, busque os dados do produto atual
-            const respostaProduto = await fetch(url);
-            if (!respostaProduto.ok) {
-                throw new Error('Erro ao buscar o produto');
+                }).join('');
             }
-            const produto = await respostaProduto.json();
 
-            // Inverter a disponibilidade atual
-            const novaDisponibilidade = !produto.disponibilidade;
-
-            let headers = new Headers();
-            headers.append('Content-Type', 'application/json');
-            headers.append('Accept', '*/*');
-
-            const resposta = await fetch(url, {
-                method: "PATCH",
-                headers: headers,
-                body: JSON.stringify({
-                    disponibilidade: novaDisponibilidade
+            async function alterarPratoDoDia(id, valor) {
+                await fetch(`${ambiente.local}${prefix.produtos}/${id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        pratoDoDia: valor
+                    })
                 })
-            });
-
-            if (!resposta.ok) {
-                throw new Error('Erro ao alterar disponibilidade do produto');
             }
 
-            const dados = await resposta.json();
-            console.log("Produto atualizado:", dados);
+            // Função para filtrar os produtos
+            function filtrarProdutos() {
+                const filtro = document.getElementById("select_tipo").value;
+                let produtosFiltrados; // Declara a variável para armazenar os produtos filtrados
 
-            // Após atualizar a disponibilidade, chamar a função buscar() para atualizar a lista
-            await buscar();
-        } catch (erro) {
-            console.log("Erro: ", erro);
-        }
-    }
+                // Verifica se o filtro é "0" para exibir todos os produtos
+                if (filtro === "0") {
+                    produtosFiltrados = produtosCache; // Se for "0", exibe todos os produtos
+                } else {
+                    // Caso contrário, filtra os produtos pelo tipoProduto
+                    produtosFiltrados = produtosCache.filter(produto => produto.tipoProduto === parseInt(filtro));
+                }
 
-    function abrirPopup(idProduto) {
-        idProdutoParaDeletar = idProduto;  // Guardar o ID do produto para deletar
-        document.getElementById("popup_crud").style.display = "block";
-    }
-
-    async function confirmarDelete() {
-        if (!idProdutoParaDeletar) return;
-
-        const url = `http://localhost:8080/produtos/${idProdutoParaDeletar}`;
-
-        try {
-            const resposta = await fetch(url, {
-                method: "DELETE"
-            });
-
-            if (!resposta.ok) {
-                throw new Error('Erro ao deletar o produto');
+                // Renderiza os produtos filtrados ou todos os produtos
+                const divResposta = document.getElementById("retorno_de_dados");
+                renderizarProdutos(divResposta, produtosFiltrados);
             }
 
-            console.log("Produto deletado com sucesso!");
 
-            // Após deletar o produto, chamar a função buscar() para atualizar a lista
-            await buscar();
-        } catch (erro) {
-            console.log("Erro: ", erro);
-        } finally {
-            closePopup();  // Fechar o popup após deletar o produto
-        }
-    }
 
-    // Função para fechar o pop-up
-    function closePopup() {
-        document.getElementById("popup_crud").style.display = "none";
-    }
+            // Executa a função buscar ao carregar a página
+            window.onload = buscar;
 
-</script>
+
+
+            function chamar_card_cadastrar() {
+                window.location.href = "cadastro_produtos.html";
+            }
+
+            async function alterarDisponibilidade(idProduto) {
+                const url = `http://localhost:8080/produtos/${idProduto}`;
+
+                try {
+                    // Primeiro, busque os dados do produto atual
+                    const respostaProduto = await fetch(url);
+                    if (!respostaProduto.ok) {
+                        throw new Error('Erro ao buscar o produto');
+                    }
+                    const produto = await respostaProduto.json();
+
+                    // Inverter a disponibilidade atual
+                    const novaDisponibilidade = !produto.disponibilidade;
+
+                    let headers = new Headers();
+                    headers.append('Content-Type', 'application/json');
+                    headers.append('Accept', '*/*');
+
+                    const resposta = await fetch(url, {
+                        method: "PATCH",
+                        headers: headers,
+                        body: JSON.stringify({
+                            disponibilidade: novaDisponibilidade
+                        })
+                    });
+
+                    if (!resposta.ok) {
+                        throw new Error('Erro ao alterar disponibilidade do produto');
+                    }
+
+                    const dados = await resposta.json();
+                    console.log("Produto atualizado:", dados);
+
+                    // Após atualizar a disponibilidade, chamar a função buscar() para atualizar a lista
+                    await buscar();
+                } catch (erro) {
+                    console.log("Erro: ", erro);
+                }
+            }
+            async function uploadImagem(idProduto, imagem) {
+                const url = `http://localhost:8080/produtos/imagem/${idProduto}`;
+                console.log("Iniciando upload da imagem para o produto ID:", idProduto);
+
+                try {
+                    const arrayBuffer = await imagem.arrayBuffer();
+                    const bytes = new Uint8Array(arrayBuffer);
+
+                    console.log('Bytes da Imagem:', bytes);
+
+                    const resposta = await fetch(url, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': imagem.type,
+                        },
+                        body: bytes
+                    });
+
+                    if (!resposta.ok) {
+                        throw new Error('Erro ao fazer upload da imagem');
+                    }
+
+                    console.log('Imagem enviada com sucesso!');
+                } catch (erro) {
+                    console.error('Erro ao enviar imagem:', erro);
+                    throw erro;
+                }
+            }
+            async function editarProduto() {
+                const idProduto = idProdutoParaEditar
+                const url = `http://localhost:8080/produtos/${idProduto}`;
+
+                try {
+                    let headers = new Headers();
+                    headers.append('Content-Type', 'application/json');
+                    headers.append('Accept', '*/*');
+
+                    const nome = document.getElementById("nome_produto_input").value;
+                    const descricao = document.getElementById("descricao_produto_input").value;
+                    const qtdPessoas = document.getElementById("qtdPessoas_input").value;
+                    const preco = Number(document.getElementById("preco_input").value);
+
+                    const resposta = await fetch(url, {
+                        method: "PATCH",
+                        headers: headers,
+                        body: JSON.stringify({
+                            nome: nome,
+                            descricao: descricao,
+                            valor: preco,
+                            qtdPessoas: qtdPessoas
+                        })
+                    });
+
+                    if (resposta.ok) {
+                        const respostaJson = await resposta.json();
+                        console.log('Produto atualizado: ', respostaJson);
+
+                        const fileInput = document.getElementById('fileInput');
+                        if (fileInput.files.length > 0) {
+                            console.log("Imagem encontrada, iniciando o upload...");
+                            await uploadImagem(respostaJson.id, fileInput.files[0]);
+                        }
+                        showPopup('ATUALIZADO COM SUCESSO!', 'Produto atualizado com sucesso!', 'success');
+                    } else if (resposta.status === 400) {
+                        showPopup('ERRO NA ATUALIZAÇÃO!', '(Há campos vazios ou dados inválidos!)', 'error_bad_request');
+                    } else if (resposta.status === 404) {
+                        showPopup('ERRO NA ATUALIZAÇÃO!', '(Produto não encontrado!)', 'error_not_found');
+                    } else if (resposta.status === 409) {
+                        showPopup('ERRO NA ATUALIZAÇÃO!', '(Conflito de dados!)', 'error_conflito');
+                    }
+                } catch (erro) {
+                    console.log("Erro na atualização:", erro);
+                    showPopup('ERRO INESPERADO!', 'Ocorreu um erro inesperado. Tente novamente mais tarde.', 'error_unexpected');
+                }
+            }
+
+            let idProdutoParaEditar = null
+
+            function abrirPopup(idProduto, type) {
+                idProdutoParaDeletar = idProduto;
+                idProdutoParaEditar = idProduto;
+
+                if (type == "editar") {
+                    document.getElementById("popup_crud_editar").style.display = "block";
+                } else {
+                    document.getElementById("popup_crud").style.display = "block";
+                }
+
+            }
+
+            async function confirmarDelete() {
+                if (!idProdutoParaDeletar) return;
+
+                const url = `http://localhost:8080/produtos/${idProdutoParaDeletar}`;
+
+                try {
+                    const resposta = await fetch(url, {
+                        method: "DELETE"
+                    });
+
+                    if (!resposta.ok) {
+                        throw new Error('Erro ao deletar o produto');
+                    }
+
+                    console.log("Produto deletado com sucesso!");
+
+
+                    await buscar();
+                } catch (erro) {
+                    console.log("Erro: ", erro);
+                } finally {
+                    closePopup();
+                }
+            }
+
+            function showPopup(title, message, type) {
+                const popup = document.getElementById('popup');
+                const popupTitle = document.getElementById('popup-title');
+                const popupMessage = document.getElementById('popup-message');
+                const popupIcon = document.getElementById('popup-icon');
+                const fileUploadLabel = document.querySelector('.custom-file-upload');
+
+                popupTitle.textContent = title;
+                popupMessage.textContent = message;
+
+                if (type === 'success') {
+                    popupTitle.style.color = '#33D700';
+                    popupIcon.src = '../../assets/sucesso.png';
+                } else if (type === 'error_conflito' || type === 'error_bad_request') {
+                    popupTitle.style.color = '#EB3223';
+                    popupIcon.src = '../../assets/erro.png';
+                }
+
+                popup.style.display = 'flex';
+
+                // Adicionando o setTimeout para ocultar o popup após 2 segundos e limpar os inputs
+                setTimeout(() => {
+                    popup.style.display = 'none'; // Esconde o popup
+
+                    // Limpa os campos de input
+                    document.getElementById("nome_produto_input").value = '';
+                    document.getElementById("descricao_produto_input").value = '';
+                    document.getElementById("qtdPessoas_input").value = '';
+                    document.getElementById("preco_input").value = '';
+
+                    // Limpa a imagem do label e reseta o tamanho e posicionamento do fundo
+                    fileUploadLabel.style.backgroundImage = '';
+                    fileUploadLabel.style.backgroundSize = '';
+                    fileUploadLabel.style.backgroundPosition = '';
+                }, 2000); // 2000ms = 2 segundos
+            }
+
+
+            // Funcionalidade para substituir img do cardapio pela img que o usuario escolher
+            document.getElementById('fileInput').addEventListener('change', function (event) {
+                const file = event.target.files[0]; // Captura o arquivo selecionado
+                if (file) {
+                    const reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        // Define a imagem como fundo do elemento <label>
+                        document.querySelector('.custom-file-upload').style.backgroundImage = `url(${e.target.result})`;
+                        document.querySelector('.custom-file-upload').style.backgroundSize = 'cover';
+                        document.querySelector('.custom-file-upload').style.backgroundPosition = 'center';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Função para fechar o pop-up
+            function closePopup() {
+                document.getElementById("popup_crud").style.display = "none";
+
+            }
+
+        </script>
 
 </html>
