@@ -11,7 +11,7 @@ async function listarProdutos(eEntrega) {
     let valorTotal = 0;
 
     if (eEntrega) {
-        valorTotal += 8;
+        valorTotal += 3;
     }
 
     const divListagemProdutos = document.getElementById('listagemProdutos');
@@ -67,7 +67,7 @@ async function listarProdutos(eEntrega) {
         divCardPagameto.innerHTML += `
             <div class="item">
                 <span>Taxa de entrega</span>
-                <span>R$ ${(8).toFixed(2)}</span>
+                <span>R$ ${(3).toFixed(2)}</span>
             </div>
         `;
     }
