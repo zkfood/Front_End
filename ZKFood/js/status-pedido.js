@@ -91,11 +91,11 @@ async function carregarPedido() {
     if (pedido.tipoEntrega === 'Entrega') {
         holerite.innerHTML += `
             <div class="item-pedido">
-                <span>Taxa de entrega</span> <span>R$ 8,00</span>
+                <span>Taxa de entrega</span> <span>R$ 3,00</span>
             </div>
         `;
 
-        valorTotal += 8;
+        valorTotal += 3;
     }
 
 

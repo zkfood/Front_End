@@ -15,14 +15,13 @@
 
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
 
-    <script src="../../js/perfil.js"></script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap"
         rel="stylesheet">
 
     <script src="../../js/logoff.js"></script>
+    <script src="../../js/validar-login.js"></script>
 </head>
 
 <body>
@@ -129,7 +128,7 @@
                     <p>*********</p>
                 </div>
             </div>
-            <button class="botao-azul" onclick="editarInformacoes()">Editar</button>
+            <button class="botao-azul" onclick="">Editar</button>
         </div>
 
         <div class="container-listar-enderecos" id="cardEndereco" style="display: none;">
@@ -462,7 +461,7 @@
                     </div>
                     <div id="container_lista_enderecos"></div>`;
                     const enderecos = document.getElementById("container_lista_enderecos");
-                    enderecos.innerHTML = dados.map(renderizarCardEndereco).join('');
+                    enderecos.innerHTML = dados.map(renderizarCardEndereco, false).join('');
                     enderecos.innerHTML += `<a class="botao-azul" id="botaoContinuar" href="./pagamento.html" style="display: none;">Continuar</a>`;
                 }
             } else {
@@ -473,7 +472,24 @@
         }
     }
 
-    function renderizarCardEndereco(endereco) {
+    function renderizarCardEndereco(endereco, foiEditado) {
+        if (foiEditado) {
+            return `
+            <div class="container-endereco">
+                <div class="conteudo-pai">
+                    <div class="endereco-conteudo">
+                        <div class="informacao-endereco">
+                            <span class="info-rua">${endereco.rua}, ${endereco.numero} - ${endereco.complemento}</span>
+                            <span class="info-cep">${endereco.bairro}, São Paulo, SP - ${endereco.cep}</span>
+                        </div>
+                    </div>
+                    <button class="botao-excluir" onclick="excluirEndereco(${endereco.id}); event.stopPropagation();">Excluir</button>
+                    <button class="botao-editar" onclick="editarEndereco(${endereco.id}); event.stopPropagation();">Editar</button>
+                </div>
+
+            </div>
+            `
+        }
         return `
         <div id="card-endereco-${endereco.id}" class="card-endereco" onclick="selecionarCard(this, ${endereco.id})">
             <div class="container-endereco">
@@ -552,7 +568,7 @@
                 const dadosAtualizados = await resposta.json();
                 console.log('Endereço atualizado:', dadosAtualizados);
 
-                enderecoCard.innerHTML = renderizarCardEndereco(dadosAtualizados);
+                enderecoCard.innerHTML = renderizarCardEndereco(dadosAtualizados, true);
                 editando = false;
             } else {
                 console.error('Erro ao atualizar endereço');
