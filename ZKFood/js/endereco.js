@@ -45,6 +45,10 @@ async function cadastrarEndereco() {
             // Verificando o status da resposta
             if (resposta.status === 201 || resposta.status === 200) {
                 exibirPopup("Seu endereço foi cadastrado!", "success");
+            } else if (resposta.status === 418) {
+                const errorData = await resposta.json();
+                console.log('Erro ao cadastrar:', errorData);
+                exibirPopup(errorData.message, "erro");
             } else {
                 const errorData = await resposta.json();
                 console.log('Erro ao cadastrar:', errorData);

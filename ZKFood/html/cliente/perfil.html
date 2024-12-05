@@ -554,6 +554,10 @@
 
                 enderecoCard.innerHTML = renderizarCardEndereco(dadosAtualizados);
                 editando = false;
+            } else if (resposta.status === 418) {
+                const errorData = await resposta.json();
+                console.log('Erro ao cadastrar:', errorData);
+                exibirPopup(errorData.message, "erro");
             } else {
                 console.error('Erro ao atualizar endereço');
             }
