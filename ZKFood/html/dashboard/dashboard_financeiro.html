@@ -111,18 +111,15 @@
                             <input type="file" id="motoboyFile" accept=".csv" style="display: none;" onchange="motoboyImport()">
                             
                         </div>
-                        
-                        
                     </div>
-
                 </div>
-
             </div>
-            <div class="container_filtro">
-                Filtro Ano: <input type="text" name="input_filtro" id="input_filtro"><button onclick="filtrar()">Filtrar</button>
-            </div>
+            
             <div class="dahsMaisVendidos">
                 <h2>Receita Mensal por Tipo de Pedido</h2>
+                <div class="container_filtro">
+                    Filtro Ano: <input type="text" name="input_filtro" id="input_filtro"><button class="botao-filtro-pedido" onclick="filtrar()">Filtrar</button>
+                </div>
                 <canvas id="receitaMensalTipoPedidoChart"></canvas>
             </div>
             <div class="div_baixo">

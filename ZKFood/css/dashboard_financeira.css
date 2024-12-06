@@ -175,6 +175,7 @@ thead, tbody {
     height: 80vh;
     justify-content: space-around;
     align-items: center;
+    margin-top: 10%;
 }
 
 .top-receitas th {
@@ -221,11 +222,11 @@ thead, tbody {
 .dahsMaisVendidos {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    
     align-items: center;
     width: 100%;
     height: 60vh;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 canvas {
@@ -241,7 +242,7 @@ canvas {
 .container-import-export{
     width: 100%;
     height: 35vh;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     display: flex;
     justify-content: center;
 }
@@ -249,7 +250,6 @@ canvas {
 .banner-botoes{
     width: 95%;
     height: 100%;
-    margin-bottom: 10%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -352,15 +352,36 @@ canvas {
 }
 
 .container_filtro {
-    width: auto;
+    width: 35%;
     height: 10%;
     /* background-color: blue; */
     display: flex;
-    margin-left: 10%;
+    margin-left: 45%;
     align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.botao-filtro-pedido{
+    width: 90px;
+    border-radius: 5px;
+    margin-bottom: 0px;
+    padding: 7px;
+    background-color: #68A5FF;
+    color: #ddd;
+    border: none;
+    margin-right: 20%;
 }
 
 .container_filtro input{
-    height: 15%;   
-    width: 10%;
+    border-radius: 5px;
+    height: 100%;   
+    width: 35%;
+}
+
+h2{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    margin: 0%;
 }

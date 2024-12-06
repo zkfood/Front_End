@@ -157,6 +157,7 @@ body {
     /* flex-wrap: wrap; */
     gap: 16px; /* Espaçamento entre os cards */
     width: 100%; /* Garante que o grupo de cards ocupe a largura total disponível */
+    margin-bottom: 10%;
 }
 
 .card {

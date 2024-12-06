@@ -44,8 +44,8 @@ async function receberPratos(tipo) {
         const favorito = favoritos.find(item => item.produto.id === produto.id);
         const corBotao = favorito ? "botao-favoritos red" : "botao-favoritos"
 
-if (produto.disponibilidade) {
-    linhaItemCardapio.innerHTML += `
+        if (produto.disponibilidade) {
+            linhaItemCardapio.innerHTML += `
     <div class="card-cardapio">
         <div class="conteudo-cardapio">
             <h2>${produto.nome}</h2>
@@ -65,9 +65,9 @@ if (produto.disponibilidade) {
         </div>
     </div>
 `;
-contador++
-}
-       
+            contador++
+        }
+
     })
 }
 
@@ -83,9 +83,12 @@ async function favoritar(id) {
             favorito: true,
         })
     })
-    exibirPopup("Adicionado aos favoritos!", "success")
+    exibirPopup("Adicionado aos favoritos!", "success");
 
-    window.location= "./cardapio.html"
+    setTimeout(() => {
+        window.location = "./cardapio.html";
+    }, 2000); // 3000 milissegundos = 3 segundos
+
 }
 
 // Função para exibir o popup de sucesso ou erro
