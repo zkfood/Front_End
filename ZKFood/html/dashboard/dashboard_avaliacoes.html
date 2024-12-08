@@ -95,12 +95,12 @@
             const ctx1 = document.getElementById('wordCloudChart').getContext('2d');
 
             // Ajuste para multiplicar a quantidade por 10
-            const resultadosMultiplicadosParaMelhorVisualizacaoDasPalavras = wordCloud.quantidades.map(item => item * 50);
+            const resultadosMultiplicadosParaMelhorVisualizacaoDasPalavras = wordCloud.length ? wordCloud.quantidades.map(item => item * 50) : [1];
 
             new Chart(ctx1, {
                 type: 'wordCloud',
                 data: {
-                    labels: wordCloud.palavras,
+                    labels: wordCloud.palavras.length ? wordCloud.palavras : [""],
                     datasets: [{
                         label: 'Palavras mais usadas',
                         data: resultadosMultiplicadosParaMelhorVisualizacaoDasPalavras,

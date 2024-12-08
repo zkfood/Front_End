@@ -41,7 +41,7 @@ let receitaMensalTipoPedidoChart;
 let receitaAnualChart;
 
 // Função buscarReceitaAnoMeses ajustada
-async function buscarReceitaAnoMeses(ano) {
+async function buscarReceitaAnoMeses(ano = 2024) {
     const url = `http://localhost:8080/relatorios/financeiro/receita-ano-meses?ano=${ano}`;
     try {
         const resposta = await fetch(url);
