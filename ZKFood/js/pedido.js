@@ -1,6 +1,6 @@
 async function cadastrarPedido() {
     const usuario = sessionStorage.getItem('idUsuario');
-    const endereco = sessionStorage.getItem('ENDERECO_CARRINHO');
+    const endereco = sessionStorage.getItem('IdEnderecoEscolhido');
     const tipoEntrega = sessionStorage.getItem('TIPO_ENTREGA_CARRINHO');
     const produtos = JSON.parse(sessionStorage.getItem('PRODUTOS_CARRINHO'));
 
