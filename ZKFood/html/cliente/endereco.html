@@ -310,8 +310,6 @@
         const botaoContinuar = document.getElementById("botaoContinuar");
         const algumaMarcada = Array.from(checkboxes).some(checkbox => checkbox.checked);
         botaoContinuar.style.display = algumaMarcada ? 'block' : 'none';
-
-        sessionStorage.setItem('ENDERECO_CARRINHO', JSON.stringify(idSelecionado));
     }
 
     function editar(idEndereco) {
