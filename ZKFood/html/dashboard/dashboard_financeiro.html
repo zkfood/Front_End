@@ -89,10 +89,13 @@
 
                     <div class="container-botoes">
                         <div class="divisao">
+                            Filtro por data
+                            <input type="date" id="inputSaidasDoDiaCsv">
                             <button onclick="saidasDoDiaCsv()" class="button-import-receitas-txt">
                                 <h1>Relatório saídas do dia CSV</h1>
                                 <p>Clique e faça o export do documento</p>
                             </button>
+                            Filtro por <input type="date" id="inputSaidasDoDiaTxt">
                             <button onclick="saidasDoDiaTxt()" class="button-import-receitas-csv">
                                 <h1>Relatório saídas do dia TXT</h1>
                                 <p>Clique e faça o export do documento</p>
@@ -100,6 +103,8 @@
                         </div>
 
                         <div class="divisao">
+                            Filtro por mes/ano
+                            <input type="month" id="inputMotoboyExport">
                             <button onclick="motoboyExport()" class="button-export-motoboy">
                                 <h1>Rotas Mensais do Motoboy CSV</h1>
                                 <p>Clique e faça o export do documento</p>
@@ -109,7 +114,6 @@
                                 <p>Clique e faça o upload do documento</p>
                             </label>
                             <input type="file" id="motoboyFile" accept=".csv" style="display: none;" onchange="motoboyImport()">
-                            
                         </div>
                     </div>
                 </div>
