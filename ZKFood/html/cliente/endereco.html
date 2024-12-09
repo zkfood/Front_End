@@ -22,6 +22,7 @@
     <script src="../../js/fetch.js"></script>
     <script src="../../js/pedido.js"></script>
     <script src="../../js/logoff.js"></script>
+    <script src="../../js/validar-login.js"></script>
 </head>
 
 <body>
@@ -223,7 +224,7 @@
                     </div>
                     <div id="container_lista_enderecos"></div>`;
                     const enderecos = document.getElementById("container_lista_enderecos");
-                    enderecos.innerHTML = dados.map(renderizarCardEndereco).join('');
+                    enderecos.innerHTML += dados.map(renderizarCardEndereco, false).join('');
                     enderecos.innerHTML += `<a class="botao-azul" id="botaoContinuar" onclick="cadastrarPedido()" style="display: none;">Continuar</a>`;
                 }
             } else {
@@ -234,7 +235,28 @@
         }
     }
 
-    function renderizarCardEndereco(endereco) {
+    function renderizarCardEndereco(endereco, foiEditado) {
+        if (foiEditado) {
+            return `
+            <div class="container-endereco">
+                <div class="titulo-pai">
+                    <input type="checkbox" class="checkbox-endereco" data-id="${endereco.id}" onclick="marcarCheckbox(${endereco.id}); event.stopPropagation();">
+                    <img src="/ZKFood/assets/Address.png" alt="Icone Endereço">
+                    <span class="titulo-endereco">ENDEREÇO PARA <span>ENTREGA</span></span>
+                </div>
+                <div class="conteudo-pai">
+                    <div class="endereco-conteudo">
+                        <div class="informacao-endereco">
+                            <span class="info-rua">${endereco.rua}, ${endereco.numero} - ${endereco.complemento}</span>
+                            <span class="info-cep">${endereco.bairro}, São Paulo, SP - ${endereco.cep}</span>
+                        </div>
+                    </div>
+                    <button class="botao-excluir" onclick="excluir(${endereco.id}); event.stopPropagation();">Excluir</button>
+                    <button class="botao-editar" onclick="editar(${endereco.id}); event.stopPropagation();">Editar</button>
+                </div>
+            </div>
+            `
+        }
         return `
         <div id="card-endereco-${endereco.id}" class="card-endereco" onclick="selecionarCard(this, ${endereco.id})">
             <div class="container-endereco">
@@ -352,7 +374,7 @@
                 const dadosAtualizados = await resposta.json();
                 console.log('Endereço atualizado:', dadosAtualizados);
 
-                enderecoCard.innerHTML = renderizarCardEndereco(dadosAtualizados);
+                enderecoCard.innerHTML = renderizarCardEndereco(dadosAtualizados, true);
                 editando = false;
             } else if (resposta.status === 418) {
                 const errorData = await resposta.json();

@@ -82,7 +82,7 @@ async function carregarPedidos(paginacao) {
 
         if (item.tipoEntrega === 'Entrega') {
             pedidoInfo.innerHTML += `<div class="item-pedido">Delivery</div>`;
-            valorTotal += 8;
+            valorTotal += 3;
         }
 
         pedidoInfo.innerHTML += `<div class="valor-pedido">R$ ${valorTotal.toFixed(2)}</div>`;
