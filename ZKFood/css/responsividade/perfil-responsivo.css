@@ -20,7 +20,7 @@
 }
 
 .card-perfil {
-    width: 80%;
+    width: 70%;
     height: max-content;
     background-color: white;
     box-shadow: 0px 2px 13px 1px rgba(0, 0, 0, 0.2);
@@ -469,7 +469,7 @@
     border: none;
     border-radius: 10px;
     height: 40px;
-    width: 100%; /* Ajuste a largura se necessário */
+    width: 50%; /* Ajuste a largura se necessário */
     color: #ffffff;
     font-size: 20px;
     font-family: "Bebas Neue", sans-serif;
@@ -501,5 +501,12 @@
 
 #inputRua, #inputNumero{
     width: 100%;
+}
+
+.container-endereco-titulo{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 100;
+    font-size: 15px;
+    line-height: 50px;
 }
 }

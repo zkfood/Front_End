@@ -16,6 +16,13 @@
         margin-top: 10%;
     }
 
+    .container-titulo h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 80px;
+    }
+
     /* cards */
     .container-cards {
         height: auto;
@@ -33,7 +40,8 @@
         height: 45vh;
         display: flex;
         scroll-snap-align: center;
-        margin-right: 10%;
+        margin-right: 30%;
+        margin-top: 5%;
     }
 
     .img-prato {
@@ -56,10 +64,16 @@
         font-size: 30px;
     }
 
-    .botao-carrinho img,
-    .botao-lixo img {
+    .botao-carrinho img{
         height: 2.5vh;
         width: 2.5vh;
+        object-fit: contain;
+        /* Garante que a imagem se encaixe corretamente dentro do botão */
+    }
+    
+    .botao-lixo img {
+        height: 3vh;
+        width: 3vh;
         object-fit: contain;
         /* Garante que a imagem se encaixe corretamente dentro do botão */
     }

@@ -21,7 +21,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    padding: 5px;
+    padding: 2px;
     width: auto;
     height: 20vh;
 }
@@ -31,7 +31,7 @@
 }
 .status-card p {
     font-size: 15px;
-    width: 70%;
+    width: 80%;
 }
 
 /* Cards */
@@ -233,6 +233,12 @@
     margin-bottom: 5%;
 }
 
+.item-pedido {
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .botao-valor {
     align-items: start;
 }
@@ -243,6 +249,7 @@
     font-size: 18px;
     border-radius: 10px;
     margin-bottom: 5%;
+    display: none;
 }
 
 .cancelar-pedido:hover {
@@ -257,7 +264,7 @@
 }
 
 .total-pai{
-    height: 15vh;
+    height: auto;
     align-items: center;
 }
 
@@ -275,7 +282,6 @@
     width: 100%;
     height: auto;
     margin-top: 8%;
-    background: url(../../assets/banner-amarelo.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -299,20 +305,20 @@
     width: 100%;
     height: 10vh;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     margin-top: 10%;
 }
 
 .titulo-avaliacoes h1 {
-    font-size: 45px;
+    font-size: 40px;
     font-family: "Bebas Neue", sans-serif;
     font-weight: 500;
-    color: #ffffff;
+    color: #000000;
 }
 
 .amarelo {
-    color: #ffffff;
+    color: #FFB90A;
 }
 
 .card-avaliacao {

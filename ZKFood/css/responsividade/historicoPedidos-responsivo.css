@@ -2,7 +2,7 @@
 /* Histórico de pedidos */
 .historico-pedidos {
     width: 90%;
-    margin-bottom: 20%;
+    margin-bottom: 10%;
     margin-top: 20%;
 }
 
@@ -12,11 +12,15 @@
 }
 
 .comprar-novamente {
-    width: 35%;
+    width: 40%;
     height: 5vh;
     font-size: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.paginacao {
+    margin-bottom: 10%;
 }
 }

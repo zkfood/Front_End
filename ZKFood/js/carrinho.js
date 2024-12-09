@@ -73,7 +73,7 @@ async function listarProdutos(eEntrega) {
     }
 
     divCardPagameto.innerHTML += `
-        <div class="total"><b>Valor</b><h2>${valorTotal.toFixed(2)}</h2></div>
+        <div class="total"><b>Valor</b><h2>R$ ${valorTotal.toFixed(2)}</h2></div>
         <a class="botao-azul" onclick="continuar()">Continuar</a>
     `;
 }

@@ -7,7 +7,7 @@
 /* MENU DO CARDAPIO  */
 
 .menu-cardapio {
-    width: 95%;
+    width: 99%;
     height: 12vh;
     margin-top: 5%;
     margin-bottom: 10%;
@@ -23,7 +23,7 @@
 
 
 .container-cardapio {
-    margin-top: 10%;
+    margin-top: 5%;
     margin-bottom: 10%;
     height: auto;
 }
@@ -51,7 +51,7 @@
 .item-cardapio {
     margin-top: 0%;
     height: 5vh;
-    font-size: 15px;
+    font-size: 17px;
 }
 
 .linha-item-cardapio{
@@ -107,9 +107,13 @@
     background-size: cover;
 }
 
+.servir h5{
+    font-size: 14px;
+}
+
 .botao-acessar{ /*aqui estou reutilizando um botão e apenas alterando conforme necessidade*/
     height: 4vh; 
-    width: 90px;
+    width: 120px;
     padding: 0;
     margin-bottom: 5px;
 }
