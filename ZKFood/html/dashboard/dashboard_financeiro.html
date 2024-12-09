@@ -129,12 +129,13 @@
             <div class="div_baixo">
                 <div class="dashReceitaAnual">
                     <h2>Receita Anual por Tipo de Pedido</h2>
+                    Filtro por ano: <input id="inputFiltroReceitaAnualPorTipoDePedido" type="number">
                     <canvas id="receitaAnual"></canvas>
                 </div>
 
                 <div class="top-receitas">
-                    <h2>Top Receitas por Prato <button onclick="receitasCsv()" class="button-import-tabela"></button>
-                    </h2>
+                    <h2>Top Receitas por Prato <button onclick="receitasCsv()" class="button-import-tabela"></button></h2>
+                    Filtro por data: <input id="inputFiltroTopReceitas" type="date">
                     <table id="top-receitas">
                         <thead>
                             <tr>
