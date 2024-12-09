@@ -68,7 +68,7 @@ a {
 .card_cadastro{
     width: 80%;
     height: 100%;
-    /* background-color:red; */
+    background-color:white;
     border: none;
     border-radius: 25px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2),
