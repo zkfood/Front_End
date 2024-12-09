@@ -36,7 +36,7 @@
                         <div class="container_kpi_img">
                             <div class="kpi_dados">
                                 <span id="compra_balcao">Compras Presenciais</span><br><br>
-                                R$<span id="div_compra_balcao"></span>
+                                R$<span id="div_compra_balcao">0</span>
                             </div>
                             <div class="container_img_kpi">
                                 <div class="fundo_img_kpi">
@@ -53,7 +53,7 @@
                         <div class="container_kpi_img">
                             <div class="kpi_dados">
                                 <span id="compra_entrega">Compras Delivery</span><br><br>
-                                R$<span id="div_compra_entrega"></span>
+                                R$<span id="div_compra_entrega">0</span>
                             </div>
                             <div class="container_img_kpi">
                                 <div class="fundo_img_kpi">
@@ -70,7 +70,7 @@
                         <div class="container_kpi_img">
                             <div class="kpi_dados">
                                 <span id="compra_presencial">Compras Retirar Presencial</span><br><br>
-                                R$<span id="div_compra_presencial"></span>
+                                R$<span id="div_compra_presencial">0</span>
                             </div>
                             <div class="container_img_kpi">
                                 <div class="fundo_img_kpi">
@@ -142,13 +142,21 @@
             <div class="div_baixo">
                 <div class="dashReceitaAnual">
                     <h2>Receita Anual por Tipo de Pedido</h2>
-                    Filtro por ano: <input id="inputFiltroReceitaAnualPorTipoDePedido" type="number">
+                    <div class="filtro-central">
+                        <p>Filtre por ano</p> 
+                        <input id="inputFiltroReceitaAnualPorTipoDePedido" type="number">
+                    </div>
+                    
                     <canvas id="receitaAnual"></canvas>
                 </div>
 
                 <div class="top-receitas">
                     <h2>Top Receitas por Prato <button onclick="receitasCsv()" class="button-import-tabela"></button></h2>
-                    Filtro por data: <input id="inputFiltroTopReceitas" type="date">
+                    <div class="filtro-central">
+                        <p>Filtre por data</p> 
+                        <input id="inputFiltroTopReceitas" type="date">
+                    </div>
+                    
                     <table id="top-receitas">
                         <thead>
                             <tr>
