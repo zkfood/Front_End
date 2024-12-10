@@ -4,32 +4,7 @@
         background: linear-gradient(to bottom, #FFD87A 0%, #F7C242 50%, #FFB400 100%);
     }
 
-    /* Navbar superior */
-    .header {
-        height: 10vh;
-    }
 
-    #imagem {
-        height: 7vh;
-    }
-
-    .org-nav-bar {
-        display: none;
-    }
-
-    .botoes-header {
-        width: 45%;
-    }
-
-    .botao-entrar {
-        font-size: 15px;
-    }
-
-    .botao-cadastre {
-        height: 35px;
-        width: 100px;
-        font-size: 18px;
-    }
 
     /* Formulário Login */
     .banner-login {

@@ -14,7 +14,7 @@
   }
 
   .botoes-header {
-    width: 45%;
+    width: 50%;
   }
 
   .botao-entrar {
@@ -53,11 +53,13 @@
     font-size: 50px;
     line-height: 40px;
     z-index: 2;
-    margin-top: 15%;
+    margin-top: 5%;
+    margin-bottom: 5%;
   }
 
 
   p {
+    margin-bottom: 5%;
     line-height: 18px;
     font-size: 18px;
     z-index: 2;
@@ -243,29 +245,34 @@
   }
 
   .footer {
-    height: 100vh;
+    height: auto;
   }
 
   .footer-paginas {
-    height: 60vh;
+    height: 65vh;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 20px;
   }
 
   .bloco-footer {
-    height: 9vh;
+    height: auto;
     align-items: center;
+    gap: 20px;
   }
 
   .logo-footer {
-    width: 20%;
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
   }
 
   .logo-footer img {
     width: 100px;
     color: #000000;
-    margin-bottom: 50px;
-    margin-top: 50px;
   }
 
   .linha {
@@ -276,12 +283,15 @@
 
   .redes-sociais {
     width: 65%;
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
 
   .informacoes {
     display: block;
     align-items: flex-end;
     width: 100%;
+    height: auto;
     text-align: center;
   }
 
