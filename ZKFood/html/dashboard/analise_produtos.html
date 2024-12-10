@@ -55,6 +55,7 @@
 
             <div class="container_card_cadastro popup_crud" id="popup_crud_editar">
                 <div class="card_cadastro">
+                
                     <div class="container_dados_principais">
                         <div class="container_imagem_cadastro">
                             <span class="titulo_cadastro_imagem"> Clique e insira uma imagem </span>
@@ -65,7 +66,9 @@
                                 </label>
                             </div>
                         </div>
+                         
                         <div class="container_cadastro_principais">
+                            <span class="close" onclick="closePopup()"> &times; </span>
                             <span class="titulo_cadastro_dados"> Nome:</span>
                             <input type="text" id="nome_produto_input" placeholder="Nome do produto">
                             <span class="titulo_cadastro_dados"> Descricao:</span>
@@ -74,6 +77,7 @@
                         </div>
                     </div>
                     <div class="container_dados_adicionais">
+                         
                         <div class="container_input_adicionais">
                             <span class="titulo_cadastro_dados">Serve quantas pessoas?</span>
                             <input type="text" id="qtdPessoas_input" placeholder="Digite a quantidade">
@@ -345,6 +349,10 @@
                     throw erro;
                 }
             }
+
+            
+
+
             async function editarProduto() {
                 const idProduto = idProdutoParaEditar
                 const url = `http://localhost:8080/produtos/${idProduto}`;
@@ -392,6 +400,7 @@
                     showPopup('ERRO INESPERADO!', 'Ocorreu um erro inesperado. Tente novamente mais tarde.', 'error_unexpected');
                 }
             }
+            
 
             let idProdutoParaEditar = null
 
@@ -488,9 +497,10 @@
 
             // Função para fechar o pop-up
             function closePopup() {
-                document.getElementById("popup_crud").style.display = "none";
+                document.getElementById("popup_crud_editar").style.display = "none";
 
             }
+          
 
         </script>
 
