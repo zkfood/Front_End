@@ -61,7 +61,7 @@ async function receberPratos(tipo) {
                             <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
                             <h5>Serve ${produto.qtdPessoas} pessoas</h5>
                         </div>
-                        <h1><span>R$</span>${produto.valor}</h1>
+                        <h1><span>R$</span>${produto.valor.toFixed(2)}</h1>
                     </div>
                     <div class="imagem-cardapio">
                         <img id="imagem-${produto.descricao}" src="${ambiente.local + prefix.produtos}/imagem/${produto.id}" alt="Foto do prato">
