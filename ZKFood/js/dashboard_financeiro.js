@@ -239,7 +239,7 @@ function saidasDoDiaTxt(){
     const data2 = new Date(data.valueOf() - data.getTimezoneOffset() * 60000);
     const dataBase = data2.toISOString().replace(/\.\d{3}Z$/, '');
 
-    const filtro = document.getElementById('inputSaidasDoDiaCsv').value
+    const filtro = document.getElementById('inputSaidasDoDiaTxt').value
 
     const dataTransformada = filtro ? filtro : (dataBase).split("T")[0]
 
