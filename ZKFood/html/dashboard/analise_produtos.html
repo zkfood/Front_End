@@ -206,7 +206,7 @@
                         <img src="${ambiente.local}${prefix.produtos}/imagem/${produto.id}" alt="${produto.nome}">
                     </div>
                     <div class="produto_legenda_lista">${produto.nome}</div>
-                    <div class="preco_legenda_lista">R$${produto.valor}.00</div>
+                    <div class="preco_legenda_lista">R$${produto.valor.toFixed(2)}</div>
                     <div class="disponibilidade_legenda_lista_${disponibilidadeClasse}" onclick="alterarDisponibilidade(${produto.id})">
                         ${disponibilidadeTexto}
                     </div>

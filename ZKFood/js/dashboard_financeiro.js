@@ -16,13 +16,13 @@ async function buscarKpis() {
         respostaDados.map(
             item => {
                 if (item.tipo_entrega == 'Presencial') {
-                    div_kpis_presencial.innerHTML = `${item.receita}`
+                    div_kpis_presencial.innerHTML = `${item.receita.toFixed(2)}`
                 }
                 if (item.tipo_entrega == 'Entrega') {
-                    div_kpis_entrega.innerHTML = `${item.receita}`
+                    div_kpis_entrega.innerHTML = `${item.receita.toFixed(2)}`
                 }
                 if (item.tipo_entrega == 'Balcão') {
-                    div_kpis_balcao.innerHTML = `${item.receita}`
+                    div_kpis_balcao.innerHTML = `${item.receita.toFixed(2)}`
                 }
 
             }
