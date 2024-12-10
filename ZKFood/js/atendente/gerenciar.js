@@ -1,9 +1,14 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     carregarCategorias('categoria_lista', 'produto_lista');
 });
 
 let pedidoId = null;
+let pedidosIds = [];
+const valoresKpi = {
+    solicitado: 0,
+    emPreparo: 0,
+    emEntrega: 0
+};
 
 document.addEventListener("DOMContentLoaded", () => {
     const API_URL = "http://localhost:8080/pedidos/kanban";
@@ -18,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const contadorEmEntrega = document.querySelector(".status-overview .status-card:nth-child(3) .counter");
 
     function criarCardPedido(pedido) {
+        console.log(pedido)
         const card = document.createElement("div");
         card.classList.add("order-card");
 
@@ -142,6 +148,83 @@ document.addEventListener("DOMContentLoaded", () => {
         return card;
     }
 
+    async function validarPedidos() {
+        if (!pedidosIds.length){
+            try {
+                const response = await fetch('http://localhost:8080/pedidos/kanban');
+                
+                if (!response.ok) {
+                    throw new Error('Falha ao buscar pedidos');
+                }
+        
+                const pedidos = await response.json();
+                
+                if (Array.isArray(pedidos)) {
+                    pedidos.forEach(pedido => {
+                        const idPedido = pedido.id;
+        
+                        if (!pedidosIds.includes(idPedido)) {
+                            
+                            if(pedido.estado == "Pedido em espera") {
+                                valoresKpi.solicitado ++
+                            } else if (pedido.estado == "Pedido em preparo" || pedido.estado == "Produto adicionado ao pedido, em preparo") {
+                                valoresKpi.emPreparo ++
+                            } else {
+                                valoresKpi.emEntrega ++
+                            }
+
+                            pedidosIds.push(idPedido);
+                        }
+                    });
+                } else {
+                    console.error("A resposta não é um array:", pedidos);
+                }
+            } catch (error) {
+                console.error('Erro ao atualizar pedidos:', error);
+            }
+        } else {
+            try {
+                const response = await fetch('http://localhost:8080/pedidos/kanban');
+                
+                if (!response.ok) {
+                    throw new Error('Falha ao buscar pedidos');
+                }
+        
+                const pedidos = await response.json();
+                
+                if (Array.isArray(pedidos)) {
+                    pedidos.forEach(pedido => {
+                        const idPedido = pedido.id;
+        
+                        if (!pedidosIds.includes(idPedido)) {
+                            if(pedido.estado == "Pedido em espera") {
+                                valoresKpi.solicitado ++
+                            } else if (pedido.estado == "Pedido em preparo" || pedido.estado == "Produto adicionado ao pedido, em preparo") {
+                                valoresKpi.emPreparo ++
+                            } else {
+                                valoresKpi.emEntrega ++
+                            }
+                            pedidosIds.push(idPedido);
+
+                            atualizarPedidos([pedido])
+                        }
+                    });
+                } else {
+                    console.error("A resposta não é um array:", pedidos);
+                }
+            } catch (error) {
+                console.error('Erro ao atualizar pedidos:', error);
+            }
+        }
+        
+        console.log(pedidosIds)
+    }
+    
+
+    setInterval(validarPedidos, 10000);
+
+    validarPedidos();
+
     function mostrarPopupCancelar(pedidoId, card) {
         const popup = document.getElementById("cancel-popup");
         popup.style.display = "flex";
@@ -255,9 +338,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        contadorSolicitados.textContent = countSolicitados;
-        contadorEmPreparo.textContent = countEmPreparo;
-        contadorEmEntrega.textContent = countEmEntrega;
+        contadorSolicitados.textContent = valoresKpi.solicitado;
+        contadorEmPreparo.textContent = valoresKpi.emPreparo;
+        contadorEmEntrega.textContent = valoresKpi.emEntrega;
     }
 
     function obterPedidos() {
@@ -283,7 +366,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     obterPedidos();
 });
-
 
 function confirmarEntrega(produto, produtoElement) {
     const idPedidoUnitario = produto.idPedidoUnitario;
@@ -501,6 +583,3 @@ function closePopup() {
     popupEditar.style.display = "none";
 }
 
-setInterval(() => {
-    location.reload();
-  }, 12000); 
