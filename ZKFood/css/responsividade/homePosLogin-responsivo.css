@@ -39,6 +39,7 @@
     /* campo de pesquisa */
     .search-container {
         width: 0%;
+        display: none;
     }
 
     .search-container input {
