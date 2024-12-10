@@ -216,7 +216,7 @@ a {
 
 .card_lista_produtos{
     width: 90%;
-    height: 75vh;
+    height: 80vh;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -231,7 +231,7 @@ a {
 
 .container_opcoes_cadastro_filtro{
     width: 95%;
-    height: 60px;
+    height: 130px;
     /* border: 2px solid black; */
     display: flex;
     justify-content: end;
@@ -248,7 +248,7 @@ a {
 
 .container_opcoes button{
     width: 50%;
-    height: 70%;
+    height: 40px;
     border: none;
     cursor: pointer;
     background-color: #FFB90A;
@@ -264,7 +264,7 @@ a {
     width: 40%;
     font-size: 16px;
     border-radius: 10px;
-    height: 70%;
+    height: 40px;
     font-family: "Inria Sans", sans-serif;
     font-weight: bold;
 }

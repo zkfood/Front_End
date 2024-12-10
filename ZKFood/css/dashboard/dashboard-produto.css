@@ -52,7 +52,8 @@
 
 .kpi_card {
     width: 20%;
-    height: 15vh;
+    height: auto;
+    min-height: 15vh;
     background-color: white;
     border-radius: 10px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1),
@@ -77,14 +78,14 @@
 }
 
 #barra_cor_status_bom {
-    height: 85%;
+    height: 65px;
     width: 3%;
     background-color: green;
     border-radius: 40px;
 }
 
 #barra_cor_status_erro {
-    height: 85%;
+    height: 65px;
     width: 3%;
     background-color: red;
     border-radius: 40px;
