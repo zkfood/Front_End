@@ -75,6 +75,8 @@ async function receberPratos(tipo) {
             contador++;
         }
     });
+
+    localStorage.removeItem('searchQuery');
 }
 
 
