@@ -227,7 +227,7 @@
                     </div>
                     <div id="container_lista_enderecos"></div>`;
                     const enderecos = document.getElementById("container_lista_enderecos");
-                    enderecos.innerHTML += dados.map(renderizarCardEndereco, false).join('');
+                    enderecos.innerHTML += dados.map((item) => renderizarCardEndereco (item, false)).join('');
                     enderecos.innerHTML += `<a class="botao-azul" id="botaoContinuar" onclick="cadastrarPedido()" style="display: none;">Continuar</a>`;
                 }
             } else {
@@ -239,6 +239,7 @@
     }
 
     function renderizarCardEndereco(endereco, foiEditado) {
+        console.log(foiEditado)
         if (foiEditado) {
             return `
             <div class="container-endereco">
@@ -280,6 +281,8 @@
                 </div>
             </div>
         </div>`;
+
+
     }
 
     function selecionarCard(card, idEndereco) {
