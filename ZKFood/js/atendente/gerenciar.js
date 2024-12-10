@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 valoresKpi.solicitado ++
                             } else if (pedido.estado == "Pedido em preparo" || pedido.estado == "Produto adicionado ao pedido, em preparo") {
                                 valoresKpi.emPreparo ++
-                            } else {
+                            } else if (pedido.estado == "Pedido a caminho") {
                                 valoresKpi.emEntrega ++
                             }
 
