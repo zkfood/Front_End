@@ -103,7 +103,7 @@
                 <div class="popup-background">
                     <div class="popup-content">
                         <span class="close" onclick="closePopup()">&times;</span>
-                        <img id="popup-icon" src="" alt="Icon">
+                        <img id="popup-icon" src="../../assets/check.png" alt="Icon">
                         <h2 id="popup-title" class="popup-title"></h2>
                         <p id="popup-message" class="popup-message"></p>
                     </div>
@@ -409,9 +409,9 @@
                 idProdutoParaEditar = idProduto;
 
                 if (type == "editar") {
-                    document.getElementById("popup_crud_editar").style.display = "block";
+                    document.getElementById("popup_crud_editar").style.display = "flex";
                 } else {
-                    document.getElementById("popup_crud").style.display = "block";
+                    document.getElementById("popup_crud").style.display = "flex";
                 }
 
             }
