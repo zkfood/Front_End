@@ -92,6 +92,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
+        if(pedido.tipoEntrega == "Entrega") {
+            valorTotalPedido += 3
+        }
         const valorTotalElement = document.createElement("p");
         valorTotalElement.classList.add("order-total");
         valorTotalElement.innerHTML = `<strong>Valor Total:</strong> R$ ${valorTotalPedido.toFixed(2)}`;
@@ -143,6 +146,8 @@ document.addEventListener("DOMContentLoaded", () => {
             entregueButton.addEventListener("click", () => atualizarEstadoPedido(pedido.id, "Pedido entregue", card));
             botoesContainer.appendChild(entregueButton);
         }
+
+        
 
         card.appendChild(botoesContainer);
         return card;
