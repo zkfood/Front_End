@@ -464,7 +464,7 @@
                     </div>
                     <div id="container_lista_enderecos"></div>`;
                     const enderecos = document.getElementById("container_lista_enderecos");
-                    enderecos.innerHTML = dados.map(renderizarCardEndereco, false).join('');
+                    enderecos.innerHTML += dados.map((item) => renderizarCardEndereco (item, false)).join('');
                     enderecos.innerHTML += `<a class="botao-azul" id="botaoContinuar" href="./pagamento.html" style="display: none;">Continuar</a>`;
                 }
             } else {
