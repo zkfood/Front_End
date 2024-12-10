@@ -12,64 +12,73 @@ async function receberPratos(tipo) {
         } catch (error) {
             console.error("Erro ao buscar favoritos:", error);
         }
-    }
+    };
 
     const favoritos = await buscarFavoritos();
 
-    const divItensCardapio = document.getElementById('itensCardapio')
-    divItensCardapio.innerHTML = ''
+    const divItensCardapio = document.getElementById('itensCardapio');
+    divItensCardapio.innerHTML = '';
 
-    const url = `${ambiente.local + prefix.produtos}`
-
-    const chamada = tipo ? new Request({
-        newQueryStringParams: {
-            tipo: tipo,
-        }
-    }) : undefined
+    const url = `${ambiente.local + prefix.produtos}`;
+    const chamada = tipo
+        ? new Request({
+            newQueryStringParams: {
+                tipo: tipo,
+            },
+        })
+        : undefined;
 
     const fetch = await new FetchBuilder().request(url, chamada);
+
+    // Recupera a pesquisa armazenada no localStorage
+    const pesquisa = localStorage.getItem('searchQuery')?.toLowerCase() || '';
 
     var linhaItemCardapio = document.createElement('div');
     linhaItemCardapio.className = 'linha-item-cardapio';
     divItensCardapio.appendChild(linhaItemCardapio);
 
-    var contador = 0
+    var contador = 0;
     fetch.map(produto => {
-        if (contador % 2 === 0 && contador !== 0) {
-            linhaItemCardapio = document.createElement('div');
-            linhaItemCardapio.className = 'linha-item-cardapio';
-            divItensCardapio.appendChild(linhaItemCardapio);
-        }
+        // Verifica se o produto corresponde à pesquisa ou se não há pesquisa
+        const correspondePesquisa = pesquisa === '' || produto.nome.toLowerCase().includes(pesquisa);
 
-        const favorito = favoritos.find(item => item.produto.id === produto.id);
-        const corBotao = favorito ? "botao-favoritos red" : "botao-favoritos"
+        if (produto.disponibilidade && correspondePesquisa) {
+            if (contador % 2 === 0 && contador !== 0) {
+                linhaItemCardapio = document.createElement('div');
+                linhaItemCardapio.className = 'linha-item-cardapio';
+                divItensCardapio.appendChild(linhaItemCardapio);
+            }
 
-        if (produto.disponibilidade) {
+            const favorito = favoritos.find(item => item.produto.id === produto.id);
+            const corBotao = favorito ? "botao-favoritos red" : "botao-favoritos";
+
             linhaItemCardapio.innerHTML += `
-    <div class="card-cardapio">
-        <div class="conteudo-cardapio">
-            <h2>${produto.nome}</h2>
-            <p>${produto.descricao}</p>
-            <div class="servir">
-                <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
-                <h5>Serve ${produto.qtdPessoas} pessoas</h5>
-            </div>
-            <h1><span>R$</span>${produto.valor}</h1>
-        </div>
-        <div class="imagem-cardapio">
-            <img id="imagem-${produto.descricao}" src="${ambiente.local + prefix.produtos}/imagem/${produto.id}" alt="Foto do prato">
-            <div class="menu-card">
-                <button class="botao-acessar" onclick="abrirModal(${produto.id})" id="openModal-${produto.id}">Ver mais</button>
-                <button class="${corBotao}" onclick="favoritar(${produto.id})"><img src="../../assets/icon-coração-branco.png" alt=""></button>
-            </div>
-        </div>
-    </div>
-`;
-            contador++
+                <div class="card-cardapio">
+                    <div class="conteudo-cardapio">
+                        <h2>${produto.nome}</h2>
+                        <p>${produto.descricao}</p>
+                        <div class="servir">
+                            <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
+                            <h5>Serve ${produto.qtdPessoas} pessoas</h5>
+                        </div>
+                        <h1><span>R$</span>${produto.valor.toFixed(2)}</h1>
+                    </div>
+                    <div class="imagem-cardapio">
+                        <img id="imagem-${produto.descricao}" src="${ambiente.local + prefix.produtos}/imagem/${produto.id}" alt="Foto do prato">
+                        <div class="menu-card">
+                            <button class="botao-acessar" onclick="abrirModal(${produto.id})" id="openModal-${produto.id}">Ver mais</button>
+                            <button class="${corBotao}" onclick="favoritar(${produto.id})"><img src="../../assets/icon-coração-branco.png" alt=""></button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            contador++;
         }
+    });
 
-    })
+    localStorage.removeItem('searchQuery');
 }
+
 
 async function favoritar(id) {
     await fetch(`${ambiente.local + prefix.avaliacoes}`, {

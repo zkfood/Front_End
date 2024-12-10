@@ -1,5 +1,11 @@
 async function listarProdutos(eEntrega) {
-    const pedidosCarrinho = JSON.parse(sessionStorage.getItem('PRODUTOS_CARRINHO'));
+    const pedidosCarrinho = JSON.parse(sessionStorage.getItem('PRODUTOS_CARRINHO')) || [];
+
+    if (!pedidosCarrinho || pedidosCarrinho.length === 0) {
+        const lista = document.getElementById('lista');
+        lista.style.display = "none";
+    }
+
 
     const totalItensH3 = document.getElementById('totalItensCarrinho');
     totalItensH3.innerHTML = `Itens (${pedidosCarrinho.length})`;
@@ -50,7 +56,7 @@ async function listarProdutos(eEntrega) {
             </div>
         `;
 
-    divCardPagameto.innerHTML += `
+            divCardPagameto.innerHTML += `
         <div class="item">
             <span>${itemNoCarrinho.quantidade}x</span>
             <span>${produto.nome}</span>
@@ -59,7 +65,7 @@ async function listarProdutos(eEntrega) {
     `;
 
         }
-       
+
         valorTotal += produto.valor * itemNoCarrinho.quantidade;
     }
 

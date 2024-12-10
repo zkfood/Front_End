@@ -24,14 +24,16 @@ async function listarCardAvaliacao() {
 
         container.innerHTML = "";
 
-        pedido.produtos.forEach(produto => {
+        for (const produto of pedido.produtos) {
             const card = document.createElement("div");
             card.classList.add("card-avaliacao");
             card.setAttribute("data-produto-id", produto.id);
 
+            // Placeholder enquanto a imagem é carregada
+            const imagemPlaceholder = "../../assets/loading-placeholder.png";
             card.innerHTML = `
                 <div class="card-imagem">
-                    <img src="../../assets/prato-feijoada-Zeca.png" alt="imagem do item do pedido">
+                    <img src="${imagemPlaceholder}" alt="imagem do item do pedido" class="produto-imagem">
                 </div>
                 <div class="card-texto">
                     <h1>${produto.nome}</h1>
@@ -48,6 +50,24 @@ async function listarCardAvaliacao() {
             `;
 
             container.appendChild(card);
+
+            // Obter a imagem do produto
+            const imagemEndpoint = `http://localhost:8080/produtos/imagem/${produto.id}`;
+            try {
+                const imagemResponse = await fetch(imagemEndpoint);
+                if (imagemResponse.ok) {
+                    const blob = await imagemResponse.blob();
+                    const imageUrl = URL.createObjectURL(blob);
+
+                    // Atualiza o src da imagem no card
+                    const imgElement = card.querySelector(".produto-imagem");
+                    imgElement.src = imageUrl;
+                } else {
+                    console.error(`Erro ao buscar a imagem do produto ID ${produto.id}`);
+                }
+            } catch (imagemError) {
+                console.error(`Erro ao carregar a imagem do produto ID ${produto.id}:`, imagemError);
+            }
 
             const estrelas = card.querySelectorAll(".estrela");
             estrelas.forEach((estrela, index) => {
@@ -66,13 +86,14 @@ async function listarCardAvaliacao() {
             botaoEnviar.addEventListener("click", () => {
                 cadastrarAvaliacao(card);
             });
-        });
+        }
 
         console.log("Cards de avaliação gerados com sucesso.");
     } catch (error) {
         console.error("Erro ao listar os cards de avaliação:", error);
     }
 }
+
 
 function cadastrarAvaliacao(card) {
     const idUsuario = sessionStorage.getItem("idUsuario");
@@ -150,4 +171,30 @@ function exibirPopup(mensagem, tipo) {
 function closePopup() {
     const popup = document.getElementById("popup");
     popup.style.display = "none";
+}
+
+
+
+
+function testeImagem() {
+    fetch('http://localhost:8080/produtos/imagem/22')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao buscar a imagem: ' + response.status);
+        }
+        return response.blob(); // Tratando como Blob
+    })
+    .then(blob => {
+        console.log(blob); // Exibindo o Blob no console
+
+        // Se quiser exibir a imagem, pode criar uma URL temporária
+        const imageUrl = URL.createObjectURL(blob);
+        console.log('URL da imagem:', imageUrl);
+        
+        // Você pode usar essa URL para exibir a imagem em uma tag <img>
+        document.body.innerHTML = `<img src="${imageUrl}" alt="Imagem do produto">`;
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+    });
 }

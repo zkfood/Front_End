@@ -82,5 +82,5 @@ document.addEventListener("DOMContentLoaded", () => {
         return card;
     }
 
-    carregarPedidos();
+    setInterval(carregarPedidos, 10000);
 });

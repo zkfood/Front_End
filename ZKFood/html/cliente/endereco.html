@@ -44,13 +44,14 @@
                         alt="Seta para voltar a página"></a></div>
             <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png"
                         alt="Logo do ZKfood"></a></div>
-            <div class="container_pesquisa">
-                <div class="search-container">
-                    <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon">
-                    <input type="text" placeholder="Pesquise o que seu apetite deseja...">
-                    <button type="submit">Buscar</button>
-                </div>
-            </div>
+                        <div class="container_pesquisa">
+                            <div class="search-container" style="position: relative; width: 100%;">
+                                <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon" id="searchIcon">
+                                <input type="text" id="searchInput" placeholder="Pesquisar produtos..."
+                                    style="width: 100%; padding: 10px; font-size: 16px;">
+                            </div>
+                            <div id="suggestions" class="suggestions-container"></div>
+                        </div>
             <div class="container_favoritos_carrinho">
                 <div class="container_favoritos">
                     <a href="favoritos.html"> <img src="../../assets/coracao.png"
@@ -184,6 +185,8 @@
             </div>
         </div>
     </footer>
+
+    <script src="../../js/barraPesquisa.js"></script>
 </body>
 
 </html>
@@ -224,7 +227,7 @@
                     </div>
                     <div id="container_lista_enderecos"></div>`;
                     const enderecos = document.getElementById("container_lista_enderecos");
-                    enderecos.innerHTML += dados.map(renderizarCardEndereco, false).join('');
+                    enderecos.innerHTML += dados.map((item) => renderizarCardEndereco (item, false)).join('');
                     enderecos.innerHTML += `<a class="botao-azul" id="botaoContinuar" onclick="cadastrarPedido()" style="display: none;">Continuar</a>`;
                 }
             } else {
@@ -236,6 +239,7 @@
     }
 
     function renderizarCardEndereco(endereco, foiEditado) {
+        console.log(foiEditado)
         if (foiEditado) {
             return `
             <div class="container-endereco">
@@ -277,6 +281,8 @@
                 </div>
             </div>
         </div>`;
+
+
     }
 
     function selecionarCard(card, idEndereco) {
