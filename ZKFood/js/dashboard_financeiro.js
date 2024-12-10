@@ -34,14 +34,13 @@ async function buscarKpis() {
 }
 
 const data = new Date();
-var ano = data.getFullYear();
-buscarReceitaAnoMeses(ano)
+const ano = data.getFullYear();
 
 let receitaMensalTipoPedidoChart;
 let receitaAnualChart;
 
 // Função buscarReceitaAnoMeses ajustada
-async function buscarReceitaAnoMeses(ano = 2024) {
+async function buscarReceitaAnoMeses(ano) {
     const url = `http://localhost:8080/relatorios/financeiro/receita-ano-meses?ano=${ano}`;
     try {
         const resposta = await fetch(url);
@@ -125,7 +124,7 @@ async function buscarReceitaAnual() {
                     },
                     {
                         label: 'Online',
-                        data: respostaDados.receitaOnline,
+                        data: respostaDados.receitaEntrega,
                         borderColor: '#ffeb32',
                         backgroundColor: '#ffeb32',
                         fill: false,
@@ -169,7 +168,10 @@ async function buscarTableProdutoMaisVendido() {
     const data = new Date();
     const data2 = new Date(data.valueOf() - data.getTimezoneOffset() * 60000);
     const dataBase = data2.toISOString().replace(/\.\d{3}Z$/, '');
-    const dataTransformada = (dataBase).split("T")[0]
+
+    const filtro = document.getElementById('inputFiltroTopReceitas').value
+
+    const dataTransformada = filtro ? filtro : (dataBase).split("T")[0]
 
     const url = `http://localhost:8080/relatorios/financeiro/top-receitas?data=${dataTransformada}`;
 
@@ -198,36 +200,77 @@ async function buscarTableProdutoMaisVendido() {
 
 window.onload = function () {
     buscarKpis();
-    buscarReceitaAnoMeses();
+    buscarReceitaAnoMeses(ano);
     buscarReceitaAnual();
     buscarTableProdutoMaisVendido();
 }
 
-function saidasDoDiaCsv(){
-    const url = 'http://localhost:8080/relatorios/csv/saidas-do-dia?data=2024-11-26';
+async function motoboyImport() {
+    const csvInput = document.getElementById('motoboyFile')
+    const file = csvInput?.files?.[0];
 
-    importCsv(url, 'saidas-do-dia-26-11-2024');
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+        await fetch('http://localhost:8080/relatorios/csv/upload-motoboy', {
+            method: 'POST',
+            body: formData,
+        });
+    } catch (error) {
+        console.error('Erro ao enviar o arquivo:', error);
+    }
 }
 
-// function saidasDoDiaTxt(){
-//     const url = 'http://localhost:8080/relatorios/csv/saidas-do-dia?data=2024-11-24'
-//
-//     importCsv(url);
-// }
+function saidasDoDiaCsv(){
+    const data2 = new Date(data.valueOf() - data.getTimezoneOffset() * 60000);
+    const dataBase = data2.toISOString().replace(/\.\d{3}Z$/, '');
+
+    const filtro = document.getElementById('inputSaidasDoDiaCsv').value
+
+    const dataTransformada = filtro ? filtro : (dataBase).split("T")[0]
+
+    const url = `http://localhost:8080/relatorios/csv/saidas-do-dia?data=${dataTransformada}`;
+
+    downloadFile(url, `saidas-do-dia-${dataTransformada}`, 'csv');
+}
+
+function saidasDoDiaTxt(){
+    const data2 = new Date(data.valueOf() - data.getTimezoneOffset() * 60000);
+    const dataBase = data2.toISOString().replace(/\.\d{3}Z$/, '');
+
+    const filtro = document.getElementById('inputSaidasDoDiaCsv').value
+
+    const dataTransformada = filtro ? filtro : (dataBase).split("T")[0]
+
+    const url = `http://localhost:8080/relatorios/txt/saidas-do-dia?data=${dataTransformada}`;
+
+    downloadFile(url, `saidas-do-dia-${dataTransformada}`, 'txt');
+}
 
 function receitasCsv(){
-    const url = 'http://localhost:8080/relatorios/csv/top-pratos?mes=11&ano=2024'
+    const filtro = document.getElementById('inputFiltroTopReceitas').value
 
-    importCsv(url, 'receitas-11-2024');
+    const year = filtro ? filtro.split('-')[0] : data.getFullYear();
+    const month = filtro ? filtro.split('-')[1].split('-')[0] : data.getMonth() + 1;
+
+    const url = `http://localhost:8080/relatorios/csv/top-pratos?mes=${month}&ano=${year}`
+
+    downloadFile(url, `receitas-${month}-${year}`, 'csv');
 }
 
 function motoboy(){
-    const url = 'http://localhost:8080/relatorios/csv/motoboy-mes-ano?mes=11&ano=2024'
+    const filtro = document.getElementById('inputMotoboyExport').value
 
-    importCsv(url, 'motoboy-11-2024');
+    const year = filtro ? filtro.split('-')[0] : data.getFullYear();
+    const month = filtro ? filtro.split('-')[1] : data.getMonth() + 1;
+
+    const url = `http://localhost:8080/relatorios/csv/motoboy-mes-ano?mes=${month}&ano=${year}`;
+
+    downloadFile(url, `motoboy-${month}-${year}`, 'csv');
 }
 
-function importCsv(url, nomeArquivo) {
+function downloadFile(url, nomeArquivo, tipo) {
     fetch(url, {
             method: 'POST'
         }
@@ -242,7 +285,7 @@ function importCsv(url, nomeArquivo) {
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = nomeArquivo + '.csv';
+            a.download = nomeArquivo + '.' + tipo;
             document.body.appendChild(a);
             a.click();
             a.remove();

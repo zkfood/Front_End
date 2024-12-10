@@ -92,6 +92,7 @@
                             <div class="filtro">
                                 <p>Filtre por data</p>
                                 <input type="date" id="inputSaidasDoDiaCsv">
+                                <button class="botao-filtro-pedido" onclick="saidasDoDiaCsv()">Filtrar</button>
                             </div>
 
                             <button onclick="saidasDoDiaCsv()" class="button-import-receitas-txt">
@@ -99,7 +100,8 @@
                                 <p>Clique e faça o export do documento</p>
                             </button>
                             <div class="filtro">
-                                <p>Filtre por data </p><input type="date" id="inputSaidasDoDiaTxt"> 
+                                <p>Filtre por data </p><input type="date" id="inputSaidasDoDiaTxt">
+                                <button class="botao-filtro-pedido" onclick="saidasDoDiaTxt()">Filtrar</button>
                             </div>
                             
                             <button onclick="saidasDoDiaTxt()" class="button-import-receitas-csv">
@@ -112,8 +114,9 @@
                             <div class="filtro">
                                 <p>Filtre por mês e ano</p>
                                 <input type="month" id="inputMotoboyExport">
+                                <button class="botao-filtro-pedido" onclick="motoboy()">Filtrar</button>
                             </div>
-                            <button onclick="motoboyExport()" class="button-export-motoboy">
+                            <button onclick="motoboy()" class="button-export-motoboy">
                                 <h1>Rotas Mensais do Motoboy CSV</h1>
                                 <p>Clique e faça o export do documento</p>
                             </button>
@@ -124,8 +127,8 @@
                                 <p>Clique e faça o upload do documento</p>
                             </label>
                             <input type="file" id="motoboyFile" accept=".csv" style="display: none;"
-                                onchange="motoboyImport()">
-                        </div>
+                                oninput="motoboyImport()">
+                            </div>
                     </div>
                 </div>
             </div>
@@ -134,19 +137,14 @@
                 <h2>Receita Mensal por Tipo de Pedido</h2>
                 <div class="container_filtro">
                     <p>Filtre por Ano </p>
-                    <input type="text" name="input_filtro" id="input_filtro"><button
-                        class="botao-filtro-pedido" onclick="filtrar()">Filtrar</button>
+                    <input type="text" name="input_filtro" id="input_filtro">
+                    <button class="botao-filtro-pedido" onclick="filtrar()">Filtrar</button>
                 </div>
                 <canvas id="receitaMensalTipoPedidoChart"></canvas>
             </div>
             <div class="div_baixo">
                 <div class="dashReceitaAnual">
                     <h2>Receita Anual por Tipo de Pedido</h2>
-                    <div class="filtro-central">
-                        <p>Filtre por ano</p> 
-                        <input id="inputFiltroReceitaAnualPorTipoDePedido" type="number">
-                    </div>
-                    
                     <canvas id="receitaAnual"></canvas>
                 </div>
 
@@ -155,6 +153,7 @@
                     <div class="filtro-central">
                         <p>Filtre por data</p> 
                         <input id="inputFiltroTopReceitas" type="date">
+                        <button class="botao-filtro-pedido" onclick="buscarTableProdutoMaisVendido()">Filtrar</button>
                     </div>
                     
                     <table id="top-receitas">
