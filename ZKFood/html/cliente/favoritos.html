@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="../../css/responsividade/homePosLogin-responsivo.css">
     <link rel="stylesheet" href="../../css/responsividade/favoritos-responsivo.css">
+    <link rel="stylesheet" href="../../css/responsividade/cardapio-responsivo.css">
 
     <link rel="icon" href="../../assets/logo-icon.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,11 +45,12 @@
             <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png"
                         alt="Logo do ZKfood"></a></div>
             <div class="container_pesquisa">
-                <div class="search-container">
-                    <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon">
-                    <input type="text" placeholder="Pesquise o que seu apetite deseja...">
-                    <button type="submit">Buscar</button>
+                <div class="search-container" style="position: relative; width: 100%;">
+                    <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon" id="searchIcon">
+                    <input type="text" id="searchInput" placeholder="Pesquisar produtos..."
+                        style="width: 100%; padding: 10px; font-size: 16px;">
                 </div>
+                <div id="suggestions" class="suggestions-container"></div>
             </div>
             <div class="container_favoritos_carrinho">
                 <div class="container_favoritos">
@@ -195,15 +197,19 @@
             <div class="linha"></div>
 
             <div class="redes-sociais">
-                <a href="https://www.facebook.com/share/18D1CNrSUq/?mibextid=LQQJ4d"><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
+                <a href="https://www.facebook.com/share/18D1CNrSUq/?mibextid=LQQJ4d"><img
+                        src="../../assets/Facebook.png" alt="Icone Facebook"></a>
                 <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="Icone WhatsApp"></a>
-                <a href="https://www.instagram.com/restaurante.do_zeca?igsh=MWNvMzd1ZDA0em1jMA=="><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
+                <a href="https://www.instagram.com/restaurante.do_zeca?igsh=MWNvMzd1ZDA0em1jMA=="><img
+                        src="../../assets/Instagram.png" alt="Icone Instagram"></a>
             </div>
 
             <div class="informacoes">
-                <p><a href="https://drive.google.com/file/d/1yQBSvnm8qGFnMTT33sv2RFl_KKAw6n5r/view?usp=sharing">Termos e Condições</a></p>
+                <p><a href="https://drive.google.com/file/d/1yQBSvnm8qGFnMTT33sv2RFl_KKAw6n5r/view?usp=sharing">Termos e
+                        Condições</a></p>
                 <p> | </p>
-                <p><a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras">Acessibilidade</a></p>
+                <p><a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras">Acessibilidade</a>
+                </p>
                 <p> | </p>
                 <p><a href="#">Suporte</a></p>
                 <p> | </p>
@@ -212,6 +218,7 @@
         </div>
     </footer>
 
+    <script src="../../js/barraPesquisa.js"></script>
 </body>
 
 </html>

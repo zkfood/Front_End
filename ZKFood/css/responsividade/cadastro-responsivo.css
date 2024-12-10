@@ -48,8 +48,9 @@
         height: 100vh;
         display: flex;
         background-image: none;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
+        margin-top: 150px;
     }
 
     .container-cadastro {
@@ -63,7 +64,7 @@
     }
 
     .formulario-cadastro {
-        height: 85vh;
+        height: 120vh;
         width: 70%;
         background-color: white;
         box-shadow: 2px 2px 7px 4px rgba(0, 0, 0, 0.2);
@@ -73,6 +74,7 @@
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
+        margin-bottom: 40px;
     }
 
     .titulo-bebas-responsivo {

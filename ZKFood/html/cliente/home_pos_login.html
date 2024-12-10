@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    
+
     <!-- API de acessibilidade VLIBRAS -->
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
@@ -33,7 +33,7 @@
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
-    
+
 
     <div class="container_navbar">
         <div class="parte_superior_navbar">
@@ -42,11 +42,12 @@
             <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png"
                         alt="Logo do ZKfood"></a></div>
             <div class="container_pesquisa">
-                <div class="search-container">
-                    <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon">
-                    <input type="text" placeholder="Pesquise o que seu apetite deseja...">
-                    <button type="submit">Buscar</button>
+                <div class="search-container" style="position: relative; width: 100%;">
+                    <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon" id="searchIcon">
+                    <input type="text" id="searchInput" placeholder="Pesquisar produtos..."
+                        style="width: 100%; padding: 10px; font-size: 16px;">
                 </div>
+                <div id="suggestions" class="suggestions-container"></div>
             </div>
             <div class="container_favoritos_carrinho">
                 <div class="container_favoritos">
@@ -81,29 +82,34 @@
     <!-- Navbar Inferior na RESPONSIVIDADE -->
     <div class="bottom-nav">
         <a href="./home_pos_login.html" class="active">
-            <img src="../../assets/icons-responsivo/icon-casa-active.png" alt="Icone de casa retratando tela inicial no menu">
+            <img src="../../assets/icons-responsivo/icon-casa-active.png"
+                alt="Icone de casa retratando tela inicial no menu">
             <span>Inicio</span>
         </a>
         <a href="./cardapio.html">
-            <img src="../../assets/icons-responsivo/icon-garfo.png" alt="Icone de garfo retratando tela de cardápio no menu">
+            <img src="../../assets/icons-responsivo/icon-garfo.png"
+                alt="Icone de garfo retratando tela de cardápio no menu">
             <span>Cardápio</span>
         </a>
         <a href="./carrinho.html">
-            <img src="../../assets/icons-responsivo/icon-carrinho.png" alt="Icone de carrinho retratando tela de carrinho no menu">
+            <img src="../../assets/icons-responsivo/icon-carrinho.png"
+                alt="Icone de carrinho retratando tela de carrinho no menu">
             <span>Carrinho</span>
         </a>
         <a href="./historico-pedidos.html">
-            <img src="../../assets/icons-responsivo/icon-documento.png" alt="Icone de documento retratando tela de status do pedido no menu">
+            <img src="../../assets/icons-responsivo/icon-documento.png"
+                alt="Icone de documento retratando tela de status do pedido no menu">
             <span>Pedidos</span>
         </a>
         <a href="./cadastro_endereco.html">
-            <img src="../../assets/icons-responsivo/icon-endereco.png" alt="Icone de endereço retratando tela de cadastro de endereço no menu">
+            <img src="../../assets/icons-responsivo/icon-endereco.png"
+                alt="Icone de endereço retratando tela de cadastro de endereço no menu">
             <span>Endereço</span>
         </a>
 
     </div>
-    
-   
+
+
 
     <!-- Carrossel com banner de comida -->
     <div class="container-banner">
@@ -124,12 +130,10 @@
                 </div>
                 <div class="imagens-direita">
                     <div class="imagem-direita-cima">
-                        <img src="../../assets/prato-feijoada-Zeca.png" 
-                        alt="Prato demonstrativo">
+                        <img src="../../assets/prato-feijoada-Zeca.png" alt="Prato demonstrativo">
                     </div>
                     <div class="imagem-direita-baixo">
-                        <img src="../../assets/Fotos de pratos ZKFOOD/bife - Copia.jpg" 
-                        alt="Prato demonstrativo">
+                        <img src="../../assets/Fotos de pratos ZKFOOD/bife - Copia.jpg" alt="Prato demonstrativo">
                     </div>
                 </div>
             </div>
@@ -203,15 +207,19 @@
             <div class="linha"></div>
 
             <div class="redes-sociais">
-                <a href="https://www.facebook.com/share/18D1CNrSUq/?mibextid=LQQJ4d"><img src="../../assets/Facebook.png" alt="Icone Facebook"></a>
+                <a href="https://www.facebook.com/share/18D1CNrSUq/?mibextid=LQQJ4d"><img
+                        src="../../assets/Facebook.png" alt="Icone Facebook"></a>
                 <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="Icone WhatsApp"></a>
-                <a href="https://www.instagram.com/restaurante.do_zeca?igsh=MWNvMzd1ZDA0em1jMA=="><img src="../../assets/Instagram.png" alt="Icone Instagram"></a>
+                <a href="https://www.instagram.com/restaurante.do_zeca?igsh=MWNvMzd1ZDA0em1jMA=="><img
+                        src="../../assets/Instagram.png" alt="Icone Instagram"></a>
             </div>
 
             <div class="informacoes">
-                <p><a href="https://drive.google.com/file/d/1yQBSvnm8qGFnMTT33sv2RFl_KKAw6n5r/view?usp=sharing">Termos e Condições</a></p>
+                <p><a href="https://drive.google.com/file/d/1yQBSvnm8qGFnMTT33sv2RFl_KKAw6n5r/view?usp=sharing">Termos e
+                        Condições</a></p>
                 <p> | </p>
-                <p><a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras">Acessibilidade</a></p>
+                <p><a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras">Acessibilidade</a>
+                </p>
                 <p> | </p>
                 <p><a href="#">Suporte</a></p>
                 <p> | </p>
@@ -219,7 +227,10 @@
             </div>
         </div>
     </footer>
+
+    <script src="../../js/barraPesquisa.js"></script>
 </body>
+
 </html>
 
 <!-- <script>

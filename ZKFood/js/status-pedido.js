@@ -77,7 +77,7 @@ async function carregarPedido() {
                                 <img src="../../assets/icons-usuário-cinza.png" alt="icone de usuario">
                                 <h5>Serve ${item.qtdPessoas} pessoas</h5>
                             </div>
-                            <h1><span>R$</span>${item.valor * item.quantidade}</h1>
+                            <h1><span>R$</span>${(item.valor * item.quantidade).toFixed(2)}</h1>
                         </div>
                         <div class="imagem-cardapio">
                             <img src="${ambiente.local + prefix.produtos}/imagem/${item.id}" alt="Foto do prato">

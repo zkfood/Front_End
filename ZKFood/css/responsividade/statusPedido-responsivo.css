@@ -149,6 +149,7 @@
     height: auto;
     justify-content: space-around;
     margin-top: 40px;
+    gap: 30px;
 }
 
 .card-divisaoFilho {
@@ -158,12 +159,12 @@
 }
 
 .card-item {
-    height: 30vh;
+    height: auto;
 }
 
 .card-cardapio {
-    height: 27vh;
-    padding: 00px;
+    height: auto;
+    padding: 5px;
     transition: none;
 }
 
@@ -173,7 +174,7 @@
 }
 
 .conteudo-cardapio {
-    height: 25vh;
+    height: auto;
     justify-content: space-around;
     margin-left: 5%;
 }
@@ -249,7 +250,7 @@
     font-size: 18px;
     border-radius: 10px;
     margin-bottom: 5%;
-    display: none;
+    display: block;
 }
 
 .cancelar-pedido:hover {
@@ -435,5 +436,20 @@
 
 .botao-azul {
     width: 50%;
+}
+
+.qtd-itens {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card-texto textarea {
+    width: 90%;
+    height: 70px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 }
