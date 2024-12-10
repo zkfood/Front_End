@@ -284,6 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
     obterPedidos();
 });
 
+
 function confirmarEntrega(produto, produtoElement) {
     const idPedidoUnitario = produto.idPedidoUnitario;
 
@@ -499,3 +500,7 @@ function closePopup() {
     const popupEditar = document.getElementById("popupEditar");
     popupEditar.style.display = "none";
 }
+
+setInterval(() => {
+    location.reload();
+  }, 12000); 
