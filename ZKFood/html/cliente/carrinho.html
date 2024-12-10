@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@100..900&display=swap"
         rel="stylesheet">
-        
+
     <script src="../../js/carrinho.js"></script>
     <script src="../../js/fetch.js"></script>
     <script src="../../js/pedido.js"></script>
@@ -40,7 +40,7 @@
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
-    
+
 
     <div class="container_navbar">
         <div class="parte_superior_navbar">
@@ -49,11 +49,12 @@
             <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png"
                         alt="Logo do ZKfood"></a></div>
             <div class="container_pesquisa">
-                <div class="search-container">
-                    <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon">
-                    <input type="text" placeholder="Pesquise o que seu apetite deseja...">
-                    <button type="submit">Buscar</button>
+                <div class="search-container" style="position: relative; width: 100%;">
+                    <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon" id="searchIcon">
+                    <input type="text" id="searchInput" placeholder="Pesquisar produtos..."
+                        style="width: 100%; padding: 10px; font-size: 16px;">
                 </div>
+                <div id="suggestions" class="suggestions-container"></div>
             </div>
             <div class="container_favoritos_carrinho">
                 <div class="container_favoritos">
@@ -177,7 +178,7 @@
                     <div class="lista-pedidos" id="cardPagamento"></div>
                 </div>
             </div>
-        <!-- </div>
+            <!-- </div>
           <div class="container-carrossel">
             <h1 class="titulo-carrossel">Adicione seus <span>favoritos</span></h1>
             <div class="container-cards">
@@ -210,70 +211,74 @@
                 </div>
             </div>
         </div> -->
-    
-    </div>
 
-    <div id="popup" class="popup">
-        <div class="popup-background">
-            <div class="popup-content">
-                <span class="close" onclick="closePopup()">&times;</span>
-                <img id="popup-icon" src="" alt="Icon">
-                <h2 id="popup-title" class="popup-title"></h2>
-                <p id="popup-message" class="popup-message"></p>
+        </div>
+
+        <div id="popup" class="popup">
+            <div class="popup-background">
+                <div class="popup-content">
+                    <span class="close" onclick="closePopup()">&times;</span>
+                    <img id="popup-icon" src="" alt="Icon">
+                    <h2 id="popup-title" class="popup-title"></h2>
+                    <p id="popup-message" class="popup-message"></p>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <!-- Footer -->
 
-    <footer>
-        <div class="footer-top">
-            <img src="../../assets/Vector-ondas-footer.png" alt="Ondas para divisão de telas">
-        </div>
-        <div class="footer">
-            <div class="footer-paginas">
-                <div class="logo-footer">
-                    <img src="../../assets/logo-icon.png" alt="logo da empresa ZKfood">
+        <!-- Footer -->
+
+        <footer>
+            <div class="footer-top">
+                <img src="../../assets/Vector-ondas-footer.png" alt="Ondas para divisão de telas">
+            </div>
+            <div class="footer">
+                <div class="footer-paginas">
+                    <div class="logo-footer">
+                        <img src="../../assets/logo-icon.png" alt="logo da empresa ZKfood">
+                    </div>
+
+                    <div class="bloco-footer">
+                        <a href="./home_pos_login.html">Home</a>
+                        <a href="./cardapio.html">Cardápio</a>
+                    </div>
+
+                    <div class="bloco-footer">
+                        <a href="./carrinho.html">Carrinho</a>
+                        <a href="./historico-pedidos.html">Meus Pedidos</a>
+                    </div>
+
+                    <div class="bloco-footer">
+                        <a href="./favoritos.html">Favoritos</a>
+                        <a href="./perfil.html">Perfil</a>
+                    </div>
                 </div>
 
-                <div class="bloco-footer">
-                    <a href="./home_pos_login.html">Home</a>
-                    <a href="./cardapio.html">Cardápio</a>
+                <div class="linha"></div>
+
+                <div class="redes-sociais">
+                    <a href="https://www.facebook.com/share/18D1CNrSUq/?mibextid=LQQJ4d"><img
+                            src="../../assets/Facebook.png" alt="Icone Facebook"></a>
+                    <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="Icone WhatsApp"></a>
+                    <a href="https://www.instagram.com/restaurante.do_zeca?igsh=MWNvMzd1ZDA0em1jMA=="><img
+                            src="../../assets/Instagram.png" alt="Icone Instagram"></a>
                 </div>
 
-                <div class="bloco-footer">
-                    <a href="./carrinho.html">Carrinho</a>
-                    <a href="./historico-pedidos.html">Meus Pedidos</a>
-                </div>
-
-                <div class="bloco-footer">
-                    <a href="./favoritos.html">Favoritos</a>
-                    <a href="./perfil.html">Perfil</a>
+                <div class="informacoes">
+                    <p><a href="https://drive.google.com/file/d/1yQBSvnm8qGFnMTT33sv2RFl_KKAw6n5r/view?usp=sharing">Termos
+                            e Condições</a></p>
+                    <p> | </p>
+                    <p><a
+                            href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras">Acessibilidade</a>
+                    </p>
+                    <p> | </p>
+                    <p><a href="#">Suporte</a></p>
+                    <p> | </p>
+                    <p>Developed by © VisionarySolutions, 2024. All rights reserved.</p>
                 </div>
             </div>
+        </footer>
 
-            <div class="linha"></div>
-
-            <div class="redes-sociais">
-                <a href="https://www.facebook.com/share/18D1CNrSUq/?mibextid=LQQJ4d"><img
-                        src="../../assets/Facebook.png" alt="Icone Facebook"></a>
-                <a href="https://wa.me/5511986744335"><img src="../../assets/WhatsApp.png" alt="Icone WhatsApp"></a>
-                <a href="https://www.instagram.com/restaurante.do_zeca?igsh=MWNvMzd1ZDA0em1jMA=="><img
-                        src="../../assets/Instagram.png" alt="Icone Instagram"></a>
-            </div>
-
-            <div class="informacoes">
-                <p><a href="https://drive.google.com/file/d/1yQBSvnm8qGFnMTT33sv2RFl_KKAw6n5r/view?usp=sharing">Termos e Condições</a></p>
-                <p> | </p>
-                <p><a href="https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/vlibras">Acessibilidade</a>
-                </p>
-                <p> | </p>
-                <p><a href="#">Suporte</a></p>
-                <p> | </p>
-                <p>Developed by © VisionarySolutions, 2024. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+        <script src="../../js/barraPesquisa.js"></script>
 </body>
 
 </html>

@@ -49,11 +49,12 @@
             <div class="img_logo"><a href="./home_pos_login.html"><img src="../../assets/logo.png"
                         alt="Logo do ZKfood"></a></div>
             <div class="container_pesquisa">
-                <div class="search-container">
-                    <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon">
-                    <input type="text" placeholder="Pesquise o que seu apetite deseja...">
-                    <button type="submit">Buscar</button>
+                <div class="search-container" style="position: relative; width: 100%;">
+                    <img src="../../assets/lupa.png" alt="Ícone de Busca" class="search-icon" id="searchIcon">
+                    <input type="text" id="searchInput" placeholder="Pesquisar produtos..."
+                        style="width: 100%; padding: 10px; font-size: 16px;">
                 </div>
+                <div id="suggestions" class="suggestions-container"></div>
             </div>
             <div class="container_favoritos_carrinho">
                 <div class="container_favoritos">
@@ -87,30 +88,34 @@
         </div>
     </div>
 
-        <!-- Navbar Inferior na RESPONSIVIDADE -->
-        <div class="bottom-nav">
-            <a href="./home_pos_login.html">
-                <img src="../../assets/icons-responsivo/icon-casa.png" alt="Icone de casa retratando tela inicial no menu">
-                <span>Inicio</span>
-            </a>
-            <a href="./cardapio.html">
-                <img src="../../assets/icons-responsivo/icon-garfo.png" alt="Icone de garfo retratando tela de cardápio no menu">
-                <span>Cardápio</span>
-            </a>
-            <a href="./carrinho.html">
-                <img src="../../assets/icons-responsivo/icon-carrinho.png" alt="Icone de carrinho retratando tela de carrinho no menu">
-                <span>Carrinho</span>
-            </a>
-            <a href="./historico-pedidos.html">
-                <img src="../../assets/icons-responsivo/icon-documento.png" alt="Icone de documento retratando tela de status do pedido no menu">
-                <span>Pedidos</span>
-            </a>
-            <a href="./cadastro_endereco.html" class="active">
-                <img src="../../assets/icons-responsivo/icon-endereco-active.png" alt="Icone de endereço retratando tela de cadastro de endereço no menu">
-                <span>Endereço</span>
-            </a>
-    
-        </div>
+    <!-- Navbar Inferior na RESPONSIVIDADE -->
+    <div class="bottom-nav">
+        <a href="./home_pos_login.html">
+            <img src="../../assets/icons-responsivo/icon-casa.png" alt="Icone de casa retratando tela inicial no menu">
+            <span>Inicio</span>
+        </a>
+        <a href="./cardapio.html">
+            <img src="../../assets/icons-responsivo/icon-garfo.png"
+                alt="Icone de garfo retratando tela de cardápio no menu">
+            <span>Cardápio</span>
+        </a>
+        <a href="./carrinho.html">
+            <img src="../../assets/icons-responsivo/icon-carrinho.png"
+                alt="Icone de carrinho retratando tela de carrinho no menu">
+            <span>Carrinho</span>
+        </a>
+        <a href="./historico-pedidos.html">
+            <img src="../../assets/icons-responsivo/icon-documento.png"
+                alt="Icone de documento retratando tela de status do pedido no menu">
+            <span>Pedidos</span>
+        </a>
+        <a href="./cadastro_endereco.html" class="active">
+            <img src="../../assets/icons-responsivo/icon-endereco-active.png"
+                alt="Icone de endereço retratando tela de cadastro de endereço no menu">
+            <span>Endereço</span>
+        </a>
+
+    </div>
 
 
     <div class="texto_cadastro_endereco">
@@ -164,6 +169,8 @@
             </div>
         </div>
     </div>
+
+    <script src="../../js/barraPesquisa.js"></script>
 </body>
 
 </html>
